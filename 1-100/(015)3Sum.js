@@ -20,8 +20,7 @@ var threeSum = function(nums) {
 
     left = index + 1;
     right = nums.length - 1;
-    let temp = 0;
-
+    let temp;
     while (left < right) {
       temp = number + nums[left] + nums[right];
 
