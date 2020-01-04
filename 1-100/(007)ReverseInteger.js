@@ -9,8 +9,9 @@ var reverse = function(x) {
   let xReverse = 0;
   let temp;
   while (x != 0) {
-    const mod = x % 10;
-    x = (x - mod) / 10;
+    const quotient = Math.trunc(x / 10);
+    const mod = x - quotient * 10;
+    x = quotient;
 
     temp = xReverse * 10 + mod;
     if (temp < lowerBound || temp > upperBound) {
