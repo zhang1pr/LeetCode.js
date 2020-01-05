@@ -9,7 +9,7 @@ var threeSum = function(nums) {
 
   nums.sort((a, b) => a - b);
 
-  for (let [index, number] of nums.entries()) {
+  for (const [index, number] of nums.entries()) {
     if (number > 0) {
       return result;
     }
