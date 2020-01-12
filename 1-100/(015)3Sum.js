@@ -48,7 +48,7 @@ var threeSum = function(nums) {
 };
 
 // time:  O(n^2)
-// space: O(n)
+// space: O(log(n))
 
 // test cases:
 // []
