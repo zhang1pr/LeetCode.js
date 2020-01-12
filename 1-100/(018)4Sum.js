@@ -51,7 +51,7 @@ var fourSum = function(nums, target) {
 };
 
 // time:  O(n^3)
-// space: O(n)
+// space: O(log(n))
 
 // test cases:
 // [], 0
