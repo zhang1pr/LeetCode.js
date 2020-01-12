@@ -47,7 +47,7 @@ var threeSumClosest = function(nums, target) {
 };
 
 // time:  O(n^2)
-// space: O(n)
+// space: O(log(n))
 
 // test cases:
 // [], 0
