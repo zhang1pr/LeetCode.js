@@ -42,8 +42,8 @@ var letterCombinations = function(digits) {
   return result;
 };
 
-// time:  O(n!)
-// space: O(n!)
+// time:  O(3^m*4^n)
+// space: O(3^m*4^n)
 
 // test cases:
 // ''
