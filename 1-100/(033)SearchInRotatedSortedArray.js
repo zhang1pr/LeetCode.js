@@ -6,8 +6,9 @@
 var search = function(nums, target) {
   let low = 0;
   let high = nums.length - 1;
+
   while (low < high) {
-    const mid = Math.floor((low + high) / 2);
+    const mid = low + Math.floor((high - low) / 2);
     if ((nums[0] > target) ^ (nums[0] > nums[mid]) ^ (target > nums[mid])) {
       low = mid + 1;
     } else {
