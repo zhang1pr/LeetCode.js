@@ -23,6 +23,10 @@ var permute = function(nums) {
   return array;
 };
 
+// time:  O(n!)
+// space: O(n^2)
+
+// test cases:
 // []
 // [1]
 // [1, 2]
