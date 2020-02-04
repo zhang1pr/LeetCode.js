@@ -17,10 +17,10 @@ var rotate = function(matrix) {
   }
 };
 
-// time:  O(n^2)`
+// time:  O(n^2)
 // space: O(1)
 
-// test cases:`
+// test cases:
 // [[1]]
 // [[1, 2], [3, 4]]
 // [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
