@@ -42,3 +42,11 @@ var minDistance = function(word1, word2) {
 
   return dp[n][m];
 };
+
+// time:  O(mn)
+// space: O(mn)
+
+// 'this', ''
+// 'this', 'this'
+// 'horse', 'ros'
+// 'intention', 'execution'
