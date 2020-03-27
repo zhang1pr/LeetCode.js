@@ -18,7 +18,6 @@
  * @param {TreeNode} root
  * @return {boolean}
  */
-
 var isValidBST = function(root) {
   if (root == null) {
     return true;
