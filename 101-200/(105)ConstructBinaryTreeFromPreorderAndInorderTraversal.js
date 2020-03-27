@@ -15,8 +15,9 @@
  */
 
 /**
- * @param {TreeNode} root
- * @return {void} Do not return anything, modify root in-place instead.
+ * @param {number[]} preorder
+ * @param {number[]} inorder
+ * @return {TreeNode}
  */
 var buildTree = function(preorder, inorder) {
   if (preorder.length == 0) {
