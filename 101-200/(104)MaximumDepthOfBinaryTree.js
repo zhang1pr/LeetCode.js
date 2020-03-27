@@ -16,7 +16,7 @@
 
 /**
  * @param {TreeNode} root
- * @return {void} Do not return anything, modify root in-place instead.
+ * @return {number}
  */
 var maxDepth = function(root) {
   if (root == null) {
