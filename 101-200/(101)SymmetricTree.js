@@ -16,7 +16,7 @@
 
 /**
  * @param {TreeNode} root
- * @return {void} Do not return anything, modify root in-place instead.
+ * @return {boolean}
  */
 var isSymmetric = function(root) {
   if (root == null) {
