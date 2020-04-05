@@ -51,13 +51,13 @@ var connect = function(root) {
   return root;
 };
 
-  // time:  O(n)
-  // space: O(1)
+// time:  O(n)
+// space: O(1)
 
-  // test cases:
-  // [null]
-  // [1]
-  // [1, null, 2]
-  // [1, 2, null, null, 2]
-  // [1, 2, 3, 4, 5, 6, 7]
-  // [3, 9, 20, null, null, 15, 7]
+// test cases:
+// [null]
+// [1]
+// [1, null, 2]
+// [1, 2, null, null, 2]
+// [1, 2, 3, 4, 5, 6, 7]
+// [3, 9, 20, null, null, 15, 7]
