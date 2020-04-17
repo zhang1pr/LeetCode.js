@@ -14,7 +14,6 @@
  * }
  */
 
-
 /**
  * @param {Node} node
  * @return {Node}
