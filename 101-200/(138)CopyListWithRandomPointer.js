@@ -55,7 +55,6 @@ var copyRandomList = function(head) {
   return head2;
 };
 
-
 // time:  O(n)
 // space: O(1)
 
