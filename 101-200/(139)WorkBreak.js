@@ -21,3 +21,11 @@ var wordBreak = function(s, wordDict) {
 
   return dp[length];
 };
+
+// time:  O(n^2)
+// space: O(n)
+
+// test cases:
+// 'leetcode', ['leet', 'code']
+// 'applepenapple', ['apple', 'pen']
+// 'catsandog', ['cats', 'dog', 'sand', 'and', 'cat']
