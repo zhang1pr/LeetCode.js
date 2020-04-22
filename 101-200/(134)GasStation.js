@@ -23,7 +23,6 @@ var canCompleteCircuit = function(gas, cost) {
   return totalTank >= 0 ? station : -1;
 };
 
-
 // time:  O(n)
 // space: O(1)
 
