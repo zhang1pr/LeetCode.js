@@ -50,7 +50,7 @@ var candy = function(ratings) {
 
 var count = function(n) {
   return n * (n + 1) / 2;
-}
+};
 
 // time:  O(n)
 // space: O(1)
