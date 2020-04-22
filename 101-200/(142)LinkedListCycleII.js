@@ -15,7 +15,7 @@
  */
 
 /**
- * @param {let} head
+ * @param {ListNode} head
  * @return {boolean}
  */
 var detectCycle = function(head) {
