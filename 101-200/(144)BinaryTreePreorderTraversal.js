@@ -19,13 +19,13 @@
  * @return {number[]}
  */
 var preorderTraversal = function(root) {
-  const list = [];
+  const result = [];
   let cur = root;
 
   let pre;
   while (cur != null) {
     if (cur.left == null) {
-      list.push(cur.val);
+      result.push(cur.val);
       cur = cur.right;
     } else {
       pre = cur.left;
@@ -35,7 +35,7 @@ var preorderTraversal = function(root) {
       }
 
       if (pre.right == null) {
-        list.push(cur.val);
+        result.push(cur.val);
         pre.right = cur;
         cur = cur.left;
       }
@@ -47,7 +47,7 @@ var preorderTraversal = function(root) {
     }
   }
 
-  return list;
+  return result;
 };
 
 // time:  O(n)
