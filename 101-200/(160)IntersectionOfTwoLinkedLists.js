@@ -34,7 +34,6 @@ var getIntersectionNode = function(headA,  headB) {
   return a;
 };
 
-
 // time:  O(m+n)
 // space: O(1)
 
