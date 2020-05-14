@@ -24,7 +24,7 @@ var convertToTitle = function(n) {
 };
 
 // time:  O(n)
-// space: O(n)
+// space: O(1)
 
 // test cases:
 // 0
