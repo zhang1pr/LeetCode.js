@@ -64,7 +64,6 @@ Trie.prototype.startsWith = function(prefix) {
  * var param_3 = obj.startsWith(prefix)
  */
 
-
 // time:  O(n)
 // space: O(1)
 
