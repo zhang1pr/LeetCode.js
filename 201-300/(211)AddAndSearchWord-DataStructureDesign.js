@@ -78,4 +78,5 @@ WordDictionary.prototype.search = function(word) {
 // time:  O(n)
 // space: O(1)
 
+// ['WordDictionary', 'addWord', 'search', 'search', 'search'], [[], ['a'], ['a'], ['b']]
 // ['WordDictionary', 'addWord', 'addWord', 'addWord', 'search', 'search', 'search', 'search'], [[], ['bad'], ['dad'], ['mad'], ['pad'], ['bad'], ['.ad'], ['b..']]
