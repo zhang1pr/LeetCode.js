@@ -39,7 +39,6 @@ var containsNearbyAlmostDuplicate = function(nums, k, t) {
   return false;
 };
 
-
 // time:  O(min(n,k))
 // space: O(k)
 
