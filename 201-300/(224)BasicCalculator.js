@@ -53,7 +53,7 @@ var evaluateExpr = function(stack) {
 }
 
 // time:  O(n)
-// space: O(n)
+// space: O(1)
 
 // '0'
 // '1 + 1'
