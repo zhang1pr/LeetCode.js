@@ -1,20 +1,3 @@
-/**
- * // Definition for a Node.
- * function Node(val, next, random) {
- *    this.val = val;
- *    this.next = next;
- *    this.random = random;
- * };
- *
- * es6
- * class Node {
- *   constructor(val, nextl, random) {
- *    this.val = val;
- *    this.next = next;
- *    this.random = random;
- *   }
- * }
- */
 
 /**
  * @param {Node} head
