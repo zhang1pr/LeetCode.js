@@ -21,9 +21,10 @@ var canAttendMeetings = function(intervals) {
   return true;
 };
 
-// time:  O(log(n))
-// space: O(1)
+// time:  O(nlog(n))
+// space: O(n)
 
 // [[0, 1]]
 // [[2, 3], [0, 2]]
-// [[0, 30],[5, 10],[15, 20]]
+// [[7, 10], [2, 4]]
+// [[0, 30], [5, 10], [15, 20]]
