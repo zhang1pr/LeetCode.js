@@ -1,3 +1,7 @@
+/**
+ * @param {ListNode} head
+ * @return {boolean}
+ */
 var isPalindrome = function(head) {
   if (head == null || head.next == null) {
       return true;
