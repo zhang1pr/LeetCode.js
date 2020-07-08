@@ -27,7 +27,7 @@ var validTree = function(n, edges) {
   return diff == 1;
 };
 
-function isConnected(unions, a, b) {
+var isConnected = function(unions, a, b) {
   let group1 = unions[a];
   let group2 = unions[b];
 
@@ -43,6 +43,9 @@ function isConnected(unions, a, b) {
 
   return false;
 }
+
+// time:  O(n)
+// space: O(n)
 
 // 0, []
 // 1, []
