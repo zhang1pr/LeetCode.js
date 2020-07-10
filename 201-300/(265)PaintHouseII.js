@@ -43,7 +43,6 @@ var minCostII = function(costs) {
   return min1;
 };
 
-
 // time:  O(nk)
 // space: O(1)
 
