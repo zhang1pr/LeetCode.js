@@ -61,4 +61,3 @@ var generate = function(result, array, build, len) {
 // 'aabb'
 // 'code'
 // 'carerac'
-
