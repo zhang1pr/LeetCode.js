@@ -3,24 +3,24 @@
  * @param {string[]} words
  * @return {string[]}
  */
-var findWords = function(board, words) {
-  class Trie {
-    root = {};
+class Trie {
+  root = {};
 
-    insert(word) {
-      let node = this.root;
-        
-      for (const w of word) {
-        if (node[w] == null) {
-          node[w] = {};
-        }
-        node = node[w];
+  insert(word) {
+    let node = this.root;
+      
+    for (const w of word) {
+      if (node[w] == null) {
+        node[w] = {};
       }
-     
-      node.word = word;
-    }; 
-  };
+      node = node[w];
+    }
+   
+    node.word = word;
+  }; 
+};
 
+var findWords = function(board, words) {
   const trie = new Trie();
   const result = [];
 
