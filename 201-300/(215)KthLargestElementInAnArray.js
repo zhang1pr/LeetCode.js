@@ -35,7 +35,7 @@ var findKthLargest = function(nums, k) {
       }
     }
   
-    if (start + k -1 <= right) {
+    if (start + k - 1 <= right) {
       return quickSelect(start, right, k);
     }
   
@@ -49,8 +49,8 @@ var findKthLargest = function(nums, k) {
   return quickSelect(0, nums.length - 1, k);
 }
 
-// time:  O(n^2)
-// space: O(n)
+// time:  O(log(n))
+// space: O(log(n))
 
 // [1], 1
 // [1, 2], 2
