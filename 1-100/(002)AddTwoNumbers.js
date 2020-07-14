@@ -45,7 +45,7 @@ var addTwoNumbers = function(l1, l2) {
 // space: O(max(m,n))
 
 // test cases:
-// [2, 4, 3], [5, 6, 4]
 // [], [1, 1]
 // [1], [9, 9, 9]
+// [2, 4, 3], [5, 6, 4]
 
