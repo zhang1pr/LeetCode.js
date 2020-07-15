@@ -48,8 +48,8 @@ ZigzagIterator.prototype.next = function next() {
  * while (i.hasNext()) a.push(i.next());
  */
 
-// time:  O(1)
-// space: O(m+n)
+// time:  O(m+n)
+// space: O(1)
 
 // [], []
 // [], [1]
