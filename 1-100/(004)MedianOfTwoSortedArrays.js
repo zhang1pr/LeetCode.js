@@ -8,8 +8,7 @@ var findMedianSortedArrays = function(nums1, nums2) {
   let length2 = nums2.length;
 
   if (length1 > length2) {
-    [nums1, nums2] = [nums2, nums1];
-    [length1, length2] = [length2, length1];
+    return findMedianSortedArrays(nums2, nums1);
   }
 
   const leftHalfLength = Math.ceil((length1 + length2) / 2);
@@ -18,7 +17,7 @@ var findMedianSortedArrays = function(nums1, nums2) {
   let maxNums1 = length1;
 
   while (minNums1 <= maxNums1) {
-    const countNums1 = minNums1 + Math.floor((maxNums1 - minNums1) / 2);
+    const countNums1 = (minNums1 + maxNums1) >>> 1;
     const countNums2 = leftHalfLength - countNums1;
 
     const x = nums1[countNums1 - 1];
@@ -31,17 +30,26 @@ var findMedianSortedArrays = function(nums1, nums2) {
     } else if (y != null && xPrime != null && y > xPrime) {
       minNums1 = countNums1 + 1;
     } else {
-      const leftHalfEnd = (x == null)
-        ? y : (y == null)
-          ? x : Math.max(x, y);
+      let leftHalfEnd;
+
+      if (x && y) {
+        leftHalfEnd = Math.max(x, y);
+      } else {
+        leftHalfEnd = x || y;
+      }
 
       if ((length1 + length2) & 1 == 1) {
         return leftHalfEnd;
       }
 
-      const rightHalfStart = (xPrime == null)
-        ? yPrime : (yPrime == null)
-          ? xPrime : Math.min(xPrime, yPrime);
+      let rightHalfStart;
+
+      if (xPrime && yPrime) {
+        rightHalfStart = Math.min(xPrime, yPrime);
+      } else {
+        rightHalfStart = xPrime || yPrime;
+      }
+
 
       return (leftHalfEnd + rightHalfStart) / 2;
     }
