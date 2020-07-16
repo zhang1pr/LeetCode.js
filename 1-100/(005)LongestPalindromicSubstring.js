@@ -3,44 +3,64 @@
  * @return {string}
  */
 var longestPalindrome = function(s) {
-  let longestPalindrome = '';
+  let newS;
+  let n = s.length;
 
-  for (let i = 0; i < s.length - 1; i++) {
-    if (s[i] == s[i + 1]) {
-      longestPalindrome = getPalindrome(s, longestPalindrome, i, i + 1);
+  if (n == 0) {
+    newS = '^$';
+  } else {
+    newS = '^'
+      
+    for (const char of s) {
+      newS += '#' + char;
+    }   
+      
+    newS += '#$'; 
+  }
+
+  n = newS.length;
+  const array = new Array(n);
+
+  let C = 0
+  let R = 0;
+  for (let i = 1; i < n - 1; i++) {
+    let i_mirror = 2 * C - i;
+
+    if (R > i) {
+      array[i] = Math.min(R - i, array[i_mirror]);
+    } else {
+      array[i] = 0; 
     }
 
-    if (s[i - 1] == s[i + 1]) {
-      longestPalindrome = getPalindrome(s, longestPalindrome, i, i);
+    while (newS[i + 1 + array[i]] == newS[i - 1 - array[i]]) {
+      array[i]++;
+    }
+
+    if (i + array[i] > R) {
+      C = i;
+      R = i + array[i];
     }
   }
 
-  return longestPalindrome || s[0] || '';
-};
-
-var getPalindrome = function(s, longestPalindrome, start, end) {
-  const halfLength = Math.floor(longestPalindrome.length / 2);
-
-  if (start - halfLength >= 0 && end + halfLength < s.length && s[start - halfLength] === s[end + halfLength]) {
-    while (start >= 0 && end < s.length && s[start] === s[end]) {
-      start--;
-      end++;
-    }
-
-    if (end - start - 1 > longestPalindrome.length) {
-      longestPalindrome = s.slice(start + 1, end);
+  let maxLen = 0;
+  let centerIndex = 0;
+  for (let i = 1; i < n - 1; i++) {
+    if (array[i] > maxLen) {
+      maxLen = array[i];
+      centerIndex = i;
     }
   }
 
-  return longestPalindrome;
+  const start = Math.floor((centerIndex - maxLen) / 2);
+  return s.substring(start, start + maxLen);
 }
 
-// time:  O(n^2)
-// space: O(1)
+// time:  O(n)
+// space: O(n)
 
 // test cases:
 // ''
 // 'a'
 // 'ac'
-// 'bbbbbb'
 // 'ababc'
+// 'bbbbbb'
