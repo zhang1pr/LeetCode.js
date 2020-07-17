@@ -3,20 +3,18 @@
  * @return {string}
  */
 var longestPalindrome = function(s) {
-  let newS;
   let n = s.length;
-
   if (n == 0) {
-    newS = '^$';
-  } else {
-    newS = '^'
-      
-    for (const char of s) {
-      newS += '#' + char;
-    }   
-      
-    newS += '#$'; 
+    return '';
   }
+
+  let newS = '^'
+      
+  for (const char of s) {
+    newS += '#' + char;
+  }   
+      
+  newS += '#$';
 
   n = newS.length;
   const array = new Array(n);
