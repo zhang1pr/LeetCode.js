@@ -41,15 +41,14 @@ var longestPalindrome = function(s) {
   }
 
   let maxLen = 0;
-  let centerIndex = 0;
   for (let i = 1; i < n - 1; i++) {
     if (array[i] > maxLen) {
       maxLen = array[i];
-      centerIndex = i;
+      c = i;
     }
   }
 
-  const start = Math.floor((centerIndex - maxLen) / 2);
+  const start = Math.floor((c - maxLen) / 2);
   return s.substring(start, start + maxLen);
 }
 
