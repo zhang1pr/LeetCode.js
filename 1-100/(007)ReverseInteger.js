@@ -29,6 +29,6 @@ var reverse = function(x) {
 
 // test cases:
 // 0
-// 12300
 // -456
+// 12300
 // 1534236469
