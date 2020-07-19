@@ -29,7 +29,7 @@ var romanToInt = function(num) {
 // space: O(1)
 
 // test cases:
-// 'III'
+// 'II'
 // 'IV'
 // 'IX'
 // 'LVIII'
