@@ -6,7 +6,7 @@
 var isMatch = function(s, p) {    
   const sLen = s.length;
   const pLen = p.length;
-  const dp = new Array(pLen);
+  const dp = new Array(pLen + 1);
 
   let pre;
   let temp;
