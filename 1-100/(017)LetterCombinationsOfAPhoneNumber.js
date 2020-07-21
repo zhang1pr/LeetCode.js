@@ -3,47 +3,88 @@
  * @return {string[]}
  */
 var letterCombinations = function(digits) {
+  class QueueNode {
+    constructor(val, next = null) {
+      this.val = val;
+      this.next = next;
+    }
+  }
+  
+  class Queue {
+    constructor() {
+      this.head = null;
+      this.tail = null;
+    }
+  
+    peek() {
+      if (!this.head) {
+        return null;
+      }
+  
+      return this.head.val;
+    }
+  
+    enqueue(val) {
+      const newNode = new QueueNode(val);
+  
+      if (!this.head) {
+        this.head = newNode;
+        this.tail = newNode;
+      } else {
+        this.tail.next = newNode;
+        this.tail = newNode;
+      }
+  
+      return this;
+    }
+  
+    dequeue() {
+      if (!this.head) {
+        return null;
+      }
+  
+      const deletedHead = this.head;
+  
+      if (this.head.next) {
+        this.head = this.head.next;
+      } else {
+        this.head = null;
+        this.tail = null;
+      }
+  
+      return deletedHead.val;
+    }
+  }
+  
   if (!digits) {
     return [];
   }
 
-  const mapping = [...digits].map(digit => {
-    digit = Number(digit);
-    let counter = digit == 7 || digit == 9 ? 4 : 3;
-    let charCode = 97 + 3 * (digit - 2);
+  const queue = new Queue();
+  queue.enqueue('');
 
-    if (digit > 7) {
-      charCode++;
-    }
+  const array = ['', '', 'abc', 'def', 'ghi', 'jkl', 'mno', 'pqrs', 'tuv', 'wxyz'];
 
-    let letters = '';
-    while (counter > 0) {
-      counter--;
-      letters += String.fromCharCode(charCode++);
-    }
-
-    return letters;
-  });
-
-  const result = [];
-
-  function generatePermutation(index, lastResult) {
-    for (const letter of mapping[index]) {
-      if (index == 0) {
-        result.push(letter + lastResult);
-      } else {
-        generatePermutation(index - 1, letter + lastResult);
+  for (let i = 0; i < digits.length; i++) {      
+    while (queue.peek().length == i) {
+      const cur = queue.dequeue();
+      
+      for (const char of array[digits[i]]) {
+        queue.enqueue(cur + char);
       }
     }
   }
 
-  generatePermutation(mapping.length - 1, '');
+  const res = [];
+  while (queue.peek()) {
+    res.push(queue.dequeue());
+  }
 
-  return result;
+  return res;
 };
 
-// time:  O(3^m*4^n)
-// space: O(3^m*4^n)
+// time:  O(4^n)
+// space: O(4^n)
 
 // test cases:
 // ''
