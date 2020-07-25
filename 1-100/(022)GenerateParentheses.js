@@ -3,25 +3,21 @@
  * @return {string[]}
  */
 var generateParenthesis = function(n) {
-  const result = [];
+  const dp = [['']];
 
-  function addParenthesis(left, right, string) {
-    if (!left && !right) {
-      result.push(string);
-    } else if (!left) {
-      result.push(string + ')'.repeat(right));
-    } else {
-      addParenthesis(left - 1, right, string + '(');
-
-      if (right > left) {
-        addParenthesis(left, right - 1, string + ')');
-      }
-    }
+  for (let i = 1; i <= n; i++) {
+    dp[i] = [];
+      
+    for (let j = 1; j <= i; j++) {
+      for (const left of dp[j - 1]) {
+        for (const right of dp[i - j]) {
+          dp[i].push('(' + left + ')' + right);
+        }
+      }   
+    } 
   }
-
-  addParenthesis(n, n, '');
-
-  return result;
+    
+  return dp[n];
 };
 
 // time:  O(4^n/n^(-1/2))
@@ -30,4 +26,6 @@ var generateParenthesis = function(n) {
 // test cases:
 // 0
 // 1
+// 3
+// 4
 // 5
