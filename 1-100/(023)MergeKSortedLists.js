@@ -55,14 +55,6 @@ var mergeKLists = function(lists) {
       [this.array[index1], this.array[index2]] = [this.array[index2], this.array[index1]];
     }
 
-    peek() {
-      if (this.array.length === 0) {
-        return null;
-      }
-
-      return this.array[0];
-    }
-
     poll() {
       if (this.array.length === 0) {
         return null;
@@ -129,8 +121,9 @@ var mergeKLists = function(lists) {
   }
     
   const heap = new Heap();
-  for (let i =0;i <lists.length;i++) {
-      let list = lists[i];
+  for (let i = 0; i < lists.length; i++) {
+    let list = lists[i];
+    
     while (list) {
       heap.add(list.val);
       list = list.next;
