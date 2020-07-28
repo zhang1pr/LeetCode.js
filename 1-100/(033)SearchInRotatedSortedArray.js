@@ -3,20 +3,33 @@
  * @param {number} target
  * @return {number}
  */
-var search = function(nums, target) {
-  let low = 0;
-  let high = nums.length - 1;
+var search = function(nums, target) {    
+  let start = 0;
+  let end = nums.length - 1;
+  let mid;
 
-  while (low < high) {
-    const mid = low + Math.floor((high - low) / 2);
-    if ((nums[0] > target) ^ (nums[0] > nums[mid]) ^ (target > nums[mid])) {
-      low = mid + 1;
+  while (start <= end) {
+    mid = (start + end) >>> 1;
+    if (target == nums[mid]) {
+      return mid;
+    }
+
+    if (nums[start] <= nums[mid]) {
+      if (target >= nums[start] && target < nums[mid]) {
+        end = mid - 1;
+      } else {
+        start = mid + 1;
+      }
     } else {
-      high = mid;
+      if (target > nums[mid] && target <= nums[end]) {
+        start = mid + 1;
+      } else {
+        end = mid - 1;
+      }
     }
   }
 
-  return low == high && nums[low] == target ? low : -1;
+  return -1;
 };
 
 // time:  O(log(n))
@@ -25,7 +38,8 @@ var search = function(nums, target) {
 // test cases:
 // [], 0
 // [1], 1
-// [4,5,6,7,0,1,2], 0
-// [4,5,6,7,0,1,2], 3
-// [4,5,6,7], 4
-// [4,5,6,7], 7
+// [4, 5, 6, 7], 4
+// [4, 5, 6, 7], 7
+// [5, 1, 2, 3, 4], 1
+// [4, 5, 6, 7, 0, 1, 2], 0
+// [4, 5, 6, 7, 0, 1, 2], 3
