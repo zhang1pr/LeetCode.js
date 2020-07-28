@@ -1,134 +1,78 @@
 /**
- * Definition for singly-linked list.
- * function ListNode(val, next) {
- *     this.val = (val===undefined ? 0 : val)
- *     this.next = (next===undefined ? null : next)
- * }
- */
-/**
  * @param {ListNode[]} lists
  * @return {ListNode}
  */
 var mergeKLists = function(lists) {
   class Heap {
     constructor() {
-      this.array = [];
+      this.arr = [];
     }
-
-    getLeftChildIndex(index) {
-      return 2 * index + 1;
-    }
-
-    getRightChildIndex(index) {
-      return 2 * index + 2;
-    }
-
-    getParentIndex(index) {
-      return Math.floor((index - 1) / 2);
-    }
-
-    hasParent(index) {
-      return this.getParentIndex(index) >= 0;
-    }
-
-    hasLeftChild(index) {
-      return this.getLeftChildIndex(index) < this.array.length;
-    }
-
-    hasRightChild(index) {
-      return this.getRightChildIndex(index) < this.array.length;
-    }
-
-    leftChild(index) {
-      return this.array[this.getLeftChildIndex(index)];
-    }
-
-    rightChild(index) {
-      return this.array[this.getRightChildIndex(index)];
-    }
-
-    parent(index) {
-      return this.array[this.getParentIndex(index)];
-    }
-
-    swap(index1, index2) {
-      [this.array[index1], this.array[index2]] = [this.array[index2], this.array[index1]];
-    }
-
-    poll() {
-      if (this.array.length === 0) {
-        return null;
-      }
-
-      if (this.array.length === 1) {
-        return this.array.pop();
-      }
-
-      const item = this.array[0];
-
-      this.array[0] = this.array.pop();
-      this.heapifyDown(0);
-
-      return item;
-    }
-
-    add(item) {
-      this.array.push(item);
-      this.heapifyUp(this.array.length - 1);
-      return this;
-    }
-
-    isEmpty() {
-      return this.array.length == 0;
-    }
-
-    heapifyUp(index) {
-      while (
-        this.hasParent(index)
-        && !this.checkInvariant(this.parent(index), this.array[index])
-      ) {
-        this.swap(index, this.getParentIndex(index));
-        index = this.getParentIndex(index);
-      }
-    }
-
-    heapifyDown(index) {
-      let currentIndex = index;
-      let nextIndex = null;
-
-      while (this.hasLeftChild(currentIndex)) {
-        if (
-          this.hasRightChild(currentIndex)
-          && this.checkInvariant(this.rightChild(currentIndex), this.leftChild(currentIndex))
-        ) {
-          nextIndex = this.getRightChildIndex(currentIndex);
+     
+    heapifyDown(i) {
+      let childIndex1 = 2 * i + 1;
+      let childIndex2 = 2 * i + 2;
+      let next;        
+      
+      while (childIndex1 < this.arr.length) {
+        if (childIndex2 < this.arr.length && this.arr[childIndex2] < this.arr[childIndex1]) {
+          next = childIndex2;
         } else {
-          nextIndex = this.getLeftChildIndex(currentIndex);
+          next = childIndex1;
         }
-
-        if (this.checkInvariant(this.array[currentIndex], this.array[nextIndex])) {
+        
+        if (this.arr[i] <= this.arr[next]) {
           break;
         }
 
-        this.swap(currentIndex, nextIndex);
-        currentIndex = nextIndex;
+        [this.arr[i], this.arr[next]] = [this.arr[next], this.arr[i]];
+          
+        i = next;
+        childIndex1 = 2 * i + 1;
+        childIndex2 = 2 * i + 2;
       }
+    }  
+      
+    heapifyUp(i) {
+      let p = Math.floor((i - 1) / 2);  
+      while (p >= 0 && this.arr[p] > this.arr[i]) {
+        [this.arr[p], this.arr[i]] =   [this.arr[i], this.arr[p]];          
+        i = p;
+        p = Math.floor((i - 1) / 2);
+      }
+    }  
+      
+    isEmpty() {
+      return this.arr.length == 0;
+    }  
+      
+    add(val) {
+      this.arr.push(val);
+      this.heapifyUp(this.arr.length - 1);
     }
+     
+    poll() {
+      if (this.arr.length == 1) {
+        return this.arr.pop();
+      }
+        
+      const temp = this.arr[0];
+      this.arr[0] = this.arr.pop();
+      this.heapifyDown(0);
+    
+      return temp;
+    }  
+  } 
 
-    checkInvariant(item1, item2) {
-      return item1 <= item2;
+  const heap = new Heap();
+    
+  for (const list of lists){
+    let head = list;
+         
+    while (head) {
+      heap.add(head.val);
+      head = head.next;
     }
   }
-    
-  const heap = new Heap();
-  for (let i = 0; i < lists.length; i++) {
-    let list = lists[i];
-    
-    while (list) {
-      heap.add(list.val);
-      list = list.next;
-    }      
-  }  
     
   const dummy = new ListNode();
   let head = dummy;
@@ -138,7 +82,7 @@ var mergeKLists = function(lists) {
     head = head.next;
   }
     
-  return dummy.next;
+  return dummy.next;  
 };
 
 // time:  O(nlog(k))
