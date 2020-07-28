@@ -66,8 +66,8 @@ var findSubstring = function(s, words) {
 // time:  O(n^2)
 // space: O(m + n)
 
-// '', ['foo']
 // 'foo', []
 // 'foo', ['']
+// '', ['foo']
 // 'barfoothefoobarman', ['foo', 'bar']
 // 'wordgoodgoodgoodbestword", ['word', 'good', 'best', 'word']
