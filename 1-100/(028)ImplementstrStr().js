@@ -33,7 +33,7 @@ var strStr = function(haystack, needle) {
 
 // test cases:
 // '', ''
-// 'a', ''
 // '', 'a'
+// 'a', ''
 // 'ab', 'c'
 // 'hello', 'll'
