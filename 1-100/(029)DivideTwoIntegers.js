@@ -10,7 +10,7 @@ var divide = function(dividend, divisor) {
   const min = -power;
 
   dividend = Math.abs(dividend);
-  divisor  = Math.abs(divisor);
+  divisor = Math.abs(divisor);
 
   let diff = divisor;
   let quotient = 1;
