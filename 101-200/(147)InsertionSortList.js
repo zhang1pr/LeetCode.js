@@ -34,6 +34,6 @@ var insertionSortList = function(head) {
 
 // test cases:
 // [0]
-// [1, 2 ,3]
+// [1, 2, 3]
 // [4, 2, 1, 3]
 // [-1, 5, 3, 4, 0]
