@@ -37,7 +37,7 @@ var isAdditiveNumber = function (num) {
   return false;
 };
 
-// time:  O(n^n)
+// time:  O(n*n!)
 // space: O(1)
 
 // '112358'
