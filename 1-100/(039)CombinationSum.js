@@ -4,29 +4,25 @@
  * @return {number[][]}
  */
 var combinationSum = function(candidates, target) {
-  const result = [];
-
-  function findCombination(index, target, array) {
-    if (target == 0) {
-      result.push(array.slice());
-    } else if (target > 0) {
-      for (let i = index; i < candidates.length; i++) {
-        array.push(candidates[i]);
-
-        findCombination(i, target - candidates[i], array);
-
-        array.pop();
-      }
-    }
+  const dp = [...new Array(target + 1)].map(() => []);
+    
+  candidates.sort((a, b) => a - b);
+    
+  for (const num of candidates) {
+    for (let i = num; i <= target; i++) {
+      if (dp[i - num].length) {
+        dp[i] = dp[i].concat(dp[i - num].map(array => array.concat(num)));
+      } else if (i == num) {
+        dp[i].push([i]);
+      } 
+    } 
   }
-
-  findCombination(0, target, [])
-
-  return result;
+    
+  return dp[target];  
 };
 
-// time:  O(n*2^k)
-// space: O(n)
+// time:  O(n*k^2)
+// space: O(k^3)
 
 // test cases:
 // [1], 1
