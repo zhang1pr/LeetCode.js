@@ -7,8 +7,8 @@ var firstMissingPositive = function(nums) {
     let target = nums[i];
 
     while (target > 0 && target < nums.length + 1 && nums[target] != target) {
-      temp = nums[target-1];
-      nums[target-1] = target;
+      temp = nums[target - 1];
+      nums[target - 1] = target;
       target = temp;
     }
   }
@@ -29,6 +29,9 @@ var firstMissingPositive = function(nums) {
 // [0]
 // [1]
 // [0, 1]
+// [1, 2, 0]
 // [0, 0, 1, 1]
+// [3, 4, -1, 1]
 // [2, 1, 48, 3, 4]
+// [7, 8, 9, 11, 12]
 // [-7, -4, -2, -1, 0]
