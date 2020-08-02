@@ -4,31 +4,49 @@
  * @return {number[][]}
  */
 var combinationSum2 = function(candidates, target) {
-  candidates.sort((a, b) => b - a);
-  const result = [];
+  candidates.sort((a, b) => a - b);
+    
+  let last;
+  const dp = [[[]]];
+  
+  for (let i =0; i < candidates.length; i++) {
+    const num = candidates[i];
+    let next = [];
+    let result;
+    
+    if (candidates[i - 1] != num) {  
+      for (let j = target; j >= num; j--) {
+        if (dp[j - num]) {  
+          result = dp[j - num].map(array => array.concat(num));
+          next.push([j, result]);  
+          dp[j] = [...dp[j] || [], ...result];
+        } 
+      }
+    } else {
+      for (const [sum, list] of last) {
+        const newSum = sum + num;
 
-  function findCombination(index, target, array) {
-    for (let i = index; i < candidates.length; i++) {
-      if (i == index || candidates[i] != candidates[i-1]) {
-        if (candidates[i] == target) {
-          result.push([...array, candidates[i]]);
-        } else if (candidates[i] < target) {
-          findCombination(i + 1, target - candidates[i], [...array, candidates[i]]);
+        if (newSum <= target) {
+          result = list.map(array => array.concat(num));
+          next.push([newSum, result]);
+          dp[newSum] = [...dp[newSum] || [], ...result];
         }
       }
     }
-  }
+      
+    last = next;  
+  }  
 
-  findCombination(0, target, [])
-
-  return result;
+  return dp[target] || [];
 };
 
-// time:  O(n*2^k)
-// space: O(n)
+// time:  O(n*k^2)
+// space: O(k^3)
 
 // test cases:
 // [1], 1
 // [1], 3
 // [2, 5, 2, 1], 5
 // [2, 2, 2, 4, 4, 4], 8
+// [10, 1, 2, 7, 6, 1, 5], 8
+// [4, 4, 2, 1, 4, 2, 2, 1, 3], 6
