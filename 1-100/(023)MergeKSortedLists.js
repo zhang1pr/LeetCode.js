@@ -64,8 +64,8 @@ var mergeKLists = function(lists) {
   } 
 
   const heap = new Heap();
-    
-  for (const list of lists){
+
+  for (const list of lists) {
     let head = list;
          
     while (head) {
