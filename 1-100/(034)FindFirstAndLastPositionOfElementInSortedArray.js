@@ -9,7 +9,7 @@ var searchRange = function(nums, target) {
   let mid;
 
   while (low < high) {
-    mid = low + Math.floor((high - low) / 2);
+    mid = (low + high) >>> 1;
 
     if (nums[mid] == target) {
       break;
@@ -20,7 +20,7 @@ var searchRange = function(nums, target) {
     }
   }
 
-  mid = low + Math.floor((high - low) / 2);
+  mid = (low + high) >>> 1;
   if (nums[mid] != target) {
     return [-1, -1];
   }
