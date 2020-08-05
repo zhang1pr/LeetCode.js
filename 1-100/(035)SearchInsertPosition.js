@@ -9,7 +9,7 @@ var searchInsert = function(nums, target) {
   let mid;
 
   while (low <= high) {
-    mid = low + Math.floor((high - low) / 2);
+    mid = (low + high) >>> 1;
 
     if (nums[mid] == target) {
       return mid;
