@@ -21,7 +21,7 @@ var findSubstring = function(s, words) {
   const m = words[0].length;
   const map1 = new Map();
 
-  for (const word of words){
+  for (const word of words) {
     const value = map1.get(word);
 
     if (value) {
@@ -35,7 +35,7 @@ var findSubstring = function(s, words) {
     const map2 = new Map();
 
     let j;
-    for (j = 0; j < n; j++){
+    for (j = 0; j < n; j++) {
       const target = s.substr(i + j * m, m);
 
       if (!map1.get(target)) {
