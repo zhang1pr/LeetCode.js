@@ -23,6 +23,7 @@ var jump = function(nums) {
 // space: O(1)
 
 // test cases:
+// [0]
 // [1]
 // [3, 3]
 // [3, 2, 1]
