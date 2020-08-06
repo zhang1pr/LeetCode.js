@@ -4,13 +4,6 @@
  * @return {number[]}
  */
 var findSubstring = function(s, words) {
-
-};/**
-* @param {string} s
-* @param {string[]} words
-* @return {number[]}
-*/
-var findSubstring = function(s, words) {
   const result = [];
 
   if (!s.length || !words.length) {
