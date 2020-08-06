@@ -13,11 +13,11 @@ var solve = function(board, row, column) {
         continue;
       }
 
-      for (let num = 1; num <= 9; num++){
+      for (let num = 1; num <= 9; num++) {
         if (isValid(board, i, j, num.toString())) {
           board[i][j] = num.toString();
 
-          if (solve(board, i, j+1)){
+          if (solve(board, i, j+1)) {
             return true;
           } else {
             board[i][j] = '.';
@@ -34,7 +34,7 @@ var solve = function(board, row, column) {
   return true;
 }
 
-var isValid = function(board, x, y, num){
+var isValid = function(board, x, y, num) {
   const row = Math.floor(x/3) * 3;
   const column = Math.floor(y/3) * 3;
 
@@ -45,7 +45,7 @@ var isValid = function(board, x, y, num){
   }
 
   for (let i = 0; i < 3; i++) {
-    for (let j = 0; j < 3; j++){
+    for (let j = 0; j < 3; j++) {
       if (board[row+i][column+j] == num) {
         return false;
       }
