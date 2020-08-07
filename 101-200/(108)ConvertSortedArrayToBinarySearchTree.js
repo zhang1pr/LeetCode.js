@@ -8,7 +8,7 @@ var sortedArrayToBST = function(nums) {
       return null;
     }
 
-    const mid = start + Math.floor((end - start) / 2);
+    const mid = (start + end) >>> 1;
     const root = new TreeNode(nums[mid]);
     root.left = buildTree(start, mid);
     root.right = buildTree(mid + 1, end);
