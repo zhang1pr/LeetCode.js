@@ -22,8 +22,8 @@ var groupAnagrams = function(strs) {
   return [...map.values()];
 };
 
-// time:  O(mn)
-// space: O(mn)
+// time:  O(n*maxLen(s))
+// space: O(n*maxLen(s))
 
 // test cases:
 // ['a']
