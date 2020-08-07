@@ -16,7 +16,7 @@ var sortedListToBST = function(head) {
       return null;
     }
 
-    const mid = start + Math.floor((end - start) / 2);
+    const mid = (start + end) >>> 1;
 
     const left = buildTree(start, mid);
     const root = new TreeNode(cur.val);
