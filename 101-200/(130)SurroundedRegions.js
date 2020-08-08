@@ -53,7 +53,7 @@ var solve = function(board) {
     for (j = 0; j < cols; j++) {
       if (board[i][j] == '*') {
         board[i][j] = 'O';
-      } else if(board[i][j] == 'O'){
+      } else if (board[i][j] == 'O') {
         board[i][j] = 'X';
       }
     }
