@@ -3,23 +3,25 @@
  * @return {string[][]}
  */
 var groupAnagrams = function(strs) {
-  strs = strs.sort();
   const map = new Map();
-
-  for (let i = 0; i < strs.length; i++) {
-    const string = strs[i];
-    const sortedString = string.split('').sort().join('');
-
-    if (!map.has(sortedString)) {
-      map.set(sortedString, [string]);
-    } else {
-      const array = map.get(sortedString);
-      array.push(string);
-      map.set(sortedString, array);
+    
+  for (const str of strs) {
+    const array = new Array(26).fill(0);
+    
+    for (const char of str) {
+      array[char.charCodeAt(0) - 97]++;  
     }
-  }
-
-  return [...map.values()];
+      
+    const string = array.join('#');
+      
+    if (map.has(string)) {
+      map.get(string).push(str);
+    } else {
+      map.set(string, [str]);  
+    } 
+  }  
+    
+  return [...map.values()];    
 };
 
 // time:  O(n*maxLen(s))
