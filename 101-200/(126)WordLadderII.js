@@ -21,7 +21,7 @@ var findLadders = function(beginWord, endWord, wordList) {
   }
 
   function traverse(set1, set2, wordSet, direction, map) {
-    if (set1.size == 0){
+    if (set1.size == 0) {
       return false;
     }
 
