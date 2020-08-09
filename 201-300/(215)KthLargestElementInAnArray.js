@@ -17,7 +17,7 @@ var findKthLargest = function(nums, k) {
     let right = end;
     let pivot = nums[Math.floor((start + end) >>> 1)];
   
-    while (left <= right){
+    while (left <= right) {
       while (left <= right && nums[left] > pivot) {
         left++;
       }
