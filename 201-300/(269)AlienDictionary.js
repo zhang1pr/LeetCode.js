@@ -87,7 +87,7 @@ var alienOrder = function(words) {
     const prev = words[i - 1];
     
     let j = 0;
-    while(j < cur.length && j < prev.length && cur[j] === prev[j]) {
+    while (j < cur.length && j < prev.length && cur[j] === prev[j]) {
       j++;
     }
   
@@ -103,7 +103,7 @@ var alienOrder = function(words) {
     }
   });
 
-  while(!queue.isEmpty()) {
+  while (!queue.isEmpty()) {
     const rootChar = queue.dequeue();
     
     result += rootChar;
