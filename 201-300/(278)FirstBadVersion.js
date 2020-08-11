@@ -22,7 +22,7 @@ var solution = function(isBadVersion) {
       let right = n;
       let mid;
       while (left <= right) {
-        mid = left + ((right - left) >>> 1);
+        mid = (left + right) >>> 1;
       
         if (isBadVersion(mid)) {
           if (mid > 1 && !isBadVersion(mid - 1) || mid == 1) {
