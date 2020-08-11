@@ -23,7 +23,7 @@ WordDistance.prototype.shortest = function(word1, word2) {
   let pos1 = this.positions[word1];
   let pos2 = this.positions[word2];
   
-  while(i < pos1.length && j < pos2.length) {
+  while (i < pos1.length && j < pos2.length) {
     let i1 = pos1[i];
     let i2 = pos2[j];
     
