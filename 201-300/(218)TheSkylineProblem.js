@@ -3,7 +3,7 @@
  * @return {number[][]}
  */
 var getSkyline = function(buildings) {
-  if (buildings.length == 0){
+  if (buildings.length == 0) {
     return [];
   }
 
