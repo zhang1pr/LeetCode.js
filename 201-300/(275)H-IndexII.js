@@ -9,7 +9,7 @@ var hIndex = function(citations) {
   let before;
 
   while (low <= high) {
-    let mid = low + ((high - low) >>> 1);
+    let mid = (low + high) >>> 1;
 
     if (citations[mid] >= n - mid) {
       if (mid == 0) {
