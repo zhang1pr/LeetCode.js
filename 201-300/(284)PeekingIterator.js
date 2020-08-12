@@ -20,7 +20,7 @@
 var PeekingIterator = function(iterator) {
   this.it = iterator;
   
-  if (this.it.hasNext()){
+  if (this.it.hasNext()) {
     this.nextVal = this.it.next();
   } else {
     this.nextVal = null;
