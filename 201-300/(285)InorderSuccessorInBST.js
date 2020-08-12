@@ -7,7 +7,7 @@ var inorderSuccessor = function(root, p) {
   if (p.right) {
     p = p.right;
 
-    while(p.left) {
+    while (p.left) {
       p = p.left;
     }
 
