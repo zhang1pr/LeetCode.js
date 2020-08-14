@@ -4,42 +4,40 @@
  */
 var generateMatrix = function(n) {
   const matrix = [...new Array(n)].map(() => new Array(n).fill(0));
-  let left = 0;
-  let right = n - 1;
-  let top = 0;
-  let bottom = n - 1;
-  let num = 1;
-  let total = n*n;
-  let i;
-
-  while (num <= total) {
-    for (i = left; i <= right; i++) {
-      matrix[top][i] = num;
-      num++;
+    
+  let a = 0;
+  let b = n - 1;
+  let no = 1; 
+    
+  while (a <= b) {
+    for (let i = a; i <= b; i++) {
+      matrix[a][i] = no;      
+      no++;    
     }
-    top++;
-
-    for (i = top; i <= bottom; i++) {
-      matrix[i][right] = num;
-      num++;
+      
+    for (let i = a + 1; i <= b; i++) {
+      matrix[i][b] = no;  
+      no++;  
     }
-    right--;
-
-    for (i = right; i >= left; i--) {
-      matrix[bottom][i] = num;
-      num++;
+      
+    if (a < b) {
+      for (let i = b - 1; i >= a; i--) {
+        m[b][i] = no;               
+        no++;    
+      }
+      
+      for (let i = b - 1; i >= a + 1; i--) {
+        m[i][a] = no;
+        no++;
+      }
     }
-    bottom--;
-
-    for (i = bottom; i >= top; i--) {
-      matrix[i][left] = num
-      num++;
-    }
-    left++;
-  }
-
-  return matrix;
-}
+      
+    a++;
+    b--;  
+  }  
+    
+  return m;  
+};
 
 // time:  O(n)
 // space: O(1)
