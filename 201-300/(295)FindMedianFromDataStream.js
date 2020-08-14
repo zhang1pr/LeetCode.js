@@ -19,7 +19,7 @@ MedianFinder.prototype.addNum = function(num) {
   
   if (this.maxHeap.size - this.minHeap.size > 1) {
     this.minHeap.add(this.maxHeap.poll());
-  } else if(this.minHeap.size - this.maxHeap.size > 1) {
+  } else if (this.minHeap.size - this.maxHeap.size > 1) {
     this.maxHeap.add(this.minHeap.poll());
   }
 };
@@ -33,7 +33,7 @@ MedianFinder.prototype.addNum = function(num) {
 MedianFinder.prototype.findMedian = function() {
   if (this.maxHeap.size > this.minHeap.size) {
     return this.maxHeap.peek();
-  } else if(this.maxHeap.size < this.minHeap.size) {
+  } else if (this.maxHeap.size < this.minHeap.size) {
     return this.minHeap.peek();
   } else {
     return (this.maxHeap.peek() + this.minHeap.peek()) / 2;
