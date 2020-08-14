@@ -3,55 +3,44 @@
  * @return {number}
  */
 var totalNQueens = function(n) {
-  let result = 0;
-  const board = new Array(n).fill('.'.repeat(n));
-
-  generateBoards(board, 0);
-
-  return result;
-
-  function generateBoards(board, row) {
-    if (row == board.length) {
-      result++
+  const cols = new Array(n).fill(false);
+  const diagonal1 = new Array(2 * n).fill(false);
+  const diagonal2 = new Array(2 * n).fill(false);
+  let res = 0;
+    
+  function DFS(row) {
+    if (row == n) {
+      res++;   
     } else {
-      for (let column = 0; column < board[row].length; column++) {
-        if (isValid(board, row, column)) {
-          const string = board[row];
-          board[row] = string.slice(0, column) + 'Q' + string.slice(column + 1);
-          generateBoards(board.slice(), row + 1);
-          board[row] = string;
+      for (let i = 0; i < n; i++) {
+        const col = i;
+        const d1 = row + col;
+        const d2 = row - col + n;
+          
+        if (cols[col] || diagonal1[d1] || diagonal2[d2]) {
+          continue;
         }
-      }
+
+        cols[col] = true;
+        diagonal1[d1] = true;
+        diagonal2[d2] = true;
+
+        DFS(row + 1);  
+        
+        cols[col] = false;
+        diagonal1[d1] = false;
+        diagonal2[d2] = false;
+      }  
     }
-  }
+  } 
+  
+  DFS(0);
+  
+  return res;  
 };
 
-var isValid = function(board, row, column) {
-  let i;
-  for (i = 0; i < board.length; i++) {
-    if (board[i][column] == 'Q') {
-      return false;
-    }
-  }
-
-  let j;
-  for (i = row - 1, j = column + 1; i >= 0 && j < board.length; i--, j++) {
-    if (board[i][j] == 'Q') {
-      return false;
-    }
-  }
-
-  for (i = row - 1, j = column - 1; i >= 0 && j >= 0; i--, j--) {
-    if (board[i][j] == 'Q') {
-      return false;
-    }
-  }
-
-  return true;
-}
-
 // time:  O(n!)
-// space: O(n^2)
+// space: O(n)
 
 // test cases:
 // 1
