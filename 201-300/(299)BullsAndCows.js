@@ -7,7 +7,7 @@ var getHint = function(secret, guess) {
   let bulls = 0;
   let cows = 0;
     
-  const numbers = new Array(10);
+  const numbers = new Array(10).fill(0);
   let s;
   let g;
 
