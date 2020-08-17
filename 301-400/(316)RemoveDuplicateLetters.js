@@ -39,5 +39,6 @@ var removeDuplicateLetters = function(s) {
 // 'ba'
 // 'ab'
 // 'aba'
+// 'bcab'
 // 'bcabc'
 // 'cbacdcbc'
