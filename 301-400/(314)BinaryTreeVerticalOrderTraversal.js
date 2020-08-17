@@ -38,7 +38,7 @@ var verticalOrder = function(root) {
     }
   }
   
-  while(min <= max) {
+  while (min <= max) {
     if (map[min].length) {
       res.push(map[min]);
     }
