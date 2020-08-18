@@ -19,6 +19,9 @@ var increasingTriplet = function(nums) {
   return false;  
 };
 
+// time:  O(n)
+// space: O(1)
+
 // [1]
 // [1, 1]
 // [1, 2]
