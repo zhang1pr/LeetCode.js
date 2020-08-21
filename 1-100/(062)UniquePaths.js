@@ -4,19 +4,19 @@
  * @return {number}
  */
 var uniquePaths = function(m, n) {
-  const array = [...new Array(m)].map(() => new Array(n).fill(1));
+  let N = n + m - 2; 
+  let k = m - 1;  
+  let res = 1; 
 
-  for (let i = 1; i < m; i++) {
-    for (let j = 1; j < n; j++) {
-      array[i][j] = array[i-1][j] + array[i][j-1];
-    }
+  for (let i = 1; i <= k; i++) {
+    res *= (N - i + 1) / i;
   }
 
-  return array[m-1][n-1];
+  return res; 
 };
 
-// time:  O(mn)
-// space: O(mn)
+// time:  O(1)
+// space: O(1)
 
 // test cases:
 // 1, 1
