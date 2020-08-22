@@ -3,23 +3,13 @@
  * @return {number}
  */
 var climbStairs = function(n) {
-  if (n == 1) {
-    return 1;
-  }
+  const sqrt = Math.sqrt(5);
+  const fib = Math.pow((1 + sqrt) / 2, n + 1) - Math.pow((1 - sqrt) / 2, n + 1);
 
-  let first = 1;
-  let second = 2;
-  let third;
-  for (let i = 3; i <= n; i++) {
-    third = first + second;
-    first = second;
-    second = third;
-  }
-
-  return second;
+  return Math.floor(fib / sqrt);
 };
 
-// time:  O(n)
+// time:  O(log(n))
 // space: O(1)
 
 // 1
