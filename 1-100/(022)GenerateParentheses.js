@@ -7,16 +7,16 @@ var generateParenthesis = function(n) {
 
   for (let i = 1; i <= n; i++) {
     dp[i] = [];
-      
+
     for (let j = 1; j <= i; j++) {
       for (const left of dp[j - 1]) {
         for (const right of dp[i - j]) {
           dp[i].push('(' + left + ')' + right);
         }
-      }   
-    } 
+      }
+    }
   }
-    
+
   return dp[n];
 };
 
