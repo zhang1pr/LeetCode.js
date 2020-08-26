@@ -9,11 +9,11 @@ var longestPalindrome = function(s) {
   }
 
   let newS = '^'
-      
+
   for (const char of s) {
     newS += '#' + char;
-  }   
-      
+  }
+
   newS += '#$';
 
   n = newS.length;
@@ -27,7 +27,7 @@ var longestPalindrome = function(s) {
     if (R > i) {
       array[i] = Math.min(R - i, array[i_mirror]);
     } else {
-      array[i] = 0; 
+      array[i] = 0;
     }
 
     while (newS[i + 1 + array[i]] == newS[i - 1 - array[i]]) {
