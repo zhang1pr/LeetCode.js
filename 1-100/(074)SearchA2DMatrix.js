@@ -16,7 +16,7 @@ var searchMatrix = function(matrix, target) {
   let item;
   let row;
   while (left <= right) {
-    pivot = Math.floor(left + (right - left) / 2);
+    pivot = (left + right) >>> 1;
     row = Math.floor(pivot / n);
     item = matrix[row][pivot - row * n];
     if (target == item) {
