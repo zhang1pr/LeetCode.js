@@ -4,31 +4,22 @@
  */
 var sortColors = function(nums) {
   let left = 0;
-  let curr = 0;
-  let right = nums.length - 1;
+  let right = nums.length-1;
 
-  let tmp;
-  while (curr <= right) {
-    if (nums[curr] == 0) {
-      tmp = nums[left];
-      nums[left] = nums[curr];
-      nums[curr] = tmp;
-
+  for (let i=0; i <= right ;i++) {
+    if (nums[i] == 0) {
+      [nums[i], nums[left]] = [nums[left], nums[i]];
       left++;
-      curr++
-    } else if (nums[curr] == 2) {
-      tmp = nums[curr];
-      nums[curr] = nums[right];
-      nums[right] = tmp;
+    }
 
+    if (nums[i] == 2) {
+      [nums[i], nums[right]] = [nums[right], nums[i]];
       right--;
-    } else {
-      curr++;
+      i--;
     }
   }
-
-  return nums;
 };
+
 
 // time:  O(n)
 // space: O(1)
