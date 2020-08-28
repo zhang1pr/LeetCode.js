@@ -22,6 +22,7 @@ var addBinary = function(a, b) {
       result[i] = temp;
     }
   }
+
   return result.reverse().join('');
 };
 
