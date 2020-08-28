@@ -5,20 +5,20 @@
  */
 var combinationSum = function(candidates, target) {
   const dp = [...new Array(target + 1)].map(() => []);
-    
+
   candidates.sort((a, b) => a - b);
-    
+
   for (const num of candidates) {
     for (let i = num; i <= target; i++) {
       if (dp[i - num].length) {
         dp[i] = dp[i].concat(dp[i - num].map(array => array.concat(num)));
       } else if (i == num) {
         dp[i].push([i]);
-      } 
-    } 
+      }
+    }
   }
-    
-  return dp[target];  
+
+  return dp[target];
 };
 
 // time:  O(n*k^2)
