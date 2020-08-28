@@ -5,22 +5,22 @@
  */
 var combinationSum2 = function(candidates, target) {
   candidates.sort((a, b) => a - b);
-    
+
   let last;
   const dp = [[[]]];
-  
+
   for (let i =0; i < candidates.length; i++) {
     const num = candidates[i];
     let next = [];
     let result;
-    
-    if (candidates[i - 1] != num) {  
+
+    if (candidates[i - 1] != num) {
       for (let j = target; j >= num; j--) {
-        if (dp[j - num]) {  
+        if (dp[j - num]) {
           result = dp[j - num].map(array => array.concat(num));
-          next.push([j, result]);  
+          next.push([j, result]);
           dp[j] = [...dp[j] || [], ...result];
-        } 
+        }
       }
     } else {
       for (const [sum, list] of last) {
@@ -33,9 +33,9 @@ var combinationSum2 = function(candidates, target) {
         }
       }
     }
-      
-    last = next;  
-  }  
+
+    last = next;
+  }
 
   return dp[target] || [];
 };
