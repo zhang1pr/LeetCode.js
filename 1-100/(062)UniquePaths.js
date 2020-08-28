@@ -4,15 +4,15 @@
  * @return {number}
  */
 var uniquePaths = function(m, n) {
-  let N = n + m - 2; 
-  let k = m - 1;  
-  let res = 1; 
+  let N = n + m - 2;
+  let k = m - 1;
+  let res = 1;
 
   for (let i = 1; i <= k; i++) {
     res *= (N - i + 1) / i;
   }
 
-  return res; 
+  return res;
 };
 
 // time:  O(1)
