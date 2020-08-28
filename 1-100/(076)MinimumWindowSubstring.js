@@ -3,7 +3,7 @@
  * @param {string} t
  * @return {string}
  */
-var minWindow = function (s, t) {
+var minWindow = function(s, t) {
   let min = '';
   let left = 0;
   let right = -1;
