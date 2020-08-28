@@ -4,47 +4,30 @@
  * @return {number}
  */
 var minDistance = function(word1, word2) {
-  const n = word1.length;
-  const m = word2.length;
+  const dp = [...Array(word2.length+1)].map((i,idx) => idx);
 
-  if (n * m == 0) {
-    return n + m;
-  }
+  for (let i=1; i<word1.length + 1;i++) {
+    let pre = dp[0];
+    dp[0]++;
 
-  const dp = [...new Array(n+1)].map(() => new Array(m+1).fill(0));
+    for (let j=1;j<word2.length + 1;j++) {
+      let temp = dp[j];
 
-  let i;
-  for (i = 0; i < n + 1; i++) {
-    dp[i][0] = i;
-  }
-
-  let j;
-  for (j = 0; j < m + 1; j++) {
-    dp[0][j] = j;
-  }
-
-  let left;
-  let down;
-  let leftDown;
-  for (i = 1; i < n + 1; i++) {
-    for (j = 1; j < m + 1; j++) {
-      left = dp[i-1][j] + 1;
-      down = dp[i][j-1] + 1;
-      leftDown = dp[i-1][j-1];
-
-      if (word1[i-1] != word2[j-1]) {
-        leftDown++;
+      if (word1[i-1] == word2[j-1]) {
+        dp[j] = pre;
+      } else {
+        dp[j] = Math.min(dp[j-1], dp[j], pre) + 1;
       }
 
-      dp[i][j] = Math.min(left, down, leftDown);
+      pre = temp;
     }
   }
 
-  return dp[n][m];
+  return dp[word2.length];
 };
 
 // time:  O(mn)
-// space: O(mn)
+// space: O(n)
 
 // 'this', ''
 // 'this', 'this'
