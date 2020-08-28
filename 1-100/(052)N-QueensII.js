@@ -7,16 +7,16 @@ var totalNQueens = function(n) {
   const diagonal1 = new Array(2 * n).fill(false);
   const diagonal2 = new Array(2 * n).fill(false);
   let res = 0;
-    
+
   function DFS(row) {
     if (row == n) {
-      res++;   
+      res++;
     } else {
       for (let i = 0; i < n; i++) {
         const col = i;
         const d1 = row + col;
         const d2 = row - col + n;
-          
+
         if (cols[col] || diagonal1[d1] || diagonal2[d2]) {
           continue;
         }
@@ -25,18 +25,18 @@ var totalNQueens = function(n) {
         diagonal1[d1] = true;
         diagonal2[d2] = true;
 
-        DFS(row + 1);  
-        
+        DFS(row + 1);
+
         cols[col] = false;
         diagonal1[d1] = false;
         diagonal2[d2] = false;
-      }  
+      }
     }
-  } 
-  
+  }
+
   DFS(0);
-  
-  return res;  
+
+  return res;
 };
 
 // time:  O(n!)
