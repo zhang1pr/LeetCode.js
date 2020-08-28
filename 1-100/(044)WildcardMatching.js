@@ -7,7 +7,7 @@ var isMatch = function(s, p) {
   let i = 0;
   let j = 0;
   let match = 0;
-  let startIndex;  
+  let startIndex;
 
   while (i < s.length) {
     if ((p[j] == '?' || s[i] == p[j])) {
