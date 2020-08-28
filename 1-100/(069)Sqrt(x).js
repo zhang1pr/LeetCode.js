@@ -13,7 +13,7 @@ var mySqrt = function(x) {
   let num;
 
   while (left <= right) {
-    pivot = Math.floor(left + (right - left) / 2);
+    pivot = (left + right) >>> 1;
     num = pivot * pivot;
     if (num > x) {
       right = pivot - 1;
