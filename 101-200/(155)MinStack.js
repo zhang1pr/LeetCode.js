@@ -6,7 +6,7 @@ var MinStack = function() {
   this.stack = [];
 };
 
-/** 
+/**
  * @param {number} x
  * @return {void}
  */
@@ -25,7 +25,7 @@ MinStack.prototype.push = function(x) {
 MinStack.prototype.pop = function() {
   if (this.stack.pop() == this.min) {
     this.min = this.stack.pop();
-  }  
+  }
 };
 
 /**
@@ -42,7 +42,7 @@ MinStack.prototype.getMin = function() {
   return this.min;
 };
 
-/** 
+/**
  * Your MinStack object will be instantiated and called as such:
  * var obj = new MinStack()
  * obj.push(x)
