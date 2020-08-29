@@ -5,10 +5,10 @@
 var findMin = function(nums) {
   let start = 0;
   let end = nums.length - 1;
-  let mid; 
+  let mid;
   while (start < end) {
     mid = (start + end) >>> 1;
-    
+
     if (nums[mid] > nums[end]) {
       start = mid + 1;
     } else {
