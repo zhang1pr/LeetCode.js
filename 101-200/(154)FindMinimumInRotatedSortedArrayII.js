@@ -17,8 +17,8 @@ var findMin = function(nums) {
       end--;
     }
   }
-  
-  return nums[start];   
+
+  return nums[start];
 };
 
 // time:  O(n)
