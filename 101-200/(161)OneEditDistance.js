@@ -13,7 +13,7 @@ var isOneEditDistance = function(s, t) {
   }
 
   let found = false;
-  
+
   for (let i = 0, j = 0; i < s.length; i++, j++) {
     if (s[i] != t[j]) {
       if (found) {
