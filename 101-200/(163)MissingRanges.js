@@ -10,9 +10,9 @@ var findMissingRanges = function(nums, lower, upper) {
   if (nums.length == 0) {
     return [getRange(lower, upper)];
   }
-  
+
   let next = lower;
-  for (const num of nums) {   
+  for (const num of nums) {
     if (num < next) {
       continue;
     } else if (num == next) {
@@ -23,11 +23,11 @@ var findMissingRanges = function(nums, lower, upper) {
     missing.push(getRange(next, num - 1));
     next = num + 1;
   }
-  
+
   if (next <= upper) {
     missing.push(getRange(next, upper));
   }
-  
+
   return missing;
 };
 
