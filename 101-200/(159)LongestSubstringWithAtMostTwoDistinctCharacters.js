@@ -14,23 +14,23 @@ var lengthOfLongestSubstringTwoDistinct = function(s) {
       if (i - start > maxLength) {
         maxLength = i - start;
       }
- 
+
       left = length;
       for (const index of map.values()) {
-        left = Math.min(left, index);        
+        left = Math.min(left, index);
       }
 
       start = left + 1;
       map.delete(s[left]);
     }
-      
+
     map.set(s[i], i);
   }
-  
+
   if (length - start > maxLength) {
     maxLength = length - start;
   }
-  
+
   return maxLength;
 };
 
