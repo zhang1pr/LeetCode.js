@@ -12,22 +12,22 @@ var solution = function(read4) {
     let eof = false;
     let total = 0;
     let temp = new Array(4);
-    
+
     while (!eof && total < n) {
       let count = read4(temp);
-  
+
       if (count < 4) {
         eof = true;
       }
-      
+
       count = Math.min(count, n - total);
-      
+
       for (let i = 0; i < count; i++) {
         buf[total] = temp[i];
         total++;
       }
     }
-    
+
     return total;
   };
 };
