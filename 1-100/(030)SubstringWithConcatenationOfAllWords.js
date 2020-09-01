@@ -4,10 +4,10 @@
  * @return {number[]}
  */
 var findSubstring = function(s, words) {
-  const result = [];
+  const res = [];
 
   if (!s.length || !words.length) {
-    return result;
+    return res;
   }
 
   const n = words.length;
@@ -49,11 +49,11 @@ var findSubstring = function(s, words) {
     }
 
     if (j == n) {
-      result.push(i);
+      res.push(i);
     }
   }
 
-  return result;
+  return res;
 };
 
 // time:  O(n^2)
