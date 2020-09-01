@@ -14,11 +14,11 @@ var divide = function(dividend, divisor) {
 
   let diff = divisor;
   let quotient = 1;
-  let result = 0;
+  let res = 0;
 
   while (dividend >= divisor) {
     dividend -= diff;
-    result += quotient;
+    res += quotient;
     quotient += quotient;
     diff += diff;
 
@@ -29,9 +29,9 @@ var divide = function(dividend, divisor) {
   }
 
   if (negativeFlag) {
-    return Math.max(-result, min);
+    return Math.max(-res, min);
   } else {
-    return Math.min(result, max);
+    return Math.min(res, max);
   }
 };
 
