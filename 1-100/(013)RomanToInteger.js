@@ -5,7 +5,7 @@
 var romanToInt = function(num) {
   const symbols = ['I', 'V', 'X', 'L', 'C', 'D','M'];
   const values = [1, 5, 10, 50, 100, 500, 1000];
-  let result = 0;
+  let res = 0;
   let lastIndex;
 
   for (let i = num.length - 1; i >= 0; i--) {
@@ -15,14 +15,14 @@ var romanToInt = function(num) {
 
     if (lastIndex > index) {
       lastIndex = 0;
-      result -= value;
+      res -= value;
     } else {
       lastIndex = index;
-      result += value;
+      res += value;
     }
   }
 
-  return result;
+  return res;
 };
 
 // time:  O(n)
