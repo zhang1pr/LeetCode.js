@@ -3,7 +3,7 @@
  * @return {number[][]}
  */
 var threeSum = function(nums) {
-  let result = [];
+  const res = [];
   let left = 0;
   let right = nums.length - 1;
 
@@ -11,7 +11,7 @@ var threeSum = function(nums) {
 
   for (const [index, number] of nums.entries()) {
     if (number > 0) {
-      return result;
+      return res;
     }
 
     if (number == nums[index-1]) {
@@ -25,7 +25,7 @@ var threeSum = function(nums) {
       temp = number + nums[left] + nums[right];
 
       if (temp == 0) {
-        result.push([number, nums[left], nums[right]])
+        res.push([number, nums[left], nums[right]])
         left++;
         right--;
 
@@ -44,7 +44,7 @@ var threeSum = function(nums) {
     }
   }
 
-  return result;
+  return res;
 };
 
 // time:  O(n^2)
