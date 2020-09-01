@@ -4,7 +4,7 @@
  * @return {nums[i][][]}
  */
 var fourSum = function(nums, target) {
-  let result = [];
+  const res = [];
   let left = 0;
   let right = nums.length - 1;
 
@@ -27,7 +27,7 @@ var fourSum = function(nums, target) {
         temp = nums[i] + nums[j] + nums[left] + nums[right];
 
         if (temp == target) {
-          result.push([nums[i], nums[j], nums[left], nums[right]])
+          res.push([nums[i], nums[j], nums[left], nums[right]])
           left++;
           right--;
 
@@ -47,7 +47,7 @@ var fourSum = function(nums, target) {
     }
   }
 
-  return result;
+  return res;
 };
 
 // time:  O(n^3)
