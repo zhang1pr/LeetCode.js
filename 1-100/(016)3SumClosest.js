@@ -3,7 +3,7 @@
  * @return {number[][]}
  */
 var threeSumClosest = function(nums, target) {
-  let result;
+  let res;
   let closest = Infinity;
   let left = 0;
   let right = nums.length - 1;
@@ -32,7 +32,7 @@ var threeSumClosest = function(nums, target) {
         }
 
         closest = temp;
-        result = sum;
+        res = sum;
       }
 
       if (diff > 0) {
@@ -43,7 +43,7 @@ var threeSumClosest = function(nums, target) {
     }
   }
 
-  return result;
+  return res;
 };
 
 // time:  O(n^2)
