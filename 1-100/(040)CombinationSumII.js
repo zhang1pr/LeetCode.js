@@ -11,15 +11,15 @@ var combinationSum2 = function(candidates, target) {
 
   for (let i =0; i < candidates.length; i++) {
     const num = candidates[i];
-    let next = [];
-    let result;
+    const next = [];
+    let res;
 
     if (candidates[i - 1] != num) {
       for (let j = target; j >= num; j--) {
         if (dp[j - num]) {
-          result = dp[j - num].map(array => array.concat(num));
-          next.push([j, result]);
-          dp[j] = [...dp[j] || [], ...result];
+          res = dp[j - num].map(array => array.concat(num));
+          next.push([j, res]);
+          dp[j] = [...dp[j] || [], ...res];
         }
       }
     } else {
@@ -27,9 +27,9 @@ var combinationSum2 = function(candidates, target) {
         const newSum = sum + num;
 
         if (newSum <= target) {
-          result = list.map(array => array.concat(num));
-          next.push([newSum, result]);
-          dp[newSum] = [...dp[newSum] || [], ...result];
+          res = list.map(array => array.concat(num));
+          next.push([newSum, res]);
+          dp[newSum] = [...dp[newSum] || [], ...res];
         }
       }
     }
