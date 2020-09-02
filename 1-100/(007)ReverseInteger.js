@@ -22,7 +22,7 @@ var reverse = function(x) {
   }
 
   return xReverse;
-}
+};
 
 // time:  O(log(n))
 // space: O(1)
