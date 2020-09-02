@@ -9,18 +9,18 @@ var myPow = function(x, n) {
     n = -n;
   }
 
-  let result = 1;
+  let res = 1;
   let product = x;
 
   for (let i = n; i > 0; i /= 2) {
     if (i % 2 >= 1) {
-      result = result * product;
+      res = res * product;
     }
 
     product = product * product;
   }
 
-  return result;
+  return res;
 };
 
 // time:  O(log(n))
