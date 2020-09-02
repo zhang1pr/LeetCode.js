@@ -50,7 +50,7 @@ var longestPalindrome = function(s) {
 
   const start = Math.floor((c - maxLen) / 2);
   return s.substring(start, start + maxLen);
-}
+};
 
 // time:  O(n)
 // space: O(n)
