@@ -3,10 +3,10 @@
  * @return {number[]}
  */
 var spiralOrder = function(matrix) {
-  const result = [];
+  const res = [];
 
   if (!matrix.length) {
-    return result;
+    return res;
   }
 
   let r1 = 0;
@@ -16,20 +16,20 @@ var spiralOrder = function(matrix) {
 
   while (r1 <= r2 && c1 <= c2) {
     for (let c = c1; c <= c2; c++) {
-      result.push(matrix[r1][c]);
+      res.push(matrix[r1][c]);
     }
 
     for (let r = r1 + 1; r <= r2; r++) {
-      result.push(matrix[r][c2]);
+      res.push(matrix[r][c2]);
     }
 
     if (r1 < r2 && c1 < c2) {
       for (let c = c2 - 1; c > c1; c--) {
-        result.push(matrix[r2][c]);
+        res.push(matrix[r2][c]);
       }
 
       for (let r = r2; r > r1; r--) {
-        result.push(matrix[r][c1]);
+        res.push(matrix[r][c1]);
       }
     }
 
@@ -39,7 +39,7 @@ var spiralOrder = function(matrix) {
     c2--;
   }
 
-  return result;
+  return res;
 };
 
 // time:  O(n)
