@@ -1,27 +1,27 @@
 /**
  * @param {number} n
- * @return {resulting}
+ * @return {resing}
  */
 var countAndSay = function(n) {
-  let result = '1';
+  let res = '1';
 
   for (let i = 1; i < n; i++) {
-    nextResult = '';
+    nextres = '';
     let count = 1;
 
-    for (let j = 0; j < result.length; j++) {
-      if (result[j] != result[j+1]) {
-        nextResult += count.toString() + result[j];
+    for (let j = 0; j < res.length; j++) {
+      if (res[j] != res[j+1]) {
+        nextres += count.toString() + res[j];
         count = 1;
       } else {
         count++;
       }
     }
 
-    result = nextResult;
+    res = nextres;
   }
 
-  return result;
+  return res;
 };
 
 // time:  O(1)
