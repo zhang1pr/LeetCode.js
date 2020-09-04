@@ -4,21 +4,21 @@
  */
 var merge = function(intervals) {
   intervals.sort((a, b) => a[0] - b[0]);
-  const result = [];
+  const res = [];
   let lastMerged;
 
   for (const interval of intervals) {
     if (!lastMerged || lastMerged[1] < interval[0]) {
       lastMerged = interval;
     } else {
-      lastMerged = result.pop();
+      lastMerged = res.pop();
       lastMerged[1] = Math.max(lastMerged[1], interval[1]);
     }
 
-    result.push(lastMerged);
+    res.push(lastMerged);
   }
 
-  return result;
+  return res;
 };
 
 // time:  O(nlog(n))
