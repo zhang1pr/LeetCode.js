@@ -6,7 +6,7 @@
 var getPermutation = function(n, k) {
   const factorial = [1];
   const nums = [...new Array(n)].map((value, index) => index + 1);
-  let result = "";
+  let res = "";
   let product = 1;
   let i;
   let index;
@@ -19,12 +19,12 @@ var getPermutation = function(n, k) {
   k--;
   for (i = 1; i <= n; i++) {
     index = Math.floor(k / factorial[n-i]);
-    result += nums[index].toString();
+    res += nums[index].toString();
     nums.splice(index, 1);
     k -= index * factorial[n-i];
   }
 
-  return result;
+  return res;
 };
 
 // time:  O(1)
