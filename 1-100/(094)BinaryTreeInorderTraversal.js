@@ -3,24 +3,24 @@
  * @return {number[]}
  */
 var inorderTraversal = function(root) {
-  const result = [];
+  const res = [];
 
-  function traverse(root, result) {
+  function traverse(root, res) {
     if (root != null) {
       if (root.left != null) {
-        traverse(root.left, result);
+        traverse(root.left, res);
       }
 
-      result.push(root.val);
+      res.push(root.val);
 
       if (root.right != null) {
-        traverse(root.right, result);
+        traverse(root.right, res);
       }
     }
   }
 
-  traverse(root, result);
-  return result;
+  traverse(root, res);
+  return res;
 };
 
 // time:  O(n)
