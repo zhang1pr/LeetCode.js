@@ -8,10 +8,10 @@ var generateTrees = function(n) {
   }
 
   function generateTrees(start, end) {
-    const result = [];
+    const res = [];
     if (start > end) {
-      result.push(null);
-      return result;
+      res.push(null);
+      return res;
     }
 
     for (let i = start; i <= end; i++) {
@@ -20,12 +20,12 @@ var generateTrees = function(n) {
           const tree = new TreeNode(i);
           tree.left = leftTree;
           tree.right = rightTree;
-          result.push(tree);
+          res.push(tree);
         }
       }
     }
 
-    return result;
+    return res;
   }
 
   return generateTrees(1, n);
