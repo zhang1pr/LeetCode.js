@@ -7,13 +7,13 @@ var restoreIpAddresses = function(s) {
     return [];
   }
 
-  const result = [];
+  const res = [];
   const stack = [];
 
   function generateAddresses(stack, s, start) {
     if (stack.length == 4) {
       if (start == s.length) {
-        result.push(stack.join('.'));
+        res.push(stack.join('.'));
       }
       return;
     }
@@ -38,7 +38,7 @@ var restoreIpAddresses = function(s) {
 
   generateAddresses(stack, s, 0);
 
-  return result;
+  return res;
 };
 
 // time:  O(1)
