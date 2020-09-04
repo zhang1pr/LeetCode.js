@@ -4,15 +4,37 @@
  * @return {boolean}
  */
 var exist = function(board, word) {
-  const rows = board.length;
-  if (rows == 0) {
+  const m = board.length;
+  const n = board[0].length;
+  const dir = [[1, 0], [-1, 0], [0, 1], [0, -1]];
+  const set = new Set();
+
+  function DFS(i, j, index) {
+    if (word.length == index) {
+      return true;
+    }
+
+    set.add(i + ',' + j);
+
+    for (const [di, dj] of dir) {
+      const newI = di + i;
+      const newJ = dj + j;
+
+      const newStr = newI + ',' + newJ;
+
+      if (!set.has(newStr) && 0 <= newI && newI < m && 0 <= newJ && newJ < n && board[newI][newJ] == word[index] && DFS(newI, newJ, index+1)) {
+        return true;
+      }
+    }
+
+    set.delete(i + ',' + j);
+
     return false;
   }
 
-  const cols = board[0].length;
-  for (let i = 0; i < rows; i++) {
-    for (let j = 0; j < cols; j++) {
-      if (checkExistence(board, i, j, word, 0)) {
+  for (let i = 0; i < m; i++) {
+    for (let j = 0; j < n; j++) {
+      if (board[i][j] == word[0] && DFS(i, j, 1)) {
         return true;
       }
     }
@@ -20,43 +42,6 @@ var exist = function(board, word) {
 
   return false;
 };
-
-var checkExistence = function(board, row, col, word, index) {
-  if (row < 0 || row >= board.length || col < 0 || col >= board[0].length) {
-    return false;
-  }
-
-  if (board[row][col] != word[index]) {
-    return false;
-  }
-
-  if (index == word.length - 1) {
-    return true;
-  }
-
-  const temp = board[row][col];
-  board[row][col] = '$';
-
-  if (checkExistence(board, row - 1, col, word, index + 1)) {
-    return true;
-  }
-
-  if (checkExistence(board, row + 1, col, word, index + 1)) {
-    return true;
-  }
-
-  if (checkExistence(board, row, col - 1, word, index + 1)) {
-    return true;
-  }
-
-  if (checkExistence(board, row, col + 1, word, index + 1)) {
-    return true;
-  }
-
-  board[row][col] = temp;
-
-  return false;
-}
 
 // time:  O(n^2*3^k)
 // space: O(1)
@@ -68,3 +53,5 @@ var checkExistence = function(board, row, col, word, index) {
 // [['A', 'A'], ['A', 'A']], 'AAAA'
 // [['S', 'F', 'C', 'S'], ['A', 'D', 'E', 'E']], 'SEE'
 // [['S', 'F', 'C', 'S'], ['A', 'D', 'E', 'E']], 'ADED'
+// [['A', 'B', 'C', 'E'], ['S', 'F', 'E', 'S'], ['A', 'D', 'E', 'E']], 'ABCB'
+// [['A', 'B', 'C', 'E'], ['S', 'F', 'E', 'S'], ['A', 'D', 'E', 'E']], 'ABCESEEEFS'
