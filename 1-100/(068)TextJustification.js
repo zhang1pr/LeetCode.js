@@ -4,7 +4,7 @@
  * @return {string[]}
  */
 var fullJustify = function(words, maxWidth) {
-  const result = [];
+  const res = [];
   let currentLength = 0;
   let start = 0;
   let end = 0;
@@ -29,7 +29,7 @@ var fullJustify = function(words, maxWidth) {
       space = maxWidth - currentLength + diff;
 
       if (!diff) {
-        result.push(words[start] + ' '.repeat(space));
+        res.push(words[start] + ' '.repeat(space));
       } else {
         temp = words[start];
         const average = Math.floor(space / diff);
@@ -48,7 +48,7 @@ var fullJustify = function(words, maxWidth) {
           j++;
         }
 
-        result.push(temp);
+        res.push(temp);
       }
 
       start = end;
@@ -61,9 +61,9 @@ var fullJustify = function(words, maxWidth) {
     temp += ' ' + words[start+i];
   }
   temp += ' '.repeat(maxWidth - currentLength);
-  result.push(temp);
+  res.push(temp);
 
-  return result;
+  return res;
 };
 
 // time:  O(n)
