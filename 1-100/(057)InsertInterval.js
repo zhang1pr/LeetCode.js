@@ -4,35 +4,35 @@
  * @return {number[][]}
  */
 var insert = function(intervals, newInterval) {
-  const result = [];
+  const res = [];
 
   let i = 0;
   while (i < intervals.length && newInterval[0] > intervals[i][0]) {
-    result.push(intervals[i]);
+    res.push(intervals[i]);
     i++;
   }
 
-  let lastMerged = result[result.length-1];
+  let lastMerged = res[res.length-1];
   if (!lastMerged || lastMerged[1] < newInterval[0]) {
     lastMerged = newInterval;
   } else {
-    lastMerged = result.pop();
+    lastMerged = res.pop();
     lastMerged[1] = Math.max(lastMerged[1], newInterval[1]);
   }
-  result.push(lastMerged);
+  res.push(lastMerged);
 
   while (i < intervals.length) {
     if (lastMerged[1] < intervals[i][0]) {
       lastMerged = intervals[i];
     } else {
-      lastMerged = result.pop();
+      lastMerged = res.pop();
       lastMerged[1] = Math.max(lastMerged[1], intervals[i][1]);
     }
-    result.push(lastMerged);
+    res.push(lastMerged);
     i++;
   }
 
-  return result;
+  return res;
 };
 
 // time:  O(n)
