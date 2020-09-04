@@ -26,7 +26,7 @@ var isValidBST = function(root) {
   }
 
   return true;
-}
+};
 
 // time:  O(n)
 // space: O(n)
