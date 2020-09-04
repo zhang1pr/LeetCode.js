@@ -3,10 +3,10 @@
  * @return {number[][]}
  */
 var subsets = function(nums) {
-	const result = [];
+	const res = [];
 
 	function backtrack(index, array) {
-    result.push(array)
+    res.push(array)
 
 		for (let i = index; i < nums.length; i++) {
 			backtrack(i + 1, [...array, nums[i]])
@@ -15,8 +15,8 @@ var subsets = function(nums) {
 
 	backtrack(0, []);
 
-	return result;
-}
+	return res;
+};
 
 // time:  O(n*2^n)
 // space: O(2^n)
