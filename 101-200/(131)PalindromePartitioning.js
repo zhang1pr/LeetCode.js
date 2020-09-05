@@ -3,7 +3,7 @@
  * @return {string[][]}
  */
 var partition = function(s) {
-  const result = [];
+  const res = [];
   const length = s.length;
   const dp = new Array(length).fill(0).map(() => new Array(length).fill(0));
   const stack = [];
@@ -16,7 +16,7 @@ var partition = function(s) {
 
   function DFS(start) {
     if (start == s.length) {
-      result.push(stack.slice());
+      res.push(stack.slice());
     }
 
     for (let i = start; i < s.length; i++) {
@@ -30,7 +30,7 @@ var partition = function(s) {
 
   DFS(0);
 
-  return result;
+  return res;
 };
 
 // time:  O(n^2)
