@@ -7,7 +7,7 @@ var candy = function(ratings) {
     return ratings.length;
   }
 
-  let result = 0;
+  let res = 0;
   let up = 0;
   let down = 0;
   let oldSlope = 0;
@@ -23,7 +23,7 @@ var candy = function(ratings) {
     }
 
     if (oldSlope > 0 && newSlope == 0 || oldSlope < 0 && newSlope >= 0) {
-      result += count(up) + count(down) + Math.max(up, down);
+      res += count(up) + count(down) + Math.max(up, down);
       up = 0;
       down = 0;
     }
@@ -37,15 +37,15 @@ var candy = function(ratings) {
     }
 
     if (newSlope == 0) {
-      result++;
+      res++;
     }
 
     oldSlope = newSlope;
   }
 
-  result += count(up) + count(down) + Math.max(up, down) + 1;
+  res += count(up) + count(down) + Math.max(up, down) + 1;
 
-  return result;
+  return res;
 };
 
 var count = function(n) {
