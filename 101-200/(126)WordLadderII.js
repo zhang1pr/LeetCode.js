@@ -5,10 +5,10 @@
  * @return {string[][]}
  */
 var findLadders = function(beginWord, endWord, wordList) {
-  const result = [];
+  const res = [];
 
   if (!wordList.includes(endWord)) {
-    return result;
+    return res;
   }
 
   const map = new Map();
@@ -86,7 +86,7 @@ var findLadders = function(beginWord, endWord, wordList) {
 
   function findLaddersHelper(beginWord, endWord, map) {
     if (beginWord == endWord) {
-      result.push(temp.slice());
+      res.push(temp.slice());
       return;
     }
 
@@ -101,8 +101,8 @@ var findLadders = function(beginWord, endWord, wordList) {
   const temp = [beginWord];
   findLaddersHelper(beginWord, endWord, map);
 
-  return result;
-}
+  return res;
+};
 
 // time:  O(b^(d/2))
 // space: O(b^(d/2))
