@@ -24,5 +24,5 @@ var longestCommonPrefix = function(strs) {
 // test cases:
 // []
 // ['']
-// ['flower','flow','flight']
-// ['dog','racecar','car']
+// ['dog', 'racecar', 'car']
+// ['flower', 'flow', 'flight']
