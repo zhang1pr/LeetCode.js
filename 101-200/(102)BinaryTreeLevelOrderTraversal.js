@@ -3,25 +3,25 @@
  * @return {number[][]}
  */
 var levelOrder = function(root) {
-  const result = [];
+  const res = [];
 
   function traverse(root, level) {
     if (root == null) {
       return;
     }
 
-    if (level >= result.length) {
-      result[level] = [];
+    if (level >= res.length) {
+      res[level] = [];
     }
 
-    result[level].push(root.val);
+    res[level].push(root.val);
     traverse(root.left, level + 1);
     traverse(root.right, level + 1);
   }
 
   traverse(root, 0);
 
-  return result;
+  return res;
 };
 
 // time:  O(n)
