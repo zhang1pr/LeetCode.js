@@ -4,9 +4,9 @@
  */
 var zigzagLevelOrder = function(root) {
   let curr = root;
-  const result = [];
+  const res = [];
   if (curr == null) {
-    return result;
+    return res;
   }
 
   const stack1 = [root];
@@ -27,7 +27,7 @@ var zigzagLevelOrder = function(root) {
         stack2.push(curr.right);
       }
     }
-    result.push(temp);
+    res.push(temp);
 
     temp = [];
     while (stack2.length != 0) {
@@ -44,11 +44,11 @@ var zigzagLevelOrder = function(root) {
     }
 
     if (temp.length != 0) {
-      result.push(temp);
+      res.push(temp);
     }
   }
 
-  return result;
+  return res;
 };
 
 // time:  O(n)
