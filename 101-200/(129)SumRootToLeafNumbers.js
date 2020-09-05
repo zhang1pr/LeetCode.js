@@ -35,7 +35,7 @@ var sumNumbers = function(root) {
   }
 
   return sum;
-}
+};
 
 // time:  O(n)
 // space: O(n)
