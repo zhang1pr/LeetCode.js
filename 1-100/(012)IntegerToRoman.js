@@ -3,7 +3,7 @@
  * @return {string}
  */
 var intToRoman = function(num) {
-  const symbols = ['I', 'V', 'X', 'L', 'C', 'D','M'];
+  const symbols = ['I', 'V', 'X', 'L', 'C', 'D', 'M'];
   const values = [1, 5, 10, 50, 100, 500, 1000];
   let res = '';
 
