@@ -72,7 +72,7 @@ var ladderLength = function(beginWord, endWord, wordList) {
   }
 
   return length;
-}
+};
 
 // time:  O(b^(d/2))
 // space: O(b^(d/2))
