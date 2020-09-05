@@ -5,7 +5,7 @@
  */
 var pathSum = function(root, sum) {
   const nodeStack = [];
-  const result = [];
+  const res = [];
   const valStack = [];
   let node = root;
   let pre = null;
@@ -22,7 +22,7 @@ var pathSum = function(root, sum) {
     node = nodeStack[nodeStack.length - 1];
 
     if (currSum == sum && node.left == null && node.right == null) {
-      result.push([...valStack]);
+      res.push([...valStack]);
     }
 
     if (node.right == null || node.right == pre) {
@@ -36,7 +36,7 @@ var pathSum = function(root, sum) {
     }
   }
 
-  return result;
+  return res;
 };
 
 // time:  O(n)
