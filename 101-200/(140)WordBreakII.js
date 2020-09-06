@@ -16,23 +16,23 @@ var wordBreak = function(s, wordDict) {
       return map.get(s);
     }
 
-    const result = [];
+    const res = [];
     for (let j = 0; j < s.length; j++) {
       const target = s.substring(j, s.length);
 
       if (set.has(target)) {
         if (j == 0) {
-          result.push(target);
+          res.push(target);
         } else {
           for (const item of DFS(s.substring(0, j), map)) {
-            result.push(item + ' ' + target);
+            res.push(item + ' ' + target);
           }
         }
       }
     }
 
-    map.set(s, result);
-    return result;
+    map.set(s, res);
+    return res;
   }
 
   return DFS(s);
