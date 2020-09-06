@@ -32,7 +32,7 @@ var evalRPN = function(tokens) {
   }
 
   return stack[0];
-}
+};
 
 // time:  O(n)
 // space: O(1)
