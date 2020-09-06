@@ -10,7 +10,7 @@ var maxPoints = function(points) {
   }
 
   const map = new Map();
-  let result = 0;
+  let res = 0;
   let duplicate;
   let max;
   let x;
@@ -40,10 +40,10 @@ var maxPoints = function(points) {
       max = Math.max(max, map.get(key));
     }
 
-    result = Math.max(result, max + duplicate + 1);
+    res = Math.max(res, max + duplicate + 1);
   }
 
-  return result;
+  return res;
 };
 
 var gcd = function(a, b) {
