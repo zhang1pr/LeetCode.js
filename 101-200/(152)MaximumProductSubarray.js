@@ -9,17 +9,17 @@ var maxProduct = function(nums) {
 
   let max = 1;
   let min = 1;
-  let result = -Infinity;
+  let res = -Infinity;
   let temp;
 
   for (const num of nums) {
     temp = max;
     max = Math.max(min * num, max * num, num);
     min = Math.min(min * num, temp * num, num);
-    result = Math.max(result, max);
+    res = Math.max(res, max);
   }
 
-  return result;
+  return res;
 };
 
 // time:  O(n)
