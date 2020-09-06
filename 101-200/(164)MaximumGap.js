@@ -29,7 +29,7 @@ var maximumGap = function(nums) {
   let index;
   for (const num of nums) {
     index = Math.floor((num - min) / interval);
-      
+
     if (num == min || num == max) {
       continue;
     }
