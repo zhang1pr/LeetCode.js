@@ -3,7 +3,7 @@
  * @return {number[]}
  */
 var postorderTraversal = function(root) {
-  const result = [];
+  const res = [];
   const stack = [];
   let cur = root;
   let last = null;
@@ -19,14 +19,14 @@ var postorderTraversal = function(root) {
       if (temp.right != null && temp.right != last) {
         cur = temp.right;
       } else {
-        result.push(temp.val);
+        res.push(temp.val);
         last = temp;
         stack.pop();
       }
     }
   }
 
-  return result;
+  return res;
 };
 
 // time:  O(n)
