@@ -16,13 +16,13 @@ var fractionToDecimal = function(numerator, denominator) {
   den = Math.abs(den);
   const integer = Math.floor(num / den);
   num = num - integer * den;
- 
+
   const map = new Map();
-  
+
   let index = 0;
   let decimal = '';
   let repeatIndex = -1;
-  
+
   while (num != 0) {
     num *= 10;
 
@@ -30,7 +30,7 @@ var fractionToDecimal = function(numerator, denominator) {
       repeatIndex = map.get(num);
       break;
     }
-    
+
     map.set(num, index);
     let decimalPlace = Math.floor(num / den);
     decimal = decimal + decimalPlace;
