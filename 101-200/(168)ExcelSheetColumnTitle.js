@@ -5,7 +5,7 @@
 var convertToTitle = function(n) {
   let digit;
   let temp;
-  let result = '';
+  let res = '';
 
   while (n > 0) {
     temp = Math.floor(n/26);
@@ -16,11 +16,11 @@ var convertToTitle = function(n) {
       digit = 26;
       n -= 1;
     }
-     
-    result = String.fromCharCode(64 + digit) + result;
+
+    res = String.fromCharCode(64 + digit) + res;
   }
 
-  return result;
+  return res;
 };
 
 // time:  O(n)
