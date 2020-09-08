@@ -3,12 +3,12 @@
  * @return {number}
  */
 var titleToNumber = function(s) {
-  let result = 0;
+  let res = 0;
   for (const char of s) {
-    result = result * 26 + char.charCodeAt(0) - 64;
+    res = res * 26 + char.charCodeAt(0) - 64;
   }
 
-  return result;
+  return res;
 };
 
 // time:  O(n)
