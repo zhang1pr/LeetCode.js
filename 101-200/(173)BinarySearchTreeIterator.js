@@ -12,7 +12,7 @@ var BSTIterator = function(root) {
  * @return {number}
  */
 BSTIterator.prototype.next = function() {
-  let result = -1;
+  let res = -1;
   while (this.cur != null || this.cur != null || this.stack.length != 0) {
     while (this.cur != null) {
       this.stack.push(this.cur);
@@ -20,12 +20,12 @@ BSTIterator.prototype.next = function() {
     }
 
     this.cur = this.stack.pop();
-    result = this.cur.val;
+    res = this.cur.val;
     this.cur = this.cur.right;
     break;
   }
 
-  return result;
+  return res;
 };
 
 /**
@@ -36,7 +36,7 @@ BSTIterator.prototype.hasNext = function() {
   return this.cur != null || this.stack.length != 0;
 };
 
-/** 
+/**
  * Your BSTIterator object will be instantiated and called as such:
  * var obj = new BSTIterator(root)
  * var param_1 = obj.next()
