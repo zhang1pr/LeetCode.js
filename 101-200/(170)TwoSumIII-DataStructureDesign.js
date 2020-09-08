@@ -36,10 +36,10 @@ TwoSum.prototype.find = function(value) {
     } else {
       if (count > 0) {
         return true;
-      } 
+      }
     }
   }
-  
+
   return false;
 };
 
