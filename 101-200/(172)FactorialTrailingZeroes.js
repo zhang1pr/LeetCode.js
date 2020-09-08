@@ -5,7 +5,7 @@
 var trailingZeroes = function(n) {
   let count = 0;
   let multiple = 5;
-  
+
   while (n >= multiple) {
     count += Math.floor(n / multiple);
     multiple *= 5;
