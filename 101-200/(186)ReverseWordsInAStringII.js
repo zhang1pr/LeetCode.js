@@ -2,7 +2,7 @@
  * @param {character[]} str
  * @return {void} Do not return anything, modify the string in-place instead.
  */
-var reverseWords = function(str) {  
+var reverseWords = function(str) {
   reverse(str, 0, str.length - 1);
   let last = 0;
 
@@ -16,14 +16,14 @@ var reverseWords = function(str) {
 
 var reverse = function(str, start, end) {
   let temp;
-    
+
   while (start < end) {
     temp = str[start];
     str[start] = str[end];
     str[end] = temp;
     start++;
     end--;
-  }    
+  }
 };
 
 // time:  O(n)
