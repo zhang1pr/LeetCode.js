@@ -27,15 +27,15 @@ var calculateMinimumHP = function(dungeon) {
       if (i == row - 1 && j == col - 1) {
         continue;
       }
-      
+
       dp[i][j] = Math.min(dp[i + 1][j], dp[i][j + 1]) - dungeon[i][j];
-      
+
       if (dp[i][j] <= 0) {
         dp[i][j] = 1;
       }
     }
   }
-  return dp[0][0];  
+  return dp[0][0];
 };
 
 // time:  O(log(n))
@@ -48,4 +48,4 @@ var calculateMinimumHP = function(dungeon) {
 // [[-2, -3, 3]]
 // [[-2], [-5], [10]]
 // [[-2, -3], [-5, -10]]
-// [[-2, -3, 3], [-5, -10, 1], [10, 30, -5]] 
+// [[-2, -3, 3], [-5, -10, 1], [10, 30, -5]]
