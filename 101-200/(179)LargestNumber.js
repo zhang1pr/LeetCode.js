@@ -3,7 +3,7 @@
  * @return {string}
  */
 var largestNumber = function(nums) {
-  const result = nums
+  const res = nums
     .map(n => n.toString())
     .sort((a, b) => {
       for (let k = 0; k < a.length + b.length; k++) {
@@ -18,8 +18,8 @@ var largestNumber = function(nums) {
 
       return 0;
     }).join('');
-  
-  return result[0] == '0' ? '0' : result;
+
+  return res[0] == '0' ? '0' : res;
 };
 
 // time:  O(nlog(n))
