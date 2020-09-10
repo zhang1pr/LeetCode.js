@@ -4,22 +4,24 @@
  * @return {number[][]}
  */
 var combine = function(n, k) {
-  const output = [];
+  const res = [];
+  const array = new Array(k).fill(0);
 
-  function backtrack(start, array) {
-    if (array.length == k) {
-      output.push(array.slice());
+  let i = 0;
+  while (i >= 0) {
+    array[i]++;
+
+    if (array[i] > n) {
+      i--;
+    } else if (i == k - 1) {
+      res.push(array.slice());
     } else {
-      for (let i = start; i <= n; i++) {
-        array.push(i);
-        backtrack(i + 1, array);
-        array.pop();
-      }
+      i++;
+      array[i] = array[i - 1];
     }
   }
 
-  backtrack(1, []);
-  return output;
+  return res;
 };
 
 // time:  O(k*C(n,k))
