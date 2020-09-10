@@ -12,7 +12,7 @@ var findRepeatedDnaSequences = function(s) {
     'T': 3
   }
 
-  const result = [];
+  const res = [];
   const unpushedSet = new Set();
   const pushedSet = new Set();
 
@@ -21,7 +21,7 @@ var findRepeatedDnaSequences = function(s) {
     hash *= 4;
     hash += map[s[i]];
   }
- 
+
   unpushedSet.add(hash);
 
   for (let i = 1; i <= s.length - 10; i++) {
@@ -29,7 +29,7 @@ var findRepeatedDnaSequences = function(s) {
 
     if (unpushedSet.has(hash)) {
       if (!pushedSet.has(hash)) {
-        result.push(s.substr(i, 10));
+        res.push(s.substr(i, 10));
         pushedSet.add(hash);
       }
     } else {
@@ -37,7 +37,7 @@ var findRepeatedDnaSequences = function(s) {
     }
   }
 
-  return result;
+  return res;
 };
 
 // time:  O(n)
