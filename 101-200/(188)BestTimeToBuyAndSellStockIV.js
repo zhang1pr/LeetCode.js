@@ -9,17 +9,17 @@ var maxProfit = function(k, prices) {
   }
 
   if (k >= Math.floor(prices.length / 2)) {
-    let result = 0;
-    
+    let res = 0;
+
     for (let i = 1; i < prices.length; i++) {
       let sub = prices[i] - prices[i - 1];
-      
+
       if (sub > 0) {
-        result += sub;
+        res += sub;
       }
     }
 
-    return result;
+    return res;
   }
 
   const dp = new Array(k + 1).fill(0);
@@ -36,7 +36,7 @@ var maxProfit = function(k, prices) {
       dp[j] = Math.max(dp[j], prices[i] - min[j]);
     }
   }
-    
+
   return dp[k];
 };
 
@@ -44,11 +44,11 @@ var maxProfit = function(k, prices) {
 // space: O(k)
 
 // test cases:
-// 0, [1] 
-// 1, [1] 
+// 0, [1]
+// 1, [1]
 // 2, [1]
-// 0, [1, 0] 
-// 1, [1, 1] 
+// 0, [1, 0]
+// 1, [1, 1]
 // 2, [1, 2]
 // 2, [2, 4, 1]
 // 2, [2, 1, 2, 0, 1]
