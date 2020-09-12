@@ -5,7 +5,7 @@
  */
 var rotate = function(nums, k) {
   k = k % nums.length;
-  
+
   let count = 0;
   let current;
   let prev;
@@ -14,7 +14,7 @@ var rotate = function(nums, k) {
   for (let start = 0; count < nums.length; start++) {
     current = start;
     prev = nums[start];
-    
+
     do {
       next = (current + k) % nums.length;
       temp = nums[next];
