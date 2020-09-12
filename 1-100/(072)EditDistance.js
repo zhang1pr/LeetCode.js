@@ -4,19 +4,19 @@
  * @return {number}
  */
 var minDistance = function(word1, word2) {
-  const dp = [...Array(word2.length+1)].map((i,idx) => idx);
+  const dp = [...new Array(word2.length + 1)].map((i, idx) => idx);
 
-  for (let i=1; i<word1.length + 1;i++) {
+  for (let i = 1; i < word1.length + 1; i++) {
     let pre = dp[0];
     dp[0]++;
 
-    for (let j=1;j<word2.length + 1;j++) {
+    for (let j = 1; j < word2.length + 1; j++) {
       let temp = dp[j];
 
-      if (word1[i-1] == word2[j-1]) {
+      if (word1[i - 1] == word2[j - 1]) {
         dp[j] = pre;
       } else {
-        dp[j] = Math.min(dp[j-1], dp[j], pre) + 1;
+        dp[j] = Math.min(dp[j - 1], dp[j], pre) + 1;
       }
 
       pre = temp;
