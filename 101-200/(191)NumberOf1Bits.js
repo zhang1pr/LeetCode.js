@@ -9,7 +9,7 @@ var hammingWeight = function(n) {
     sum++;
     n &= (n - 1);
   }
-  
+
   return sum;
 };
 
