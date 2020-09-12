@@ -4,23 +4,23 @@
  * @return {number[]}
  */
 var rightSideView = function(root) {
-  const result = [];
+  const res = [];
 
   function DFS(root, level) {
     if (root == null) {
       return;
     }
 
-    if (level == result.length) {
-      result.push(root.val);
+    if (level == res.length) {
+      res.push(root.val);
     }
 
-    DFS(root.right, level + 1, result);
-    DFS(root.left, level + 1, result);
+    DFS(root.right, level + 1, res);
+    DFS(root.left, level + 1, res);
   }
 
-  DFS(root, 0, result);
-  return result;
+  DFS(root, 0, res);
+  return res;
 };
 
 // time:  O(n)
@@ -31,4 +31,4 @@ var rightSideView = function(root) {
 // [1, null, 2]
 // [1, 2, null, null, 2]
 // [1, 2, 3, null, 5, null, 4]
-// [3, 9, 20, null, null, 15, 7] 
+// [3, 9, 20, null, null, 15, 7]
