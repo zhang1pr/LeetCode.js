@@ -6,16 +6,16 @@ var numIslands = function(grid) {
   if (grid == null || grid.length == 0) {
     return 0;
   }
-    
-  let result = 0;
+
+  let res = 0;
   const rows = grid.length;
   const cols = grid[0].length;
-    
+
   function DFS(i, j) {
     if (i < 0 || j < 0 || i >= rows || j >= cols || grid[i][j] == '0') {
       return;
     }
-    
+
     grid[i][j] = '0';
 
     DFS(i - 1, j);
@@ -23,17 +23,17 @@ var numIslands = function(grid) {
     DFS(i, j - 1);
     DFS(i, j + 1);
   }
-    
+
   for (let i = 0; i < rows; i++) {
     for (let j = 0; j < cols; j++) {
       if (grid[i][j] == '1') {
-        result++;
+        res++;
         DFS(i, j);
       }
-    }    
-  } 
-    
-  return result;
+    }
+  }
+
+  return res;
 };
 
 // time:  O(n)
