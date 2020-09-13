@@ -9,7 +9,7 @@ var countPrimes = function(n) {
   for (let i = 2; i < n; i++) {
     if (!notPrime[i]) {
       count++;
-      
+
       for (let j = 2; j * i < n; j++) {
         notPrime[j * i] = true;
       }
