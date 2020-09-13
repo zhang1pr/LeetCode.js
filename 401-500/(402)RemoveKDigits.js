@@ -41,6 +41,9 @@ var removeKdigits = function(num, k) {
   return res ? res : '0';
 };
 
+// time:  O(n)
+// space: O(n)
+
 // '10', 2
 // '10200', 1
 // '1432219', 3
