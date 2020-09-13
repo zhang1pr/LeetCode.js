@@ -6,7 +6,7 @@
 var isIsomorphic = function(s, t) {
   const mapS = new Map();
   const mapT = new Map();
-  
+
   let charS;
   let charT;
   for (let i = 0; i < s.length; i++) {
