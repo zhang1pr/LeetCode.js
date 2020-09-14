@@ -18,6 +18,5 @@ var twoSum = function(nums, target) {
 // time:  O(n)
 // space: O(n)
 
-// test cases:
 // [2, 7, 11, 15], 9
 // [-3, 4, -6, 5], -1
