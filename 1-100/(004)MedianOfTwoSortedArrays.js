@@ -59,7 +59,6 @@ var findMedianSortedArrays = function(nums1, nums2) {
 // time:  O(log(min(m,n)))
 // space: O(1)
 
-// test cases:
 // [1], []
 // [1, 3], [2]
 // [1, 2], [3, 4, 5]
