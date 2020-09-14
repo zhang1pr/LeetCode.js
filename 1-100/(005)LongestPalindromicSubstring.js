@@ -55,7 +55,6 @@ var longestPalindrome = function(s) {
 // time:  O(n)
 // space: O(n)
 
-// test cases:
 // ''
 // 'a'
 // 'ac'
