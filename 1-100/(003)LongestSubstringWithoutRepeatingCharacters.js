@@ -25,7 +25,6 @@ var lengthOfLongestSubstring = function(s) {
 // time:  O(n)
 // space: O(min(charset,n))
 
-// test cases:
 // ''
 // 'a'
 // 'ab'
