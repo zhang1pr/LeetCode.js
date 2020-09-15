@@ -36,7 +36,6 @@ var convert = function(s, numRows) {
 // time:  O(n)
 // space: O(n)
 
-// test cases:
 // 'ZIGZAG', 8
 // 'NUMBERSIX', 2
 // 'CONVERSION', 1
