@@ -31,7 +31,6 @@ var isPalindrome = function(x) {
 // time:  O(log(n))
 // space: O(1)
 
-// test cases:
 // 0
 // 10
 // 11
