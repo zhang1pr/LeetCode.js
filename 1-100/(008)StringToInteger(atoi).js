@@ -19,7 +19,6 @@ var myAtoi = function(str) {
 // time:  O(n)
 // space: O(1)
 
-// test cases:
 // '42'
 // '    -42'
 // '4193 with words'
