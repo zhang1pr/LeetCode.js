@@ -27,7 +27,6 @@ var reverse = function(x) {
 // time:  O(log(n))
 // space: O(1)
 
-// test cases:
 // 0
 // -456
 // 12300
