@@ -28,7 +28,6 @@ var romanToInt = function(num) {
 // time:  O(n)
 // space: O(1)
 
-// test cases:
 // 'II'
 // 'IV'
 // 'IX'
