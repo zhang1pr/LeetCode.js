@@ -34,7 +34,6 @@ var intToRoman = function(num) {
 // time:  O(log(n))
 // space: O(1)
 
-// test cases:
 // 2
 // 3
 // 4
