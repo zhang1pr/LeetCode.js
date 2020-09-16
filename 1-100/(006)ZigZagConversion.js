@@ -8,7 +8,7 @@ var convert = function(s, numRows) {
     return s;
   }
 
-  const array = new Array(numRows).fill('');
+  const array = Array(numRows).fill('');
   let downhill = true;
   let step = 0;
 
