@@ -27,7 +27,6 @@ var removeNthFromEnd = function(head, n) {
 // time:  O(n)
 // space: O(1)
 
-// test cases:
 // [1], 1
 // [1, 2, 3], 3
 // [1, 2, 3, 4, 5], 2
