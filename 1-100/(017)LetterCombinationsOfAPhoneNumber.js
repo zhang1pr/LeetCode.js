@@ -63,13 +63,13 @@ var letterCombinations = function(digits) {
   const queue = new Queue();
   queue.enqueue('');
 
-  const array = ['', '', 'abc', 'def', 'ghi', 'jkl', 'mno', 'pqrs', 'tuv', 'wxyz'];
+  const arr = ['', '', 'abc', 'def', 'ghi', 'jkl', 'mno', 'pqrs', 'tuv', 'wxyz'];
 
   for (let i = 0; i < digits.length; i++) {
     while (queue.peek().length == i) {
       const cur = queue.dequeue();
 
-      for (const char of array[digits[i]]) {
+      for (const char of arr[digits[i]]) {
         queue.enqueue(cur + char);
       }
     }
@@ -86,7 +86,6 @@ var letterCombinations = function(digits) {
 // time:  O(4^n)
 // space: O(4^n)
 
-// test cases:
 // ''
 // '9'
 // '23'
