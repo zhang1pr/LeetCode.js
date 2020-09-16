@@ -17,7 +17,7 @@ var longestPalindrome = function(s) {
   newS += '#$';
 
   n = newS.length;
-  const array = new Array(n);
+  const array = Array(n);
 
   let C = 0
   let R = 0;
