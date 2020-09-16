@@ -50,7 +50,6 @@ var threeSum = function(nums) {
 // time:  O(n^2)
 // space: O(log(n))
 
-// test cases:
 // []
 // [1, -1]
 // [0, 0, 0, 0]
