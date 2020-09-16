@@ -21,7 +21,6 @@ var longestCommonPrefix = function(strs) {
 // time:  O(mn)
 // space: O(1)
 
-// test cases:
 // []
 // ['']
 // ['dog', 'racecar', 'car']
