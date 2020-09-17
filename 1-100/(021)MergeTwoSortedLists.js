@@ -27,7 +27,6 @@ var mergeTwoLists = function(l1, l2) {
 // time:  O(m+n)
 // space: O(1)
 
-// test cases:
 // [], []
 // [1], []
 // [-1], [1]
