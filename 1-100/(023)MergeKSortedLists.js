@@ -88,7 +88,6 @@ var mergeKLists = function(lists) {
 // time:  O(nlog(k))
 // space: O(1)
 
-// test cases:
 // []
 // [], []
 // [-1], [1]
