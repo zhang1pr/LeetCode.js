@@ -8,12 +8,12 @@ var convert = function(s, numRows) {
     return s;
   }
 
-  const array = Array(numRows).fill('');
+  const arr = Array(numRows).fill('');
   let downhill = true;
   let step = 0;
 
   for (let i = 0; i < s.length; i++) {
-    array[step] += s[i];
+    arr[step] += s[i];
 
     if (downhill) {
       step++;
@@ -30,7 +30,7 @@ var convert = function(s, numRows) {
     }
   }
 
-  return array.reduce((prev, curr) => prev + curr);
+  return arr.reduce((prev, curr) => prev + curr);
 };
 
 // time:  O(n)
