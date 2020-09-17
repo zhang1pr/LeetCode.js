@@ -17,7 +17,7 @@ var longestPalindrome = function(s) {
   newS += '#$';
 
   n = newS.length;
-  const array = Array(n);
+  const arr = Array(n);
 
   let C = 0
   let R = 0;
@@ -25,25 +25,25 @@ var longestPalindrome = function(s) {
     let i_mirror = 2 * C - i;
 
     if (R > i) {
-      array[i] = Math.min(R - i, array[i_mirror]);
+      arr[i] = Math.min(R - i, arr[i_mirror]);
     } else {
-      array[i] = 0;
+      arr[i] = 0;
     }
 
-    while (newS[i + 1 + array[i]] == newS[i - 1 - array[i]]) {
-      array[i]++;
+    while (newS[i + 1 + arr[i]] == newS[i - 1 - arr[i]]) {
+      arr[i]++;
     }
 
-    if (i + array[i] > R) {
+    if (i + arr[i] > R) {
       C = i;
-      R = i + array[i];
+      R = i + arr[i];
     }
   }
 
   let maxLen = 0;
   for (let i = 1; i < n - 1; i++) {
-    if (array[i] > maxLen) {
-      maxLen = array[i];
+    if (arr[i] > maxLen) {
+      maxLen = arr[i];
       c = i;
     }
   }
