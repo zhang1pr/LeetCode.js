@@ -23,7 +23,6 @@ var generateParenthesis = function(n) {
 // time:  O(4^n/n^(-1/2))
 // space: O(4^n/n^(-1/2))
 
-// test cases:
 // 0
 // 1
 // 3
