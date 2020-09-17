@@ -3,7 +3,7 @@
  * @return {boolean}
  */
 var isValid = function(s) {
-  const array = [];
+  const arr = [];
   const left = ['(', '[', '{'];
   const right = [')', ']', '}'];
 
@@ -11,23 +11,22 @@ var isValid = function(s) {
     const index = right.indexOf(s[i]);
 
     if (index != -1) {
-      const target = array.pop();
+      const target = arr.pop();
 
       if (!target || left.indexOf(target) != index) {
         return false;
       }
     } else {
-      array.push(s[i]);
+      arr.push(s[i]);
     }
   }
 
-  return !array.length;
+  return !arr.length;
 };
 
 // time:  O(n)
 // space: O(n)
 
-// test cases:
 // ''
 // '()'
 // '}{'
