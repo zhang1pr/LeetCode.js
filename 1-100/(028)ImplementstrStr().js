@@ -31,7 +31,6 @@ var strStr = function(haystack, needle) {
 // time:  O(n)
 // space: O(1)
 
-// test cases:
 // '', ''
 // '', 'a'
 // 'a', ''
