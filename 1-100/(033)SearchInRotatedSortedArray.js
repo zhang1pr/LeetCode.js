@@ -35,7 +35,6 @@ var search = function(nums, target) {
 // time:  O(log(n))
 // space: O(1)
 
-// test cases:
 // [], 0
 // [1], 1
 // [3, 1], 1
