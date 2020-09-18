@@ -58,7 +58,6 @@ var searchRange = function(nums, target) {
 // time:  O(log(n))
 // space: O(1)
 
-// test cases:
 // [], 0
 // [1], 1
 // [1], 0
