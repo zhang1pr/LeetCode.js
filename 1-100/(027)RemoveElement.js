@@ -28,7 +28,6 @@ var removeElement = function(nums, val) {
 // time:  O(n)
 // space: O(1)
 
-// test cases:
 // [], 0
 // [1, 2], 3
 // [2, 2, 1, 3], 2
