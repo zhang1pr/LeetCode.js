@@ -47,7 +47,6 @@ var longestValidParentheses = function(s) {
 // time:  O(n)
 // space: O(1)
 
-// test cases:
 // ''
 // ')('
 // '()'
