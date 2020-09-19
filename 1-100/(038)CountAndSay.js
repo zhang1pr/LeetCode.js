@@ -27,7 +27,6 @@ var countAndSay = function(n) {
 // time:  O(1)
 // space: O(1)
 
-// test cases:
 // 1
 // 5
 // 30
