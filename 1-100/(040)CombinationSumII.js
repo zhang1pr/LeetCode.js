@@ -17,7 +17,7 @@ var combinationSum2 = function(candidates, target) {
     if (candidates[i - 1] != num) {
       for (let j = target; j >= num; j--) {
         if (dp[j - num]) {
-          res = dp[j - num].map(array => array.concat(num));
+          res = dp[j - num].map(arr => arr.concat(num));
           next.push([j, res]);
           dp[j] = [...dp[j] || [], ...res];
         }
@@ -27,7 +27,7 @@ var combinationSum2 = function(candidates, target) {
         const newSum = sum + num;
 
         if (newSum <= target) {
-          res = list.map(array => array.concat(num));
+          res = list.map(arr => arr.concat(num));
           next.push([newSum, res]);
           dp[newSum] = [...dp[newSum] || [], ...res];
         }
@@ -43,7 +43,6 @@ var combinationSum2 = function(candidates, target) {
 // time:  O(n*k^2)
 // space: O(k^3)
 
-// test cases:
 // [1], 1
 // [1], 3
 // [2, 5, 2, 1], 5
