@@ -26,7 +26,6 @@ var searchInsert = function(nums, target) {
 // time:  O(log(n))
 // space: O(1)
 
-// test cases:
 // [], 0
 // [1], 0
 // [1], 1
