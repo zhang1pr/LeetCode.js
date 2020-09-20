@@ -28,7 +28,6 @@ var trap = function(height) {
 // time:  O(n)
 // space: O(1)
 
-// test cases:
 // [1]
 // [0, 1]
 // [1, 0]
