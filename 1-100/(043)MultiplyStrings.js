@@ -4,28 +4,84 @@
  * @return {string}
  */
 var multiply = function(num1, num2) {
-  const array = new Array(num1.length + num2.length).fill(0);
-
-  let index;
-  let sum;
-
-  for (let i = num1.length - 1; i >= 0; i--) {
-    for (let j = num2.length - 1; j >= 0; j--) {
-      index = i + j;
-      sum = parseInt(num1[i]) * parseInt(num2[j]) + array[index+1];
-
-      array[index] += Math.floor(sum / 10);
-      array[index+1] = sum % 10;
-    }
+  if (num1 == '0' || num2 =='0') {
+    return '0';
   }
 
-  return array.join('').replace(/^0+(?!$)/, '');
+  function add(num1, num2) {
+    let i = num1.length-1;
+    let j = num2.length-1;
+    let a;
+    let b;
+    let c;
+    let carry = 0;
+    let sum = '';
+
+    while (i >= 0 || j >= 0) {
+      if (i >= 0) {
+        a = Number(num1[i]);
+        i--;
+      } else {
+        a = 0;
+      }
+
+     if (j >= 0) {
+        b = Number(num2[j]);
+        j--;
+      } else {
+        b = 0;
+      }
+
+      c = a + b + carry;
+
+      if (c > 9) {
+        c -= 10;
+        carry = 1;
+      } else {
+        carry = 0;
+      }
+
+      sum = c.toString() + sum;
+    }
+
+    if (carry > 0) {
+      sum = '1' +sum;
+    }
+
+    return sum;
+  }
+
+  let sum = '0';
+  let index = 0;
+
+  for (let i = num1.length - 1; i >= 0; i--) {
+    let carry = 0;
+    let curSum = '';
+
+    for (let j = num2.length - 1; j >= 0; j--) {
+      const a = Number(num1[i]);
+      const b = Number(num2[j]);
+      const c = a * b + carry;
+      carry = Math.floor(c / 10);
+      curSum = (c - carry * 10).toString() + curSum;
+    }
+
+    if (carry > 0) {
+      curSum = carry.toString() + curSum;
+    }
+
+    curSum += '0'.repeat(index);
+    index++;
+
+    sum = add(sum, curSum);
+  }
+
+  return sum;
 };
 
 // time:  O(n)
 // space: O(1)
 
-// test cases:
 // '0', '0'
 // '0', '1'
 // '2', '3'
