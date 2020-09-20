@@ -6,13 +6,13 @@ var groupAnagrams = function(strs) {
   const map = new Map();
 
   for (const str of strs) {
-    const array = new Array(26).fill(0);
+    const arr = Array(26).fill(0);
 
     for (const char of str) {
-      array[char.charCodeAt(0) - 97]++;
+      arr[char.charCodeAt(0) - 97]++;
     }
 
-    const string = array.join('#');
+    const string = arr.join('#');
 
     if (map.has(string)) {
       map.get(string).push(str);
@@ -27,7 +27,6 @@ var groupAnagrams = function(strs) {
 // time:  O(n*maxLen(s))
 // space: O(n*maxLen(s))
 
-// test cases:
 // ['a']
 // ['a', 'aa', 'aaa']
 // ['not', 'ton', 'ontz']
