@@ -22,7 +22,6 @@ var jump = function(nums) {
 // time:  O(n)
 // space: O(1)
 
-// test cases:
 // [0]
 // [1]
 // [3, 3]
