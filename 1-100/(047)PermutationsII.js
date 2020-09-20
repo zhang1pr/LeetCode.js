@@ -5,34 +5,33 @@
 var permuteUnique = function(nums) {
   nums.sort((a, b) => a - b);
 
-  const array = [];
+  const arr = [];
   const stack = [];
 
-  function generatePermutation(arrayToDo) {
-    if (!arrayToDo.length) {
-      array.push(stack.slice());
+  function generatePermutation(ToDo) {
+    if (!ToDo.length) {
+      arr.push(stack.slice());
     } else {
-      for (let i = 0; i < arrayToDo.length; i++) {
-        if (arrayToDo[i] == arrayToDo[i-1]) {
+      for (let i = 0; i < ToDo.length; i++) {
+        if (ToDo[i] == ToDo[i-1]) {
           continue;
         }
 
-        stack.push(arrayToDo[i]);
-        generatePermutation([...arrayToDo.slice(0, i), ...arrayToDo.slice(i+1)]);
-        stack.pop(arrayToDo[i]);
+        stack.push(ToDo[i]);
+        generatePermutation([...ToDo.slice(0, i), ...ToDo.slice(i+1)]);
+        stack.pop(ToDo[i]);
       }
     }
   }
 
   generatePermutation(nums);
 
-  return array;
+  return arr;
 };
 
 // time:  O(n!)
 // space: O(n^2)
 
-// test cases:
 // []
 // [1]
 // [1, 2]
