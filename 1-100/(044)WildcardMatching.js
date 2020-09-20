@@ -36,7 +36,6 @@ var isMatch = function(s, p) {
 // time:  O(mn)
 // space: O(1)
 
-// test cases:
 // 'aa', 'a'
 // 'aa', '*'
 // 'cb', '?a'
