@@ -26,7 +26,6 @@ var myPow = function(x, n) {
 // time:  O(log(n))
 // space: O(1)
 
-// test cases:
 // 0, 0
 // 1, 0
 // 1, 1
