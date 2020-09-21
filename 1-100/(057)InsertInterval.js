@@ -38,7 +38,6 @@ var insert = function(intervals, newInterval) {
 // time:  O(n)
 // space: O(1)
 
-// test cases:
 // [[3, 3]], [3, 3]
 // [[3, 3]], [1, 2]
 // [[3, 3]], [4, 5]
