@@ -7,16 +7,16 @@ var jump = function(nums) {
   let maxPosition = 0;
   let targetPosition = 0;
 
-	for (let i = 0; i < nums.length - 1; i++) {
+  for (let i = 0; i < nums.length - 1; i++) {
     targetPosition = Math.max(targetPosition, i + nums[i]);
 
     if (i == maxPosition) {
-			jump++;
-			maxPosition = targetPosition;
-		}
+      jump++;
+      maxPosition = targetPosition;
+    }
   }
 
-	return jump;
+  return jump;
 };
 
 // time:  O(n)
