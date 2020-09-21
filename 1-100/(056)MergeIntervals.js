@@ -24,7 +24,6 @@ var merge = function(intervals) {
 // time:  O(nlog(n))
 // space: O(1)
 
-// test cases:
 // [[3, 3]]
 // [[1, 3], [1, 3]]
 // [[1, 3], [5, 7]]
