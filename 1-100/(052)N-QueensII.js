@@ -3,9 +3,9 @@
  * @return {number}
  */
 var totalNQueens = function(n) {
-  const cols = new Array(n).fill(false);
-  const diagonal1 = new Array(2 * n).fill(false);
-  const diagonal2 = new Array(2 * n).fill(false);
+  const cols = Array(n).fill(false);
+  const diagonal1 = Array(2 * n).fill(false);
+  const diagonal2 = Array(2 * n).fill(false);
   let res = 0;
 
   function DFS(row) {
@@ -42,7 +42,6 @@ var totalNQueens = function(n) {
 // time:  O(n!)
 // space: O(n)
 
-// test cases:
 // 1
 // 2
 // 3
