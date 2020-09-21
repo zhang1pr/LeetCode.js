@@ -3,15 +3,15 @@
  * @return {string[][]}
  */
 var solveNQueens = function(n) {
-  const cols = new Array(n).fill(false);
-  const diagonal1 = new Array(2 * n).fill(false);
-  const diagonal2 = new Array(2 * n).fill(false);
+  const cols = Array(n).fill(false);
+  const diagonal1 = Array(2 * n).fill(false);
+  const diagonal2 = Array(2 * n).fill(false);
   const res = [];
-  const board = [...new Array(n)].map(() => new Array(n).fill('.'));
+  const board = [...Array(n)].map(() => Array(n).fill('.'));
 
   function DFS(row) {
     if (row == n) {
-      res.push(board.map(array => array.join('')));
+      res.push(board.map(arr => arr.join('')));
     } else {
       for (let i = 0; i < n; i++) {
         const col = i;
@@ -45,7 +45,6 @@ var solveNQueens = function(n) {
 // time:  O(n!)
 // space: O(n^2)
 
-// test cases:
 // 1
 // 2
 // 3
