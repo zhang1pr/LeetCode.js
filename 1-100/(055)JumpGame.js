@@ -17,7 +17,6 @@ var canJump = function(nums) {
 // time:  O(n)
 // space: O(1)
 
-// test cases:
 // [0]
 // [1, 0]
 // [1, 0, 2]
