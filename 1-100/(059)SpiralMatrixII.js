@@ -3,7 +3,7 @@
  * @return {number[][]}
  */
 var generateMatrix = function(n) {
-  const matrix = [...new Array(n)].map(() => new Array(n).fill(0));
+  const matrix = [...Array(n)].map(() => Array(n).fill(0));
 
   let a = 0;
   let b = n - 1;
@@ -42,7 +42,6 @@ var generateMatrix = function(n) {
 // time:  O(n)
 // space: O(1)
 
-// test cases:
 // 0
 // 1
 // 2
