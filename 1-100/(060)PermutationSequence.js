@@ -5,7 +5,7 @@
  */
 var getPermutation = function(n, k) {
   const factorial = [1];
-  const nums = [...new Array(n)].map((value, index) => index + 1);
+  const nums = [...Array(n)].map((val, index) => index + 1);
   let res = "";
   let product = 1;
   let i;
@@ -30,7 +30,6 @@ var getPermutation = function(n, k) {
 // time:  O(1)
 // space: O(1)
 
-// test cases:
 // 1, 1
 // 2, 1
 // 2, 2
