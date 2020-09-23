@@ -18,7 +18,7 @@ var uniquePaths = function(m, n) {
 // time:  O(1)
 // space: O(1)
 
-// test cases:
+
 // 1, 1
 // 1, 3
 // 3, 1
