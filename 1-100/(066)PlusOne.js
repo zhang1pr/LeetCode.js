@@ -18,7 +18,6 @@ var plusOne = function(digits) {
 // time:  O(n)
 // space: O(1)
 
-// test cases:
 // [0]
 // [1, 2, 3]
 // [1, 9, 9]
