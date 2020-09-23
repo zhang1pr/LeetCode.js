@@ -28,7 +28,7 @@ var minPathSum = function(grid) {
 // time:  O(mn)
 // space: O(1)
 
-// test cases:
+
 // [[0]]
 // [[1, 2]]
 // [[1], [2]]
