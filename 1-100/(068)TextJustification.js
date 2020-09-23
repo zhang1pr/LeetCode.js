@@ -69,7 +69,6 @@ var fullJustify = function(words, maxWidth) {
 // time:  O(n)
 // space: O(1)
 
-// test cases:
 // ['OK!'], 4
 // ['This', 'is', 'an', 'example', 'of', 'text', 'justification.'], 16
 // ['What', 'must', 'be', 'acknowledgment', 'shall', 'be.'], 16
