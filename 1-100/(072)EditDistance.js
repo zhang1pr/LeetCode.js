@@ -4,7 +4,7 @@
  * @return {number}
  */
 var minDistance = function(word1, word2) {
-  const dp = [...new Array(word2.length + 1)].map((i, idx) => idx);
+  const dp = [...Array(word2.length + 1)].map((i, idx) => idx);
 
   for (let i = 1; i < word1.length + 1; i++) {
     let pre = dp[0];
