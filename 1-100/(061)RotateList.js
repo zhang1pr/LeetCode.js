@@ -30,7 +30,7 @@ var rotateRight = function(head, k) {
 // time:  O(n)
 // space: O(1)
 
-// test cases:
+
 // [], 0
 // [1], 1
 // [1], 2
