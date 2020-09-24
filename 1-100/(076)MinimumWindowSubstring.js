@@ -4,59 +4,65 @@
  * @return {string}
  */
 var minWindow = function(s, t) {
-  let min = '';
-  let left = 0;
-  let right = -1;
-  const map = {};
+  const map = new Map();
 
-  for (let i = 0; i < t.length; i++) {
-    if (map[t[i]] == null) {
-      map[t[i]] = 1;
-    } else {
-      map[t[i]]++;
-    }
-  };
+  for (const char of t) {
+    map.set(char, (map.get(char) || 0) + 1);
+  }
 
-  let count = Object.keys(map).length;
+  let size = map.size;
 
-  let current;
-  let temp;
-  while (right <= s.length) {
-    if (count == 0) {
-      current = s[left];
-
-      if (map[current] != null) {
-        map[current]++;
-      }
-
-      if (map[current] > 0) {
-        count++;
-      }
-
-      temp = s.substring(left, right+1);
-
-      if (min == '') {
-        min = temp;
-      } else {
-        min = min.length < temp.length ? min : temp;
-      }
-      left++;
-    } else {
-      right++;
-      current = s[right];
-
-      if (map[current] != null) {
-        map[current]--;
-      }
-
-      if (map[current] == 0) {
-        count--;
-      }
+  const arr = [];
+  for (let i = 0; i < s.length; i++) {
+    if (map.has(s[i])) {
+      arr.push([s[i], i]);
     }
   }
 
-  return min;
-}
+  let left = 0;
+  let right = 0;
+  let leftCur;
+  let rightCur;
+  let leftRes = 0;
+  let rightRes = s.length;
+
+  while (right <= arr.length) {
+    if (size == 0) {
+      const [char, index] = arr[left];
+      leftCur = index;
+      const get = map.get(char);
+      map.set(char, get +1);
+
+      if (get == 0) {
+        size++;
+      }
+
+      if (rightRes - leftRes > rightCur - leftCur) {
+        rightRes = rightCur;
+        leftRes = leftCur;
+      }
+
+      left++;
+    } else {
+      if (right == arr.length) {
+        break;
+      }
+
+      const [char, index] = arr[right];
+      rightCur = index;
+      const get = map.get(char);
+      map.set(char, get - 1);
+
+      if (get == 1) {
+        size--;
+      }
+
+      right++;
+    }
+  }
+
+  return rightRes == s.length ? '' : s.slice(leftRes, rightRes + 1);
+};
 
 // time:  O(m+n)
 // space: O(m+n)
