@@ -32,7 +32,6 @@ var largestRectangleArea = function(heights) {
 // time:  O(n)
 // space: O(n)
 
-// test cases:
 // []
 // [1]
 // [1, 2]
