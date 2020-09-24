@@ -25,7 +25,6 @@ var subsetsWithDup = function(nums) {
 // time:  O(2^n)
 // space: O(n)
 
-// test cases:
 // []
 // [0]
 // [0, 0]
