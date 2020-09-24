@@ -52,7 +52,6 @@ var isScramble = function(s1, s2) {
 // time:  O(n^4)
 // space: O(n^3)
 
-// test cases:
 // '', ''
 // 'a', 'b'
 // 'ab', 'ba'
