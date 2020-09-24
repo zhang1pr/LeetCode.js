@@ -3,23 +3,31 @@
  * @return {number[][]}
  */
 var subsets = function(nums) {
-	const res = [];
+  const res = [];
+  const bit = 1 << nums.length;
 
-	function backtrack(index, array) {
-    res.push(array)
+  for (let i = 0; i < bit; i++) {
+    const arr = [];
+    let count = 0;
+    let cur = i;
 
-		for (let i = index; i < nums.length; i++) {
-			backtrack(i + 1, [...array, nums[i]])
-		}
-	}
+    while (cur != 0) {
+      if (cur % 2 == 1) {
+        arr.push(nums[count]);
+      }
 
-	backtrack(0, []);
+      count++;
+      cur >>= 1;
+    }
 
-	return res;
+    res.push(arr);
+  }
+
+  return res;
 };
 
 // time:  O(n*2^n)
-// space: O(2^n)
+// space: O(n)
 
 // [0]
 // [1]
