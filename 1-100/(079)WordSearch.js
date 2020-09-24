@@ -4,37 +4,35 @@
  * @return {boolean}
  */
 var exist = function(board, word) {
-  const m = board.length;
-  const n = board[0].length;
-  const dir = [[1, 0], [-1, 0], [0, 1], [0, -1]];
-  const set = new Set();
+  const dir = [[-1, 0], [1, 0], [0, -1], [0, 1]];
 
-  function DFS(i, j, index) {
-    if (word.length == index) {
+  function DFS(i,j,index) {
+    if (index == word.length) {
       return true;
     }
 
-    set.add(i + ',' + j);
+    if (i < 0 || i >= board.length || j < 0 || j >= board[0].length || board[i][j] != word[index]) {
+      return false;
+    }
 
-    for (const [di, dj] of dir) {
-      const newI = di + i;
-      const newJ = dj + j;
+    const temp = board[i][j];
+    board[i][j] = '!';
 
-      const newStr = newI + ',' + newJ;
+    for (const [dx,dy] of dir) {
+      const x = dx + i;
+      const y = dy + j;
 
-      if (!set.has(newStr) && 0 <= newI && newI < m && 0 <= newJ && newJ < n && board[newI][newJ] == word[index] && DFS(newI, newJ, index+1)) {
+      if (DFS(x, y, index + 1)) {
         return true;
       }
     }
 
-    set.delete(i + ',' + j);
-
-    return false;
+    board[i][j] = temp;
   }
 
-  for (let i = 0; i < m; i++) {
-    for (let j = 0; j < n; j++) {
-      if (board[i][j] == word[0] && DFS(i, j, 1)) {
+  for (let i = 0; i < board.length; i++) {
+    for (let j = 0; j < board[0].length; j++) {
+      if (DFS(i, j, 0)) {
         return true;
       }
     }
