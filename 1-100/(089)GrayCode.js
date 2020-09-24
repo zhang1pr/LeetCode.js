@@ -19,7 +19,6 @@ var grayCode = function(n) {
 // time:  O(2^n)
 // space: O(1)
 
-// test cases:
 // 0
 // 1
 // 2
