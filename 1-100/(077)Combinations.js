@@ -5,19 +5,19 @@
  */
 var combine = function(n, k) {
   const res = [];
-  const array = new Array(k).fill(0);
+  const arr = Array(k).fill(0);
 
   let i = 0;
   while (i >= 0) {
-    array[i]++;
+    arr[i]++;
 
-    if (array[i] > n) {
+    if (arr[i] > n) {
       i--;
     } else if (i == k - 1) {
-      res.push(array.slice());
+      res.push(arr.slice());
     } else {
       i++;
-      array[i] = array[i - 1];
+      arr[i] = arr[i - 1];
     }
   }
 
