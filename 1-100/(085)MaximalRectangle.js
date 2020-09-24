@@ -55,7 +55,6 @@ var maximalRectangle = function(matrix) {
 // time:  O(mn)
 // space: O(n)
 
-// test cases:
 // [[]]
 // [['0']]
 // [['1']]
