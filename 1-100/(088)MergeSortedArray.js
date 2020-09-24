@@ -30,7 +30,6 @@ var merge = function(nums1, m, nums2, n) {
 // time:  O(n)
 // space: O(1)
 
-// test cases:
 // [0], 0, [0], 0
 // [0], 0, [1], 1
 // [0, 0], 1, [1], 1
