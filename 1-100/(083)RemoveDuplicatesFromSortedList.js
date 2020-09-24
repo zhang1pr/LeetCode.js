@@ -20,7 +20,6 @@ var deleteDuplicates = function(head) {
 // time:  O(n)
 // space: O(1)
 
-// test cases:
 // []
 // [1]
 // [1, 1]
