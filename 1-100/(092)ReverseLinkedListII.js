@@ -50,7 +50,6 @@ var reverseBetween = function(head, m, n) {
 // time:  O(n)
 // space: O(1)
 
-// test cases:
 // [1], 1, 1
 // [1, 2], 1, 2
 // [1, 2], 2, 2
