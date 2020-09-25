@@ -31,7 +31,6 @@ var numDecodings = function(s) {
 // time:  O(n)
 // space: O(1)
 
-// test cases:
 // '1'
 // '10'
 // '11'
