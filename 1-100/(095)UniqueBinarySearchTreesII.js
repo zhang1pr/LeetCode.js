@@ -34,7 +34,6 @@ var generateTrees = function(n) {
 // time:  O((2n)!/((n+1)!*n!))
 // space: O((2n)!/((n+1)!*n!))
 
-// test cases:
 // 0
 // 1
 // 2
