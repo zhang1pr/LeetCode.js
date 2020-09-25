@@ -44,7 +44,6 @@ var restoreIpAddresses = function(s) {
 // time:  O(1)
 // space: O(1)
 
-// test cases:
 // '111'
 // '2555'
 // '010010'
