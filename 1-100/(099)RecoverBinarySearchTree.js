@@ -51,7 +51,6 @@ var recoverTree = function(root) {
 // time:  O(n)
 // space: O(1)
 
-// test cases:
 // [3, 2, 1]
 // [1, 3, 2]
 // [1, 3, null, null, 2]
