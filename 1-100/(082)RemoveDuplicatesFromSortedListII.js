@@ -6,20 +6,25 @@
 var deleteDuplicates = function(head) {
   const dummy = new ListNode();
   dummy.next = head;
-  let node = dummy;
 
-  while (node.next) {
-    if (node.next.next && node.next.val === node.next.next.val) {
-      let probe = node.next.next.next;
-      while (probe && probe.val === node.next.val) {
-        probe = probe.next;
-      }
-      node.next = probe;
-    } else {
-      node = node.next;
+  let pre = dummy;
+  let cur = head;
+
+  while (cur) {
+    while (cur && cur.next && cur.val == cur.next.val) {
+      cur = cur.next;
     }
+
+    if (pre.next == cur) {
+      pre = cur;
+    } else {
+      pre.next = cur.next;
+    }
+
+    cur = pre.next;
   }
-  return dummy.next;
+
+  return d.next;
 };
 
 // time:  O(n)
