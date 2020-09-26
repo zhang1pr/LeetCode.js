@@ -31,7 +31,6 @@ var isValidBST = function(root) {
 // time:  O(n)
 // space: O(n)
 
-// test cases:
 // []
 // [1]
 // [1, 2, 3]
