@@ -22,7 +22,6 @@ var isSameTree = function(p, q) {
 // time:  O(n)
 // space: O(n)
 
-// test cases:
 // [null], [null]
 // [1], [1]
 // [1, 2], [1, null, 2]
