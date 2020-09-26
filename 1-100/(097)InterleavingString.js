@@ -9,7 +9,7 @@ var isInterleave = function(s1, s2, s3) {
     return false;
   }
 
-  const dp = new Array(s2.length + 1).fill(0);
+  const dp = Array(s2.length + 1).fill(0);
 
   for (let i = 0; i <= s1.length; i++) {
     for (let j = 0; j <= s2.length; j++) {
@@ -31,7 +31,6 @@ var isInterleave = function(s1, s2, s3) {
 // time:  O(mn)
 // space: O(mn)
 
-// test cases:
 // '', '', 'a'
 // 'a', 'a', 'a'
 // 'a', 'a', 'aa'
