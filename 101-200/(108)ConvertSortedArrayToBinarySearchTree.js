@@ -22,7 +22,6 @@ var sortedArrayToBST = function(nums) {
 // time:  O(n)
 // space: O(n)
 
-// test cases:
 // []
 // [1]
 // [1, 2]
