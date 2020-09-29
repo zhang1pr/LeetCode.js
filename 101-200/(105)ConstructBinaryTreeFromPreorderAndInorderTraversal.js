@@ -42,7 +42,6 @@ var buildTree = function(preorder, inorder) {
 // time:  O(n)
 // space: O(n)
 
-// test cases:
 // [], []
 // [1], [1]
 // [1, 2], [1, 2]
