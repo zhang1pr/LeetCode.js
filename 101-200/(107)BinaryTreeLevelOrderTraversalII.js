@@ -3,17 +3,17 @@
  * @return {number[][]}
  */
 var levelOrderBottom = function(root) {
-  const array = [];
+  const arr = [];
 
   function DFS(root, level) {
     if (root == null) {
       return;
     }
 
-    if (!array[level]) {
-      array[level] = [root.val];
+    if (![level]) {
+      arr[level] = [root.val];
     } else {
-      array[level].push(root.val);
+      arr[level].push(root.val);
     }
 
     DFS(root.left, level+1);
@@ -21,13 +21,12 @@ var levelOrderBottom = function(root) {
   }
 
   DFS(root, 0);
-  return array.reverse();
+  return arr.reverse();
 };
 
 // time:  O(n)
 // space: O(n)
 
-// test cases:
 // [null]
 // [1]
 // [1, null, 2]
