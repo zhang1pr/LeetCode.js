@@ -35,7 +35,6 @@ var sortedListToBST = function(head) {
 // time:  O(n)
 // space: O(log(n))
 
-// test cases:
 // []
 // [1]
 // [1, 2]
