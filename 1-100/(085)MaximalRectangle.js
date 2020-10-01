@@ -18,7 +18,7 @@ var maximalRectangle = function(matrix) {
   for (row = 0; row < matrix.length; row++) {
     for (col = 0; col < cols; col++) {
       if (matrix[row][col] == '1') {
-        heights[col] += 1;
+        heights[col]++;
       } else {
         heights[col] = 0;
       }
@@ -44,7 +44,7 @@ var maximalRectangle = function(matrix) {
       }
     }
 
-    for (let col = cols - 1; col >= 0; col--) {
+    for (col = cols - 1; col >= 0; col--) {
       maxArea = Math.max(maxArea, (rightMin[col] - leftMin[col] - 1) * heights[col]);
     }
   }
