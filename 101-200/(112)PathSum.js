@@ -38,7 +38,6 @@ var hasPathSum = function(root, sum) {
 // time:  O(n)
 // space: O(n)
 
-// test cases:
 // [null], 0
 // [1], 0
 // [1], 1
