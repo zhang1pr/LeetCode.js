@@ -6,7 +6,7 @@
 var getPermutation = function(n, k) {
   const factorial = [1];
   const nums = [...Array(n)].map((val, index) => index + 1);
-  let res = "";
+  let res = '';
   let product = 1;
   let i;
   let index;
