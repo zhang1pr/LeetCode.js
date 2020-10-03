@@ -28,7 +28,6 @@ var getRow = function(rowIndex) {
 // time:  O(n^2)
 // space: O(1)
 
-// test cases:
 // 0
 // 1
 // 2
