@@ -63,4 +63,4 @@ var findSubstring = function(s, words) {
 // 'foo', ['']
 // '', ['foo']
 // 'barfoothefoobarman', ['foo', 'bar']
-// 'wordgoodgoodgoodbestword", ['word', 'good', 'best', 'word']
+// 'wordgoodgoodgoodbestword', ['word', 'good', 'best', 'word']
