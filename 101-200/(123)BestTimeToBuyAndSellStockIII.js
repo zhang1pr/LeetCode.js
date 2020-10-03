@@ -26,7 +26,6 @@ var maxProfit = function(prices) {
 // time:  O(n)
 // space: O(1)
 
-// test cases:
 // []
 // [1]
 // [1, 3, 1]
