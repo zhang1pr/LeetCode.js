@@ -14,7 +14,6 @@ var minimumTotal = function(triangle) {
 // time:  O(n^2)
 // space: O(1)
 
-// test cases:
 // [[0]]
 // [[0], [1, -1]]
 // [[2], [3, 4], [6, 5, 7], [4, 1, 8, 3]]
