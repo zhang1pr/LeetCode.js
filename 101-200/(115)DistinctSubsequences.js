@@ -7,7 +7,7 @@ var numDistinct = function(s, t) {
   const sLen = s.length;
   const tLen = t.length;
 
-  const dp = new Array(sLen + 1).fill(0);
+  const dp = Array(sLen + 1).fill(0);
   let i;
   let j;
   let pre;
@@ -38,7 +38,6 @@ var numDistinct = function(s, t) {
 // time:  O(mn)
 // space: O(n)
 
-// test cases:
 // '', ''
 // 'a', ''
 // 'a', 'a'
