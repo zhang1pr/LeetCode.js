@@ -77,7 +77,6 @@ var ladderLength = function(beginWord, endWord, wordList) {
 // time:  O(b^(d/2))
 // space: O(b^(d/2))
 
-// test cases:
 // 'hit', 'hog', ['hog']
 // 'hit', 'hat', ['hot']
 // 'hit', 'cog', ['hot', 'dot', 'dog', 'lot', 'log']
