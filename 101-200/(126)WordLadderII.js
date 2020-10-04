@@ -84,7 +84,7 @@ var findLadders = function(beginWord, endWord, wordList) {
 
   BFS(beginWord, endWord, wordList, map);
 
-  function findLaddersHelper(beginWord, endWord, map) {
+  function DFS(beginWord, endWord, map) {
     if (beginWord == endWord) {
       res.push(temp.slice());
       return;
@@ -93,13 +93,13 @@ var findLadders = function(beginWord, endWord, wordList) {
     const neighbors = map.get(beginWord) || [];
     for (const neighbor of neighbors) {
       temp.push(neighbor);
-      findLaddersHelper(neighbor, endWord, map);
+      DFS(neighbor, endWord, map);
       temp.pop();
     }
   }
 
   const temp = [beginWord];
-  findLaddersHelper(beginWord, endWord, map);
+  DFS(beginWord, endWord, map);
 
   return res;
 };
@@ -107,7 +107,6 @@ var findLadders = function(beginWord, endWord, wordList) {
 // time:  O(b^(d/2))
 // space: O(b^(d/2))
 
-// test cases:
 // 'hit', 'hog', ['hog']
 // 'hit', 'hat', ['hot']
 // 'hit', 'cog', ['hot', 'dot', 'dog', 'lot', 'log']
