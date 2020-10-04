@@ -28,7 +28,6 @@ var longestConsecutive = function(nums) {
 // time:  O(n)
 // space: O(n)
 
-// test cases:
 // []
 // [0]
 // [1, 2, 3]
