@@ -31,7 +31,6 @@ var cloneGraph = function(node) {
 // time:  O(n)
 // space: O(n)
 
-// test cases:
 // []
 // [[]]
 // [[2], [1]]
