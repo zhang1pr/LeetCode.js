@@ -4,7 +4,7 @@
  */
 var minCut = function(s) {
   const length = s.length;
-  const dp = Array.from(new Array(length).keys());
+  const dp = Array.from(Array(length).keys());
 
   let j;
   for (let i = 0; i < length; i++) {
@@ -53,7 +53,6 @@ var minCut = function(s) {
 // time:  O(n^2)
 // space: O(n)
 
-// test cases:
 // ''
 // 'a'
 // 'aa'
