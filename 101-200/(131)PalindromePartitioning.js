@@ -5,7 +5,7 @@
 var partition = function(s) {
   const res = [];
   const length = s.length;
-  const dp = new Array(length).fill(0).map(() => new Array(length).fill(0));
+  const dp = [...Array(length)].map(() => Array(length).fill(0));
   const stack = [];
 
   for (let diff = 1; diff <= length; diff++) {
@@ -36,7 +36,6 @@ var partition = function(s) {
 // time:  O(n^2)
 // space: O(m^2)
 
-// test cases:
 // ''
 // 'a'
 // 'aa'
