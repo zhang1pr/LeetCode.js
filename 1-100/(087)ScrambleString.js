@@ -12,35 +12,34 @@ var isScramble = function(s1, s2) {
     return true;
   }
 
-  const letters = Array(26).fill(0);
+  const arr = Array(26).fill(0);
 
   for (let i = 0; i < s1.length; i++) {
-    letters[s1[i].charCodeAt(0) - 97]++;
-    letters[s2[i].charCodeAt(0) - 97]--;
+    arr[s1[i].charCodeAt(0) - 97]++;
+    arr[s2[i].charCodeAt(0) - 97]--;
   }
 
-  for (let i = 0; i < 26; i++) {
-    if (letters[i] != 0) {
+  for (const item of arr) {
+    if (item) {
       return false;
     }
   }
 
   const len = s1.length;
-  const dp = [...Array(len + 1)].map(() => [...Array(len)].map(() => Array(len).fill(0)));
+  const dp = [...Array(len + 1)].map(() => [...Array(len)].map(() => Array(len).fill(false)));
+
+  for (let i = 0; i < len; i++) {
+    for (let j = 0; j < len; j++) {
+      dp[1][i][j] = s1[i] == s2[j];
+    }
+  }
+
 
   for (let l = 1; l <= len; l ++) {
     for (let i = 0; i + l <= len; i++) {
       for (let j = 0; j + l <= len; j++) {
-        if (l == 1) {
-          dp[l][i][j] = s1[i] == s2[j];
-        } else {
-          for (let k = 1; k < l; k++) {
-            dp[l][i][j] = dp[k][i][j] && dp[l - k][i + k][j + k] || dp[k][i][j + l - k] && dp[l - k][i + k][j];
-
-            if (dp[l][i][j]) {
-              break;
-            }
-          }
+        for (let k = 1; k < l && !dp[l][i][j]; k++) {
+          dp[l][i][j] = dp[k][i][j] && dp[l - k][i + k][j + k] || dp[k][i][j + l - k] && dp[l - k][i + k][j];
         }
       }
     }
