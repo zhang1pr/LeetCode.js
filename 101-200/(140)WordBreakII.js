@@ -41,7 +41,6 @@ var wordBreak = function(s, wordDict) {
 // time:  O(2^n)
 // space: O(2^n)
 
-// test cases:
 // 'leetcode', ['leet', 'code']
 // 'applepenapple', ['apple', 'pen']
 // 'catsandog', ['cats', 'dog', 'sand', 'and', 'cat']
