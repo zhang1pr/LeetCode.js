@@ -55,7 +55,6 @@ var reverseList = function(head) {
 // time:  O(n)
 // space: O(1)
 
-// test cases:
 // [1]
 // [1, 2]
 // [1, 2, 3]
