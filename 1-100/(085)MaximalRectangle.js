@@ -7,59 +7,42 @@ var maximalRectangle = function(matrix) {
     return 0;
   }
 
-  let maxArea = 0;
+  let max = 0;
   let cols = matrix[0].length;
   const leftMin = Array(cols).fill(-1);
   const rightMin = Array(cols).fill(cols);
   const heights = Array(cols).fill(0);
 
-  let row;
-  let col;
-  for (row = 0; row < matrix.length; row++) {
-    for (col = 0; col < cols; col++) {
-      if (matrix[row][col] == '1') {
-        heights[col]++;
-      } else {
-        heights[col] = 0;
-      }
-    }
-
+  for (let i = 0; i < matrix.length; i++) {
     let boundary = -1;
-    for (col = 0; col < cols; col++) {
-      if (matrix[row][col] == '1') {
-        leftMin[col] = Math.max(leftMin[col], boundary);
+
+    for (let j = 0; j < cols; j++) {
+      if (matrix[i][j] == '1') {
+        heights[j]++;
       } else {
-        leftMin[col] = -1;
-        boundary = col;
+        heights[j] = 0;
+      }
+
+      if (matrix[i][j] == '1') {
+        leftMin[j] = Math.max(leftMin[j], boundary);
+      } else {
+        leftMin[j] = -1;
+        boundary = j;
       }
     }
 
     boundary = cols;
-    for (col = cols - 1; col >= 0; col--) {
-      if (matrix[row][col] == '1') {
-        rightMin[col] = Math.min(rightMin[col], boundary);
+    for (j = cols - 1; j >= 0; j--) {
+      if (matrix[i][j] == '1') {
+        rightMin[j] = Math.min(rightMin[j], boundary);
       } else {
-        rightMin[col] = cols;
-        boundary = col;
+        rightMin[j] = cols;
+        boundary = j;
       }
-    }
 
-    for (col = cols - 1; col >= 0; col--) {
-      maxArea = Math.max(maxArea, (rightMin[col] - leftMin[col] - 1) * heights[col]);
+      max = Math.max(max, (rightMin[j] - leftMin[j] - 1) * heights[j]);
     }
   }
 
-  return maxArea;
+  return max;
 };
-
-// time:  O(mn)
-// space: O(n)
-
-// [[]]
-// [['0']]
-// [['1']]
-// [['1', '1'], ['0', '0']]
-// [['1', '0'], ['0', '1']]
-// [['1', '0'], ['1', '0']]
-// [['1', '1'], ['1', '1']]
-// [['1', '0', '1', '1', '1'], ['1', '1', '1', '1', '1'], ['1', '0', '0', '1', '0']]
