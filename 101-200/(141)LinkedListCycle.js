@@ -26,7 +26,6 @@ var hasCycle = function(head) {
 // time:  O(n)
 // space: O(1)
 
-// test cases:
 // [1], -1
 // [1, 2], 0
 // [3, 2, 0, 4], 1
