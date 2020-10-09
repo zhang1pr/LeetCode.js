@@ -35,8 +35,8 @@ var solve = function(board, row, column) {
 }
 
 var isValid = function(board, x, y, num) {
-  const row = Math.floor(x/3) * 3;
-  const column = Math.floor(y/3) * 3;
+  const row = Math.floor(x / 3) * 3;
+  const column = Math.floor(y / 3) * 3;
 
   for (let i = 0; i < 9; i++) {
     if (board[i][y] == num || board[x][i] == num) {
