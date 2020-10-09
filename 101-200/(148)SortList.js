@@ -76,7 +76,6 @@ var merge = function(left, right, prev) {
 // time:  O(nlog(n))
 // space: O(1)
 
-// test cases:
 // [0]
 // [1, 2, 3]
 // [4, 2, 1, 3]
