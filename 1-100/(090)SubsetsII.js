@@ -3,22 +3,42 @@
  * @return {number[][]}
  */
 var subsetsWithDup = function(nums) {
-  const res = []
   nums.sort((a, b) => a - b);
 
-  function generateSubsets(nums, start, stack) {
-    res.push(stack.slice());
-    for (let i = start; i < nums.length; i++) {
-      if (i > start && nums[i] == nums[i - 1]) {
-        continue;
+  const bit = 1 << nums.length;
+  const res = [];
+
+  for (let i = 0; i < bit; i++) {
+    const arr = [];
+    let flag = false;
+
+    let cur = i;
+    let last;
+    for (let j = 0; j < nums.length; j++) {
+      if (cur == 0) {
+        break;
       }
-      stack.push(nums[i]);
-      generateSubsets(nums, i + 1, stack);
-      stack.pop();
+
+      if (j > 0 && nums[j - 1] == nums[j] && last == 0 && cur % 2 == 1) {
+        flag = true;
+        break;
+      }
+
+      if (cur % 2 == 0) {
+        last = 0;
+      } else {
+        last = 1;
+        arr.push(nums[j]);
+      }
+
+      cur >>= 1;
+    }
+
+    if (!flag) {
+      res.push(arr);
     }
   }
 
-  generateSubsets(nums, 0, []);
   return res;
 };
 
@@ -30,3 +50,5 @@ var subsetsWithDup = function(nums) {
 // [0, 0]
 // [0, 1, 2]
 // [1, 1, 2]
+// [1, 1, 2, 2]
+// [4, 4, 4, 1, 4]
