@@ -92,7 +92,6 @@ var isNumber = function(s) {
 
 // ''
 // '.'
-
 // '0'
 // '0.'
 // '-0'
