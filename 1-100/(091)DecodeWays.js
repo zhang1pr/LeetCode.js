@@ -3,26 +3,23 @@
  * @return {number}
  */
 var numDecodings = function(s) {
-  let end = 1;
-  let cur = 0;
-  if (s[s.length - 1] != '0') {
-    cur = 1;
-  }
+  let last = 1;
+  let cur = s[0] == 0 ? 0 : 1;
 
-  for (let i = s.length - 2; i >= 0; i--) {
-    if (s[i] == '0') {
-      end = cur;
-      cur = 0;
-      continue;
+  for (let i = 1; i < s.length; i++) {
+    let one = 0;
+    let two = 0;
+
+    if (s[i] != 0) {
+      one = cur;
     }
 
-    let temp = 0;
-    if (Number(s[i]) * 10 + Number(s[i+1]) <= 26) {
-      temp = end;
+    if (s[i - 1] != 0 && Number(s.slice(i - 1, i + 1)) <= 26) {
+      two = last;
     }
 
-    end = cur;
-    cur += temp;
+    last = cur;
+    cur = one + two;
   }
 
   return cur;
