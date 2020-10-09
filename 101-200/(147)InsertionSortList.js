@@ -8,9 +8,9 @@ var insertionSortList = function(head) {
     return head;
   }
 
-  const helper = new ListNode(0);
+  const dummy = new ListNode(0);
   let cur = head;
-  let pre = helper;
+  let pre = dummy;
   let next = null;
 
   while (cur != null) {
@@ -22,17 +22,16 @@ var insertionSortList = function(head) {
 
     cur.next = pre.next;
     pre.next = cur;
-    pre = helper;
+    pre = dummy;
     cur = next;
   }
 
-  return helper.next;
+  return dummy.next;
 };
 
 // time:  O(n^2)
 // space: O(1)
 
-// test cases:
 // [0]
 // [1, 2, 3]
 // [4, 2, 1, 3]
