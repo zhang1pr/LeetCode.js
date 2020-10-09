@@ -12,7 +12,7 @@ var isValidSudoku = function(board) {
       if (number != '.') {
         const row = 'i' + i.toString() + ':' + number;
         const column = 'j' + j.toString() + ':' + number;
-        const block = 'b' + Math.floor(i/3).toString() + Math.floor(j/3).toString() + ':' + number;
+        const block = 'b' + Math.floor(i / 3).toString() + Math.floor(j / 3).toString() + ':' + number;
 
         if (set.has(row) || set.has(column) || set.has(block)) {
           return false;
