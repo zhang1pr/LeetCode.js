@@ -46,7 +46,6 @@ LRUCache.prototype.put = function(key, value) {
 // time:  O(1)
 // space: O(1)
 
-// test cases:
 // ['LRUCache', 'put', 'put', 'put', 'put', 'get', 'get']
 // [[1], [2, 1], [1, 1], [2, 3], [4, 1], [1], [2]]
 // ['LRUCache', 'put', 'put', 'put', 'put', 'get', 'get']
