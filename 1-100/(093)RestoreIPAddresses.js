@@ -8,35 +8,30 @@ var restoreIpAddresses = function(s) {
   }
 
   const res = [];
-  const stack = [];
 
-  function generateAddresses(stack, s, start) {
-    if (stack.length == 4) {
-      if (start == s.length) {
-        res.push(stack.join('.'));
-      }
-      return;
-    }
-
-    for (let i = 1; i <= 3; i++) {
-      if (start + i > s.length) {
-        return;
-      }
-
-      let fragment = Number(s.substr(start, i));
-      if (fragment < 256) {
-        stack.push(fragment);
-        generateAddresses(stack, s, start + i);
-        stack.pop();
-      }
-
-      if (fragment == 0) {
-        return;
-      }
+  function validate(str) {
+    if (str[0] == '0') {
+      return str.length == 1;
+    } else {
+      const val = Number(str);
+      return val > 0 && val <= 255;
     }
   }
 
-  generateAddresses(stack, s, 0);
+  for (let a = 0; a < 4; a++) {
+    for (let b = 0; b < 4; b++) {
+      for (let c = 0; c < 4; c++) {
+        const str1 = s.slice(0, a);
+        const str2 = s.slice(a, a + b);
+        const str3 = s.slice(a + b, a + b + c);
+        const str4 = s.slice(a + b + c);
+
+        if (validate(str1) && validate(str2) && validate(str3) && validate(str4)) {
+          res.push(str1 + '.' + str2 + '.' + str3 + '.' + str4);
+        }
+      }
+    }
+  }
 
   return res;
 };
