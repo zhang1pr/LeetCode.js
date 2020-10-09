@@ -45,7 +45,6 @@ var uniquePathsWithObstacles = function(obstacleGrid) {
 // time:  O(mn)
 // space: O(1)
 
-
 // [[0]]
 // [[1]]
 // [[0, 1]]
