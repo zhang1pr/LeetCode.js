@@ -34,7 +34,7 @@ var maxPoints = function(points) {
       divisor = gcd(x, y);
       x = x / divisor;
       y = y / divisor;
-      key = x + "," + y;
+      key = x + ',' + y;
 
       map.set(key, map.get(key) + 1 || 1);
       max = Math.max(max, map.get(key));
@@ -60,7 +60,6 @@ var gcd = function(a, b) {
 // time:  O(n^2)
 // space: O(n)
 
-// test cases:
 // []
 // [[0, 0]]
 // [[0, 0], [1, 1]]
