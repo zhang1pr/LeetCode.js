@@ -25,7 +25,6 @@ var maxProduct = function(nums) {
 // time:  O(n)
 // space: O(n)
 
-// test cases:
 // []
 // [0]
 // [3]
