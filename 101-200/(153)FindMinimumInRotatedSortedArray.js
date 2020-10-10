@@ -22,7 +22,6 @@ var findMin = function(nums) {
 // time:  O(log(n))
 // space: O(1)
 
-// test cases:
 // [0, -1]
 // [1, 2, 0]
 // [1, 2, 3]
