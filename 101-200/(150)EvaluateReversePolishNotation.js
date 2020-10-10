@@ -3,7 +3,7 @@
  * @return {number}
  */
 var evalRPN = function(tokens) {
-  const stack = new Array(Math.floor(tokens.length/2) + 1).fill(0);
+  const stack = Array(Math.floor(tokens.length / 2) + 1).fill(0);
   let index = 0;
 
   for (const token of tokens) {
@@ -37,7 +37,6 @@ var evalRPN = function(tokens) {
 // time:  O(n)
 // space: O(1)
 
-// test cases:
 // ['0']
 // ['2', '1', '+', '3', '*']
 // ['4', '13', '5', '/', '+']
