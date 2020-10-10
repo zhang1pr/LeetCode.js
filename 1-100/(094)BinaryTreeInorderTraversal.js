@@ -4,27 +4,35 @@
  */
 var inorderTraversal = function(root) {
   const res = [];
+  let cur = root;
+  
+  while (cur != null) {
+    if (cur.left == null) {
+      res.push(cur.val);
+      cur = cur.right;
+    } else {
+      let pre = cur.left;
 
-  function traverse(root, res) {
-    if (root != null) {
-      if (root.left != null) {
-        traverse(root.left, res);
+      while (pre.right != null && pre.right != cur) {
+        pre = pre.right;
       }
 
-      res.push(root.val);
-
-      if (root.right != null) {
-        traverse(root.right, res);
+      if (pre.right == null) {
+        pre.right = cur;
+        cur = cur.left;
+      } else {
+        pre.right = null;
+        res.push(cur.val);
+        cur = cur.right;
       }
     }
   }
 
-  traverse(root, res);
   return res;
 };
 
 // time:  O(n)
-// space: O(n)
+// space: O(1)
 
 // [1]
 // [1, 2, 3]
