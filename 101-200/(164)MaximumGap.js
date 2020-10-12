@@ -23,8 +23,8 @@ var maximumGap = function(nums) {
 
   const interval = Math.ceil((max - min) / (length - 1));
 
-  const bucketMin = new Array(length - 1).fill(Infinity);
-  const bucketMax = new Array(length - 1).fill(-1);
+  const bucketMin = Array(length - 1).fill(Infinity);
+  const bucketMax = Array(length - 1).fill(-1);
 
   let index;
   for (const num of nums) {
@@ -56,7 +56,6 @@ var maximumGap = function(nums) {
 // time:  O(n)
 // space: O(n)
 
-// test cases:
 // []
 // [1]
 // [1, 1]
