@@ -42,7 +42,6 @@ function getRange(lower, upper) {
 // time:  O(n)
 // space: O(1)
 
-// test cases:
 // [], 0, 0
 // [], 0, 3
 // [1], 0, 1
