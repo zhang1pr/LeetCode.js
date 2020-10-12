@@ -54,5 +54,4 @@ MinStack.prototype.getMin = function() {
 // time:  O(1)
 // space: O(1)
 
-// test cases:
 // ['MinStack', 'push', 'push', 'push', 'getMin', 'pop', 'top', 'getMin'], [[], [-2], [0], [-3], [], [], [], []]
