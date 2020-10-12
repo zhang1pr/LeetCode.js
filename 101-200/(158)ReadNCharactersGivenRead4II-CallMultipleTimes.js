@@ -52,7 +52,6 @@ var solution = function(read4) {
 // time:  O(n)
 // space: O(n)
 
-// test cases:
 // '', [0]
 // '', [1, 1]
 // 'a', [1, 1]
