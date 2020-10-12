@@ -22,7 +22,6 @@ var getIntersectionNode = function(headA,  headB) {
 // time:  O(m+n)
 // space: O(1)
 
-// test cases:
 // 0, [], [], 0, 0
 // 0, [1], [1], 1, 1
 // 1, [1], [1], 0, 0
