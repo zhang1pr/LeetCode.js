@@ -11,7 +11,7 @@ var solution = function(read4) {
   return function(buf, n) {
     let eof = false;
     let total = 0;
-    let temp = new Array(4);
+    let temp = Array(4);
 
     while (!eof && total < n) {
       let count = read4(temp);
@@ -35,7 +35,6 @@ var solution = function(read4) {
 // time:  O(n)
 // space: O(1)
 
-// test cases:
 // '', 0
 // '', 1
 // 'a', 1
