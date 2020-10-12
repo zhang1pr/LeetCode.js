@@ -1,5 +1,5 @@
 /**
- * @param {number} n
+ * @param {diffber} n
  * @return {TreeNode[]}
  */
 var generateTrees = function(n) {
@@ -7,28 +7,43 @@ var generateTrees = function(n) {
     return [];
   }
 
-  function generateTrees(start, end) {
-    const res = [];
-    if (start > end) {
-      res.push(null);
-      return res;
+  const dp = [[null]];
+
+  function copyTree(node, diff) {
+    if (!node) {
+      return null;
     }
 
-    for (let i = start; i <= end; i++) {
-      for (const leftTree of generateTrees(start, i - 1)) {
-        for (const rightTree of generateTrees(i + 1, end)) {
-          const tree = new TreeNode(i);
-          tree.left = leftTree;
-          tree.right = rightTree;
-          res.push(tree);
+    const newNode = new TreeNode(node.val + diff);
+
+    newNode.left = copyTree(node.left, diff);
+    newNode.right = copyTree(node.right, diff);
+
+    return newNode;
+  }
+
+  for (let len = 1; len <= n; len++) {
+    const arr = [];
+
+    for (let root = 1; root <= len; root++) {
+      const left = root - 1;
+      const right = len - root;
+
+      for (const leftTree of dp[left]) {
+        for (const rightTree of dp[right]) {
+          const node = new TreeNode(root);
+          node.left = leftTree;
+          node.right = copyTree(rightTree, root);
+
+          arr.push(node);
         }
       }
     }
 
-    return res;
+    dp.push(arr);
   }
 
-  return generateTrees(1, n);
+  return dp[n];
 };
 
 // time:  O((2n)!/((n+1)!*n!))
