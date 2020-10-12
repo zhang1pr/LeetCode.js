@@ -21,7 +21,6 @@ var upsideDownBinaryTree = function(root) {
 // time:  O(n)
 // space: O(n)
 
-// test cases:
 // [null]
 // [1]
 // [1, 2, 3]
