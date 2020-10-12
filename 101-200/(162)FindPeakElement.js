@@ -22,7 +22,6 @@ var findPeakElement = function(nums) {
 // time:  O(log(n))
 // space: O(1)
 
-// test cases:
 // [0]
 // [1, 0, 1]
 // [1, 3, 1]
