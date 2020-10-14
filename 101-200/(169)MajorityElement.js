@@ -7,7 +7,7 @@ var majorityElement = function(nums) {
     return nums[0];
   }
 
-  const half = nums.length/2;
+  const half = nums.length / 2;
   const map = new Map();
   let count;
 
@@ -29,7 +29,6 @@ var majorityElement = function(nums) {
 // time:  O(n)
 // space: O(1)
 
-// test cases:
 // [1]
 // [3, 2, 3]
 // [2, 2, 1, 1, 1, 2, 2]
