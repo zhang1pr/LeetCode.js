@@ -10,8 +10,8 @@ var compareVersion = function(version1, version2) {
   let i = 0;
   let j = 0;
   while (i < nums1.length || j < nums2.length) {
-    num1 = i < nums1.length ? nums1[i] : "0";
-    num2 = j < nums2.length ? nums2[j] : "0";
+    num1 = i < nums1.length ? nums1[i] : '0';
+    num2 = j < nums2.length ? nums2[j] : '0';
 
     const res = compare(num1, num2);
 
@@ -54,7 +54,6 @@ var compare = function(num1, num2) {
 // time:  O(n)
 // space: O(n)
 
-// test cases:
 // 0, 0
 // 0, 0.0
 // 0, 0.1
