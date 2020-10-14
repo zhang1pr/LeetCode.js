@@ -21,7 +21,6 @@ var twoSum = function(numbers, target) {
 // time:  O(n)
 // space: O(1)
 
-// test cases:
 // [0, 0], 0
 // [5, 25, 75], 100
 // [2, 7, 11, 15], 9
