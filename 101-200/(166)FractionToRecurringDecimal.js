@@ -9,7 +9,7 @@ var fractionToDecimal = function(numerator, denominator) {
   let sign = '';
 
   if (num > 0 && den < 0 || num < 0 && den > 0) {
-    sign = "-";
+    sign = '-';
   }
 
   num = Math.abs(num);
@@ -50,7 +50,6 @@ var fractionToDecimal = function(numerator, denominator) {
 // time:  O(n)
 // space: O(n)
 
-// test cases:
 // 1, 1
 // 1, 2
 // 2, 1
