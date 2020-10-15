@@ -46,6 +46,4 @@ BSTIterator.prototype.hasNext = function() {
 // time:  O(1)
 // space: O(n)
 
-// test cases:
 // ['BSTIterator', 'next', 'next', 'hasNext', 'next', 'hasNext', 'next', 'hasNext', 'next', 'hasNext'], [[[7, 3, 15, null, null, 9, 20]], [null], [null], [null], [null], [null], [null], [null], [null], [null]]
-
