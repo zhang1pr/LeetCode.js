@@ -7,8 +7,9 @@ var largestNumber = function(nums) {
     .map(n => n.toString())
     .sort((a, b) => {
       for (let k = 0; k < a.length + b.length; k++) {
-        let i = k % a.length;
-        let j = k % b.length;
+        const i = k % a.length;
+        const j = k % b.length;
+
         if (a[i] > b[j]) {
           return -1;
         } else if (a[i] < b[j]) {
@@ -25,7 +26,6 @@ var largestNumber = function(nums) {
 // time:  O(nlog(n))
 // space: O(n)
 
-// test cases:
 // [0]
 // [1]
 // [10, 2]
