@@ -9,23 +9,39 @@ var isInterleave = function(s1, s2, s3) {
     return false;
   }
 
-  const dp = Array(s2.length + 1).fill(0);
+  const visited = [...Array(s1.length + 1)].map(() => Array(s2.length + 1).fill(false));
 
-  for (let i = 0; i <= s1.length; i++) {
-    for (let j = 0; j <= s2.length; j++) {
-      if (i == 0 && j == 0) {
-        dp[j] = true;
-      } else if (i == 0) {
-        dp[j] = dp[j-1] && s2[j-1] == s3[j-1];
-      } else if (j == 0) {
-        dp[j] = dp[j] && s1[i-1] == s3[i-1];
-      } else {
-        dp[j] = dp[j] && s1[i-1] == s3[i+j-1] || dp[j-1] && s2[j-1] == s3[i+j-1];
+  let cur = [[0, 0]];
+
+  while (cur.length) {
+    let next = [];
+
+    for (let [i, j] of cur) {
+      if (i == s1.length && j == s2.length) {
+        return true;
       }
+
+      let temp1 = visited[i][j];
+      let temp2 = visited[i][j];
+
+      if (i < s1.length && !temp1 && s1[i] == s3[i + j]) {
+        temp1 = true;
+        next.push([i + 1, j]);
+      }
+
+      if (j < s2.length && !temp2 && s2[j] == s3[i + j]) {
+        temp2 = true;
+
+        next.push([i, j + 1]);
+      }
+
+      visited[i][j] = temp1 || temp2;
     }
+
+    cur = next;
   }
 
-  return dp[s2.length];
+  return false;
 };
 
 // time:  O(mn)
