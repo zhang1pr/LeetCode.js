@@ -53,7 +53,6 @@ TwoSum.prototype.find = function(value) {
 // time:  O(n)
 // space: O(n)
 
-// test cases:
 // ['TwoSum', 'add, 'add', 'add', 'find', 'find'], [[], [0], [0], [1], [0], [1]]
 // ['TwoSum', 'add, 'add', 'add', 'find', 'find'], [[], [1], [3], [5], [4], [7]]
 // ['TwoSum', 'add, 'add', 'add', 'find', 'find'], [[], [3], [1], [2], [3], [6]]
