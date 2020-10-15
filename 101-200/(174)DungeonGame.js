@@ -5,7 +5,7 @@
 var calculateMinimumHP = function(dungeon) {
   const row = dungeon.length;
   const col = dungeon[0].length;
-  const dp = new Array(row + 1).fill(0).map(() => new Array(col + 1));
+  const dp = Array(row + 1).fill(0).map(() => Array(col + 1));
 
   if (dungeon[row - 1][col - 1] > 0) {
     dp[row - 1][col - 1] = 1;
@@ -41,7 +41,6 @@ var calculateMinimumHP = function(dungeon) {
 // time:  O(log(n))
 // space: O(1)
 
-// test cases:
 // [[-5]]
 // [[0]]
 // [[5]]
