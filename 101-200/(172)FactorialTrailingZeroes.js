@@ -17,7 +17,6 @@ var trailingZeroes = function(n) {
 // time:  O(log(n))
 // space: O(1)
 
-// test cases:
 // 0
 // 1
 // 3
