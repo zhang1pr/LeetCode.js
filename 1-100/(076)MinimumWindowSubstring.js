@@ -26,8 +26,19 @@ var minWindow = function(s, t) {
   let leftRes = 0;
   let rightRes = s.length;
 
-  while (right <= arr.length) {
-    if (size == 0) {
+  while (right < arr.length) {
+    const [char, index] = arr[right];
+    rightCur = index;
+    const get = map.get(char);
+    map.set(char, get - 1);
+
+    if (get == 1) {
+      size--;
+    }
+
+    right++;
+
+    while (size == 0) {
       const [char, index] = arr[left];
       leftCur = index;
       const get = map.get(char);
@@ -43,21 +54,6 @@ var minWindow = function(s, t) {
       }
 
       left++;
-    } else {
-      if (right == arr.length) {
-        break;
-      }
-
-      const [char, index] = arr[right];
-      rightCur = index;
-      const get = map.get(char);
-      map.set(char, get - 1);
-
-      if (get == 1) {
-        size--;
-      }
-
-      right++;
     }
   }
 
