@@ -7,22 +7,22 @@ var isValidBST = function(root) {
     return true;
   }
 
-  const stack = [[root, -Infinity, Infinity]]
-  let lower;
-  let upper;
-  let val;
+  const stack = [];
+  let pre = null;
 
-  while (stack.length != 0) {
-    [root, lower, upper] = stack.pop();
-    if (root != null) {
-      val = root.val;
-      if (val <= lower || val >= upper) {
-        return false;
-      }
-
-      stack.push([root.right, val, upper]);
-      stack.push([root.left, lower, val]);
+  while (stack.length != 0 || root != null) {
+    while (root != null) {
+      stack.push(root);
+      root = root.left;
     }
+
+    root = stack.pop();
+    if (pre != null && root.val <= pre.val) {
+      return false;
+    }
+
+    pre = root;
+    root = root.right;
   }
 
   return true;
