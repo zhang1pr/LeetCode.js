@@ -22,8 +22,8 @@ var maxProfit = function(k, prices) {
     return res;
   }
 
-  const dp = new Array(k + 1).fill(0);
-  const min = new Array(k + 1).fill(0);
+  const dp = Array(k + 1).fill(0);
+  const min = Array(k + 1).fill(0);
 
   let i;
   for (i = 1; i <= k; i++) {
@@ -43,7 +43,6 @@ var maxProfit = function(k, prices) {
 // time:  O(nk)
 // space: O(k)
 
-// test cases:
 // 0, [1]
 // 1, [1]
 // 2, [1]
