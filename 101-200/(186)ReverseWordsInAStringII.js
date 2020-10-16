@@ -29,7 +29,6 @@ var reverse = function(str, start, end) {
 // time:  O(n)
 // space: O(1)
 
-// test cases:
 // ['a']
 // ['a', ' ', 'b']
 // ['t', 'h', 'e', ' ', 's', 'k', 'y', ' ', 'i', 's', ' ', 'b', 'l', 'u', 'e']
