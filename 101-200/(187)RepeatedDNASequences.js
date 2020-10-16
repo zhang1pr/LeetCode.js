@@ -43,7 +43,6 @@ var findRepeatedDnaSequences = function(s) {
 // time:  O(n)
 // space: O(n)
 
-// test cases:
 // 'G'
 // 'AAAAAAAAAAAAAAA'
 // 'AGAGAGAGAGAGAGA'
