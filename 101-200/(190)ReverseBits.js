@@ -19,6 +19,5 @@ var reverseBits = function(n) {
 // time:  O(log(n))
 // space: O(1)
 
-// test cases:
 // 00000010100101000001111010011100
 // 11111111111111111111111111111101
