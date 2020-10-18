@@ -24,7 +24,6 @@ var removeElements = function(head, val) {
 // time:  O(n)
 // space: O(1)
 
-// test cases:
 // [1], 0
 // [1], 1
 // [2, 2], 2
