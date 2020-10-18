@@ -4,9 +4,9 @@
  * @return {boolean}
  */
 var canFinish = function(numCourses, prerequisites) {
-  const graph = new Array(numCourses).fill(0).map(() => new Array());
-  const visited = new Array(numCourses).fill(false);
-    
+  const graph = Array(numCourses).fill(0).map(() => Array());
+  const visited = Array(numCourses).fill(false);
+
   for (let i = 0; i < prerequisites.length; i++) {
     graph[prerequisites[i][1]].push(prerequisites[i][0]);
   }
@@ -16,7 +16,7 @@ var canFinish = function(numCourses, prerequisites) {
       return false;
     }
     visited[c] = true;
-      
+
     for (let i = 0; i < graph[c].length; i++) {
       if (!DFS(graph[c][i])) {
         return false;
@@ -25,13 +25,13 @@ var canFinish = function(numCourses, prerequisites) {
     visited[c] = false;
     return true;
   }
-    
+
   for (let i = 0; i < numCourses; i++) {
     if (!DFS(i)) {
-      return false;  
+      return false;
     }
   }
-    
+
   return true;
 };
 
