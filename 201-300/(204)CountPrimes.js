@@ -3,7 +3,7 @@
  * @return {number}
  */
 var countPrimes = function(n) {
-  const notPrime = new Array(n);
+  const notPrime = Array(n);
   let count = 0;
 
   for (let i = 2; i < n; i++) {
