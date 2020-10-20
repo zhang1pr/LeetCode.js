@@ -3,7 +3,7 @@
  * @return {number}
  */
 var rob = function(nums) {
-  function robHelper(nums, start, end) {
+  function DFS(nums, start, end) {
     const n = nums.length;
     if (n == 0) {
       return 0;
@@ -25,7 +25,7 @@ var rob = function(nums) {
     return cur;
   }
 
-  return Math.max(robHelper(nums, 0, nums.length - 1), robHelper(nums, 1, nums.length));
+  return Math.max(DFS(nums, 0, nums.length - 1), DFS(nums, 1, nums.length));
 };
 
 // time:  O(n)
