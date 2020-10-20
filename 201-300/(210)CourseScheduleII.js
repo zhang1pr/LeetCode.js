@@ -4,11 +4,11 @@
  * @return {number[]}
  */
 var findOrder = function(numCourses, prerequisites) {
-  const graph = new Array(numCourses).fill(0).map(() => new Array());
-  const visited = new Array(numCourses).fill(false);
-  const result = [];
+  const graph = Array(numCourses).fill(0).map(() => Array());
+  const visited = Array(numCourses).fill(false);
+  const res = [];
   const set = new Set();
-    
+
   for (let i = 0; i < prerequisites.length; i++) {
     graph[prerequisites[i][0]].push(prerequisites[i][1]);
   }
@@ -31,7 +31,7 @@ var findOrder = function(numCourses, prerequisites) {
     visited[c] = false;
     return true;
   }
-    
+
   for (let i = 0; i < numCourses; i++) {
     if (set.has(i)) {
       continue;
@@ -48,13 +48,13 @@ var findOrder = function(numCourses, prerequisites) {
       temp = stack.pop();
 
       if (!set.has(temp)) {
-        result.push(temp);
+        res.push(temp);
         set.add(temp);
       }
     }
   }
-    
-  return result;
+
+  return res;
 };
 
 // time:  O(v+e)
