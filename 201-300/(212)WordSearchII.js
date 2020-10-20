@@ -8,21 +8,21 @@ class Trie {
 
   insert(word) {
     let node = this.root;
-      
+
     for (const w of word) {
       if (node[w] == null) {
         node[w] = {};
       }
       node = node[w];
     }
-   
+
     node.word = word;
-  }; 
+  };
 };
 
 var findWords = function(board, words) {
   const trie = new Trie();
-  const result = [];
+  const res = [];
 
   for (const word of words) {
     trie.insert(word);
@@ -30,7 +30,7 @@ var findWords = function(board, words) {
 
   const rows = board.length;
   if (rows == 0) {
-    return result;
+    return res;
   }
 
   const cols = board[0].length;
@@ -39,16 +39,16 @@ var findWords = function(board, words) {
     if (row < 0 || row >= board.length || col < 0 || col >= board[0].length) {
       return;
     }
-    
+
     const cur = board[row][col];
-    
+
     if (cur == '$' || !node[cur]) {
       return;
     }
 
     node = node[cur];
     if (node.word) {
-      result.push(node.word);
+      res.push(node.word);
       node.word = null;
     }
 
@@ -66,7 +66,7 @@ var findWords = function(board, words) {
     }
   }
 
-  return result;
+  return res;
 }
 
 // time:  O(mnw)
