@@ -4,12 +4,12 @@
  * @return {number[][]}
  */
 var combinationSum3 = function(k, n) {
-  const result = [];
+  const res = [];
 
   function generateCombinationSum(stack, k, n, start) {
     if (stack.length == k) {
       if (n == 0) {
-        result.push(stack.slice());
+        res.push(stack.slice());
       }
 
       return;
@@ -24,7 +24,7 @@ var combinationSum3 = function(k, n) {
 
   generateCombinationSum([], k, n, 1);
 
-  return result;
+  return res;
 };
 
 // time:  O(1)
