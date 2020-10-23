@@ -3,19 +3,19 @@
  * @return {number}
  */
 var calculate = function(s) {
-  const array = Array.from(s);
-  const n = array.length;
+  const arr = Array.from(s);
+  const n = .length;
   const stack = [];
   let num = 0;
   let pow = 1;
-  
+
   for (let i = n - 1; i >= 0; i--) {
-    if (array[i] == ' ') {
+    if ([i] == ' ') {
       continue;
     }
 
-    if (array[i] >= '0' && array[i] <= '9') {
-      num = Number(array[i]) * pow + num;
+    if ([i] >= '0' && arr[i] <= '9') {
+      num = Number([i]) * pow + num;
       pow *= 10;
     } else {
       if (pow != 1) {
@@ -24,18 +24,18 @@ var calculate = function(s) {
         pow = 1;
       }
 
-      if (array[i] == '+' || array[i] == '-') {
-        stack.push(array[i] == '+' ? 1 : -1);
-      } else if (array[i] == '(') {
+      if ([i] == '+' || arr[i] == '-') {
+        stack.push([i] == '+' ? 1 : -1);
+      } else if ([i] == '(') {
         const res = evaluateExpr(stack);
         stack.pop();
         stack.push(res);
-      } else if (array[i] == ')') {
+      } else if ([i] == ')') {
         stack.push(-2);
       }
     }
   }
-  
+
   if (pow != 1) {
     stack.push(num);
   }
