@@ -12,20 +12,20 @@ var findKthLargest = function(nums, k) {
     if (start == end) {
       return nums[start];
     }
-  
+
     let left = start;
     let right = end;
     let pivot = nums[Math.floor((start + end) >>> 1)];
-  
+
     while (left <= right) {
       while (left <= right && nums[left] > pivot) {
         left++;
       }
-  
+
       while (left <= right && nums[right] < pivot) {
         right--;
       }
-  
+
       if (left <= right) {
         let temp = nums[left];
         nums[left] = nums[right];
@@ -34,20 +34,20 @@ var findKthLargest = function(nums, k) {
         right--;
       }
     }
-  
+
     if (start + k - 1 <= right) {
       return quickSelect(start, right, k);
     }
-  
+
     if (start + k - 1 >= left) {
       return quickSelect(left, end, k - left + start);
     }
-  
+
     return nums[right + 1];
   }
 
   return quickSelect(0, nums.length - 1, k);
-}
+};
 
 // time:  O(log(n))
 // space: O(log(n))
