@@ -8,12 +8,12 @@ var getSkyline = function(buildings) {
   }
 
   function merge(buildings, start, end) {
-    const result = [];
-    
+    const res = [];
+
     if (start == end) {
-      result.push([buildings[start][0], buildings[start][2]]);
-      result.push([buildings[start][1], 0])
-      return result;
+      res.push([buildings[start][0], buildings[start][2]]);
+      res.push([buildings[start][1], 0])
+      return res;
     }
 
     let mid = (start + end) >>> 1;
@@ -28,7 +28,7 @@ var getSkyline = function(buildings) {
       const x1 = i < skyline1.length ? skyline1[i][0] : Infinity;
       const x2 = j < skyline2.length ? skyline2[j][0] : Infinity;
       let x = 0;
-      
+
       if (x1 < x2) {
         h1 = skyline1[i][1];
         x = x1;
@@ -46,14 +46,14 @@ var getSkyline = function(buildings) {
       }
 
       const height = Math.max(h1, h2);
-      if (result.length == 0 || height != result[result.length - 1][1]) {
-        result.push([x, height]);
+      if (res.length == 0 || height != res[res.length - 1][1]) {
+        res.push([x, height]);
       }
     }
 
-    return result;
+    return res;
   };
-  
+
   return merge(buildings, 0, buildings.length - 1);
 }
 
