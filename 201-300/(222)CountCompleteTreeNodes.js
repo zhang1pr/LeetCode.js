@@ -29,7 +29,7 @@ var getHeight = function(root) {
 // time:  O(log(n)^2)
 // space: O(m)
 
-// test cases:
+
 // [1]
 // [1, 2]
 // [1, 2, 3]
