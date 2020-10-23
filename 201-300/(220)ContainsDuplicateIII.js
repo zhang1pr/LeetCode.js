@@ -8,7 +8,7 @@ var containsNearbyAlmostDuplicate = function(nums, k, t) {
   if (t < 0) {
     return false;
   }
-  
+
   const map = new Map();
   const n = nums.length;
   const w = t + 1;
@@ -16,7 +16,7 @@ var containsNearbyAlmostDuplicate = function(nums, k, t) {
 
   for (let i = 0; i < n; i++) {
     id = Math.floor(nums[i] / w);
-    
+
     if (map.has(id)) {
       return true;
     }
@@ -24,7 +24,7 @@ var containsNearbyAlmostDuplicate = function(nums, k, t) {
     if (map.has(id - 1) && Math.abs(nums[i] - map.get(id - 1)) < w) {
       return true;
     }
-  
+
     if (map.has(id + 1) && Math.abs(nums[i] - map.get(id + 1)) < w) {
       return true;
     }
@@ -42,7 +42,6 @@ var containsNearbyAlmostDuplicate = function(nums, k, t) {
 // time:  O(min(n,k))
 // space: O(k)
 
-// test cases:
 // [1], 0, 0
 // [1, 1], 1, 0
 // [2, 1], 1, 1
