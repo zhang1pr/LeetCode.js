@@ -10,16 +10,16 @@ var summaryRanges = function(nums) {
 
   let start = nums[0];
   let end = nums[0];
-  const result = [];
-  
+  const res = [];
+
   for (let i = 0; i < n - 1; i++) {
     if (nums[i] + 1 != nums[i + 1]) {
       end = nums[i];
-      
+
       if (start != end) {
-        result.push(start.toString() + '->' + end.toString());
+        res.push(start.toString() + '->' + end.toString());
       } else {
-        result.push(start.toString());
+        res.push(start.toString());
       }
 
       start = nums[i + 1];
@@ -29,12 +29,12 @@ var summaryRanges = function(nums) {
   end = nums[n - 1];
 
   if (start != end) {
-    result.push(start.toString() + '->' + end.toString());
+    res.push(start.toString() + '->' + end.toString());
   } else {
-    result.push(start.toString());
+    res.push(start.toString());
   }
-  
-  return result;
+
+  return res;
 };
 
 // time:  O(n)
