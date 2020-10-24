@@ -38,23 +38,22 @@ var majorityElement = function(nums) {
       count2++;
     }
   }
-  
-  const result = [];
+
+  const res = [];
   if (count1 > n / 3) {
-    result.push(group1);
+    res.push(group1);
   }
 
   if (count2 > n / 3) {
-    result.push(group2);
+    res.push(group2);
   }
 
-  return result;
+  return res;
 };
 
 // time:  O(1)
 // space: O(1)
 
-// test cases:
 // [1]
 // [1, 2]
 // [3, 2, 3]
