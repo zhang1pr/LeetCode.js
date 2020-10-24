@@ -7,7 +7,7 @@ class Node {
     this.next = null;
   }
 }
-   
+
 class Queue {
   constructor() {
     this.head = null;
@@ -18,7 +18,7 @@ class Queue {
   enqueue(data) {
     this.length++;
     const newNode = new Node(data);
-  
+
     if (this.head === null) {
       this.head = newNode;
       this.tail = newNode;
@@ -31,7 +31,7 @@ class Queue {
   dequeue() {
     this.length--;
     let newNode;
-    
+
     if (this.head !== null) {
       newNode = this.head;
       this.head = this.head.next;
@@ -54,13 +54,13 @@ var MyStack = function() {
 };
 
 /**
- * Push element x onto stack. 
+ * Push element x onto stack.
  * @param {number} x
  * @return {void}
  */
 MyStack.prototype.push = function(x) {
   this.queue.enqueue(x);
-  
+
   let size = this.queue.size();
   while (size > 1) {
     this.queue.enqueue(this.queue.dequeue().val);
@@ -92,7 +92,7 @@ MyStack.prototype.empty = function() {
   return this.queue.size() == 0;
 };
 
-/** 
+/**
  * Your MyStack object will be instantiated and called as such:
  * var obj = new MyStack()
  * obj.push(x)
