@@ -5,10 +5,10 @@
  */
 var invertTree = function(root) {
   const stack = [root];
-    
+
   while (stack.length != 0) {
     const curr = stack.pop();
-      
+
     if (curr) {
       [curr.left, curr.right] = [curr.right, curr.left];
       stack.push(curr.left, curr.right);
