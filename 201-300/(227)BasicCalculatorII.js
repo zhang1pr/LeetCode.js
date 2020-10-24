@@ -13,7 +13,7 @@ var calculate = function(s) {
 
   let num = 0;
   let sign = '+';
-  
+
   for (let i = 0; i < len; i++) {
     const char = s[i];
 
@@ -50,7 +50,7 @@ var calculate = function(s) {
 // space: O(n)
 
 // '0'
-// '42' 
+// '42'
 // '1 + 1'
 // '3+2*2'
 // ' 2-1 + 2 '
