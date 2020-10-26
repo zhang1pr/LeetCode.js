@@ -6,13 +6,13 @@
 var kthSmallest = function(root, k) {
   let cur = root;
   let num = 0;
-  let result = -1;
+  let res = -1;
 
   while (cur != null) {
     if (cur.left == null) {
       num++;
       if (num == k) {
-        result = cur.val;
+        res = cur.val;
         break;
       }
 
@@ -32,7 +32,7 @@ var kthSmallest = function(root, k) {
         pre.right = null;
         num++;
         if (num == k) {
-          result = cur.val;
+          res = cur.val;
           break;
         }
 
@@ -41,7 +41,7 @@ var kthSmallest = function(root, k) {
     }
   }
 
-  return result;
+  return res;
 };
 
 // time:  O(n)
