@@ -26,7 +26,7 @@ var evalRPN = function(tokens) {
       stack[index - 1] = Math.trunc(stack[index - 1]);
       break;
     default:
-      stack[index] = parseInt(token);
+      stack[index] = parseInt(token, 10);
       index++;
     }
   }
