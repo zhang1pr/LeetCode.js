@@ -9,22 +9,22 @@ var maxSlidingWindow = function(nums, k) {
     return nums;
   }
 
-  const leftMax = new Array(n);
+  const leftMax = Array(n);
 
   let max = -Infinity;
   for (let i = 0; i < n; i++) {
     if (i % k == 0) {
       max = -Infinity;
     }
-  
-    if (max < nums[i]) {   
+
+    if (max < nums[i]) {
       max = nums[i];
     }
-    
+
     leftMax[i] = Math.max(nums[i], max);
   }
 
-  const rightMax = new Array(n);
+  const rightMax = Array(n);
 
   max = -Infinity;
 
@@ -34,20 +34,20 @@ var maxSlidingWindow = function(nums, k) {
     }
 
     rightMax[i] = Math.max(nums[i], max);
-    
+
     if (i % k == 0) {
       max = -Infinity;
     }
   }
 
-  const result = new Array(n - k + 1);
-  
+  const res = Array(n - k + 1);
+
   for (let i = 0; i < n - k + 1; i++) {
-    result[i] = Math.max(rightMax[i], leftMax[i + k - 1]);
+    res[i] = Math.max(rightMax[i], leftMax[i + k - 1]);
   }
-  
-  return result;
-}
+
+  return res;
+};
 
 // time:  O(n)
 // space: O(n)
