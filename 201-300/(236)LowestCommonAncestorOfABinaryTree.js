@@ -7,11 +7,11 @@
 var lowestCommonAncestor = function(root, p, q) {
   const stack = [root];
   const parent = new Map().set(root, null);
-  
+
   let cur;
   while (!parent.has(p) || !parent.has(q)) {
     cur = stack.pop();
-    
+
     if (cur.left != null) {
       stack.push(cur.left);
       parent.set(cur.left, cur);
@@ -36,7 +36,7 @@ var lowestCommonAncestor = function(root, p, q) {
     q = parent.get(q);
   }
 
-  return q;  
+  return q;
 };
 
 // time:  O(n)
