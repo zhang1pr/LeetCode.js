@@ -3,33 +3,48 @@
  * @return {boolean}
  */
 var isValidBST = function(root) {
-  if (root == null) {
-    return true;
-  }
+  let cur = root;
+  let prev = null;
+  let pred = null;
 
-  const stack = [];
-  let pre = null;
+  while (cur != null) {
+    if (cur.left == null) {
+      if (prev != null) {
+        if (cur.val <= prev.val) {
+          return false;
+        }
+      }
 
-  while (stack.length != 0 || root != null) {
-    while (root != null) {
-      stack.push(root);
-      root = root.left;
+      prev = cur;
+      cur = cur.right;
+    } else {
+      pred = cur.left;
+      while (pred.right != null && pred.right != cur) {
+        pred = pred.right;
+      }
+
+      if (pred.right == cur) {
+        pred.right = null;
+        if (prev != null) {
+          if (cur.val <= prev.val) {
+            return false;
+          }
+        }
+
+        prev = cur;
+        cur = cur.right;
+      } else {
+        pred.right = cur;
+        cur = cur.left;
+      }
     }
-
-    root = stack.pop();
-    if (pre != null && root.val <= pre.val) {
-      return false;
-    }
-
-    pre = root;
-    root = root.right;
   }
 
   return true;
 };
 
 // time:  O(n)
-// space: O(n)
+// space: O(1)
 
 // []
 // [1]
