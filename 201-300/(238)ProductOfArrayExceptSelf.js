@@ -4,21 +4,21 @@
  */
 var productExceptSelf = function(nums) {
   const length = nums.length;
-  const result = [1, ...nums.slice(1)];
+  const res = [1, ...nums.slice(1)];
 
   let i;
   for (i = 1; i < length; i++) {
-    result[i] = nums[i - 1] * result[i - 1];
+    res[i] = nums[i - 1] * res[i - 1];
   }
 
   let temp = 1;
-    
+
   for (i = length - 1; i >= 0; i--) {
-    result[i] *= temp;
+    res[i] *= temp;
     temp *= nums[i];
   }
 
-  return result;
+  return res;
 };
 
 // time:  O(n)
