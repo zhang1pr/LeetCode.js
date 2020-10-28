@@ -7,10 +7,10 @@ var searchMatrix = function(matrix, target) {
   if (matrix.length == 0 || matrix[0].length == 0) {
     return false;
   }
- 
+
   let row = 0;
   let col = matrix[0].length - 1;
- 
+
   while (row < matrix.length && col >= 0) {
     if (target > matrix[row][col]) {
       row++;
@@ -20,9 +20,9 @@ var searchMatrix = function(matrix, target) {
       return true;
     }
   }
- 
+
   return false;
-}
+};
 
 // time:  O(m+n)
 // space: O(1)
