@@ -5,23 +5,23 @@
 var diffWaysToCompute = function(input) {
   const numList = [];
   const opList = [];
-  const array = [...input]
   let num = 0;
-  for (const item of array) {
-    if (['*', '+', '-'].includes(item)) {
+
+  for (let i = 0; i < input.length; i++) {
+    if (['*', '+', '-'].includes(input[i])) {
       numList.push(num);
       num = 0;
-      opList.push(array[i]);
+      opList.push(input[i]);
       continue;
     }
-    
-    num = num * 10 + parseInt(array[i]);
+
+    num = num * 10 + parseInt(input[i], 10);
   }
-  
+
   numList.push(num);
   N = numList.length;
 
-  const dp = new Array(N).fill(0).map(() => new Array(N));
+  const dp = Array(N).fill(0).map(() => Array(N));
   for (let i = 0; i < N; i++) {
     dp[i][i] = [numList[i]];
   }
@@ -29,29 +29,29 @@ var diffWaysToCompute = function(input) {
   for (let n = 2; n <= N; n++) {
     for (let i = 0; i < N; i++) {
       let j = i + n - 1;
-      
+
       if (j >= N) {
         break;
       }
 
-      const result = [];
+      const res = [];
       for (s = i; s < j; s++) {
-        const result1 = dp[i][s];
-        const result2 = dp[s + 1][j];
+        const res1 = dp[i][s];
+        const res2 = dp[s + 1][j];
 
-        for (let x = 0; x < result1.length; x++) {
-          for (let y = 0; y < result2.length; y++) {
+        for (let x = 0; x < res1.length; x++) {
+          for (let y = 0; y < res2.length; y++) {
             op = opList[s];
-            result.push(caculate(result1[x], op, result2[y]));
+            res.push(caculate(res1[x], op, res2[y]));
           }
         }
       }
 
-      dp[i][j] = result;
+      dp[i][j] = res;
     }
   }
 
-  return dp[0][N-1];
+  return dp[0][N - 1];
 };
 
 var caculate = function(num1, c, num2) {
