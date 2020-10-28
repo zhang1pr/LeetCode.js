@@ -10,18 +10,18 @@ var isAnagram = function(s, t) {
   if (sLen != tLen) {
     return false;
   }
-  
-  const array = new Array(26).fill(0);
+
+  const arr = Array(26).fill(0);
 
   for (let i = 0; i < sLen; i++) {
-    array[s[i].charCodeAt(0) - 97]++;
+    arr[s[i].charCodeAt(0) - 97]++;
   }
 
   for (let i = 0; i < tLen; i++) {
-    array[t[i].charCodeAt(0) - 97]--;
+    arr[t[i].charCodeAt(0) - 97]--;
   }
 
-  return array.every(item => item == 0);
+  return arr.every(item => item == 0);
 };
 
 // time:  O(n)
