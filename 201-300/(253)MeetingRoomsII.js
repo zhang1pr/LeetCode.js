@@ -23,7 +23,7 @@ var minMeetingRooms = function(intervals) {
   start.sort(compare);
   end.sort(compare);
 
-  let i = 0; 
+  let i = 0;
   let j = 0;
   let res = 0;
   let room = 0;
@@ -37,7 +37,7 @@ var minMeetingRooms = function(intervals) {
       j++;
     }
 
-    res = Math.max(res, room); 
+    res = Math.max(res, room);
   }
 
   return res;
