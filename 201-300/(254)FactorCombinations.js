@@ -3,29 +3,29 @@
  * @return {number[][]}
  */
 var getFactors = function(n) {
-  const result = [];
+  const res = [];
 
-  function DFS(n, start, currentResult) {
+  function DFS(n, start, currentres) {
     if (n == 1) {
-      if (currentResult.length > 1) {
-        result.push(currentResult.slice());
+      if (currentres.length > 1) {
+        res.push(currentres.slice());
       }
-      
+
       return;
     }
 
     for (let i = start; i <= n; i++) {
       if (n % i == 0) {
-        currentResult.push(i);
-        DFS(n / i, i, currentResult);
-        currentResult.pop();    
+        currentres.push(i);
+        DFS(n / i, i, currentres);
+        currentres.pop();
       }
     }
   }
 
   DFS(n, 2, []);
 
-  return result;
+  return res;
 };
 
 // time:  O(nlog(n))
