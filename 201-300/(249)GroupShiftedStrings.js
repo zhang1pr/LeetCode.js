@@ -4,10 +4,10 @@
  */
 var groupStrings = function(strings) {
   const map = new Map();
-  
+
   for (const string of strings) {
     let shift = '';
-      
+
     for (let i = 0; i < string.length; i++) {
       shift += (string[i] - string[0] + 26) % 26;
       shift += ',';
