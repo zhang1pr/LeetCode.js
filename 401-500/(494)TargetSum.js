@@ -28,6 +28,9 @@ var findTargetSumWays = function(nums, S) {
   return dp[sum + S];
 };
 
+// time:  O(n*sum)
+// space: O(n)
+
 // [0], 0
 // [1, 1], 2
 // [1, 0, 1, 0], 0
