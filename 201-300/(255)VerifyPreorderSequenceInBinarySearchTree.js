@@ -10,7 +10,7 @@ const verifyPreorder = function(preorder) {
     if (p < low) {
       return false;
     }
-    
+
     while (i >= 0 && p > preorder[i]) {
       low = preorder[i];
       i--;
@@ -25,6 +25,6 @@ const verifyPreorder = function(preorder) {
 
 // time:  O(n)
 // space: O(1)
-          
+
 // [5, 2, 6, 1, 3]
 // [5, 2, 1, 3, 6]
