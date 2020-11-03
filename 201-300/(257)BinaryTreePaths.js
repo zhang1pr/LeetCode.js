@@ -3,15 +3,15 @@
  * @return {string[]}
  */
 var binaryTreePaths = function(root) {
-  const result = [];
-  
+  const res = [];
+
   if (root == null) {
-    return result;
+    return res;
   }
 
   function DFS(root, temp) {
     if (root.left == null && root.right == null) {
-      result.push(temp + root.val.toString());
+      res.push(temp + root.val.toString());
       return;
     }
 
@@ -25,14 +25,14 @@ var binaryTreePaths = function(root) {
   }
 
   DFS(root, '');
-  
-  return result;
+
+  return res;
 };
 
 // time:  O(n)
 // space: O(n)
 
-// test cases:
+
 // [null]
 // [1]
 // [1, null, 2]
