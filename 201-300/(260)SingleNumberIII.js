@@ -19,7 +19,6 @@ var singleNumber = function(nums) {
 // time:  O(n)
 // space: O(n)
 
-// test cases:
 // [1, 2]
 // [0, 0, 1, 2]
 // [1, 1, 1, 1, 2, 3]
