@@ -4,26 +4,26 @@
  * @return {boolean}
  */
 var validTree = function(n, edges) {
-  const unions = [...new Array(n).keys()];
+  const unions = [...Array(n).keys()];
 
-  for (const edge of edges) {    
+  for (const edge of edges) {
     if (isConnected(unions, edge[1], edge[0])) {
       return false;
     }
   }
-  
+
   const visited = {};
   let diff = 0;
-  
+
   for (const union of unions) {
     if (visited[union]) {
       continue;
     }
-    
+
     visited[union] = true;
     diff++;
   }
-  
+
   return diff == 1;
 };
 
@@ -34,7 +34,7 @@ var isConnected = function(unions, a, b) {
   if (group1 === group2) {
     return true
   }
-  
+
   for (let i = 0; i < unions.length; i++) {
     if (unions[i] === group2) {
       unions[i] = group1;
