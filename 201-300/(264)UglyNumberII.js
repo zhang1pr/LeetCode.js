@@ -11,7 +11,7 @@ var nthUglyNumber = function(n) {
   let factor3;
   let factor5;
   let min;
-  
+
   for (let i = 1; i < n; i++) {
     factor2 = 2 * ugly[index2];
     factor3 = 3 * ugly[index3];
@@ -26,12 +26,12 @@ var nthUglyNumber = function(n) {
     if (factor3 == min) {
       index3++;
     }
-    
+
     if (factor5 == min) {
       index5++;
     }
   }
-  
+
   return ugly[n - 1];
 };
 
