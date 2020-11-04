@@ -6,7 +6,7 @@ var isUgly = function(num) {
   if (num <= 0) {
     return false;
   }
-    
+
   while (num % 2 == 0) {
     num /= 2;
   }
