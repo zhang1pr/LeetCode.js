@@ -3,13 +3,13 @@
  * @return {number}
  */
 var missingNumber = function(nums) {
-  let result = nums.length;
+  let res = nums.length;
 
   for (let i = 0; i < nums.length; i++) {
-    result ^= nums[i] ^ i;
+    res ^= nums[i] ^ i;
   }
 
-  return result;
+  return res;
 };
 
 // time:  O((n/2)!)
