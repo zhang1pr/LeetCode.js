@@ -6,7 +6,7 @@ var minCostII = function(costs) {
   if (costs === null || costs.length === 0) {
     return 0;
   }
-  
+
   let min1Index = -1;
   let min1 = 0;
   let min2 = 0;
@@ -18,18 +18,18 @@ var minCostII = function(costs) {
     oldMin1Index = min1Index;
     oldMin1 = min1;
     oldMin2 = min2;
-    
+
     min1Index = -1;
     min1 = Infinity;
     min2 = Infinity;
-    
+
     for (let j = 0; j < costs[i].length; j++) {
       if (j === oldMin1Index) {
         costs[i][j] += oldMin2;
       } else {
         costs[i][j] += oldMin1;
       }
-      
+
       if (costs[i][j] < min1) {
         min2 = min1;
         min1 = costs[i][j];
