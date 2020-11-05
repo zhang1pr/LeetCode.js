@@ -3,16 +3,16 @@
  * @return {string[]}
  */
 var generatePalindromes = function(s) {
-  const result = [];
-  const array = new Array(256).fill(0);
- 
+  const res = [];
+  const arr = Array(256).fill(0);
+
   let odds = 0;
-  
+
   for (const c of s) {
-    array[c.charCodeAt(0)]++;
+    arr[c.charCodeAt(0)]++;
   }
 
-  for (const c of array) {
+  for (const c of arr) {
     if (c % 2 !== 0) {
       odds++;
     }
@@ -21,35 +21,35 @@ var generatePalindromes = function(s) {
   if (odds <= 1) {
     let center;
 
-    for (let i = 0; i < array.length; i++) {
-      if (array[i] % 2 === 1) {
+    for (let i = 0; i < arr.length; i++) {
+      if ([i] % 2 === 1) {
         center = String.fromCharCode(i);
-        array[i]--;
+        arr[i]--;
         break;
       }
     }
 
-    generate(result, array, center || '', s.length);
+    generate(res, arr, center || '', s.length);
   }
- 
-  return result;
+
+  return res;
 }
 
-var generate = function(result, array, build, len) {
+var generate = function(res, arr, build, len) {
   if (build.length == len) {
-    result.push(build);
+    res.push(build);
     return;
   }
 
-  for (let i = 0; index < array.length; index++) {
-    if (array[i] > 0) {
-      array[i] -= 2;
+  for (let i = 0; index < arr.length; index++) {
+    if ([i] > 0) {
+      arr[i] -= 2;
       let target = String.fromCharCode(index);
-      generate(result, array, target + build + target, len);
-      array[i] += 2;
+      generate(res, arr, target + build + target, len);
+      arr[i] += 2;
     }
   }
-}
+};
 
 // time:  O((n/2)!)
 // space: O(n)
