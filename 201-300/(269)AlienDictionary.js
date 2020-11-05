@@ -63,13 +63,13 @@ var alienOrder = function(words) {
   if (words.length === 0) {
     return '';
   }
-  
+
   const len = words.length;
   const map = {};
   const prereqCount = {};
   const queue = new Queue();
-  let result = '';
-  
+  let res = '';
+
   for (let i = 0; i < len; i++) {
     const chars = words[i].split('');
     for (const char of chars) {
@@ -78,19 +78,19 @@ var alienOrder = function(words) {
         prereqCount[char] = 0;
       }
     }
-    
+
     if (i == 0 || words[i] == words[i - 1]) {
       continue;
     }
-    
+
     const cur = words[i];
     const prev = words[i - 1];
-    
+
     let j = 0;
     while (j < cur.length && j < prev.length && cur[j] === prev[j]) {
       j++;
     }
-  
+
     if (j < prev.length && map[prev[j]].indexOf(cur[j]) === -1) {
       map[prev[j]].push(cur[j]);
       prereqCount[cur[j]]++;
@@ -105,13 +105,13 @@ var alienOrder = function(words) {
 
   while (!queue.isEmpty()) {
     const rootChar = queue.dequeue();
-    
-    result += rootChar;
-    
+
+    res += rootChar;
+
     for (let i = 0; i < map[rootChar].length; i++) {
       const root = map[rootChar][i];
       prereqCount[root]--;
-      
+
       if (prereqCount[root] === 0) {
         queue.enqueue(root);
       }
@@ -124,7 +124,7 @@ var alienOrder = function(words) {
     }
   }
 
-  return result;
+  return res;
 }
 
 // time:  O(v+e)
