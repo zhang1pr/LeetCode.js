@@ -10,44 +10,44 @@ var numberToWords = function(num) {
   const nums1 = ['', 'One', 'Two', 'Three', 'Four', 'Five', 'Six', 'Seven', 'Eight', 'Nine', 'Ten', 'Eleven', 'Twelve', 'Thirteen', 'Fourteen', 'Fifteen', 'Sixteen', 'Seventeen', 'Eighteen', 'Nineteen'];
   const nums2 = ['', '', 'Twenty', 'Thirty', 'Forty', 'Fifty', 'Sixty', 'Seventy', 'Eighty', 'Ninety'];
   const nums3 = ['', 'Thousand', 'Million', 'Billion'];
-  
-  let result = '';
+
+  let res = '';
 
   let count = 0;
   let threeNum;
   let twoNum;
   while (num > 0) {
     threeNum = num % 1000;
-   
+
     if (threeNum > 0) {
-      result = ' ' + nums3[count] + result;
+      res = ' ' + nums3[count] + res;
     }
 
     count++;
-    
+
     twoNum = num % 100;
     if (twoNum < 20) {
       if (twoNum > 0) {
-        result = ' ' + nums1[twoNum] + result;
+        res = ' ' + nums1[twoNum] + res;
       }
     } else {
       const remainder = twoNum % 10;
       if (remainder > 0) {
-        result = ' ' + nums1[remainder] + result;
+        res = ' ' + nums1[remainder] + res;
       }
 
-      result = ' ' + nums2[(twoNum - remainder) / 10] + result;
+      res = ' ' + nums2[(twoNum - remainder) / 10] + res;
     }
-    
+
     if (threeNum >= 100) {
-      result = ' Hundred' + result;
-      result = ' ' + nums1[Math.floor(threeNum / 100)] + result;
+      res = ' Hundred' + res;
+      res = ' ' + nums1[Math.floor(threeNum / 100)] + res;
     }
-  
+
     num = Math.floor(num / 1000);
   }
-  
-  return result.trim();
+
+  return res.trim();
 };
 
 // time:  O(log(n))
