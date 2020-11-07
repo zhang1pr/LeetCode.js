@@ -4,8 +4,8 @@
  * @param {number} k
  * @return {number[]}
  */
-const closestKValues = function(root, target, k) {
-  const result = [];
+var closestKValues = function(root, target, k) {
+  const res = [];
 
   let node = root;
   const stack = [];
@@ -17,21 +17,21 @@ const closestKValues = function(root, target, k) {
     } else {
       node = stack.pop();
 
-      if (result.length === k) {
-        if (Math.abs(result[0] - target) <= Math.abs(node.val - target)) {
-          return result;
+      if (res.length === k) {
+        if (Math.abs(res[0] - target) <= Math.abs(node.val - target)) {
+          return res;
         }
 
-        result.shift();
+        res.shift();
       }
 
-      result.push(node.val);
+      res.push(node.val);
       node = node.right;
     }
   }
 
-  return result;
-}
+  return res;
+};
 
 // time:  O(n)
 // space: O(n)
