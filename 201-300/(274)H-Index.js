@@ -4,7 +4,7 @@
  */
 var hIndex = function(citations) {
   citations.sort((a, b) => a - b);
-  
+
   const n = citations.length;
 
   for (let i = 0; i < n; i++) {
@@ -14,7 +14,7 @@ var hIndex = function(citations) {
   }
 
   return 0;
-}
+};
 
 // time:  O(nlog(n))
 // space: O(log(n))
