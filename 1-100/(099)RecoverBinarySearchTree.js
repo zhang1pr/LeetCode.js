@@ -5,49 +5,49 @@
 var recoverTree = function(root) {
   let x = null;
   let y = null;
-  let pred = null;
-  let prev = null;
+  let pre = null;
+  let preValNode = null;
 
   while (root != null) {
     if (root.left == null) {
-      if (prev != null && root.val < prev.val) {
+      if (preValNode != null && root.val < preValNode.val) {
         y = root;
 
         if (x == null) {
-          x = prev;
+          x = preValNode;
         }
       }
 
-      prev = root;
+      preValNode = root;
       root = root.right;
     } else {
-      pred = root.left;
-      while (pred.right != null && pred.right != root) {
-        pred = pred.right;
+      pre = root.left;
+      while (pre.right != null && pre.right != root) {
+        pre = pre.right;
       }
 
-      if (pred.right == null) {
-        pred.right = root;
+      if (pre.right == null) {
+        pre.right = root;
         root = root.left;
       } else {
-        if (prev != null && root.val < prev.val) {
+        if (preValNode != null && root.val < preValNode.val) {
           y = root;
 
           if (x == null) {
-            x = prev;
+            x = preValNode;
           }
         }
 
-        prev = root;
-        pred.right = null
+        preValNode = root;
+        pre.right = null
         root = root.right;
       }
     }
   }
 
-  prev = x.val;
+  pre = x.val;
   x.val = y.val;
-  y.val = prev;
+  y.val = pre;
 };
 
 // time:  O(n)
