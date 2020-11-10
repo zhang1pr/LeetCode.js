@@ -4,13 +4,13 @@
  * @return {string[]}
  */
 var addOperators = function(num, target) {
-  const result = [];
+  const res = [];
   DFS('', 0, 0, 0);
 
   function DFS(path, start, eval, pre) {
     if (start == num.length) {
       if (target == eval) {
-        result.push(path);
+        res.push(path);
       }
 
       return;
@@ -21,7 +21,7 @@ var addOperators = function(num, target) {
         break;
       }
 
-      let cur = parseInt(num.slice(start, i + 1));
+      let cur = parseInt(num.slice(start, i + 1), 10);
 
       if (start == 0) {
         DFS(path + cur, i + 1, cur, cur);
@@ -32,8 +32,8 @@ var addOperators = function(num, target) {
       }
     }
   }
-  
-  return result;
+
+  return res;
 };
 
 // time:  O(4^n)
