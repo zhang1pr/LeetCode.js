@@ -4,37 +4,36 @@
  */
 var isValidBST = function(root) {
   let cur = root;
-  let prev = null;
-  let pred = null;
+  let pre = null;
+  let preVal = null;
 
   while (cur != null) {
     if (cur.left == null) {
-      if (prev != null) {
-        if (cur.val <= prev.val) {
-          return false;
-        }
+
+      if (preVal != null && preVal >= cur.val) {
+        return false;
       }
 
-      prev = cur;
+
+      preVal = cur.val;
       cur = cur.right;
     } else {
-      pred = cur.left;
-      while (pred.right != null && pred.right != cur) {
-        pred = pred.right;
+      pre = cur.left;
+      while (pre.right != null && pre.right != cur) {
+        pre = pre.right;
       }
 
-      if (pred.right == cur) {
-        pred.right = null;
-        if (prev != null) {
-          if (cur.val <= prev.val) {
-            return false;
-          }
+      if (pre.right == cur) {
+        pre.right = null;
+
+        if (preVal != null && preVal >= cur.val) {
+          return false;
         }
 
-        prev = cur;
+        preVal = cur.val;
         cur = cur.right;
       } else {
-        pred.right = cur;
+        pre.right = cur;
         cur = cur.left;
       }
     }
