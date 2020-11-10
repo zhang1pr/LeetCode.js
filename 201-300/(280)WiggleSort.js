@@ -11,7 +11,7 @@ var wiggleSort = function(nums) {
       nums[i] = temp;
     }
   }
-}
+};
 
 // time:  O(n)
 // space: O(1)
