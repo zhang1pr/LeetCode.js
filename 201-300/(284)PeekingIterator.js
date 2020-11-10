@@ -5,7 +5,7 @@
  *    @ return {number}
  *    this.nextVal = function() { // return the nextVal number of the iterator
  *       ...
- *    }; 
+ *    };
  *
  *    @return {boolean}
  *    this.hasNext = function() { // return true if it still has numbers
@@ -19,7 +19,7 @@
  */
 var PeekingIterator = function(iterator) {
   this.it = iterator;
-  
+
   if (this.it.hasNext()) {
     this.nextVal = this.it.next();
   } else {
@@ -31,16 +31,16 @@ var PeekingIterator = function(iterator) {
 * @return {number}
 */
 PeekingIterator.prototype.peek = function() {
-  return this.nextVal; 
+  return this.nextVal;
 };
 
 /**
 * @return {number}
 */
 PeekingIterator.prototype.next = function() {
-  const result = this.nextVal;
+  const res = this.nextVal;
   this.nextVal = this.it.hasNext() ? this.it.next() : null;
-  return result;
+  return res;
 };
 
 /**
@@ -50,7 +50,7 @@ PeekingIterator.prototype.hasNext = function() {
   return this.nextVal != null;
 };
 
-/** 
+/**
 * Your PeekingIterator object will be instantiated and called as such:
 * var obj = new PeekingIterator(arr)
 * var param_1 = obj.peek()
