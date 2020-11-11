@@ -33,13 +33,13 @@ var gameOfLife = function(board) {
     if (board[rCur][cCur] % 2 == 1) {
       board[rNext][cNext] += 2;
     }
-      
+
     if (board[rNext][cNext] % 2 == 1) {
       board[rCur][cCur] += 2;
     }
   }
 };
- 
+
 // time:  O(mn)
 // space: O(m+n)
 
