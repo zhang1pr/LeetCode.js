@@ -13,9 +13,9 @@ var inorderSuccessor = function(root, p) {
 
     return p;
   }
-  
+
   let succ = null;
-  
+
   while (root !== p) {
     if (root.val > p.val) {
       succ = root;
