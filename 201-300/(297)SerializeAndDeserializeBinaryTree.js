@@ -6,20 +6,20 @@
  */
 var serialize = function(root) {
   const stack = [root];
-  const result = [];
-  
+  const res = [];
+
   while (stack.length) {
     const curr = stack.pop();
     if (curr) {
-      result.push(curr.val);
+      res.push(curr.val);
       stack.push(curr.right);
       stack.push(curr.left);
     } else {
-      result.push('#');
+      res.push('#');
     }
   }
 
-  return result.join(',');
+  return res.join(',');
 };
 
 // time:  O(n)
@@ -47,7 +47,7 @@ var deserialize = function(data) {
     root.right = DFS();
     return root;
   }
-  
+
   return DFS();
 };
 
