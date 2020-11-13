@@ -6,8 +6,8 @@
 var getHint = function(secret, guess) {
   let bulls = 0;
   let cows = 0;
-    
-  const numbers = new Array(10).fill(0);
+
+  const numbers = Array(10).fill(0);
   let s;
   let g;
 
@@ -20,7 +20,7 @@ var getHint = function(secret, guess) {
     } else {
       if (numbers[s] < 0) {
         cows++;
-      } 
+      }
 
       if (numbers[g] > 0) {
         cows++;
@@ -31,7 +31,7 @@ var getHint = function(secret, guess) {
     }
   }
 
-  return bulls + 'A' + cows + 'B';  
+  return bulls + 'A' + cows + 'B';
 };
 
 // time:  O(n)
