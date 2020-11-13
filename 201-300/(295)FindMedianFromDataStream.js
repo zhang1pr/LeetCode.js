@@ -6,7 +6,7 @@ var MedianFinder = function() {
   this.minHeap = new Heap((a, b) => a - b);
 };
 
-/** 
+/**
 * @param {number} num
 * @return {void}
 */
@@ -16,7 +16,7 @@ MedianFinder.prototype.addNum = function(num) {
   } else {
     this.minHeap.add(num);
   }
-  
+
   if (this.maxHeap.size - this.minHeap.size > 1) {
     this.minHeap.add(this.maxHeap.poll());
   } else if (this.minHeap.size - this.maxHeap.size > 1) {
@@ -43,7 +43,7 @@ MedianFinder.prototype.findMedian = function() {
 // time:  O(1)
 // space: O(1)
 
-/** 
+/**
 *  custom Heap class
 */
 class Heap {
@@ -67,7 +67,7 @@ class Heap {
     const max = this.values[0];
     const end = this.values.pop();
     this.size--;
-    
+
     if (this.values.length) {
       this.values[0] = end;
       this.bubbleDown();
@@ -100,7 +100,7 @@ class Heap {
 
       if (leftIndex < length) {
         left = this.values[leftIndex];
-        
+
         if (this.comparator(left, this.values[index]) < 0) {
           swap = leftIndex;
         }
@@ -124,7 +124,7 @@ class Heap {
   }
 }
 
-/** 
+/**
 * Your MedianFinder object will be instantiated and called as such:
 * var obj = new MedianFinder()
 * obj.addNum(num)
