@@ -11,7 +11,7 @@ var wordPatternMatch = function(pattern, str) {
     if (i == str.length && j == pat.length) {
       return true;
     }
-    
+
     if (i == str.length || j == pat.length) {
       return false;
     }
@@ -25,7 +25,7 @@ var wordPatternMatch = function(pattern, str) {
 
       return isMatch(str, i + s.length, pat, j + 1);
     }
-    
+
     for (let k = i; k < str.length; k++) {
       const p = str.slice(i, k + 1);
       if (set.has(p)) {
@@ -34,7 +34,7 @@ var wordPatternMatch = function(pattern, str) {
 
       map.set(c, p);
       set.add(p);
-      
+
       if (isMatch(str, k + 1, pat, j + 1)) {
         return true;
       }
