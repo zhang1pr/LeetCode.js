@@ -3,8 +3,8 @@
  * @return {string[]}
  */
 var removeInvalidParentheses = function(s) {
-  let res = [];
-  
+  const res = [];
+
   function DFS(s, istart, jstart, end, left, right) {
     let count = 0;
     for (let i = istart; i < end; i++) {
@@ -26,14 +26,14 @@ var removeInvalidParentheses = function(s) {
     }
 
     s = s.split('').reverse().join('');
-    
+
     if (left == '(') {
       DFS(s, 0, 0, s.length, ')', '(');
     } else {
       res.push(s);
     }
   }
-  
+
   DFS(s, 0, 0, s.length, '(', ')');
 
   return res;
