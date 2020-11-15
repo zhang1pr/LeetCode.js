@@ -8,7 +8,7 @@ var lengthOfLIS = function(nums) {
     return 0;
   }
 
-  const dp = new Array(n);
+  const dp = Array(n);
   let len = 0;
   let start;
   let end;
@@ -17,17 +17,17 @@ var lengthOfLIS = function(nums) {
   for (let i = 0; i < n; i++) {
     start = 0;
     end = len;
-    
+
     while (start < end) {
       mid = (start + end) >>> 1;
-      
+
       if (dp[mid] < nums[i]) {
         start = mid + 1;
       } else {
         end = mid;
       }
     }
-    
+
     dp[start] = nums[i];
     if (start == len) {
       len++;
@@ -35,7 +35,7 @@ var lengthOfLIS = function(nums) {
   }
 
   return len;
-}
+};
 
 // time:  O(nlog(n))
 // space: O(n)
