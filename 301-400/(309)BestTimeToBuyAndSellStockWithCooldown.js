@@ -11,7 +11,7 @@ var maxProfit = function(prices) {
     let nextHold = Math.max(hold, rest - prices[i]);
     let nextSold = hold + prices[i];
     let nextRest = Math.max(rest, sold);
-    
+
     hold = nextHold;
     sold = nextSold;
     rest = nextRest;
@@ -23,10 +23,9 @@ var maxProfit = function(prices) {
 // time:  O(n)
 // space: O(1)
 
-// test cases:
-// [1] 
-// [1, 0] 
-// [1, 1] 
+// [1]
+// [1, 0]
+// [1, 1]
 // [1, 2]
 // [2, 4, 1]
 // [1, 2, 3, 0, 2]
