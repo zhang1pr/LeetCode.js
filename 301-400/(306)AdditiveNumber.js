@@ -2,7 +2,7 @@
  * @param {string} num
  * @return {boolean}
  */
-var isAdditiveNumber = function (num) {
+var isAdditiveNumber = function(num) {
   if (num.length === 0) {
     return true;
   }
@@ -20,17 +20,17 @@ var isAdditiveNumber = function (num) {
       let num1 = Number(num.slice(0, i));
       let num2 = Number(num.slice(i, j));
       let temp = num.slice(j);
-      
+
       while (temp.startsWith(num1 + num2)) {
         let n = num1;
         num1 = num2;
         num2 = num1 + n;
         temp = temp.slice(num2.toString().length);
-        
+
         if (!temp.length) {
           return true;
         }
-      } 
+      }
     }
   }
 
