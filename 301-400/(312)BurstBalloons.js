@@ -2,22 +2,25 @@
  * @param {number[]} nums
  * @return {number}
  */
+/**
+ * @param {number[]} nums
+ * @return {number}
+ */
 var maxCoins = function(nums) {
-  const array = [1, ...nums, 1];
-  const n = nums.length;
-  const dp = [...Array(n + 2)].map(() => Array(n + 2).fill(0));
+  nums.unshift(1);
+  nums.push(1);
 
-  for (let len = 1; len <= n; len++) {
-    for (let i = 1; i + len <= n + 1; i++) {
-      const j = i + len - 1;
-      
-      for (let k = i; k <= j; k++) {
-        dp[i][j] = Math.max(dp[i][j], dp[i][k - 1] + array[i - 1] * array[k] * array[j + 1] + dp[k + 1][j]);
+  const dp = [...Array(nums.length)].map(() => Array(nums.length).fill(0));
+
+  for (let i=nums.length - 3; i >= 0; i--) {
+    for (let j=i+2; j < nums.length; j++) {
+      for (let k=i+1; k<j; k++) {
+        dp[i][j] = Math.max(dp[i][j], dp[i][k] + dp[k][j] + nums[i] * nums[k] * nums[j]);
       }
     }
   }
-  
-  return dp[1][n];
+
+  return dp[0][nums.length-1];
 };
 
 // time:  O(n^3)
