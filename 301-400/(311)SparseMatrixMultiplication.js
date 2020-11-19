@@ -4,14 +4,14 @@
  * @return {number[][]}
  */
 var multiply = function(A, B) {
-  const result = [];
+  const res = [];
 
   const rowA = A.length;
   const colA = A[0].length;
   const colB = B[0].length
 
   for (let i = 0; i < rowA; i++) {
-    result.push(new Array(colB).fill(0));
+    res.push(Array(colB).fill(0));
   }
 
   for (let i = 0; i < rowA; i++) {
@@ -19,14 +19,14 @@ var multiply = function(A, B) {
       if (A[i][k] !== 0) {
         for (let j = 0; j < colB; j++) {
           if (B[k][j] !== 0) {
-            result[i][j] += A[i][k] * B[k][j];
+            res[i][j] += A[i][k] * B[k][j];
           }
-        }    
+        }
       }
     }
   }
-  
-  return result;
+
+  return res;
 };
 
 // time:  O(n^3)
