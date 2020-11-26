@@ -5,30 +5,30 @@
 var maxProduct = function(words) {
   if (words.length == 0) {
     return 0;
-  }  
+  }
 
   const len = words.length;
-  const value = new Array(len).fill(0);
+  const value = Array(len).fill(0);
   let temp;
-  
+
   for (let i = 0; i < len; i++) {
     temp = words[i];
-    
-		for (let j = 0; j < temp.length; j++) {
-			value[i] |= 1 << (temp[j].charCodeAt(0) - 97);
-		}
+
+    for (let j = 0; j < temp.length; j++) {
+      value[i] |= 1 << (temp[j].charCodeAt(0) - 97);
+    }
   }
-  
-	let res = 0;
-	for (let i = 0; i < len; i++) {
-		for (let j = i + 1; j < len; j++) {
-			if ((value[i] & value[j]) == 0) {
-				res = Math.max(res, words[i].length * words[j].length);
+
+  let res = 0;
+  for (let i = 0; i < len; i++) {
+    for (let j = i + 1; j < len; j++) {
+      if ((value[i] & value[j]) == 0) {
+        res = Math.max(res, words[i].length * words[j].length);
       }
     }
   }
 
-	return res;  
+  return res;
 };
 
 // time:  O(n^2)
