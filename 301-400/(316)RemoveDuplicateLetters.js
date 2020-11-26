@@ -3,8 +3,8 @@
  * @return {string}
  */
 var removeDuplicateLetters = function(s) {
-  const res = new Array(26).fill(0); 
-  const visited = new Array(26).fill(false);
+  const res = Array(26).fill(0);
+  const visited = Array(26).fill(false);
 
   for (const char of s) {
     res[char.charCodeAt(0) - 97]++;
@@ -13,10 +13,10 @@ var removeDuplicateLetters = function(s) {
   const stack = [];
   let index;
 
-  for (const char of s) { 
+  for (const char of s) {
     index = char.charCodeAt(0) - 97;
     res[index]--;
-    
+
     if (visited[index]) {
       continue;
     }
