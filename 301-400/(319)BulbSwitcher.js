@@ -3,7 +3,7 @@
  * @return {number}
  */
 var bulbSwitch = function(n) {
-  return Math.floor(Math.sqrt(n));  
+  return Math.floor(Math.sqrt(n));
 };
 
 // time:  O(1)
