@@ -3,28 +3,28 @@
  * @return {number[]}
  */
 var countSmaller = function(nums) {
-  const count = new Array(nums.length).fill(0);
-  const indices = [...new Array(nums.length)].map((_, i) => i);
-  
+  const count = Array(nums.length).fill(0);
+  const indices = [...Array(nums.length)].map((_, i) => i);
+
   function mergeSort(start, end) {
     if (end <= start) {
       return;
     }
-    
+
     const mid = (start + end) >>> 1;
     mergeSort(start, mid);
     mergeSort(mid + 1, end);
-    
-    merge(start, end);       
+
+    merge(start, end);
   }
 
   function merge(start, end) {
     let mid = (start + end) >>> 1;
     let left = start;
     let right = mid + 1;
-    let rightCount = 0;    	
-    const newIndices = new Array(end - start + 1);
-  
+    let rightCount = 0;
+    const newIndices = Array(end - start + 1);
+
     let i = 0;
     while (left <= mid && right <= end) {
       if (nums[indices[right]] < nums[indices[left]]) {
@@ -52,7 +52,7 @@ var countSmaller = function(nums) {
       i++;
       right++;
     }
-    
+
     for (let i = start; i <= end; i++) {
       indices[i] = newIndices[i - start];
     }
@@ -61,7 +61,7 @@ var countSmaller = function(nums) {
   mergeSort(0, nums.length - 1);
 
   return count;
-}
+};
 
 // time:  O(n)
 // space: O(n)
