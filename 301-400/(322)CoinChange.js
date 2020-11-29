@@ -4,7 +4,7 @@
  * @return {number}
  */
 var coinChange = function(coins, amount) {
-  const dp = new Array(amount + 1).fill(amount + 1);
+  const dp = Array(amount + 1).fill(amount + 1);
   dp[0] = 0;
 
   for (const coin of coins) {
@@ -13,7 +13,7 @@ var coinChange = function(coins, amount) {
     }
   }
 
-  return dp[amount] > amount ? -1 : dp[amount];  
+  return dp[amount] > amount ? -1 : dp[amount];
 };
 
 // time:  O(mn)
