@@ -5,7 +5,7 @@
  */
 var countComponents = function(n, edges) {
   const nums = Array(n).fill(-1);
-  
+
   function find(i) {
     if (nums[i] === -1) {
       return i;
@@ -17,7 +17,7 @@ var countComponents = function(n, edges) {
   for (let i = 0; i < edges.length; i++) {
     const x = find(edges[i][0]);
     const y = find(edges[i][1]);
-    
+
     if (x != y) {
       nums[x] = y;
     }
