@@ -5,14 +5,14 @@
 var wiggleSort = function(nums) {
   nums.sort((b,a)=>b-a);
   let mid = nums.length >>> 1;
-  
+
   if (nums.length % 2 != 0) {
     mid++;
   }
-  
+
   const even = nums.slice(0, mid);
   const odd = nums.slice(mid);
-  
+
   for (let i = 0; i < nums.length; i++) {
     if (i % 2 == 0) {
       nums[i] = even.pop();
