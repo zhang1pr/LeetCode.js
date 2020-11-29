@@ -7,11 +7,11 @@
 var maxNumber = function(nums1, nums2, k) {
   const n = nums1.length;
   const m = nums2.length;
-  let res = new Array(k).fill(0);
+  let res = Array(k).fill(0);
 
   for (let i = Math.max(0, k - m); i <= k && i <= n; i++) {
     const candidate = merge(maxArray(nums1, i), maxArray(nums2, k - i), k);
-    
+
     if (greater(candidate, 0, res, 0)) {
       res = candidate;
     }
@@ -19,15 +19,15 @@ var maxNumber = function(nums1, nums2, k) {
 
   return res;
 };
-  
+
 var merge = function(nums1, nums2, k) {
-  const res = new Array(k).fill(0);
+  const res = Array(k).fill(0);
 
   for (let i = 0, j = 0, r = 0; r < k; r++) {
     if (greater(nums1, i, nums2, j)) {
       res[r] = nums1[i];
       i++;
-    } else { 
+    } else {
       res[r] = nums2[j];
       j++;
     }
@@ -58,13 +58,13 @@ var maxArray = function(nums, k) {
     }
   }
 
-  const result = new Array(k).fill(0);
+  const res = Array(k).fill(0);
 
   for (let i = k - 1; i >= 0; i--) {
-    result[i] = stack.pop(); 
+    res[i] = stack.pop();
   }
 
-  return result;
+  return res;
 }
 
 // time:  O((m+n)^3)
