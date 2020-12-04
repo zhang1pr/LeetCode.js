@@ -25,6 +25,9 @@ var findCircleNum = function(M) {
   return res;
 };
 
+// time:  O(n^2)
+// space: O(n)
+
 // [[1]]
 // [[1, 0], [0, 1]]
 // [[1, 0, 0], [0, 1, 0], [0, 0, 1]]
