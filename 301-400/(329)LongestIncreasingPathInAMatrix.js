@@ -11,7 +11,7 @@ var longestIncreasingPath = function(matrix) {
   const rows = matrix.length;
   const cols = matrix[0].length;
 
-  const indegree = [...new Array(rows)].map(() => new Array(cols).fill(0));
+  const indegree = [...Array(rows)].map(() => Array(cols).fill(0));
   for (let x = 0; x < rows; x++) {
     for (let y = 0; y < cols; y++) {
       for (const [dx, dy] of dirs) {
@@ -23,7 +23,7 @@ var longestIncreasingPath = function(matrix) {
             indegree[nx][ny]++;
           }
         }
-      } 
+      }
     }
   }
 
@@ -36,7 +36,7 @@ var longestIncreasingPath = function(matrix) {
     }
   }
 
-  let length = 0; 
+  let length = 0;
   while (queue.length) {
     const size = queue.length;
     for (let i = 0; i < size; i++) {
@@ -44,7 +44,7 @@ var longestIncreasingPath = function(matrix) {
       for (const [dx, dy] of dirs) {
         const nx = x + dx;
         const ny = y + dy;
-        if (nx >= 0 && nx < rows && ny >= 0 && ny < cols) {          
+        if (nx >= 0 && nx < rows && ny >= 0 && ny < cols) {
           if (matrix[nx][ny] > matrix[x][y]) {
             indegree[nx][ny]--;
 
@@ -59,8 +59,8 @@ var longestIncreasingPath = function(matrix) {
     length++;
   }
 
-  return length;  
-}; 
+  return length;
+};
 
 // time:  O(mn)
 // space: O(mn)
@@ -71,5 +71,5 @@ var longestIncreasingPath = function(matrix) {
 // [[1, 2], [3, 4]]
 // [[1, 2], [4, 3]]
 // [[6, 8], [7, 2]]
-// [[3, 4, 5], [3, 2, 6], [2, 2, 1]] 
-// [[9, 9, 4], [6, 6, 8], [2, 1, 1]] 
+// [[3, 4, 5], [3, 2, 6], [2, 2, 1]]
+// [[9, 9, 4], [6, 6, 8], [2, 1, 1]]
