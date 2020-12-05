@@ -7,19 +7,19 @@ var maxSubArrayLen = function(nums, k) {
   let max = 0;
   let sum = 0;
   const map = new Map().set(0, -1);
-  
+
   for (let i = 0; i < nums.length; i++) {
     sum += nums[i];
-    
+
     if (!map.has(sum)) {
       map.set(sum, i);
     }
-    
+
     if (map.has(sum - k)) {
       max = Math.max(max, i - map.get(sum - k));
     }
   }
-  
+
   return max;
 };
 
