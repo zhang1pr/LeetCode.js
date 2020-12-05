@@ -6,7 +6,7 @@ var oddEvenList = function(head) {
   if (head == null) {
     return head;
   }
-    
+
   let odd = head;
   let even = head.next;
   let temp;
@@ -17,7 +17,7 @@ var oddEvenList = function(head) {
     odd = odd.next;
     temp.next = odd.next;
   }
- 
+
   odd.next = even;
   return head;
 };
