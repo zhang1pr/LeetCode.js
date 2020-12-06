@@ -11,7 +11,7 @@ var largestBSTSubtree = function(root) {
     const [N1, n1, min1, max1] = DFS(node.left);
     const [N2, n2, min2, max2] = DFS(node.right);
     const n = max1 < node.val && min2 > node.val ? n1 + 1 + n2 : -Infinity;
-    
+
     return [Math.max(N1, N2, n), n, Math.min(min1, node.val), Math.max(max2, node.val)];
   }
 
