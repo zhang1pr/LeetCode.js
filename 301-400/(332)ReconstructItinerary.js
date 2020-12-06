@@ -5,13 +5,13 @@
 var findItinerary = function(tickets) {
   const target = new Map();
   tickets.sort().reverse();
-   
+
   for (const [a, b] of tickets) {
     if (target.has(a)) {
       target.get(a).push(b);
     } else {
       target.set(a, [b]);
-    }   
+    }
   }
 
   const route = [];
@@ -19,11 +19,11 @@ var findItinerary = function(tickets) {
 
   while (stack.length) {
     while (target.has(stack[stack.length - 1])) {
-      const code = stack[stack.length - 1]; 
-      const array = target.get(code);
-      stack.push(array.pop());     
+      const code = stack[stack.length - 1];
+      const arr = target.get(code);
+      stack.push(arr.pop());
 
-      if (array.length == 0) {
+      if (arr.length == 0) {
         target.delete(code);
       }
     }
