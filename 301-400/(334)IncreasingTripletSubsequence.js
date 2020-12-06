@@ -7,16 +7,16 @@ var increasingTriplet = function(nums) {
   let big = Infinity;
 
   for (const n of nums) {
-    if (n <= small) { 
-      small = n; 
-    } else if (n <= big) { 
-      big = n; 
+    if (n <= small) {
+      small = n;
+    } else if (n <= big) {
+      big = n;
     } else {
       return true;
     }
   }
 
-  return false;  
+  return false;
 };
 
 // time:  O(n)
