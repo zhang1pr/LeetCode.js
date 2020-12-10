@@ -32,10 +32,10 @@
  * @param {NestedInteger[]} nestedList
  * @return {number}
  */
-var depthSum = function(nestedList) { 
+var depthSum = function(nestedList) {
   function DFS(arr, level) {
     let sum = 0;
-    
+
     for (let i = 0; i < arr.length; i++) {
       if (arr[i].isInteger()) {
         sum += arr[i].getInteger() * level;
@@ -43,13 +43,13 @@ var depthSum = function(nestedList) {
         sum += DFS(arr[i].getList(), level + 1);
       }
     }
-    
+
     return sum;
   }
-  
+
   return DFS(nestedList, 1);
 };
- 
+
 // time:  O(n)
 // space: O(n)
 
