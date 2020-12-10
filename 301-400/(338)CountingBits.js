@@ -5,7 +5,7 @@
 var countBits = function(num) {
   if (num == 0) {
     return [0];
-  }       
+  }
 
   const dp = [0, 1];
   for (let i = 2; i < num + 1; i++){
@@ -15,7 +15,7 @@ var countBits = function(num) {
       dp[i] = dp[(i - 1) / 2] + 1;
     }
   }
-  
+
   return dp;
 };
 
