@@ -5,26 +5,26 @@
  */
 var intersect = function(nums1, nums2) {
   const map = new Map();
-  const res = []; 
-    
+  const res = [];
+
   for (const num of nums1) {
-    map.set(num, (map.get(num) || 0) + 1);  
-  }  
-    
+    map.set(num, (map.get(num) || 0) + 1);
+  }
+
   for (const num of nums2) {
     if (map.has(num)) {
-      const get = map.get(num); 
-      res.push(num);  
-        
+      const get = map.get(num);
+      res.push(num);
+
       if (get == 1) {
-        map.delete(num);          
+        map.delete(num);
       } else {
-        map.set(num, get - 1); 
-      }  
-    }  
-  } 
-    
-  return res;  
+        map.set(num, get - 1);
+      }
+    }
+  }
+
+  return res;
 };
 
 // time:  O(n)
