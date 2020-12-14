@@ -12,7 +12,7 @@ var lengthOfLongestSubstringKDistinct = function(s, k) {
     const c = s[i];
 
     if (map.has(c)) {
-      map.set(c, 1);  
+      map.set(c, 1);
     } else {
       map.set(c, map.get(c) + 1);
     }
