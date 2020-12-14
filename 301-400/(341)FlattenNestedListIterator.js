@@ -38,7 +38,7 @@ var NestedIterator = function(nestedList) {
       }
     }
   }
-    
+
   this.gen = this.listGenerator(nestedList);
   this.nextVal = this.gen.next();
 };
@@ -51,7 +51,7 @@ var NestedIterator = function(nestedList) {
  * @returns {boolean}
  */
 NestedIterator.prototype.hasNext = function() {
-  return !this.nextVal.done;  
+  return !this.nextVal.done;
 };
 
 // time:  O(1)
