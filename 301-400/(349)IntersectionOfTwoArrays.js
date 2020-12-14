@@ -8,11 +8,11 @@ var intersection = function(nums1, nums2) {
   const res = new Set();
   for (const num of nums2) {
     if (set.has(num)) {
-      res.add(num);        
-    }  
+      res.add(num);
+    }
   }
-   
-  return [...res];  
+
+  return [...res];
 };
 
 // time:  O(n)
