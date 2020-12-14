@@ -3,7 +3,7 @@
  * @return {boolean}
  */
 var isPowerOfFour = function(num) {
-  return /^1(00)*$/.test(num.toString(2));   
+  return /^1(00)*$/.test(num.toString(2));
 };
 
 // time:  O(1)
@@ -13,5 +13,5 @@ var isPowerOfFour = function(num) {
 // 1
 // 4
 // 5
-// 16 
+// 16
 // 40
