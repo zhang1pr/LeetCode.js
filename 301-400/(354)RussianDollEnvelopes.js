@@ -6,11 +6,11 @@ var maxEnvelopes = function(envelopes) {
   envelopes.sort((a, b) => {
     return a[0] == b[0] ? b[1] - a[1] : a[0] - b[0];
   });
-  
+
   const dp = [];
   for (let i = 0; i < envelopes.length; i++) {
     const index = binarySearch(dp, envelopes[i][1]);
-    
+
     if (index == -1) {
       dp.push(envelopes[i][1]);
     } else if (index != -1) {
@@ -20,16 +20,16 @@ var maxEnvelopes = function(envelopes) {
 
   return dp.length;
 };
- 
- 
-function binarySearch(arr, val) {
-  let l = 0; 
+
+
+var binarySearch = function(arr, val) {
+  let l = 0;
   let r = arr.length - 1;
   let res = -1;
 
   while (l <= r) {
     let mid = (l + r) >>> 1;
-    
+
     if (arr[mid] >= val) {
       res = mid;
       r = mid - 1;
