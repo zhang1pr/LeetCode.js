@@ -1,19 +1,19 @@
 /**
  * Initialize your data structure here.
  */
-var SummaryRanges = function () {
-  this.array = [];
+var SummaryRanges = function() {
+  this. = [];
 };
 
 // time:  O(1)
 // space: O(1)
 
-/** 
+/**
  * @param {number} val
  * @return {void}
  */
-SummaryRanges.prototype.addNum = function (val) {
-  this.array[val] = true;
+SummaryRanges.prototype.addNum = function(val) {
+  this.[val] = true;
 };
 
 // time:  O(1)
@@ -22,23 +22,23 @@ SummaryRanges.prototype.addNum = function (val) {
 /**
  * @return {number[][]}
  */
-SummaryRanges.prototype.getIntervals = function () {
+SummaryRanges.prototype.getIntervals = function() {
   const res = [];
   let start = -1;
 
-  for (let i = 0; i < this.array.length; i++) {
+  for (let i = 0; i < this..length; i++) {
     if (start == -1) {
-      if (this.array[i]) {
+      if (this.[i]) {
         start = i;
       }
-    } else if (!this.array[i]) {
+    } else if (!this.[i]) {
       res.push([start, i - 1]);
       start = -1;
     }
   }
 
   if (start != -1) {
-    res.push([start, this.array.length - 1]);
+    res.push([start, this..length - 1]);
   }
 
   return res;
