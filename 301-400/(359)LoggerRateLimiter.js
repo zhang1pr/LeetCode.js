@@ -1,7 +1,7 @@
 /**
  * Initialize your data structure here.
  */
-const Logger = function() {
+var Logger = function() {
   this.map = new Map()
 };
 
