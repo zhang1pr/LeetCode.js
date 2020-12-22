@@ -110,4 +110,4 @@ Twitter.prototype.unfollow = function(followerId, followeeId) {
  * obj.unfollow(followerId,followeeId)
  */
 
-// ["TwitterpostTweet', 'getNewsFeed', 'follow', 'postTweet', 'getNewsFeed', 'unfollow', 'getNewsFeed'], [[], [1, 5], [1], [1, 2], [2, 6], [1], [1, 2], [1]]
+// ['TwitterpostTweet', 'getNewsFeed', 'follow', 'postTweet', 'getNewsFeed', 'unfollow', 'getNewsFeed'], [[], [1, 5], [1], [1, 2], [2, 6], [1], [1, 2], [1]]
