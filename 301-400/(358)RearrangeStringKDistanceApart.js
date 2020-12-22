@@ -9,8 +9,8 @@ var rearrangeString = function(s, k) {
   }
 
   const length = s.length;
-  const count = new Array(26).fill(0);
-  const valid = new Array(26).fill(0);
+  const count = Array(26).fill(0);
+  const valid = Array(26).fill(0);
   const a = 97;
 
   for (let i = 0; i < length; i++) {
@@ -46,7 +46,7 @@ var findValidMax = function(count, valid, index) {
   }
 
   return candidatePos;
-}
+};
 
 // time:  O(n^2)
 // space: O(n)
