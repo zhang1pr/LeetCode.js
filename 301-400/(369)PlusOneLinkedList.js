@@ -26,7 +26,7 @@ var plusOne = function(head) {
   }
 
   return dummy.val == 1 ? dummy : dummy.next;
-}
+};
 
 // time:  O(n)
 // space: O(1)
