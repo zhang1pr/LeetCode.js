@@ -14,7 +14,7 @@ var findLeaves = function(root) {
   return res;
 };
 
-function DFS(node, leaves) {
+var DFS = function(node, leaves) {
   if (!node) {
     return null;
   }
@@ -28,7 +28,7 @@ function DFS(node, leaves) {
   node.right = DFS(node.right, leaves);
 
   return node;
-}
+};
 
 // time:  O(n^2)
 // space: O(n)
