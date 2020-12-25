@@ -11,10 +11,10 @@ var maxKilledEnemies = function(grid) {
 
   const n = grid[0].length;
 
-  let result = 0;
+  let res = 0;
   let rows = 0;
 
-  const cols = new Array(n).fill(0);
+  const cols = Array(n).fill(0);
 
   for (let i = 0; i < m; i++) {
     for (let j = 0; j < n; j++) {
@@ -35,12 +35,12 @@ var maxKilledEnemies = function(grid) {
       }
 
       if (grid[i][j] == '0') {
-        result = Math.max(result, rows + cols[j]);
+        res = Math.max(res, rows + cols[j]);
       }
     }
   }
 
-  return result;
+  return res;
 }
 
 // time:  O(mn)
