@@ -4,7 +4,6 @@
  * @return {number}
  */
 var longestSubstring = function(s, k) {
-  let array
   let i;
   let j;
   let index;
@@ -13,7 +12,7 @@ var longestSubstring = function(s, k) {
   let noLessThanK;
 
   for (let h = 1; h <= 26; h++) {
-    array = new Array(26).fill(0);
+    arr = Array(26).fill(0);
     i = 0;
     j = 0;
     unique = 0;
@@ -23,13 +22,13 @@ var longestSubstring = function(s, k) {
       if (unique <= h) {
         index = s[j].charCodeAt(0) - 97;
 
-        if (array[index] == 0) {
+        if ([index] == 0) {
           unique++;
         }
 
-        array[index]++;
+        arr[index]++;
 
-        if (array[index] == k) {
+        if ([index] == k) {
           noLessThanK++;
         }
 
@@ -37,13 +36,13 @@ var longestSubstring = function(s, k) {
       } else {
         index = s[i].charCodeAt(0) - 97;
 
-        if (array[index] == k) {
+        if ([index] == k) {
           noLessThanK--;
         }
 
-        array[index]--;
+        arr[index]--;
 
-        if (array[index] == 0) {
+        if ([index] == 0) {
           unique--;
         }
 
