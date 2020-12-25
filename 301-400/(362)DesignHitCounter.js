@@ -4,7 +4,7 @@
 var HitCounter = function() {
   this.times = [];
   this.hits = [];
-}
+};
 
 // time:  O(1)
 // space: O(1)
@@ -24,7 +24,7 @@ HitCounter.prototype.hit = function(timestamp) {
   } else {
     this.hits[idx]++;
   }
-}
+};
 
 // time:  O(1)
 // space: O(1)
@@ -45,7 +45,7 @@ HitCounter.prototype.getHits = function(timestamp) {
   }
 
   return total;
-}
+};
 
 // time:  O(n)
 // space: O(1)
