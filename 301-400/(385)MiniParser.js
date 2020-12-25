@@ -85,3 +85,12 @@ var deserialize = function(s) {
 
   return curr;
 };
+
+// time:  O(n)
+// space: O(n)
+
+// '0'
+// '-1'
+// '324'
+// '[-1]'
+// '[123,[456,[789]]]'
