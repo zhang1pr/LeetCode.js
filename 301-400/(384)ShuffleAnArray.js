@@ -9,7 +9,7 @@ var Solution = function(nums) {
 // space: O(1)
 
 /**
- * Resets the array to its original configuration and return it.
+ * Resets the  to its original configuration and return it.
  * @return {number[]}
  */
 Solution.prototype.reset = function() {
@@ -20,7 +20,7 @@ Solution.prototype.reset = function() {
 // space: O(1)
 
 /**
- * Returns a random shuffling of the array.
+ * Returns a random shuffling of the .
  * @return {number[]}
  */
 Solution.prototype.shuffle = function() {
