@@ -4,14 +4,14 @@
  * @param {ListNode} head
  */
 var Solution = function(head) {
-  this.array = [];
+  this.arr = [];
 
   while (head.next) {
-    this.array.push(head.val);
+    this.arr.push(head.val);
     head = head.next;
   }
 
-  this.array.push(head.val);
+  this.arr.push(head.val);
 };
 
 // time:  O(n)
@@ -23,10 +23,10 @@ var Solution = function(head) {
  */
 Solution.prototype.getRandom = function() {
   const minIndex = 0;
-  const maxIndex = this.array.length - 1;
+  const maxIndex = this.arr.length - 1;
   const randomIndex = Math.floor(Math.random() * (maxIndex - minIndex + 1)) + minIndex;
 
-  return this.array[randomIndex];
+  return this.arr[randomIndex];
 };
 
 // time:  O(1)
