@@ -22,7 +22,7 @@ var GCD = function(a, b){
   }
 
   return a;
-}
+};
 
 // time:  O(min(x,y))
 // space: O(1)
