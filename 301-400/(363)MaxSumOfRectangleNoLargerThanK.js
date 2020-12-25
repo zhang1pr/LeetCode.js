@@ -8,7 +8,7 @@ var maxSumSubmatrix = function(matrix, k) {
   const cols = matrix[0].length;
   let maxSum = -Infinity;
 
-  for (let l = 0; l < rols; l++) {
+  for (let l = 0; l < cols; l++) {
     const dp = Array(cols).fill(0);
 
     for (let r = l; r < rows; r++) {
