@@ -3,8 +3,8 @@
  * @return {number[]}
  */
 var largestDivisibleSubset = function(nums) {
-  const dp = new Array(nums.length).fill(1);
-  const prev = new Array(nums.length).fill(-1);
+  const dp = Array(nums.length).fill(1);
+  const prev = Array(nums.length).fill(-1);
 
   nums.sort((a, b) => a - b);
 
