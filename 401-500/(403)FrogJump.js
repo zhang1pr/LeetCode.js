@@ -4,7 +4,7 @@
  */
 var canCross = function(stones) {
   const len = stones.length;
-  const dp = [...new Array(len)].map(() => new Array(len + 1).fill(false));
+  const dp = [...Array(len)].map(() => Array(len + 1).fill(false));
   dp[0][1] = true;
 
   for (let i = 1; i < len; i++) {
