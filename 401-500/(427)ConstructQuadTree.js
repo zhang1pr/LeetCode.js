@@ -14,16 +14,16 @@
  * @return {Node}
  */
 var construct = function(grid) {
-  function helper(grid, x, y, len) {
+  function DFS(grid, x, y, len) {
     if (len == 1) {
       return new Node(grid[x][y] != 0, true, null, null, null, null);
     }
 
     const result = new Node();
-    const topLeft = helper(grid, x, y, len / 2);
-    const topRight = helper(grid, x, y + len / 2, len / 2);
-    const bottomLeft = helper(grid, x + len / 2, y, len / 2);
-    const bottomRight = helper(grid, x + len / 2, y + len / 2, len / 2);
+    const topLeft = DFS(grid, x, y, Math.floor(len / 2));
+    const topRight = DFS(grid, x, y + Math.floor(len / 2), Math.floor(len / 2));
+    const bottomLeft = DFS(grid, x + Math.floor(len / 2), y, Math.floor(len / 2));
+    const bottomRight = DFS(grid, x + Math.floor(len / 2), y + Math.floor(len / 2), Math.floor(len / 2));
 
     if (
       topLeft.isLeaf
@@ -46,7 +46,7 @@ var construct = function(grid) {
     return result;
   }
 
-  return helper(grid, 0, 0, grid.length);
+  return DFS(grid, 0, 0, grid.length);
 };
 
 // time:  O(n^2)
