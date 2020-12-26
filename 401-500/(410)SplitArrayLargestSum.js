@@ -5,14 +5,14 @@
  */
 var splitArray = function(nums, m) {
   const L = nums.length;
-  const S = new Array(L + 1);
+  const S = Array(L + 1);
   S[0] = 0;
 
   for (let i = 0; i < L; i++) {
     S[i + 1] = S[i] + nums[i];
   }
 
-  const dp = new Array(L);
+  const dp = Array(L);
   for (let i = 0; i < L; i++) {
     dp[i] = S[L] - S[i];
   }
