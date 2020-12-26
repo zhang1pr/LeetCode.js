@@ -44,12 +44,12 @@ var trapRainWater = function(heightMap) {
     }
 
     heapifyUp(childIndex) {
-      let parentIndex = Math.floor((childIndex - 1)/2);
+      let parentIndex = Math.floor((childIndex - 1) / 2);
 
       while (parentIndex >= 0 && !this.checkInvariant(this.array[parentIndex], this.array[childIndex])) {
         [this.array[parentIndex], this.array[childIndex]] = [this.array[childIndex], this.array[parentIndex]];
         childIndex = parentIndex;
-        parentIndex = Math.floor((parentIndex - 1)/2);
+        parentIndex = Math.floor((parentIndex - 1) / 2);
       }
     }
 
@@ -97,7 +97,7 @@ var trapRainWater = function(heightMap) {
 
   const m = heightMap.length;
   const n = heightMap[0].length;
-  const visited = [...new Array(m)].map(() => new Array(n).fill(false));
+  const visited = [...Array(m)].map(() => Array(n).fill(false));
 
   for (let i = 0; i < m; i++) {
     visited[i][0] = true;
