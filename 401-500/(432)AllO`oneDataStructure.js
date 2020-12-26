@@ -11,10 +11,10 @@ class ListNode {
 
 var AllOne = function() {
   this.head = new ListNode();
-	this.tail = new ListNode();
-	this.head.next = this.tail;
-	this.tail.prev = this.head;
-	this.hash = {};
+  this.tail = new ListNode();
+  this.head.next = this.tail;
+  this.tail.prev = this.head;
+  this.hash = {};
 };
 
 // time:  O(1)
@@ -27,41 +27,41 @@ var AllOne = function() {
  */
 AllOne.prototype.inc = function(key) {
   if (!key || this.hash[key] == null) {
-		const nextNode = this.head.next;
-		if (nextNode.num == 1) {
-			nextNode.vals.add(key);
-			this.hash[key] = nextNode;
-		} else {
-			const node = new ListNode(1);
-			node.vals.add(key);
-			this.hash[key] = node;
+    const nextNode = this.head.next;
+    if (nextNode.num == 1) {
+      nextNode.vals.add(key);
+      this.hash[key] = nextNode;
+    } else {
+      const node = new ListNode(1);
+      node.vals.add(key);
+      this.hash[key] = node;
 
       node.next = nextNode;
-			nextNode.prev = node;
-			this.head.next = node;
-			node.prev = this.head;
-		}
-	} else {
-		const currNode = this.hash[key];
-		currNode.vals.delete(key);
-		const nextNum = currNode.num + 1;
-		const nextNode = currNode.next;
-		if (nextNode.num != nextNum) {
-			const node = new ListNode(nextNum);
-			node.next = nextNode;
-			nextNode.prev = node;
-			currNode.next = node;
-			node.prev = currNode;
-		}
+      nextNode.prev = node;
+      this.head.next = node;
+      node.prev = this.head;
+    }
+  } else {
+    const currNode = this.hash[key];
+    currNode.vals.delete(key);
+    const nextNum = currNode.num + 1;
+    const nextNode = currNode.next;
+    if (nextNode.num != nextNum) {
+      const node = new ListNode(nextNum);
+      node.next = nextNode;
+      nextNode.prev = node;
+      currNode.next = node;
+      node.prev = currNode;
+    }
 
-		this.hash[key] = currNode.next;
-		currNode.next.vals.add(key);
+    this.hash[key] = currNode.next;
+    currNode.next.vals.add(key);
 
-		if (!currNode.vals.size) {
-			currNode.prev.next = currNode.next;
-			currNode.next.prev = currNode.prev;
-		}
-	}
+    if (!currNode.vals.size) {
+    currNode.prev.next = currNode.next;
+    currNode.next.prev = currNode.prev;
+    }
+  }
 };
 
 // time:  O(1)
@@ -74,34 +74,34 @@ AllOne.prototype.inc = function(key) {
  */
 AllOne.prototype.dec = function(key) {
   if (!key || this.hash[key] == null) {
-		return;
-	} else {
-		const currNode = this.hash[key];
-		currNode.vals.delete(key);
-		const prevNum = currNode.num - 1;
-		const prevNode = currNode.prev;
-		if (prevNum && prevNode.num != prevNum) {
-			const node = new ListNode(prevNum);
-			prevNode.next = node;
-			node.prev = prevNode;
-			node.next = currNode;
-			currNode.prev = node;;
-		}
+    return;
+  } else {
+    const currNode = this.hash[key];
+    currNode.vals.delete(key);
+    const prevNum = currNode.num - 1;
+    const prevNode = currNode.prev;
+    if (prevNum && prevNode.num != prevNum) {
+    const node = new ListNode(prevNum);
+    prevNode.next = node;
+    node.prev = prevNode;
+    node.next = currNode;
+    currNode.prev = node;;
+    }
 
-		if (prevNum) {
-			currNode.prev.vals.add(key);
-		}
+    if (prevNum) {
+      currNode.prev.vals.add(key);
+    }
 
-		this.hash[key] = currNode.prev;
-		if (!prevNum) {
+    this.hash[key] = currNode.prev;
+    if (!prevNum) {
       delete(this.hash[key]);
     }
 
-		if (!currNode.vals.size) {
-			currNode.prev.next = currNode.next;
-			currNode.next.prev = currNode.prev;
-		}
-	}
+    if (!currNode.vals.size) {
+      currNode.prev.next = currNode.next;
+      currNode.next.prev = currNode.prev;
+    }
+  }
 };
 
 // time:  O(1)
@@ -113,15 +113,15 @@ AllOne.prototype.dec = function(key) {
  */
 AllOne.prototype.getMaxKey = function() {
   const node = this.tail.prev;
-	if (node == this.head) {
+  if (node == this.head) {
     return '';
   }
 
-	for (const v of node.vals) {
-		return v;
-	}
+  for (const v of node.vals) {
+    return v;
+  }
 
-	return '';
+  return '';
 };
 
 // time:  O(1)
@@ -133,15 +133,15 @@ AllOne.prototype.getMaxKey = function() {
  */
 AllOne.prototype.getMinKey = function() {
   const node = this.head.next;
-	if (node == this.tail) {
+  if (node == this.tail) {
     return '';
   }
 
-	for (const v of node.vals) {
-		return v;
-	}
+  for (const v of node.vals) {
+    return v;
+  }
 
-	return '';
+  return '';
 };
 
 // time:  O(1)
