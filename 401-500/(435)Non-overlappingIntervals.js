@@ -21,6 +21,9 @@ var eraseOverlapIntervals = function(intervals) {
   return intervals.length - count;
 };
 
+// time:  O(nlog(n))
+// space: O(n)
+
 // [[1, 2]]
 // [[1, 2], [2, 3]]
 // [[1, 2], [1, 2], [1, 2]]
