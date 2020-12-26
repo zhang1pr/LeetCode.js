@@ -19,11 +19,11 @@ var validWordAbbreviation = (word, abbr) => {
     }
 
     let start = j;
-    while (j < abbr.length && abbr.charAt(j) >= '0' && abbr.charAt(j) <= '9') {
+    while (j < abbr.length && abbr[j] >= '0' && abbr[j] <= '9') {
       j++;
     }
 
-    let num = new Number(abbr.slice(start, j));
+    let num = Number(abbr.slice(start, j));
     i += num;
   }
 
