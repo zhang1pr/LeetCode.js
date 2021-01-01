@@ -13,12 +13,15 @@ var canMeasureWater = function(x, y, z) {
     return true;
   }
 
-  return z % GCD(x, y) == 0;
+  return z % gcd(x, y) == 0;
 };
 
-var GCD = function(a, b){
+var gcd = function(a, b) {
+  let temp;
   while (b != 0) {
-    [a, b] = [b, a % b];
+    temp = a % b;
+    a = b;
+    b = temp;
   }
 
   return a;
