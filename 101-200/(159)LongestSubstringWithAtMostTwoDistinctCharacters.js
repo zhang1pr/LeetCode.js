@@ -1,7 +1,7 @@
 /**
-* @param {string} s
-* @return {number}
-*/
+ * @param {string} s
+ * @return {number}
+ */
 var lengthOfLongestSubstringTwoDistinct = function(s) {
   const map = new Map();
   const length = s.length;
@@ -43,3 +43,4 @@ var lengthOfLongestSubstringTwoDistinct = function(s) {
 // 'ab'
 // 'abc'
 // 'eceba'
+// 'ccaabbb'
