@@ -1,12 +1,22 @@
 /**
+ * Definition for read4()
+ *
+ * @param {character[]} buf4 Destination buffer
+ * @return {number} The number of actual characters read
+ * read4 = function(buf4) {
+ *     ...
+ * };
+ */
+
+/**
  * @param {function} read4()
  * @return {function}
  */
 var solution = function(read4) {
   /**
    * @param {character[]} buf Destination buffer
-   * @param {number} n Maximum number of characters to read
-   * @return {number} The number of characters read
+   * @param {number} n Number of characters to read
+   * @return {number} The number of actual characters read
    */
   return function(buf, n) {
     let eof = false;
@@ -40,4 +50,6 @@ var solution = function(read4) {
 // 'a', 1
 // 'abc', 4
 // 'abcd', 4
-// 'abcde', 4
+// 'abcde', 5
+// 'leetcode', 5
+// 'abcdABCD1234', 12
