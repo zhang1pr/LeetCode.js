@@ -3,7 +3,7 @@
  *
  * @param {character[]} buf Destination buffer
  * @return {number} The number of characters read
- * read4 = function(buf) {
+ * read4 = function(buf4) {
  *     ...
  * };
  */
@@ -19,8 +19,8 @@ var solution = function(read4) {
 
   /**
    * @param {character[]} buf Destination buffer
-   * @param {number} n Maximum number of characters to read
-   * @return {number} The number of characters read
+   * @param {number} n Number of characters to read
+   * @return {number} The number of actual characters read
    */
   return function(buf, n) {
     let numCharRead = 0;
