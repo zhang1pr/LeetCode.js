@@ -37,13 +37,16 @@ function getRange(lower, upper) {
   } else {
     return `${lower}->${upper}`;
   }
-}
+};
 
 // time:  O(n)
 // space: O(1)
 
 // [], 0, 0
 // [], 0, 3
+// [], -3, -1
+// [1], -1, -1
+// [1], -2, -1
 // [1], 0, 1
 // [1], 1, 1
 // [1], 1, 2
