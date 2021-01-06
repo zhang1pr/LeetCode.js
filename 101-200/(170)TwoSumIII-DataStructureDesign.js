@@ -1,16 +1,18 @@
 /**
- * initialize your data structure here
- * @constructor
+ * Initialize your data structure here.
  */
 var TwoSum = function() {
   this.map = new Map();
 };
 
+// time:  O(1)
+// space: O(1)
+
 /**
-* Add the number to an internal data structure.
-* @param {number} number
-* @returns {void}
-*/
+ * Add the number to an internal data structure..
+ * @param {number} number
+ * @return {void}
+ */
 TwoSum.prototype.add = function(number) {
   if (this.map.has(number)) {
     this.map.set(number, this.map.get(number) + 1);
@@ -19,11 +21,14 @@ TwoSum.prototype.add = function(number) {
   }
 };
 
+// time:  O(1)
+// space: O(1)
+
 /**
-* Find if there exists any pair of numbers which sum is equal to the value.
-* @param {number} value
-* @returns {boolean}
-*/
+ * Find if there exists any pair of numbers which sum is equal to the value.
+ * @param {number} value
+ * @return {boolean}
+ */
 TwoSum.prototype.find = function(value) {
   for (const key of this.map.keys()) {
     const diff = value - key;
@@ -43,15 +48,15 @@ TwoSum.prototype.find = function(value) {
   return false;
 };
 
-/**
-* Your TwoSum object will be instantiated and called as such:
-* var twoSum = new TwoSum();
-* twoSum.add(number);
-* twoSum.find(value);
-*/
-
 // time:  O(n)
 // space: O(n)
+
+/**
+ * Your TwoSum object will be instantiated and called as such:
+ * var obj = new TwoSum()
+ * obj.add(number)
+ * var param_2 = obj.find(value)
+ */
 
 // ['TwoSum', 'add, 'add', 'add', 'find', 'find'], [[], [0], [0], [1], [0], [1]]
 // ['TwoSum', 'add, 'add', 'add', 'find', 'find'], [[], [1], [3], [5], [4], [7]]
