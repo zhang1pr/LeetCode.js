@@ -1,26 +1,26 @@
 /**
- * @param {character[]} str
- * @return {void} Do not return anything, modify the string in-place instead.
+ * @param {character[]} s
+ * @return {void} Do not return anything, modify s in-place instead.
  */
-var reverseWords = function(str) {
-  reverse(str, 0, str.length - 1);
+var reverseWords = function(s) {
+  reverse(s, 0, s.length - 1);
   let last = 0;
 
-  for (let i = 0; i <= str.length; i++) {
-    if (str[i] == ' ' || i == str.length) {
-      reverse(str, last, i - 1);
+  for (let i = 0; i <= s.length; i++) {
+    if (s[i] == ' ' || i == s.length) {
+      reverse(s, last, i - 1);
       last = i + 1;
     }
   }
 };
 
-var reverse = function(str, start, end) {
+var reverse = function(s, start, end) {
   let temp;
 
   while (start < end) {
-    temp = str[start];
-    str[start] = str[end];
-    str[end] = temp;
+    temp = s[start];
+    s[start] = s[end];
+    s[end] = temp;
     start++;
     end--;
   }
