@@ -4,18 +4,18 @@
  */
 var calculate = function(s) {
   const arr = Array.from(s);
-  const n = .length;
+  const n = arr.length;
   const stack = [];
   let num = 0;
   let pow = 1;
 
   for (let i = n - 1; i >= 0; i--) {
-    if ([i] == ' ') {
+    if (arr[i] == ' ') {
       continue;
     }
 
-    if ([i] >= '0' && arr[i] <= '9') {
-      num = Number([i]) * pow + num;
+    if (arr[i] >= '0' && arr[i] <= '9') {
+      num = Number(arr[i]) * pow + num;
       pow *= 10;
     } else {
       if (pow != 1) {
@@ -24,13 +24,13 @@ var calculate = function(s) {
         pow = 1;
       }
 
-      if ([i] == '+' || arr[i] == '-') {
-        stack.push([i] == '+' ? 1 : -1);
-      } else if ([i] == '(') {
+      if (arr[i] == '+' || arr[i] == '-') {
+        stack.push(arr[i] == '+' ? 1 : -1);
+      } else if (arr[i] == '(') {
         const res = evaluateExpr(stack);
         stack.pop();
         stack.push(res);
-      } else if ([i] == ')') {
+      } else if (arr[i] == ')') {
         stack.push(-2);
       }
     }
@@ -38,6 +38,10 @@ var calculate = function(s) {
 
   if (pow != 1) {
     stack.push(num);
+  }
+
+  if (stack.length % 2 == 0) {
+    stack.push(0);
   }
 
   return evaluateExpr(stack);
