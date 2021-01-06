@@ -35,7 +35,8 @@ var isOneEditDistance = function(s, t) {
 // space: O(1)
 
 // '', ''
-// '', 'a'
+// '', 'A'
+// 'a', ''
 // 'a', 'A'
 // 'a', 'aA'
 // 'a', 'AA'
