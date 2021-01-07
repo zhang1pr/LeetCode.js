@@ -1,27 +1,34 @@
 /**
- * @constructor
  * @param {string[]} words
  */
 var WordDistance = function(words) {
-  this.positions = {};
+  this.map = new Map();
 
-  for (const word of words) {
-    this.positions[word] = this.positions[word] || [];
-    this.positions[word].push(i);
+  for (let i = 0; i < words.length; i++) {
+    const word = words[i];
+
+    if (!this.map.has(word)) {
+      this.map.set(word, []);
+    }
+
+    this.map.get(word).push(i);
   }
 };
 
+// time:  O(n)
+// space: O(n)
+
 /**
-* @param {string} word1
-* @param {string} word2
-* @return {integer}
-*/
+ * @param {string} word1
+ * @param {string} word2
+ * @return {number}
+ */
 WordDistance.prototype.shortest = function(word1, word2) {
   let i = 0;
   let j = 0;
   let dist = Infinity;
-  let pos1 = this.positions[word1];
-  let pos2 = this.positions[word2];
+  let pos1 = this.map.get(word1);
+  let pos2 = this.map.get(word2);
 
   while (i < pos1.length && j < pos2.length) {
     let i1 = pos1[i];
@@ -39,14 +46,13 @@ WordDistance.prototype.shortest = function(word1, word2) {
   return dist;
 };
 
-/**
-* Your WordDistance object will be instantiated and called as such:
-* var wordDistance = new WordDistance(words);
-* wordDistance.shortest('word1', 'word2');
-* wordDistance.shortest('anotherWord1', 'anotherWord2');
-*/
-
 // time:  O(n)
-// space: O(n)
+// space: O(1)
+
+/**
+ * Your WordDistance object will be instantiated and called as such:
+ * var obj = new WordDistance(words)
+ * var param_1 = obj.shortest(word1,word2)
+ */
 
 // ['WordDistance', 'shortest', 'shortest'], [[['practice', 'makes', 'perfect', 'coding', 'makes']], ['coding', 'practice'], ['makes', 'coding']]
