@@ -13,6 +13,10 @@ var findStrobogrammatic = function(n) {
 
   for (let m = 2; m <= n; m += 2) {
     list = list.reduce((a, b) => {
+      if (m + 1 < n) {
+        a.push('0' + b + '0');
+      }
+
       a.push('1' + b + '1');
       a.push('6' + b + '9');
       a.push('9' + b + '6');
