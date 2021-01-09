@@ -9,7 +9,7 @@ var groupStrings = function(strings) {
     let shift = '';
 
     for (let i = 0; i < string.length; i++) {
-      shift += (string[i] - string[0] + 26) % 26;
+      shift += (string[i].charCodeAt(0) - string[0].charCodeAt(0) + 26) % 26;
       shift += ',';
     }
 
