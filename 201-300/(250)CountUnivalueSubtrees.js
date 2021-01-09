@@ -2,16 +2,16 @@
  * @param {TreeNode} root
  * @return {number}
  */
-const countUnivalSubtrees = function(root) {
+var countUnivalSubtrees = function(root) {
   let res = 0;
 
-  function DFS(node, obj) {
+  function DFS(node) {
     if (node == null) {
       return true;
     }
 
-    const left = DFS(node.left, obj);
-    const right = DFS(node.right, obj);
+    const left = DFS(node.left);
+    const right = DFS(node.right);
 
     if (left && right) {
       if (node.left !== null && node.val !== node.left.val) {
@@ -22,7 +22,7 @@ const countUnivalSubtrees = function(root) {
         return false;
       }
 
-      obj.num++
+      res++;
       return true;
     }
 
@@ -37,4 +37,6 @@ const countUnivalSubtrees = function(root) {
 // time:  O(n)
 // space: O(n)
 
+// []
 // [5, 1, 5, 5, 5, null, 5]
+// [5, 5, 5, 5, 5, null, 5]
