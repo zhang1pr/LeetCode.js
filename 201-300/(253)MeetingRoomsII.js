@@ -1,43 +1,31 @@
 /**
- * Definition for an interval.
- * function Interval(start, end) {
- *     this.start = start;
- *     this.end = end;
- * }
- */
-/**
- * @param {Interval[]} intervals
+ * @param {number[][]} intervals
  * @return {number}
  */
-
 var minMeetingRooms = function(intervals) {
   const start = [];
   const end = [];
 
   for (const interval of intervals) {
     start.push(interval[0]);
-    start.push(interval[1]);
+    end.push(interval[1]);
   }
 
-  const compare = (a, b) => a - b;
-  start.sort(compare);
-  end.sort(compare);
+  start.sort((a, b) => a - b);
+  end.sort((a, b) => a - b);
 
   let i = 0;
   let j = 0;
   let res = 0;
-  let room = 0;
 
-  while (i < n) {
-    if (start[i] < end[j]) {
-      room++;
-      i++
-    } else {
-      room--;
+  while (i < intervals.length) {
+    if (start[i] >= end[j]) {
+      res--;
       j++;
     }
 
-    res = Math.max(res, room);
+    res++;
+    i++;
   }
 
   return res;
