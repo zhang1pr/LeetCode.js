@@ -2,7 +2,7 @@
  * @param {number[]} preorder
  * @return {boolean}
  */
-const verifyPreorder = function(preorder) {
+var verifyPreorder = function(preorder) {
   let low = -Infinity;
   let i = -1;
 
