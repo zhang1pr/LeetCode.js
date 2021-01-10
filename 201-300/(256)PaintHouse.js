@@ -13,13 +13,14 @@ var minCost = function(costs) {
     costs[i][2] += Math.min(costs[i - 1][0], costs[i - 1][1]);
   }
 
-  return Math.min(...costs[i - 1]);
+  return Math.min(...costs[costs.length - 1]);
 };
 
 // time:  O(n)
 // space: O(1)
 
 // []
+// [[7, 6, 2]]
 // [[1], [1], [1]]
 // [[1], [2], [3]]
 // [[1, 2], [1, 4], [2, 3]]
