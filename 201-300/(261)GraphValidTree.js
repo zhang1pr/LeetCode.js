@@ -6,21 +6,21 @@
 var validTree = function(n, edges) {
   const unions = [...Array(n).keys()];
 
-  for (const edge of edges) {
-    if (isConnected(unions, edge[1], edge[0])) {
+  for (const [a, b] of edges) {
+    if (isConnected(unions, a, b)) {
       return false;
     }
   }
 
-  const visited = {};
+  const set = new Set();
   let diff = 0;
 
   for (const union of unions) {
-    if (visited[union]) {
+    if (set.has(union)) {
       continue;
     }
 
-    visited[union] = true;
+    set.add(union);
     diff++;
   }
 
@@ -28,15 +28,15 @@ var validTree = function(n, edges) {
 };
 
 var isConnected = function(unions, a, b) {
-  let group1 = unions[a];
-  let group2 = unions[b];
+  const group1 = unions[a];
+  const group2 = unions[b];
 
-  if (group1 === group2) {
-    return true
+  if (group1 == group2) {
+    return true;
   }
 
   for (let i = 0; i < unions.length; i++) {
-    if (unions[i] === group2) {
+    if (unions[i] == group2) {
       unions[i] = group1;
     }
   }
