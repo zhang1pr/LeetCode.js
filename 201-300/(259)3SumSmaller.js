@@ -37,6 +37,8 @@ var threeSumSmaller = function(nums, target) {
 // time:  O(n^2)
 // space: O(log(n))
 
+// [], 0
+// [], 0
 // [0], 1
 // [1, 1], 0
 // [0, 0, 1], 0
