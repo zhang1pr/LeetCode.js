@@ -14,10 +14,10 @@ var findMaximumXOR = function(nums) {
       set.add(num & mask);
     }
 
-    let tmp = max | (1 << i);
+    const temp = max | (1 << i);
     for (const prefix of set) {
-      if (set.has(tmp ^ prefix)) {
-        max = tmp;
+      if (set.has(temp ^ prefix)) {
+        max = temp;
         break;
       }
     }
