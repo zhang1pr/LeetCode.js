@@ -13,7 +13,7 @@ var generatePalindromes = function(s) {
   }
 
   for (const c of arr) {
-    if (c % 2 !== 0) {
+    if (c % 2 != 0) {
       odds++;
     }
   }
@@ -22,7 +22,7 @@ var generatePalindromes = function(s) {
     let center;
 
     for (let i = 0; i < arr.length; i++) {
-      if ([i] % 2 === 1) {
+      if (arr[i] % 2 == 1) {
         center = String.fromCharCode(i);
         arr[i]--;
         break;
@@ -41,10 +41,10 @@ var generate = function(res, arr, build, len) {
     return;
   }
 
-  for (let i = 0; index < arr.length; index++) {
-    if ([i] > 0) {
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] > 0) {
       arr[i] -= 2;
-      let target = String.fromCharCode(index);
+      const target = String.fromCharCode(i);
       generate(res, arr, target + build + target, len);
       arr[i] += 2;
     }
