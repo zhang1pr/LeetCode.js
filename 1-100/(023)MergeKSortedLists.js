@@ -1,68 +1,78 @@
+class Heap {
+  constructor() {
+    this.array = [];
+  }
+
+  poll() {
+    if (this.array.length === 0) {
+      return null;
+    }
+
+    if (this.array.length === 1) {
+      return this.array.pop();
+    }
+
+    const item = this.array[0];
+
+    this.array[0] = this.array.pop();
+    this.heapifyDown(0);
+
+    return item;
+  }
+
+  add(item) {
+    this.array.push(item);
+    this.heapifyUp(this.array.length - 1);
+    return this;
+  }
+
+  isEmpty() {
+    return this.array.length == 0;
+  }
+
+  heapifyUp(childIndex) {
+    let parentIndex = Math.floor((childIndex - 1)/2);
+
+    while (parentIndex >= 0 && !this.checkInvariant(this.array[parentIndex], this.array[childIndex])) {
+      [this.array[parentIndex], this.array[childIndex]] = [this.array[childIndex], this.array[parentIndex]];
+      childIndex = parentIndex;
+      parentIndex = Math.floor((parentIndex - 1)/2);
+    }
+  }
+
+  heapifyDown(parentIndex) {
+    let childIndex1 = parentIndex * 2 + 1;
+    let childIndex2 = parentIndex * 2 + 2;
+    let nextIndex;
+
+    while (childIndex1 < this.array.length) {
+      if (childIndex2 < this.array.length && this.checkInvariant(this.array[childIndex2], this.array[childIndex1])) {
+        nextIndex = childIndex2;
+      } else {
+        nextIndex = childIndex1;
+      }
+
+      if (this.checkInvariant(this.array[parentIndex], this.array[nextIndex])) {
+        break;
+      }
+
+      [this.array[parentIndex], this.array[nextIndex]] = [this.array[nextIndex], this.array[parentIndex]];
+      parentIndex = nextIndex;
+      childIndex1 = nextIndex * 2 + 1;
+      childIndex2 = nextIndex * 2 + 2;
+    }
+  }
+
+  checkInvariant(a, b) {
+    return a <= b;
+  }
+}
+
 /**
  * @param {ListNode[]} lists
  * @return {ListNode}
  */
 var mergeKLists = function(lists) {
-  class Heap {
-    constructor() {
-      this.arr = [];
-    }
-
-    heapifyDown(i) {
-      let childIndex1 = 2 * i + 1;
-      let childIndex2 = 2 * i + 2;
-      let next;
-
-      while (childIndex1 < this.arr.length) {
-        if (childIndex2 < this.arr.length && this.arr[childIndex2] < this.arr[childIndex1]) {
-          next = childIndex2;
-        } else {
-          next = childIndex1;
-        }
-
-        if (this.arr[i] <= this.arr[next]) {
-          break;
-        }
-
-        [this.arr[i], this.arr[next]] = [this.arr[next], this.arr[i]];
-
-        i = next;
-        childIndex1 = 2 * i + 1;
-        childIndex2 = 2 * i + 2;
-      }
-    }
-
-    heapifyUp(i) {
-      let p = Math.floor((i - 1) / 2);
-      while (p >= 0 && this.arr[p] > this.arr[i]) {
-        [this.arr[p], this.arr[i]] =   [this.arr[i], this.arr[p]];
-        i = p;
-        p = Math.floor((i - 1) / 2);
-      }
-    }
-
-    isEmpty() {
-      return this.arr.length == 0;
-    }
-
-    add(val) {
-      this.arr.push(val);
-      this.heapifyUp(this.arr.length - 1);
-    }
-
-    poll() {
-      if (this.arr.length == 1) {
-        return this.arr.pop();
-      }
-
-      const temp = this.arr[0];
-      this.arr[0] = this.arr.pop();
-      this.heapifyDown(0);
-
-      return temp;
-    }
-  }
-
   const heap = new Heap();
 
   for (const list of lists) {
