@@ -1,7 +1,3 @@
-/**
- * @param {string[]} words
- * @return {string}
- */
 class QueueNode {
   constructor(val, next = null) {
     this.val = val;
@@ -59,6 +55,10 @@ class Queue {
   }
 }
 
+/**
+ * @param {string[]} words
+ * @return {string}
+ */
 var alienOrder = function(words) {
   if (words.length === 0) {
     return '';
