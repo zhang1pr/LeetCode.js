@@ -3,7 +3,7 @@
  * @param {number} target
  * @return {number}
  */
-const closestValue = function(root, target) {
+var closestValue = function(root, target) {
   let res = root.val;
 
   while (root) {
