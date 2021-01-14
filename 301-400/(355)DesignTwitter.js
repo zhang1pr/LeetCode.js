@@ -61,7 +61,7 @@ Twitter.prototype.getNewsFeed = function(userId) {
   return tweets.sort((a, b) => b.index - a.index).map(tweet => tweet.id).slice(0, 10);
 };
 
-// time:  O(nlogn)
+// time:  O(nlog(n))
 // space: O(n)
 
 /**
