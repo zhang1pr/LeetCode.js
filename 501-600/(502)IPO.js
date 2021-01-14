@@ -3,14 +3,6 @@ class Heap {
     this.array = [];
   }
 
-  peek() {
-    if (this.array.length === 0) {
-      return null;
-    }
-
-    return this.array[0];
-  }
-
   poll() {
     if (this.array.length === 0) {
       return null;
@@ -93,7 +85,7 @@ var findMaximizedCapital = function(k, W, Profits, Capital) {
   arr.sort((a, b) => a[1] - b[1]);
   const heap = new Heap();
   let count = 0;
-  debugger;
+
   while (k) {
     while (count < arr.length && arr[count][1] <= W) {
       heap.add(-arr[count][0]);
