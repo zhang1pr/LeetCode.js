@@ -27,7 +27,7 @@ var findRelativeRanks = function(nums) {
   return nums;
 };
 
-// time:  O(nlogn)
+// time:  O(nlog(n))
 // space: O(n)
 
 // [0]
