@@ -7,12 +7,12 @@ var addTwoNumbers = function(l1, l2) {
   const s1 = [];
   const s2 = [];
 
-  while(l1 != null) {
+  while (l1 != null) {
     s1.push(l1.val);
     l1 = l1.next;
-  };
+  }
 
-  while(l2 != null) {
+  while (l2 != null) {
     s2.push(l2.val);
     l2 = l2.next;
   }
@@ -43,7 +43,6 @@ var addTwoNumbers = function(l1, l2) {
 
 // time:  O(max(m,n))
 // space: O(max(m,n))
-
 
 // [0], [1, 1]
 // [1], [9, 9, 9]
