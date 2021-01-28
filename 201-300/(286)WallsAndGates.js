@@ -13,23 +13,26 @@ var wallsAndGates = function(rooms) {
         rooms[i][j] = dist;
       }
 
-      DFS(rooms, i + 1, j, dist + 1);
-      DFS(rooms, i - 1, j, dist + 1);
-      DFS(rooms, i, j + 1, dist + 1);
-      DFS(rooms, i, j - 1, dist + 1);
+      DFS(i + 1, j, dist + 1);
+      DFS(i - 1, j, dist + 1);
+      DFS(i, j + 1, dist + 1);
+      DFS(i, j - 1, dist + 1);
     }
   }
 
   for (let i = 0; i < rooms.length; i++) {
     for (let j = 0; j < rooms[i].length; j++) {
-      if (rooms[i][j] === 0) {
+      if (rooms[i][j] == 0) {
         DFS(i, j, 0);
       }
     }
   }
 };
 
-// time:  O(n^4)
-// space: O(n)
+// time:  O(m^2*n^2)
+// space: O(mn)
 
+// [[0]]
+// [[-1]]
+// [[2147483647]]
 // [[2147483647, -1, 0, 2147483647], [2147483647, 2147483647, 2147483647, -1], [2147483647, -1, 2147483647, -1], [0, -1, 2147483647, 2147483647]]
