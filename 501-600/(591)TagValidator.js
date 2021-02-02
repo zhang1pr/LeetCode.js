@@ -67,11 +67,11 @@ var isValid = function(code) {
 // time:  O(n)
 // space: O(n)
 
-// "<A>  <B> </A>   </B>"
-// "<DIV>  unmatched <  </DIV>"
-// "<DIV>  div tag is not closed  <DIV>"
-// "<DIV>>>  ![cdata[]] <![CDATA[<div>]>]]>]]>>]</DIV>"
-// "<DIV>This is the first line <![CDATA[<div>]]></DIV>"
-// "<DIV> closed tags with invalid tag name  <b>123</b> </DIV>"
-// "<DIV>  unmatched start tag <B>  and unmatched end tag </C>  </DIV>"
-// "<DIV> unmatched tags with invalid tag name  </1234567890> and <CDATA[[]]>  </DIV>"
+// '<A>  <B> </A>   </B>'
+// '<DIV>  unmatched <  </DIV>'
+// '<DIV>  div tag is not closed  <DIV>'
+// '<DIV>>>  ![cdata[]] <![CDATA[<div>]>]]>]]>>]</DIV>'
+// '<DIV>This is the first line <![CDATA[<div>]]></DIV>'
+// '<DIV> closed tags with invalid tag name  <b>123</b> </DIV>'
+// '<DIV>  unmatched start tag <B>  and unmatched end tag </C>  </DIV>'
+// '<DIV> unmatched tags with invalid tag name  </1234567890> and <CDATA[[]]>  </DIV>'
