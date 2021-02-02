@@ -81,9 +81,9 @@ var removeConsecutive = function(board) {
 // time:  O(hLen*bLen^2)
 // space: O(1)
 
-// "G", "GGGGG"
-// "WRRBBW", "RB"
-// "WWBBWBBWW", "BB"
-// "RRWWRRBBRR", "WB"
-// "WWRRBBWW", "WRBRW"
-// "RBYYBBRRB", "YRBGB"
+// 'G', 'GGGGG'
+// 'WRRBBW', 'RB'
+// 'WWBBWBBWW', 'BB'
+// 'RRWWRRBBRR', 'WB'
+// 'WWRRBBWW', 'WRBRW'
+// 'RBYYBBRRB', 'YRBGB'
