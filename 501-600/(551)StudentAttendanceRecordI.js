@@ -9,11 +9,11 @@ var checkRecord = function(s) {
 // time:  O(n)
 // space: O(1)
 
-// "P"
+// 'P'
 // 'A'
 // 'L'
 // 'ALL'
 // 'PLLL'
 // 'AALLL'
-// "PPALLP"
-// "PPALLL"
+// 'PPALLP'
+// 'PPALLL'
