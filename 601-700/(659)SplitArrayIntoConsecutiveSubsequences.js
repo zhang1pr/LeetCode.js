@@ -33,6 +33,9 @@ var isPossible = function(nums) {
   return true;
 };
 
+// time:  O(n)
+// space: O(n)
+
 // [1]
 // [1, 2]
 // [1, 3]
