@@ -7,7 +7,7 @@ class StackNode {
     this.next = next;
   }
 }
-  
+
 class Stack {
   constructor() {
     this.head = null;
@@ -20,7 +20,7 @@ class Stack {
 
   peek() {
     if (!this.head) {
-    return null;
+      return null;
     }
 
     return this.head.val;
@@ -30,10 +30,10 @@ class Stack {
     const newNode = new StackNode(val, this.head);
 
     if (!this.tail) {
-    this.tail = newNode;
-    this.head = newNode;
+      this.tail = newNode;
+      this.head = newNode;
     } else {
-    this.head = newNode;
+      this.head = newNode;
     }
 
     return this;
@@ -41,16 +41,16 @@ class Stack {
 
   pop() {
     if (!this.head) {
-    return null;
+      return null;
     }
 
     const deletedHead = this.head;
 
     if (this.head.next) {
-    this.head = this.head.next;
+      this.head = this.head.next;
     } else {
-    this.head = null;
-    this.tail = null;
+      this.head = null;
+      this.tail = null;
     }
 
     return deletedHead.val;
@@ -63,7 +63,7 @@ var MyQueue = function() {
 };
 
 /**
- * Push element x to the back of queue. 
+ * Push element x to the back of queue.
  * @param {number} x
  * @return {void}
  */
@@ -77,6 +77,7 @@ MyQueue.prototype.push = function(x) {
  */
 MyQueue.prototype.pop = function() {
   this.peek();
+
   return this.output.pop();
 };
 
@@ -85,9 +86,10 @@ MyQueue.prototype.pop = function() {
  * @return {number}
  */
 MyQueue.prototype.peek = function() {
-  if (this.output.empty())
-  while (!this.input.empty()) {
-    this.output.push(this.input.pop());
+  if (this.output.empty()) {
+    while (!this.input.empty()) {
+      this.output.push(this.input.pop());
+    }
   }
 
   return this.output.peek();
@@ -101,7 +103,7 @@ MyQueue.prototype.empty = function() {
   return this.input.empty() && this.output.empty();
 };
 
-/** 
+/**
  * Your MyQueue object will be instantiated and called as such:
  * var obj = new MyQueue()
  * obj.push(x)
