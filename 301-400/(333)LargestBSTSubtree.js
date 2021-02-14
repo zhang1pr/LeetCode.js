@@ -15,7 +15,7 @@ var largestBSTSubtree = function(root) {
     return [Math.max(N1, N2, n), n, Math.min(min1, node.val), Math.max(max2, node.val)];
   }
 
-  return DFS(root)[0]
+  return DFS(root)[0];
 }
 
 // time:  O(n)
