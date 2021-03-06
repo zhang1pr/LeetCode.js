@@ -7,6 +7,7 @@
  *    this.child = child;
  * };
  */
+
 /**
  * @param {Node} head
  * @return {Node}
