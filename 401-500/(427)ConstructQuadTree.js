@@ -9,6 +9,7 @@
  *    this.bottomRight = bottomRight;
  * };
  */
+
 /**
  * @param {number[][]} grid
  * @return {Node}
