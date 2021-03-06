@@ -5,6 +5,7 @@
  *    this.children = children;
  * };
  */
+
 /**
  * @param {Node} root
  * @return {number[][]}
