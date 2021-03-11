@@ -12,7 +12,7 @@
  * @param {number} id
  * @return {number}
  */
- var GetImportance = function(employees, id) {
+var GetImportance = function(employees, id) {
   const map = new Map();
 
   function DFS(id) {
