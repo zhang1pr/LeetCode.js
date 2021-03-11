@@ -3,7 +3,7 @@
  * @param {number} k
  * @return {number[]}
  */
- var maxSumOfThreeSubarrays = function(nums, k) {
+var maxSumOfThreeSubarrays = function(nums, k) {
   const arr = Array(nums.length - k + 1).fill(0);
   const left = arr.slice();
   const right = arr.slice();
