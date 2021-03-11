@@ -7,7 +7,7 @@ var shortestDistance = function(grid) {
     const rows = grid.length;
     const cols = grid[0].length;
     const queue = [[begRow, begCol]];
-    const dirs = [[-1,0], [0,1], [1,0], [0,-1]];
+    const dirs = [[-1, 0], [0, 1], [1, 0], [0, -1]];
 
     const visited = [...Array(rows)].fill(() => Array(cols).fill(false));;
 
