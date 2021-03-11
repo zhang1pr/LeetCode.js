@@ -14,8 +14,8 @@ var hasAlternatingBits = function(n) {
   return true;
 };
 
-// time:  O(logn)
-// space: O(logn)
+// time:  O(log(n))
+// space: O(log(n))
 
 // 1
 // 2
