@@ -31,6 +31,9 @@ var findShortestSubArray = function(nums) {
   return res;
 };
 
+// time:  O(n)
+// space: O(n)
+
 // [1]
 // [1, 2]
 // [1, 2, 1]
