@@ -23,7 +23,6 @@ var findShortestSubArray = function(nums) {
 
   for (const [key, val] of map) {
     if (val == max) {
-      console.log(right.get(key), left.get(key))
       res = Math.min(res, right.get(key) - left.get(key) + 1);
     }
   }
