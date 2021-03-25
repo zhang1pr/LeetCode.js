@@ -29,7 +29,7 @@ LogSystem.prototype.retrieve = function(start, end, granularity) {
   end = end.slice(0, index);
 
   const res = [];
-  console.log(start, end);
+
   for (let i = 0; i < this.arr.length; i++){
     let [id, timestamp] = this.arr[i];
     timestamp = timestamp.slice(0, index);
