@@ -2,7 +2,7 @@
  * @param {number[][]} positions
  * @return {number[]}
  */
- var fallingSquares = function(positions) {
+var fallingSquares = function(positions) {
   const arr = Array(positions.length).fill(0);
 
   for (let i = 0; i < positions.length; i++) {
