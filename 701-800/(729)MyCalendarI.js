@@ -2,6 +2,9 @@ var MyCalendar = function() {
   this.calendar = [];
 };
 
+// time:  O(1)
+// space: O(1)
+
 /**
  * @param {number} start
  * @param {number} end
@@ -18,13 +21,13 @@ MyCalendar.prototype.book = function(start, end) {
   return true;
 };
 
+// time:  O(1)
+// space: O(1)
+
 /**
  * Your MyCalendar object will be instantiated and called as such:
  * var obj = new MyCalendar()
  * var param_1 = obj.book(start,end)
  */
-
-// time:  O(n^2)
-// space: O(n)
 
 // ['MyCalendar', 'book', 'book', 'book'], [[], [10, 20], [15, 25], [20, 30]]
