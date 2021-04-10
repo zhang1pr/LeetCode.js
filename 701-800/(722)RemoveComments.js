@@ -2,7 +2,7 @@
  * @param {string[]} source
  * @return {string[]}
  */
- var removeComments = function(source) {
+var removeComments = function(source) {
   let inBlock = false;
   let newline = '';
   const res = [];
