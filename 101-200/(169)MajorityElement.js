@@ -9,16 +9,16 @@ var majorityElement = function(nums) {
 
   const half = nums.length / 2;
   const map = new Map();
-  let count;
+  let cnt;
 
   for (const num of nums) {
     if (map.has(num)) {
-      count = map.get(num) + 1;
+      cnt = map.get(num) + 1;
 
-      if (count >= half) {
+      if (cnt >= half) {
         return num;
       } else {
-        map.set(num, count);
+        map.set(num, cnt);
       }
     } else {
       map.set(num, 1);
