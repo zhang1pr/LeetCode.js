@@ -6,12 +6,12 @@
 var rotate = function(nums, k) {
   k = k % nums.length;
 
-  let count = 0;
+  let cnt = 0;
   let current;
   let prev;
   let next;
   let temp;
-  for (let start = 0; count < nums.length; start++) {
+  for (let start = 0; cnt < nums.length; start++) {
     current = start;
     prev = nums[start];
 
@@ -21,7 +21,7 @@ var rotate = function(nums, k) {
       nums[next] = prev;
       prev = temp;
       current = next;
-      count++;
+      cnt++;
     } while (start != current);
   }
 };
