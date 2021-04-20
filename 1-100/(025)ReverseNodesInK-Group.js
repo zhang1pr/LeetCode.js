@@ -14,13 +14,13 @@ var reverseKGroup = function(head, k) {
   let tail = dummy;
   let prev = dummy;
   let temp;
-  let count;
+  let cnt;
 
   while (true) {
-    count = k;
+    cnt = k;
 
-    while (count > 0 && tail) {
-      count--;
+    while (cnt > 0 && tail) {
+      cnt--;
       tail = tail.next;
     }
 
