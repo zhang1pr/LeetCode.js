@@ -4,23 +4,23 @@
  */
 var lengthOfLastWord = function(s) {
   let i = s.length - 1;
-  let count = 0;
+  let cnt = 0;
   let flag = false;
 
   while (i >= 0) {
     if (s[i] == ' ') {
       if (flag) {
-          return count;
+          return cnt;
       }
     } else {
-      count++;
+      cnt++;
       flag = true;
     }
 
     i--;
   }
 
-  return count;
+  return cnt;
 };
 
 // time:  O(n)
