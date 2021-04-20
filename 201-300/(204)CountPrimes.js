@@ -4,11 +4,11 @@
  */
 var countPrimes = function(n) {
   const notPrime = Array(n);
-  let count = 0;
+  let cnt = 0;
 
   for (let i = 2; i < n; i++) {
     if (!notPrime[i]) {
-      count++;
+      cnt++;
 
       for (let j = 2; j * i < n; j++) {
         notPrime[j * i] = true;
@@ -16,7 +16,7 @@ var countPrimes = function(n) {
     }
   }
 
-  return count;
+  return cnt;
 };
 
 // time:  O(n)
