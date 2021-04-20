@@ -32,14 +32,14 @@ TwoSum.prototype.add = function(number) {
 TwoSum.prototype.find = function(value) {
   for (const key of this.map.keys()) {
     const diff = value - key;
-    const count = this.map.get(diff);
+    const cnt = this.map.get(diff);
 
     if (diff == key) {
-      if (count > 1) {
+      if (cnt > 1) {
         return true;
       }
     } else {
-      if (count > 0) {
+      if (cnt > 0) {
         return true;
       }
     }
