@@ -8,15 +8,15 @@ var subsets = function(nums) {
 
   for (let i = 0; i < bit; i++) {
     const arr = [];
-    let count = 0;
+    let cnt = 0;
     let cur = i;
 
     while (cur != 0) {
       if (cur % 2 == 1) {
-        arr.push(nums[count]);
+        arr.push(nums[cnt]);
       }
 
-      count++;
+      cnt++;
       cur >>= 1;
     }
 
