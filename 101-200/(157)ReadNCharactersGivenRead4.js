@@ -24,15 +24,15 @@ var solution = function(read4) {
     let temp = Array(4);
 
     while (!eof && total < n) {
-      let count = read4(temp);
+      let cnt = read4(temp);
 
-      if (count < 4) {
+      if (cnt < 4) {
         eof = true;
       }
 
-      count = Math.min(count, n - total);
+      cnt = Math.min(cnt, n - total);
 
-      for (let i = 0; i < count; i++) {
+      for (let i = 0; i < cnt; i++) {
         buf[total] = temp[i];
         total++;
       }
