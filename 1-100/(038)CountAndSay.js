@@ -7,14 +7,14 @@ var countAndSay = function(n) {
 
   for (let i = 1; i < n; i++) {
     nextres = '';
-    let count = 1;
+    let cnt = 1;
 
     for (let j = 0; j < res.length; j++) {
       if (res[j] != res[j+1]) {
-        nextres += count.toString() + res[j];
-        count = 1;
+        nextres += cnt.toString() + res[j];
+        cnt = 1;
       } else {
-        count++;
+        cnt++;
       }
     }
 
