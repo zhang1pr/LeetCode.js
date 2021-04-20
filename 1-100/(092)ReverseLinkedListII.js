@@ -11,7 +11,7 @@ var reverseBetween = function(head, m, n) {
 
   const dummy = new ListNode();
   dummy.next = head;
-  let count = 0;
+  let cnt = 0;
 
   let p1 = null;
   let p2 = null;
@@ -19,13 +19,13 @@ var reverseBetween = function(head, m, n) {
   let temp;
 
   while (head != null) {
-    count++;
-    if (count == m) {
+    cnt++;
+    if (cnt == m) {
       p1 = pre;
       p2 = head;
     }
 
-    if (count > m && count < n) {
+    if (cnt > m && cnt < n) {
       temp = head.next;
       head.next = pre;
       pre = head;
@@ -33,7 +33,7 @@ var reverseBetween = function(head, m, n) {
       continue;
     }
 
-    if (count == n) {
+    if (cnt == n) {
       p2.next = head.next;
       head.next = pre;
       p1.next = head;
