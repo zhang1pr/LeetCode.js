@@ -14,7 +14,7 @@
  */
 var solution = function(read4) {
   const buffer = [];
-  let count = 0;
+  let cnt = 0;
   let index = 0;
 
   /**
@@ -27,20 +27,20 @@ var solution = function(read4) {
 
     while (numCharRead < n) {
       if (index == 0) {
-        count = read4(buffer);
+        cnt = read4(buffer);
       }
 
-      while (index < count && numCharRead < n) {
+      while (index < cnt && numCharRead < n) {
         buf[numCharRead] = buffer[index];
         numCharRead++;
         index++;
       }
 
-      if (index == count) {
+      if (index == cnt) {
         index = 0;
       }
 
-      if (count < 4) {
+      if (cnt < 4) {
         break;
       }
     }
