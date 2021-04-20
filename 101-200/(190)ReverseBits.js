@@ -4,10 +4,10 @@
  */
 var reverseBits = function(n) {
   let res = 0;
-  let count = 32;
+  let cnt = 32;
 
-  while (count) {
-    count--;
+  while (cnt) {
+    cnt--;
     res *= 2;
     res += n & 1;
     n = n >> 1;
