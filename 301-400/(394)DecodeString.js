@@ -14,10 +14,10 @@ var decodeString = function(s) {
       res = '';
       num = 0;
     } else if (c == ']') {
-      const count = stack.pop();
+      const cnt = stack.pop();
       const str = stack.pop();
 
-      res = str + res.repeat(count);
+      res = str + res.repeat(cnt);
     } else if (Number.isInteger(Number(c))) {
       num = num * 10 + Number(c);
     } else {
