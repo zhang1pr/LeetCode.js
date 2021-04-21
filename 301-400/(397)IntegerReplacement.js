@@ -3,7 +3,7 @@
  * @return {number}
  */
 var integerReplacement = function(n) {
-  let count = 0;
+  let cnt = 0;
 
   while (n != 1) {
     if ((n & 1) == 0) {
@@ -14,10 +14,10 @@ var integerReplacement = function(n) {
       n++;
     }
 
-    count++;
+    cnt++;
   }
 
-  return count;
+  return cnt;
 };
 
 // time:  O(n)
