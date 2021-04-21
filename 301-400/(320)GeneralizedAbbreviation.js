@@ -5,18 +5,18 @@
 var generateAbbreviations = function(word) {
   const res = [];
 
-  function DFS(pos, cur, count) {
+  function DFS(pos, cur, cnt) {
     if (pos === word.length) {
-      if (count > 0) {
-        cur += count.toString();
+      if (cnt > 0) {
+        cur += cnt.toString();
       }
 
       res.push(cur);
       return;
     }
 
-    DFS(pos + 1, cur, count + 1);
-    DFS(pos + 1, cur + (count > 0 ? count.toString() : '') + word[pos], 0);
+    DFS(pos + 1, cur, cnt + 1);
+    DFS(pos + 1, cur + (cnt > 0 ? cnt.toString() : '') + word[pos], 0);
   }
 
   DFS(0, '', 0);
