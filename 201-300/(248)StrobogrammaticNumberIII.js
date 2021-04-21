@@ -6,7 +6,7 @@
 var strobogrammaticInRange = function(low, high) {
   const pairs = [['0', '0'], ['1', '1'], ['6', '9'], ['8', '8'], ['9', '6']];
 
-  let count = 0;
+  let cnt = 0;
 
   function DFS(left, right, current) {
     if (left > right) {
@@ -16,7 +16,7 @@ var strobogrammaticInRange = function(low, high) {
         return;
       }
 
-      count++;
+      cnt++;
       return;
     }
 
@@ -40,7 +40,7 @@ var strobogrammaticInRange = function(low, high) {
     DFS(0, i - 1, Array(i).fill(''));
   }
 
-  return count;
+  return cnt;
 };
 
 // time:  O(n^2)
