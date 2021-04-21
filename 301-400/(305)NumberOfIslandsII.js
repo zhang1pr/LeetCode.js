@@ -13,7 +13,7 @@ var numIslands2 = function(m, n, positions) {
 
   const dirs = [[0, 1], [0, -1], [1, 0], [-1, 0]];
 
-  let count = 0;
+  let cnt = 0;
 
   const roots = Array(m * n).fill(-1);
 
@@ -21,12 +21,12 @@ var numIslands2 = function(m, n, positions) {
     let root = n * p[0] + p[1];
 
     if (roots[root] !== -1) {
-      res.push(count);
+      res.push(cnt);
       continue;
     }
 
     roots[root] = root;
-    count++;
+    cnt++;
 
     for (const dir of dirs) {
       const x = p[0] + dir[0];
@@ -42,11 +42,11 @@ var numIslands2 = function(m, n, positions) {
       if (root !== rootNb) {
         roots[root] = rootNb;
         root = rootNb;
-        count--;
+        cnt--;
       }
     }
 
-    res.push(count);
+    res.push(cnt);
   }
 
   return res;
