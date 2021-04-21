@@ -19,12 +19,12 @@ Solution.prototype.pick = function(target) {
   }
 
   let res = 0;
-  let count = 0;
+  let cnt = 0;
   for (let i = 0; i < this.len; i++) {
     if (this.nums[i] == target) {
-      count++;
+      cnt++;
 
-      if (Math.floor(Math.random() * count) == 0) {
+      if (Math.floor(Math.random() * cnt) == 0) {
         res = i;
       }
     }
