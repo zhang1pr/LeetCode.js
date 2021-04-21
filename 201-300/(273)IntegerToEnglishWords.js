@@ -13,17 +13,17 @@ var numberToWords = function(num) {
 
   let res = '';
 
-  let count = 0;
+  let cnt = 0;
   let threeNum;
   let twoNum;
   while (num > 0) {
     threeNum = num % 1000;
 
     if (threeNum > 0) {
-      res = ' ' + nums3[count] + res;
+      res = ' ' + nums3[cnt] + res;
     }
 
-    count++;
+    cnt++;
 
     twoNum = num % 100;
     if (twoNum < 20) {
