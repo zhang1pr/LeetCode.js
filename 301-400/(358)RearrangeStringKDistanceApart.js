@@ -9,24 +9,24 @@ var rearrangeString = function(s, k) {
   }
 
   const length = s.length;
-  const count = Array(26).fill(0);
+  const cnt = Array(26).fill(0);
   const valid = Array(26).fill(0);
   const a = 97;
 
   for (let i = 0; i < length; i++) {
-    count[s.charCodeAt(i) - a]++;
+    cnt[s.charCodeAt(i) - a]++;
   }
 
   let sb = '';
 
   for (let index = 0; index < length; index++) {
-    let candidatePos = findValidMax(count, valid, index);
+    let candidatePos = findValidMax(cnt, valid, index);
 
     if (candidatePos == -1) {
       return '';
     }
 
-    count[candidatePos]--;
+    cnt[candidatePos]--;
     valid[candidatePos] = index + k;
     sb += String.fromCharCode(a + candidatePos);
   }
@@ -34,13 +34,13 @@ var rearrangeString = function(s, k) {
   return sb;
 }
 
-var findValidMax = function(count, valid, index) {
+var findValidMax = function(cnt, valid, index) {
   let max = Number.MIN_VALUE;
   let candidatePos = -1;
 
-  for (let i = 0; i < count.length; i++) {
-    if (count[i] > 0 && count[i] > max && index >= valid[i]) {
-      max = count[i];
+  for (let i = 0; i < cnt.length; i++) {
+    if (cnt[i] > 0 && cnt[i] > max && index >= valid[i]) {
+      max = cnt[i];
       candidatePos = i;
     }
   }
