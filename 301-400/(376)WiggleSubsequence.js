@@ -8,18 +8,18 @@ var wiggleMaxLength = function(nums) {
   }
 
   let prev = 0;
-  let count = 1;
+  let cnt = 1;
 
   for (let i = 1; i < nums.length; i++) {
     let cur = nums[i] - nums[i - 1];
 
     if (cur > 0 && prev <= 0 || cur < 0 && prev >= 0) {
-      count++;
+      cnt++;
       prev = cur;
     }
   }
 
-  return count;
+  return cnt;
 };
 
 // time:  O(n)
