@@ -6,15 +6,15 @@ var removeInvalidParentheses = function(s) {
   const res = [];
 
   function DFS(s, istart, jstart, end, left, right) {
-    let count = 0;
+    let cnt = 0;
     for (let i = istart; i < end; i++) {
       if (s[i] == left) {
-        count++;
+        cnt++;
       } else if (s[i] == right) {
-        count--;
+        cnt--;
       }
 
-      if (count < 0) {
+      if (cnt < 0) {
         for (let j = jstart; j <= i; j++) {
           if (s[j] == right && (j == 0 || s[j - 1] != right)) {
             DFS(s.slice(0, j) + s.slice(j + 1), i, j, end, left, right);
