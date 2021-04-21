@@ -5,7 +5,7 @@
  * @return {number}
  */
 var countRangeSum = function(nums, lower, upper) {
-  let count = 0;
+  let cnt = 0;
 
   const sum = Array(nums.length + 1);
   const temp = Array(nums.length + 1);
@@ -49,7 +49,7 @@ var countRangeSum = function(nums, lower, upper) {
 
       temp[index] = sum[left];
       index++;
-      count += high - low;
+      cnt += high - low;
     }
 
     while (right <= end) {
@@ -64,7 +64,7 @@ var countRangeSum = function(nums, lower, upper) {
   }
 
   mergeSort(0, sum.length - 1);
-  return count;
+  return cnt;
 };
 
 // time:  O(nlog(n))
