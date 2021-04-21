@@ -3,7 +3,7 @@
  * @return {number[]}
  */
 var countSmaller = function(nums) {
-  const count = Array(nums.length).fill(0);
+  const cnt = Array(nums.length).fill(0);
   const indices = [...Array(nums.length)].map((_, i) => i);
 
   function mergeSort(start, end) {
@@ -33,7 +33,7 @@ var countSmaller = function(nums) {
         right++;
       } else {
         newIndices[i] = indices[left];
-        count[indices[left]] += rightCount;
+        cnt[indices[left]] += rightCount;
         left++;
       }
 
@@ -42,7 +42,7 @@ var countSmaller = function(nums) {
 
     while (left <= mid) {
       newIndices[i] = indices[left];
-      count[indices[left]] += rightCount;
+      cnt[indices[left]] += rightCount;
       left++;
       i++;
     }
@@ -60,7 +60,7 @@ var countSmaller = function(nums) {
 
   mergeSort(0, nums.length - 1);
 
-  return count;
+  return cnt;
 };
 
 // time:  O(n)
