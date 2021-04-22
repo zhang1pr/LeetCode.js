@@ -10,12 +10,12 @@ var findMinMoves = function(machines) {
   }
 
   const avg = sum / machines.length;
-  let count = 0;
+  let cnt = 0;
   let max = 0;
 
   for (const machine of machines) {
-    count = count + machine - avg;
-    max = Math.max(max, Math.abs(count), machine - avg);
+    cnt = cnt + machine - avg;
+    max = Math.max(max, Math.abs(cnt), machine - avg);
   }
 
   return max;
