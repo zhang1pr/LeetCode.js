@@ -9,16 +9,16 @@ var eraseOverlapIntervals = function(intervals) {
 
   intervals.sort((a, b) => a.end - b.end);
   let end = intervals[0].end;
-  let count = 1;
+  let cnt = 1;
 
   for (let i = 1; i < intervals.length; i++) {
     if (intervals[i].start >= end) {
       end = intervals[i].end;
-      count++;
+      cnt++;
     }
   }
 
-  return intervals.length - count;
+  return intervals.length - cnt;
 };
 
 // time:  O(nlog(n))
