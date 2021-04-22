@@ -18,7 +18,7 @@ var minMutation = function(start, end, bank) {
   let set1 = new Set().add(start);
   let set2 = new Set().add(end);
 
-  let count = 0;
+  let cnt = 0;
   while (set1.size && set2.size) {
     if (set1.size > set2.size) {
       [set1, set2] = [set2, set1];
@@ -41,7 +41,7 @@ var minMutation = function(start, end, bank) {
           const target = arr.join('');
 
           if (set2.has(target)) {
-            return count + 1;
+            return cnt + 1;
           }
 
           if (bankSet.has(target)) {
@@ -54,7 +54,7 @@ var minMutation = function(start, end, bank) {
       }
     }
 
-    count++;
+    cnt++;
     set1 = temp;
   }
 
