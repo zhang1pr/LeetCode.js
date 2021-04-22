@@ -4,13 +4,13 @@
  */
 var findNthDigit = function(n) {
   let len = 1;
-  let count = 9;
+  let cnt = 9;
   let start = 1;
 
-  while (n > len * count) {
-    n -= len * count;
+  while (n > len * cnt) {
+    n -= len * cnt;
     len++;
-    count *= 10;
+    cnt *= 10;
     start *= 10;
   }
 
