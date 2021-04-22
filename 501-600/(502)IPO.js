@@ -84,12 +84,12 @@ var findMaximizedCapital = function(k, W, Profits, Capital) {
 
   arr.sort((a, b) => a[1] - b[1]);
   const heap = new Heap();
-  let count = 0;
+  let cnt = 0;
 
   while (k) {
-    while (count < arr.length && arr[count][1] <= W) {
-      heap.add(-arr[count][0]);
-      count++;
+    while (cnt < arr.length && arr[cnt][1] <= W) {
+      heap.add(-arr[cnt][0]);
+      cnt++;
     }
 
     if (!heap.isEmpty()) {
