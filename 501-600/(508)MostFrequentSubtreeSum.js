@@ -13,16 +13,16 @@ var findFrequentTreeSum = function(root) {
 
     const sum = DFS(root.left) + DFS(root.right) + root.val;
 
-    let count = 1;
+    let cnt = 1;
 
     if (!map.has(sum)) {
       map.set(sum, 1);
     } else {
-      count = map.get(sum) + 1;
-      map.set(sum, count);
+      cnt = map.get(sum) + 1;
+      map.set(sum, cnt);
     }
 
-    max = Math.max(max, count);
+    max = Math.max(max, cnt);
     return sum;
   }
 
