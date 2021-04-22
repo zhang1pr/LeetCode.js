@@ -7,10 +7,10 @@ var findMinStep = function(board, hand) {
   const boardSet = new Set(board);
   const handSet = new Set();
 
-  const count = Array(26).fill(0);
+  const cnt = Array(26).fill(0);
   for (const char of hand) {
     if (boardSet.has(char)) {
-      count[char.charCodeAt(0) - 65]++;
+      cnt[char.charCodeAt(0) - 65]++;
       handSet.add(char);
     }
   }
@@ -25,15 +25,15 @@ var findMinStep = function(board, hand) {
 
     for (const char of [...handSet]) {
       for (let i = 0; i < s.length; i++) {
-        count[char.charCodeAt(0) - 65]--;
-        if (count[char.charCodeAt(0) - 65] == 0) {
+        cnt[char.charCodeAt(0) - 65]--;
+        if (cnt[char.charCodeAt(0) - 65] == 0) {
           handSet.delete(char);
         }
 
         res = Math.min(res, 1 + DFS(s.slice(0, i) + char + s.slice(i)));
-        count[char.charCodeAt(0) - 65]++;
+        cnt[char.charCodeAt(0) - 65]++;
 
-        if (count[char.charCodeAt(0) - 65] == 1) {
+        if (cnt[char.charCodeAt(0) - 65] == 1) {
           handSet.add(char);
         }
       }
