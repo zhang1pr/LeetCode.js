@@ -3,7 +3,7 @@
  * @return {number}
  */
 var findSubstringInWraproundString = function(p) {
-  const count = Array(26).fill(0);
+  const cnt = Array(26).fill(0);
   let cur = 0;
 
   for (let i = 0; i < p.length; i++) {
@@ -14,10 +14,10 @@ var findSubstringInWraproundString = function(p) {
     }
 
     const index = p.charCodeAt(i) - 97;
-    count[index] = Math.max(count[index], cur);
+    cnt[index] = Math.max(cnt[index], cur);
   }
 
-  return count.reduce((a, b) => a + b);
+  return cnt.reduce((a, b) => a + b);
 };
 
 // time:  O(n)
