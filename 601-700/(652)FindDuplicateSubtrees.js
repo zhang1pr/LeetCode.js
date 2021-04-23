@@ -5,7 +5,7 @@
 var findDuplicateSubtrees = function(root) {
   let t = 1;
   const tree = new Map();
-  const count = new Map();
+  const cnt = new Map();
   const res = [];
 
   function DFS(node) {
@@ -21,9 +21,9 @@ var findDuplicateSubtrees = function(root) {
     }
 
     const id = tree.get(string);
-    count.set(id, (count.get(id) || 0) + 1);
+    cnt.set(id, (cnt.get(id) || 0) + 1);
 
-    if (count.get(id) == 2) {
+    if (cnt.get(id) == 2) {
       res.push(node);
     }
 
