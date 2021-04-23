@@ -15,7 +15,7 @@ var updateBoard = function(board, click) {
       if (board[row][col] == 'M') {
         board[row][col] = 'X';
       } else {
-        let count = 0;
+        let cnt = 0;
 
         for (let i = -1; i <= 1; i++) {
           for (let j = -1; j <= 1; j++) {
@@ -31,13 +31,13 @@ var updateBoard = function(board, click) {
             }
 
             if (board[r][c] == 'M' || board[r][c] == 'X') {
-              count++;
+              cnt++;
             }
           }
         }
 
-        if (count > 0) {
-          board[row][col] = count.toString();
+        if (cnt > 0) {
+          board[row][col] = cnt.toString();
         } else {
 
           for (let i = -1; i <= 1; i++) {
