@@ -4,20 +4,20 @@
  */
 var findMaxLength = function(nums) {
   const map = new Map().set(0, -1);
-  let count = 0;
+  let cnt = 0;
   let max = 0;
 
   for (let i = 0; i < nums.length; i++) {
     if (nums[i] == 0) {
-      count--;
+      cnt--;
     } else {
-      count++;
+      cnt++;
     }
 
-    if (map.has(count)) {
-      max = Math.max(max, i - map.get(count));
+    if (map.has(cnt)) {
+      max = Math.max(max, i - map.get(cnt));
     } else {
-      map.set(count, i);
+      map.set(cnt, i);
     }
   }
 
