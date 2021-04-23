@@ -10,21 +10,21 @@ var checkInclusion = function(s1, s2) {
     return false;
   }
 
-  const count = Array(26).fill(0);
+  const cnt = Array(26).fill(0);
   for (let i = 0; i < len1; i++) {
-    count[s1[i].charCodeAt(0) - 97]++;
-    count[s2[i].charCodeAt(0) - 97]--;
+    cnt[s1[i].charCodeAt(0) - 97]++;
+    cnt[s2[i].charCodeAt(0) - 97]--;
   }
 
-  if (count.every(a => a == 0)) {
+  if (cnt.every(a => a == 0)) {
     return true;
   }
 
   for (let i = len1; i < len2; i++) {
-    count[s2[i].charCodeAt(0) - 97]--;
-    count[s2[i - len1].charCodeAt(0) - 97]++;
+    cnt[s2[i].charCodeAt(0) - 97]--;
+    cnt[s2[i - len1].charCodeAt(0) - 97]++;
 
-    if (count.every(a => a == 0)) {
+    if (cnt.every(a => a == 0)) {
       return true;
     }
   }
