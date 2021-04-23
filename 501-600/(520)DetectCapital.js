@@ -3,15 +3,15 @@
  * @return {boolean}
  */
 var detectCapitalUse = function(word) {
-  let count = 0;
+  let cnt = 0;
 
   for (const char of word) {
     if (char == char.toUpperCase()) {
-      count++;
+      cnt++;
     }
   }
 
-  return count == word.length || count == 0 || count == 1 && word[0] == word[0].toUpperCase();
+  return cnt == word.length || cnt == 0 || cnt == 1 && word[0] == word[0].toUpperCase();
 };
 
 // time:  O(n)
