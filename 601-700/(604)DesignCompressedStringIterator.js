@@ -4,7 +4,7 @@
 var StringIterator = function(compressedString) {
   this.string = compressedString;
   this.i = 0;
-  this.count = 0;
+  this.cnt = 0;
 };
 
 // time:  O(1)
@@ -14,7 +14,7 @@ var StringIterator = function(compressedString) {
  * @return {character}
  */
 StringIterator.prototype.next = function() {
-  if (this.count == 0) {
+  if (this.cnt == 0) {
     if (this.i >= this.string.length) {
       return ' ';
     }
@@ -23,12 +23,12 @@ StringIterator.prototype.next = function() {
     this.i++;
 
     while (this.i < this.string.length && this.string[this.i] >= '0' && this.string[this.i] <= '9') {
-      this.count = 10 * this.count + Number(this.string[this.i]);
+      this.cnt = 10 * this.cnt + Number(this.string[this.i]);
       this.i++;
     }
   }
 
-  this.count--;
+  this.cnt--;
   return this.cur;
 };
 
@@ -39,7 +39,7 @@ StringIterator.prototype.next = function() {
  * @return {boolean}
  */
 StringIterator.prototype.hasNext = function() {
-  return this.i < this.string.length || this.count != 0;
+  return this.i < this.string.length || this.cnt != 0;
 };
 
 // time:  O(1)
