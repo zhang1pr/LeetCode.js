@@ -3,12 +3,12 @@
  * @return {number}
  */
 var countArrangement = function(N) {
-  let count = 0;
+  let cnt = 0;
   const arr = Array(N + 1).fill(0);
 
   function DFS(pos) {
     if (pos > N) {
-      count++;
+      cnt++;
       return;
     }
 
@@ -22,7 +22,7 @@ var countArrangement = function(N) {
   }
 
   DFS(1);
-  return count;
+  return cnt;
 };
 
 // time:  O(n!)
