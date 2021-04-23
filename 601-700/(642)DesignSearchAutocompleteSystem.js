@@ -80,7 +80,7 @@ class Heap {
  * @param {number[]} times
  */
 var AutocompleteSystem = function(sentences, times) {
-  this.add = function(sentence, count) {
+  this.add = function(sentence, cnt) {
     let curr = this.root;
 
     for (const char of sentence) {
@@ -91,7 +91,7 @@ var AutocompleteSystem = function(sentences, times) {
       }
 
       curr = next;
-      curr.counts.set(sentence, (curr.counts.get(sentence) || 0) + count);
+      curr.counts.set(sentence, (curr.counts.get(sentence) || 0) + cnt);
     }
   }
 
