@@ -5,7 +5,7 @@
 var triangleNumber = function(nums) {
   nums.sort((a, b) => a - b);
 
-  let count = 0;
+  let cnt = 0;
 
   for (let i = 2; i < nums.length; i++) {
     let j = 0;
@@ -13,7 +13,7 @@ var triangleNumber = function(nums) {
 
     while (j < k) {
       if (nums[j] + nums[k] > nums[i]) {
-        count += k - j;
+        cnt += k - j;
         k--;
       } else {
         j++;
@@ -21,7 +21,7 @@ var triangleNumber = function(nums) {
     }
   }
 
-  return count;
+  return cnt;
 };
 
 // time:  O(n^2)
