@@ -3,11 +3,11 @@
  * @return {boolean}
  */
 var checkPossibility = function(nums) {
-  let count = 0;
+  let cnt = 0;
 
-  for (let i = 1; i < nums.length && count <= 1; i++) {
+  for (let i = 1; i < nums.length && cnt <= 1; i++) {
     if (nums[i - 1] > nums[i]) {
-      count++;
+      cnt++;
 
       if (i - 2 < 0 || nums[i - 2] <= nums[i]) {
         nums[i - 1] = nums[i];
@@ -16,7 +16,7 @@ var checkPossibility = function(nums) {
       }
     }
   }
-  return count <= 1;
+  return cnt <= 1;
 };
 
 // time:  O(n)
