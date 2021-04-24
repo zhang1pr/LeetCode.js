@@ -6,13 +6,13 @@
  */
 var findKthNumber = function(m, n, k) {
   function enough(x) {
-    let count = 0;
+    let cnt = 0;
 
     for (let i = 1; i <= m; i++) {
-      count += Math.min(Math.floor(x / i), n);
+      cnt += Math.min(Math.floor(x / i), n);
     }
 
-    return count >= k;
+    return cnt >= k;
   }
 
 
