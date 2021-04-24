@@ -10,16 +10,16 @@ var findNumberOfLIS = function(nums) {
   }
 
   const arr = Array(len).fill(0);
-  const count = Array(len).fill(1);
+  const cnt = Array(len).fill(1);
 
   for (let j = 0; j < len; j++) {
     for (let i = 0; i < j; i++) {
       if (nums[i] < nums[j]) {
         if (arr[i] >= arr[j]) {
           arr[j] = arr[i] + 1;
-          count[j] = count[i];
+          cnt[j] = cnt[i];
         } else if (arr[i] + 1 == arr[j]) {
-          count[j] += count[i];
+          cnt[j] += cnt[i];
         }
       }
     }
@@ -30,7 +30,7 @@ var findNumberOfLIS = function(nums) {
 
   for (let i = 0; i < len; i++) {
     if (arr[i] == max) {
-      res += count[i];
+      res += cnt[i];
     }
   }
 
