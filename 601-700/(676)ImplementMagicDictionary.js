@@ -3,7 +3,7 @@
  */
 var MagicDictionary = function() {
   this.words = new Set();
-  this.count = new Map();
+  this.cnt = new Map();
 
   this.generalizedNeighbors = function(word) {
     const res = [];
@@ -33,7 +33,7 @@ MagicDictionary.prototype.buildDict = function(dict) {
     this.words.add(word);
 
     for (const nei of this.generalizedNeighbors(word)) {
-      this.count.set(nei, (this.count.get(nei) || 0) + 1);
+      this.cnt.set(nei, (this.cnt.get(nei) || 0) + 1);
     }
   }
 };
@@ -48,9 +48,9 @@ MagicDictionary.prototype.buildDict = function(dict) {
  */
 MagicDictionary.prototype.search = function(word) {
   for (const nei of this.generalizedNeighbors(word)) {
-    const count = this.count.get(nei) || 0;
+    const cnt = this.cnt.get(nei) || 0;
 
-    if (count > 1 || count == 1 && !this.words.has(word)) {
+    if (cnt > 1 || cnt == 1 && !this.words.has(word)) {
       return true;
     }
   }
