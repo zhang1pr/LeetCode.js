@@ -8,18 +8,18 @@ var imageSmoother = function(M) {
 
   for (let r = 0; r < R; r++) {
     for (let c = 0; c < C; c++) {
-      let count = 0;
+      let cnt = 0;
 
       for (let nr = r - 1; nr <= r + 1; nr++) {
         for (let nc = c - 1; nc <= c + 1; nc++) {
           if (0 <= nr && nr < R && 0 <= nc && nc < C) {
             res[r][c] += M[nr][nc];
-            count++;
+            cnt++;
           }
         }
       }
 
-      res[r][c] = Math.floor(res[r][c] / count);
+      res[r][c] = Math.floor(res[r][c] / cnt);
     }
   }
 
