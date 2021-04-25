@@ -9,14 +9,14 @@ var findLength = function(A, B) {
   for (let i = 0; i < A.length + B.length - 1; i++) {
     let sA = Math.max(0, A.length - 1 - i);
     let sB = Math.max(0, i - A.length + 1);
-    let count = 0;
+    let cnt = 0;
 
     while (sA < A.length && sB < B.length) {
       if (A[sA] == B[sB]) {
-        count++;
-        res = Math.max(count, res);
+        cnt++;
+        res = Math.max(cnt, res);
       } else {
-        count = 0;
+        cnt = 0;
       }
 
       sA++;
