@@ -11,7 +11,7 @@
 
   while (l < r) {
     let mid = l + r >> 1;
-    let count = 0;
+    let cnt = 0;
     let left = 0;
 
     for (let right = 0; right < nums.length; right++) {
@@ -19,10 +19,10 @@
         left++;
       }
 
-      count = count + right - left;
+      cnt = cnt + right - left;
     }
 
-    if (count >= k) {
+    if (cnt >= k) {
       r = mid;
     } else {
       l = mid + 1;
