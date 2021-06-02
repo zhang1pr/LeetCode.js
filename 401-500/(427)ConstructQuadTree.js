@@ -20,7 +20,7 @@ var construct = function(grid) {
       return new Node(grid[x][y] != 0, true, null, null, null, null);
     }
 
-    const result = new Node();
+    const res = new Node();
     const topLeft = DFS(grid, x, y, Math.floor(len / 2));
     const topRight = DFS(grid, x, y + Math.floor(len / 2), Math.floor(len / 2));
     const bottomLeft = DFS(grid, x + Math.floor(len / 2), y, Math.floor(len / 2));
@@ -35,16 +35,16 @@ var construct = function(grid) {
       && topRight.val == bottomLeft.val
       && bottomLeft.val == bottomRight.val
     ) {
-      result.isLeaf = true;
-      result.val = topLeft.val;
+      res.isLeaf = true;
+      res.val = topLeft.val;
     } else {
-      result.topLeft = topLeft;
-      result.topRight = topRight;
-      result.bottomLeft = bottomLeft;
-      result.bottomRight = bottomRight;
+      res.topLeft = topLeft;
+      res.topRight = topRight;
+      res.bottomLeft = bottomLeft;
+      res.bottomRight = bottomRight;
     }
 
-    return result;
+    return res;
   }
 
   return DFS(grid, 0, 0, grid.length);
