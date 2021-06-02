@@ -8,7 +8,7 @@ var findKthLargest = function(nums, k) {
     return -1;
   }
 
-  var quickSelect = function(start, end, k) {
+  function quickSelect(start, end, k) {
     if (start == end) {
       return nums[start];
     }
