@@ -2,7 +2,7 @@
  * @param {string[][]} accounts
  * @return {string[][]}
  */
- var accountsMerge = function(accounts) {
+var accountsMerge = function(accounts) {
   const map = new Map();
   const graph = new Map();
 
