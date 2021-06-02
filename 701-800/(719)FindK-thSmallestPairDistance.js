@@ -3,7 +3,7 @@
  * @param {number} k
  * @return {number}
  */
- var smallestDistancePair = function(nums, k) {
+var smallestDistancePair = function(nums, k) {
   nums.sort((a, b) => a - b);
 
   let l = 0;
