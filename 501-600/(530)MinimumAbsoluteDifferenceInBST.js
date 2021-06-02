@@ -34,3 +34,5 @@ var getMinimumDifference = function(root) {
 // [1, null, 3, 2]
 // [1, null, 3, 4]
 // [1, null, 3, null, 4]
+// [4, 2, 6, 1, 3]
+// [1, 0, 48, null, null, 12, 49]
