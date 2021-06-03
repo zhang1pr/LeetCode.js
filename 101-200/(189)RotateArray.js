@@ -7,22 +7,22 @@ var rotate = function(nums, k) {
   k = k % nums.length;
 
   let cnt = 0;
-  let current;
+  let cur;
   let prev;
   let next;
   let temp;
   for (let start = 0; cnt < nums.length; start++) {
-    current = start;
+    cur = start;
     prev = nums[start];
 
     do {
-      next = (current + k) % nums.length;
+      next = (cur + k) % nums.length;
       temp = nums[next];
       nums[next] = prev;
       prev = temp;
-      current = next;
+      cur = next;
       cnt++;
-    } while (start != current);
+    } while (start != cur);
   }
 };
 
