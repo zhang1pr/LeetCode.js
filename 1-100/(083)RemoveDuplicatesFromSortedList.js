@@ -4,13 +4,13 @@
  * @return {ListNode}
  */
 var deleteDuplicates = function(head) {
-  let current = head;
+  let cur = head;
 
-  while (current != null && current.next != null) {
-    if (current.next.val == current.val) {
-      current.next = current.next.next;
+  while (cur != null && cur.next != null) {
+    if (cur.next.val == cur.val) {
+      cur.next = cur.next.next;
     } else {
-      current = current.next;
+      cur = cur.next;
     }
   }
 
