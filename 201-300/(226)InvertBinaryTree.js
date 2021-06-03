@@ -7,11 +7,11 @@ var invertTree = function(root) {
   const stack = [root];
 
   while (stack.length != 0) {
-    const curr = stack.pop();
+    const cur = stack.pop();
 
-    if (curr) {
-      [curr.left, curr.right] = [curr.right, curr.left];
-      stack.push(curr.left, curr.right);
+    if (cur) {
+      [cur.left, cur.right] = [cur.right, cur.left];
+      stack.push(cur.left, cur.right);
     }
   }
 
