@@ -3,9 +3,9 @@
  * @return {number[][]}
  */
 var zigzagLevelOrder = function(root) {
-  let curr = root;
+  let cur = root;
   const res = [];
-  if (curr == null) {
+  if (cur == null) {
     return res;
   }
 
@@ -16,30 +16,30 @@ var zigzagLevelOrder = function(root) {
   while (stack1.length != 0 || stack2.length != 0) {
     temp = [];
     while (stack1.length != 0) {
-      curr = stack1.pop();
-      temp.push(curr.val);
+      cur = stack1.pop();
+      temp.push(cur.val);
 
-      if (curr.left != null) {
-        stack2.push(curr.left);
+      if (cur.left != null) {
+        stack2.push(cur.left);
       }
 
-      if (curr.right != null) {
-        stack2.push(curr.right);
+      if (cur.right != null) {
+        stack2.push(cur.right);
       }
     }
     res.push(temp);
 
     temp = [];
     while (stack2.length != 0) {
-      curr = stack2.pop();
-      temp.push(curr.val);
+      cur = stack2.pop();
+      temp.push(cur.val);
 
-      if (curr.right != null) {
-        stack1.push(curr.right);
+      if (cur.right != null) {
+        stack1.push(cur.right);
       }
 
-      if (curr.left != null) {
-        stack1.push(curr.left);
+      if (cur.left != null) {
+        stack1.push(cur.left);
       }
     }
 
