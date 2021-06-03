@@ -5,7 +5,7 @@
  */
 var fullJustify = function(words, maxWidth) {
   const res = [];
-  let currentLength = 0;
+  let curLength = 0;
   let start = 0;
   let end = 0;
   let i = 0;
@@ -15,18 +15,18 @@ var fullJustify = function(words, maxWidth) {
 
   while (i < words.length) {
     if (
-      !currentLength && currentLength + words[i].length <= maxWidth
-      || currentLength + 1 + words[i].length <= maxWidth
+      !curLength && curLength + words[i].length <= maxWidth
+      || curLength + 1 + words[i].length <= maxWidth
     ) {
       end++;
-      if (currentLength) {
-        currentLength++;
+      if (curLength) {
+        curLength++;
       }
-      currentLength += words[i].length;
+      curLength += words[i].length;
       i++;
     } else {
       diff = end - start - 1;
-      space = maxWidth - currentLength + diff;
+      space = maxWidth - curLength + diff;
 
       if (!diff) {
         res.push(words[start] + ' '.repeat(space));
@@ -52,7 +52,7 @@ var fullJustify = function(words, maxWidth) {
       }
 
       start = end;
-      currentLength = 0;
+      curLength = 0;
     }
   }
 
@@ -60,7 +60,7 @@ var fullJustify = function(words, maxWidth) {
   for (i = 1; i < end - start; i++) {
     temp += ' ' + words[start+i];
   }
-  temp += ' '.repeat(maxWidth - currentLength);
+  temp += ' '.repeat(maxWidth - curLength);
   res.push(temp);
 
   return res;
