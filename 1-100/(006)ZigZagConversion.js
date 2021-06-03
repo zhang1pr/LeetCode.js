@@ -30,7 +30,7 @@ var convert = function(s, numRows) {
     }
   }
 
-  return arr.reduce((prev, curr) => prev + curr);
+  return arr.reduce((prev, cur) => prev + cur);
 };
 
 // time:  O(n)
