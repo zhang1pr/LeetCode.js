@@ -32,10 +32,10 @@ class Trie {
   }
 
   addWord(word) {
-    let currentNode = this.head;
+    let curNode = this.head;
 
     for (let index = 0; index < word.length; index++) {
-      currentNode = currentNode.addChild(word[index], index == word.length - 1, word);
+      curNode = curNode.addChild(word[index], index == word.length - 1, word);
     }
 
     return this;
