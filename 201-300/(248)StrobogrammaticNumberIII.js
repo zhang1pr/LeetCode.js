@@ -8,9 +8,9 @@ var strobogrammaticInRange = function(low, high) {
 
   let cnt = 0;
 
-  function DFS(left, right, current) {
+  function DFS(left, right, cur) {
     if (left > right) {
-      const s = current.join('');
+      const s = cur.join('');
 
       if ((s.length === low.length && Number(s) < Number(low)) || (s.length === high.length && Number(s) > Number(high))) {
         return;
@@ -21,18 +21,18 @@ var strobogrammaticInRange = function(low, high) {
     }
 
     for (const [p1, p2] of pairs) {
-      current[left] = p1;
-      current[right] = p2;
+      cur[left] = p1;
+      cur[right] = p2;
 
       if (left === right && p1 !== p2) {
         continue;
       }
 
-      if (current.length !== 1 && current[0] === '0') {
+      if (cur.length !== 1 && cur[0] === '0') {
         continue;
       }
 
-      DFS(left + 1, right - 1, current);
+      DFS(left + 1, right - 1, cur);
     }
   }
 
