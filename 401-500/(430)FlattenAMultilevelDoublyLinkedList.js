@@ -20,27 +20,27 @@ var flatten = function(head) {
   const dummy = new Node(0, null, head, null);
 
   const stack = [head];
-  let current = dummy;
+  let cur = dummy;
   let prev = null;
 
   while (stack.length != 0) {
-    current = stack.pop();
+    cur = stack.pop();
 
     if (prev) {
-      current.prev = prev;
-      prev.next = current;
+      cur.prev = prev;
+      prev.next = cur;
     }
 
-    if (current.next != null) {
-      stack.push(current.next);
+    if (cur.next != null) {
+      stack.push(cur.next);
     }
 
-    if (current.child != null) {
-      stack.push(current.child);
-      current.child = null;
+    if (cur.child != null) {
+      stack.push(cur.child);
+      cur.child = null;
     }
 
-    prev = current;
+    prev = cur;
   }
 
   return dummy.next;
