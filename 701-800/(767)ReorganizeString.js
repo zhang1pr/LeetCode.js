@@ -2,7 +2,7 @@
  * @param {string} S
  * @return {string}
  */
- var reorganizeString = function(S) {
+var reorganizeString = function(S) {
   const hash = Array(26).fill(0);
   for (const ch of S) {
     hash[ch.charCodeAt(0) - 97]++;
