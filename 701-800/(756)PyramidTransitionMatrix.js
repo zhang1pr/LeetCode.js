@@ -3,7 +3,7 @@
  * @param {string[]} allowed
  * @return {boolean}
  */
- var pyramidTransition = function(bottom, allowed) {
+var pyramidTransition = function(bottom, allowed) {
   const map = new Map();
 
   for (const str of allowed) {
