@@ -7,23 +7,23 @@ var countOfAtoms = function(formula) {
   const stack = [];
   let product = 1;
   let ele = '';
-  let count = 0;
+  let cnt = 0;
   let j = 0;
   let res = '';
 
   for (let i = formula.length - 1; i >= 0; i--) {
     if ('0' <= formula[i] && formula[i] <= '9') {
-      count += Number(formula[i]) * (10 ** j);
+      cnt += Number(formula[i]) * (10 ** j);
       j++;
     } else if (formula[i] == ')') {
-      stack.push(count || 1);
-      product *= count || 1;
+      stack.push(cnt || 1);
+      product *= cnt || 1;
       j = 0;
-      count = 0;
+      cnt = 0;
     } else if (formula[i] == '(') {
       product = Math.floor(product / stack.pop());
       j = 0;
-      count = 0;
+      cnt = 0;
     } else if (formula[i] == formula[i].toUpperCase()) {
       ele += formula[i];
       ele = ele.split('').reverse().join('');
@@ -32,10 +32,10 @@ var countOfAtoms = function(formula) {
         map.set(ele, 0);
       }
 
-      map.set(ele, map.get(ele) + (count || 1) * product);
+      map.set(ele, map.get(ele) + (cnt || 1) * product);
       ele = '';
       j = 0;
-      count = 0;
+      cnt = 0;
     } else {
       ele += formula[i];
     }
