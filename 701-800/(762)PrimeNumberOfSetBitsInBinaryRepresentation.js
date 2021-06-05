@@ -3,7 +3,7 @@
  * @param {number} R
  * @return {number}
  */
- var countPrimeSetBits = function(L, R) {
+var countPrimeSetBits = function(L, R) {
   let res = 0;
   const arr = [2, 3, 5, 7, 11, 13, 17, 19];
 
