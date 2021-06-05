@@ -4,22 +4,22 @@
  * @return {number}
  */
 var findKthNumber = function(n, k) {
-  let curr = 1
+  let cur = 1
   k--;
 
   while (k > 0) {
-    let steps = calSteps(n, curr, curr + 1);
+    let steps = calSteps(n, cur, cur + 1);
 
     if (steps <= k) {
-      curr++;
+      cur++;
       k -= steps;
     } else {
-      curr *= 10;
+      cur *= 10;
       k--;
     }
   }
 
-  return curr;
+  return cur;
 };
 
 var calSteps = function(n, n1, n2) {
