@@ -3,7 +3,7 @@
  * @param {string[]} words
  * @return {string}
  */
- var shortestCompletingWord = function(licensePlate, words) {
+var shortestCompletingWord = function(licensePlate, words) {
   const target = licensePlate.toLowerCase();
   const arr = Array(26).fill(0);
 
