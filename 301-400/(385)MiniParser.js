@@ -50,40 +50,40 @@ var deserialize = function(s) {
   }
 
   const stack = [];
-  let curr;
+  let cur;
   let l = 0;
 
   for (let r = 0; r < s.length; r++) {
     const ch = s[r];
     if (ch == '[') {
-      if (curr != null) {
-        stack.push(curr);
+      if (cur != null) {
+        stack.push(cur);
       }
 
-      curr = new NestedInteger();
+      cur = new NestedInteger();
       l = r + 1;
     } else if (ch == ']') {
       const num = s.substring(l, r);
       if (num.length != 0) {
-        curr.add(new NestedInteger(Number(num)));
+        cur.add(new NestedInteger(Number(num)));
       }
 
       if (stack.length != 0) {
         const pop = stack.pop();
-        pop.add(curr);
-        curr = pop;
+        pop.add(cur);
+        cur = pop;
       }
       l = r + 1;
     } else if (ch == ',') {
       if (s[r - 1] != ']') {
         const num = s.substring(l, r);
-        curr.add(new NestedInteger(Number(num)));
+        cur.add(new NestedInteger(Number(num)));
       }
       l = r + 1;
     }
   }
 
-  return curr;
+  return cur;
 };
 
 // time:  O(n)
