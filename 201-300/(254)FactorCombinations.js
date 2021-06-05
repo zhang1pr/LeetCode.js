@@ -5,10 +5,10 @@
 var getFactors = function(n) {
   const res = [];
 
-  function DFS(n, start, currentres) {
+  function DFS(n, start, curres) {
     if (n == 1) {
-      if (currentres.length > 1) {
-        res.push(currentres.slice());
+      if (curres.length > 1) {
+        res.push(curres.slice());
       }
 
       return;
@@ -16,9 +16,9 @@ var getFactors = function(n) {
 
     for (let i = start; i <= n; i++) {
       if (n % i == 0) {
-        currentres.push(i);
-        DFS(n / i, i, currentres);
-        currentres.pop();
+        curres.push(i);
+        DFS(n / i, i, curres);
+        curres.pop();
       }
     }
   }
