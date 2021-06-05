@@ -81,17 +81,17 @@ class Heap {
  */
 var AutocompleteSystem = function(sentences, times) {
   this.add = function(sentence, cnt) {
-    let curr = this.root;
+    let cur = this.root;
 
     for (const char of sentence) {
-      let next = curr.children.get(char);
+      let next = cur.children.get(char);
       if (next == null) {
         next = new TrieNode();
-        curr.children.set(char, next);
+        cur.children.set(char, next);
       }
 
-      curr = next;
-      curr.counts.set(sentence, (curr.counts.get(sentence) || 0) + cnt);
+      cur = next;
+      cur.counts.set(sentence, (cur.counts.get(sentence) || 0) + cnt);
     }
   }
 
@@ -118,19 +118,19 @@ AutocompleteSystem.prototype.input = function(c) {
   }
 
   this.prefix += c;
-  let curr = this.root;
+  let cur = this.root;
   for (const char of this.prefix) {
-    let next = curr.children.get(char);
+    let next = cur.children.get(char);
 
     if (next == null) {
       return [];
     }
 
-    curr = next;
+    cur = next;
   }
 
   const heap = new Heap();
-  for (const [key, val] of curr.counts) {
+  for (const [key, val] of cur.counts) {
     heap.add([key, val]);
   }
 
