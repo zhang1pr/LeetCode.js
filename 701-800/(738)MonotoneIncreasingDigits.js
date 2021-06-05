@@ -2,7 +2,7 @@
  * @param {number} N
  * @return {number}
  */
- var monotoneIncreasingDigits = function(N) {
+var monotoneIncreasingDigits = function(N) {
   const res = [...N.toString()];
   const len = res.length;
   let idx = len;
