@@ -12,33 +12,33 @@ var orderOfLargestPlusSign = function(N, mines) {
   }
 
   let res = 0
-  let count;
+  let cnt;
 
   for (let r = 0; r < N; r++) {
-    count = 0;
+    cnt = 0;
     for (let c = 0; c < N; ++c) {
-      count = mineSet.has(r * N + c) ? 0 : count + 1;
-      dp[r][c] = count;
+      cnt = mineSet.has(r * N + c) ? 0 : cnt + 1;
+      dp[r][c] = cnt;
     }
 
-    count = 0;
+    cnt = 0;
     for (let c = N - 1; c >= 0; c--) {
-      count = mineSet.has(r * N + c) ? 0 : count + 1;
-      dp[r][c] = Math.min(dp[r][c], count);
+      cnt = mineSet.has(r * N + c) ? 0 : cnt + 1;
+      dp[r][c] = Math.min(dp[r][c], cnt);
     }
   }
 
   for (let c = 0; c < N; ++c) {
-    count = 0;
+    cnt = 0;
     for (let r = 0; r < N; r++) {
-      count = mineSet.has(r * N + c) ? 0 : count + 1;
-      dp[r][c] = Math.min(dp[r][c], count);
+      cnt = mineSet.has(r * N + c) ? 0 : cnt + 1;
+      dp[r][c] = Math.min(dp[r][c], cnt);
     }
 
-    count = 0;
+    cnt = 0;
     for (let r = N - 1; r >= 0; r--) {
-      count = mineSet.has(r * N + c) ? 0 : count + 1;
-      dp[r][c] = Math.min(dp[r][c], count);
+      cnt = mineSet.has(r * N + c) ? 0 : cnt + 1;
+      dp[r][c] = Math.min(dp[r][c], cnt);
       res = Math.max(res, dp[r][c]);
     }
   }
