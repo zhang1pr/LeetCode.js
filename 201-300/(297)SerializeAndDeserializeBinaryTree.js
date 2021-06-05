@@ -9,11 +9,11 @@ var serialize = function(root) {
   const res = [];
 
   while (stack.length) {
-    const curr = stack.pop();
-    if (curr) {
-      res.push(curr.val);
-      stack.push(curr.right);
-      stack.push(curr.left);
+    const cur = stack.pop();
+    if (cur) {
+      res.push(cur.val);
+      stack.push(cur.right);
+      stack.push(cur.left);
     } else {
       res.push('#');
     }
