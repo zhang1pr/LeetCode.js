@@ -16,7 +16,7 @@ var fourSum = function(nums, target) {
     }
 
     for (let j = i + 1; j < nums.length; j++) {
-      if (j > i + 1 && nums[j] == nums[j-1]) {
+      if (j > i + 1 && nums[j] == nums[j - 1]) {
         continue;
       }
 
@@ -31,11 +31,11 @@ var fourSum = function(nums, target) {
           left++;
           right--;
 
-          while (left < right && nums[left] == nums[left-1]) {
+          while (left < right && nums[left] == nums[left - 1]) {
             left++;
           }
 
-          while (left < right && nums[right] == nums[right+1]) {
+          while (left < right && nums[right] == nums[right + 1]) {
             right--;
           }
         } else if (temp > target) {
