@@ -10,7 +10,7 @@ var countAndSay = function(n) {
     let cnt = 1;
 
     for (let j = 0; j < res.length; j++) {
-      if (res[j] != res[j+1]) {
+      if (res[j] != res[j + 1]) {
         nextres += cnt.toString() + res[j];
         cnt = 1;
       } else {
