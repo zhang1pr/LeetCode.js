@@ -31,7 +31,7 @@ var searchRange = function(nums, target) {
   while (low <= mid) {
     leftTarget = low + Math.floor((mid - low) / 2);
 
-    if (nums[leftTarget] == target && (leftTarget == 0 || nums[leftTarget-1] < target)) {
+    if (nums[leftTarget] == target && (leftTarget == 0 || nums[leftTarget - 1] < target)) {
       break;
     } else if (nums[leftTarget] < target) {
       low = leftTarget + 1;
@@ -43,7 +43,7 @@ var searchRange = function(nums, target) {
   while (mid <= high) {
     rightTarget = mid + Math.floor((high - mid) / 2);
 
-    if (nums[rightTarget] == target && (rightTarget == nums.length - 1 || nums[rightTarget+1] > target)) {
+    if (nums[rightTarget] == target && (rightTarget == nums.length - 1 || nums[rightTarget + 1] > target)) {
       break;
     } else if (nums[rightTarget] > target) {
       high = rightTarget;
