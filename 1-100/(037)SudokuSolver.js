@@ -17,7 +17,7 @@ var solve = function(board, row, column) {
         if (isValid(board, i, j, num.toString())) {
           board[i][j] = num.toString();
 
-          if (solve(board, i, j+1)) {
+          if (solve(board, i, j + 1)) {
             return true;
           } else {
             board[i][j] = '.';
