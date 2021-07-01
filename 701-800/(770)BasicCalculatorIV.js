@@ -4,7 +4,7 @@
  * @param {number[]} evalints
  * @return {string[]}
  */
- var basicCalculatorIV = function(expression, evalvars, evalints) {
+var basicCalculatorIV = function(expression, evalvars, evalints) {
   class Term {
     constructor(term, map) {
       this.para = 1;
