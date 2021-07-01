@@ -42,7 +42,7 @@ var minWindow = function(s, t) {
       const [char, index] = arr[left];
       leftCur = index;
       const get = map.get(char);
-      map.set(char, get +1);
+      map.set(char, get + 1);
 
       if (get == 0) {
         size++;
