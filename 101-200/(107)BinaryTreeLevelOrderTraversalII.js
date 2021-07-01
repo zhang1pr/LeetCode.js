@@ -16,8 +16,8 @@ var levelOrderBottom = function(root) {
       arr[level].push(root.val);
     }
 
-    DFS(root.left, level+1);
-    DFS(root.right, level+1);
+    DFS(root.left, level + 1);
+    DFS(root.right, level + 1);
   }
 
   DFS(root, 0);
