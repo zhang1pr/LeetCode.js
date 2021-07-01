@@ -9,7 +9,7 @@
 var findPaths = function(m, n, N, i, j) {
   if (N <= 0) return 0;
 
-  const MOD = 10e9 + 7;
+  const MOD = 1e9 + 7;
   let dp = [...Array(m)].map(() => Array(n).fill(0));
   dp[i][j] = 1;
   let res = 0;
