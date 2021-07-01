@@ -3,7 +3,7 @@
  * @return {number}
  */
 var checkRecord = function(n) {
-  const MOD = 10e9 + 7;
+  const MOD = 1e9 + 7;
 
   const A = Array(n).fill(0);
   const P = Array(n).fill(0);
