@@ -17,7 +17,7 @@ var addBinary = function(a, b) {
 
     if (temp > 1) {
       res[i] = temp - 2;
-      res[i+1] = 1;
+      res[i + 1] = 1;
     } else {
       res[i] = temp;
     }
