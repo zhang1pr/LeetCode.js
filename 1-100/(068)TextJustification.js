@@ -38,13 +38,13 @@ var fullJustify = function(words, maxWidth) {
 
         let j = 0;
         while (j < left) {
-          temp += blank + words[start+j+1];
+          temp += blank + words[start + j + 1];
           j++;
         }
 
         blank = ' '.repeat(average);
         while (j < diff) {
-          temp += blank + words[start+j+1];
+          temp += blank + words[start + j + 1];
           j++;
         }
 
