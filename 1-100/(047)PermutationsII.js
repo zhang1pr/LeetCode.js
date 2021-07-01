@@ -13,12 +13,12 @@ var permuteUnique = function(nums) {
       arr.push(stack.slice());
     } else {
       for (let i = 0; i < ToDo.length; i++) {
-        if (ToDo[i] == ToDo[i-1]) {
+        if (ToDo[i] == ToDo[i - 1]) {
           continue;
         }
 
         stack.push(ToDo[i]);
-        generatePermutation([...ToDo.slice(0, i), ...ToDo.slice(i+1)]);
+        generatePermutation([...ToDo.slice(0, i), ...ToDo.slice(i + 1)]);
         stack.pop(ToDo[i]);
       }
     }
