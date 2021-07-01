@@ -3,18 +3,18 @@
  * @param {string} S
  * @return {number}
  */
- var numJewelsInStones = function(J, S) {
+var numJewelsInStones = function(J, S) {
   const set = new Set(J);
 
-  let result = 0;
+  let res = 0;
 
   for (const char of S) {
     if (set.has(char)) {
-      result++;
+      res++;
     }
   }
 
-  return result;
+  return res;
 };
 
 // time:  O(m+n)
