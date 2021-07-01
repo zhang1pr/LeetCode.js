@@ -2,7 +2,7 @@
  * @param {number[]} arr
  * @return {number}
  */
- var maxChunksToSorted = function(arr) {
+var maxChunksToSorted = function(arr) {
   const n = arr.length;
   const leftMax = Array(n).fill(0);
   const rightMin = Array(n).fill(0);
