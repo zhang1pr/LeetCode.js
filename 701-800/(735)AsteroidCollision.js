@@ -9,7 +9,6 @@ var asteroidCollision = function(asteroids) {
     let flag = true;
 
     while (stack.length && item < 0 && 0 < stack[stack.length - 1]) {
-      console.log(stack[stack.length - 1], 0 < stack[stack.length - 1]);
       if (stack[stack.length - 1] < -item) {
         stack.pop();
         continue;
