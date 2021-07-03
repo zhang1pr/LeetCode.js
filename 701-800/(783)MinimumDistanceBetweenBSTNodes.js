@@ -2,7 +2,7 @@
  * @param {TreeNode} root
  * @return {number}
  */
- var minDiffInBST = function(root) {
+var minDiffInBST = function(root) {
   let min = Infinity;
   const stack = [];
   let cur = root;
@@ -34,4 +34,5 @@
 // [1, null, 3, 2]
 // [1, null, 3, 4]
 // [1, null, 3, null, 4]
-
+// [4, 2, 6, 1, 3]
+// [1, 0, 48, null, null, 12, 49]
