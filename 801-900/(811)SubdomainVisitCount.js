@@ -8,12 +8,12 @@ var subdomainVisits = function(cpdomains) {
   for (let domain of cpdomains) {
     const cpinfo = domain.split(' ');
     const frags = cpinfo[1].split('.');
-    const count = Number(cpinfo[0]);
+    const cnt = Number(cpinfo[0]);
 
     let cur = '';
     for (let i = frags.length - 1; i >= 0; i--) {
       cur = frags[i] + (i < frags.length - 1 ? '.' : '') + cur;
-      map.set(cur, (map.get(cur) || 0) + count);
+      map.set(cur, (map.get(cur) || 0) + cnt);
     }
   }
 
