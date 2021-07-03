@@ -4,7 +4,7 @@
  */
 var rotatedDigits = function(n) {
   const dp = Array(n).fill(0);
-  let count = 0;
+  let cnt = 0;
 
   for (let i = 0; i <= n; i++) {
     if (i < 10){
@@ -12,7 +12,7 @@ var rotatedDigits = function(n) {
         dp[i] = 1;
       } else if (i == 2 || i == 5 || i == 6 || i == 9) {
         dp[i] = 2;
-        count++;
+        cnt++;
       }
     } else {
       const a = dp[Math.floor(i / 10)];
@@ -22,12 +22,12 @@ var rotatedDigits = function(n) {
         dp[i] = 1;
       } else if (a >= 1 && b >= 1) {
         dp[i] = 2;
-        count++;
+        cnt++;
       }
     }
   }
 
-  return count;
+  return cnt;
 };
 
 // time:  O(n)
