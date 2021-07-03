@@ -2,11 +2,11 @@
  * @param {number} target
  * @return {number}
  */
- var racecar = function(target) {
-  const dp = Array(target + 1).fill(0);
+var racecar = function(target) {
+  const dp = Array(target + 1).fill(Infinity);
+  dp[0] = 0;
 
   for (let i = 1; i <= target; i++) {
-    dp[i] = Infinity;
 
     let m = 1, j = 1;
 
@@ -24,6 +24,7 @@
 
   return dp[target];
 };
+
 
 // time:  O(n^2*log(n)^2)
 // space: O(n)
