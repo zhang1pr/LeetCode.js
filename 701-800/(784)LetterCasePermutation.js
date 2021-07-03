@@ -1,15 +1,15 @@
 /**
- * @param {string} S
+ * @param {string} s
  * @return {string[]}
  */
-var letterCasePermutation = function(S) {
-  if (S == '') {
+var letterCasePermutation = function(s) {
+  if (s == '') {
     return [];
   }
 
   let queue = [''];
 
-  for (const ch of S) {
+  for (const ch of s) {
     const newQueue = [];
 
     for (const str of queue) {
