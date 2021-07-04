@@ -7,14 +7,14 @@ var numFriendRequests = function(ages) {
     return b > 0.5 * a + 7 && b <= a;
   }
 
-  const count = new Map();
+  const cnt = new Map();
   for (const age of ages) {
-    count.set(age, (count.get(age) || 0) + 1);
+    cnt.set(age, (cnt.get(age) || 0) + 1);
   }
 
   let res = 0;
-  for (const [keyA, valA] of count) {
-    for (const [keyB, valB] of count) {
+  for (const [keyA, valA] of cnt) {
+    for (const [keyB, valB] of cnt) {
       if (request(keyA, keyB)) {
         res += valA * (valB - (keyA == keyB ? 1 : 0));
       }
