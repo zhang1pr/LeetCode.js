@@ -14,12 +14,12 @@ var mostCommonWord = function(paragraph, banned) {
     }
   }
 
-  let count = 0;
+  let cnt = 0;
   let res = '';
 
   for (const [key, val] of map) {
-    if (count < val) {
-      count = val;
+    if (cnt < val) {
+      cnt = val;
       res = key;
     }
   }
