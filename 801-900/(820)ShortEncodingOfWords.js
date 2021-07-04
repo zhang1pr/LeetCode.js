@@ -1,6 +1,6 @@
 class TrieNode {
   constructor() {
-    this.count = 0;
+    this.cnt = 0;
     this.children = new Map();
   }
 
@@ -9,7 +9,7 @@ class TrieNode {
       this.children.set(char, new TrieNode(char));
     }
 
-    this.count++;
+    this.cnt++;
     const childNode = this.children.get(char);
 
     return childNode;
@@ -37,14 +37,13 @@ var minimumLengthEncoding = function(words) {
 
   let ans = 0;
   for (const [key, val] of map) {
-    if (key.count == 0) {
+    if (key.cnt == 0) {
       ans += words[val].length + 1;
     }
   }
 
   return ans;
 };
-
 
 // time:  O(n*wordLen)
 // space: O(n*wordLen)
