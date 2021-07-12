@@ -7,7 +7,7 @@ var shortestCompletingWord = function(licensePlate, words) {
   const target = licensePlate.toLowerCase();
   const arr = Array(26).fill(0);
 
-  for (const ch of target){
+  for (const ch of target) {
     if (ch >= 'a' && ch <= 'z') {
       arr[ch.charCodeAt(0) - 97]++;
     }
@@ -36,7 +36,7 @@ var matches = function(word, arr) {
     }
   }
 
-  for (let i = 0; i < 26; i++){
+  for (let i = 0; i < 26; i++) {
     if (targetArr[i] < arr[i]) {
       return false;
     }
