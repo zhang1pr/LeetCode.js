@@ -4,47 +4,41 @@
  */
 var numDecodings = function(s) {
   const MOD = 1e9 + 7;
-  const memo = Array(s.length).fill(null);
+  let first = 1;
+  let second = s[0] == '*' ? 9 : s[0] == '0' ? 0 : 1;
 
-  function DFS(s, i) {
-    if (i < 0) {
-      return 1;
-    }
+  for (let i = 1; i < s.length; i++) {
+    let temp = second;
 
-    if (memo[i] != null) {
-      return memo[i];
-    }
-
-    let res;
     if (s[i] == '*') {
-      res = 9 * DFS(s, i - 1);
-      if (i > 0 && s[i - 1] == '1') {
-        res = (res + 9 * DFS(s, i - 2)) % MOD;
-      } else if (i > 0 && s[i - 1] == '2') {
-        res = (res + 6 * DFS(s, i - 2)) % MOD;
-      } else if (i > 0 && s[i - 1] == '*') {
-        res = (res + 15 * DFS(s, i - 2)) % MOD;
+      second = 9 * second % MOD;
+
+      if (s[i - 1] == '1') {
+        second = (second + 9 * first) % MOD;
+      } else if (s[i - 1] == '2') {
+        second = (second + 6 * first) % MOD;
+      } else if (s[i - 1] == '*') {
+        second = (second + 15 * first) % MOD;
       }
     } else {
-      res = s[i] != '0' ? DFS(s, i - 1) : 0;
-      if (i > 0 && s[i - 1] == '1') {
-        res = (res + DFS(s, i - 2)) % MOD;
-      } else if (i > 0 && s[i - 1] == '2' && s[i] <= '6') {
-        res = (res + DFS(s, i - 2)) % MOD;
-      } else if (i > 0 && s[i - 1] == '*') {
-        res = (res + (s[i] <= '6' ? 2 : 1) * DFS(s, i - 2)) % MOD;
+      second = s[i] != '0' ? second : 0;
+      if (s[i - 1] == '1') {
+        second = (second + first) % MOD;
+      } else if (s[i - 1] == '2' && s[i] <= '6') {
+        second = (second + first) % MOD;
+      } else if (s[i - 1] == '*') {
+        second = (second + (s[i] <= '6' ? 2 : 1) * first) % MOD;
       }
     }
 
-    memo[i] = res;
-    return res;
+    first = temp;
   }
 
-  return DFS(s, s.length - 1);
+  return second;
 };
 
 // time:  O(n)
-// space: O(n)
+// space: O(1)
 
 // '*'
 // '0'
@@ -61,5 +55,4 @@ var numDecodings = function(s) {
 // '1101'
 // '1111'
 // '192919'
-
-
+// '7*9*3*6*3*0*5*4*9*7*3*7*1*8*3*2*0*0*6*'
