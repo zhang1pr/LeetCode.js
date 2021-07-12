@@ -86,7 +86,7 @@ var kSmallestPairs = function(nums1, nums2, k) {
     heap.add([nums1[i], nums2[0], 0]);
   }
 
-  while (k > 0 && !heap.isEmpty()){
+  while (k > 0 && !heap.isEmpty()) {
     k--;
     const cur = heap.poll();
     res.push(cur.slice(0, 2));
