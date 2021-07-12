@@ -5,7 +5,7 @@
 var originalDigits = function(s) {
   const arr = Array(10).fill(0);
 
-  for (const c of s){
+  for (const c of s) {
     if (c == 'z') {
       arr[0]++;
     }
@@ -54,8 +54,8 @@ var originalDigits = function(s) {
   arr[1] = arr[1] - arr[0] - arr[2] - arr[4];
 
   let res = '';
-  for (let i = 0; i <= 9; i++){
-    for (let j = 0; j < arr[i]; j++){
+  for (let i = 0; i <= 9; i++) {
+    for (let j = 0; j < arr[i]; j++) {
       res += i.toString();
     }
   }
