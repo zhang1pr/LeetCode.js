@@ -81,7 +81,7 @@ var kthSmallest = function(matrix, k) {
   }
 
   let cur;
-  while (k > 0 && !heap.isEmpty()){
+  while (k > 0 && !heap.isEmpty()) {
     k--;
     cur = heap.poll();
 
