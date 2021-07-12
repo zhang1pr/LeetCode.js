@@ -8,7 +8,7 @@ var countBits = function(num) {
   }
 
   const dp = [0, 1];
-  for (let i = 2; i < num + 1; i++){
+  for (let i = 2; i < num + 1; i++) {
     if (i % 2 == 0) {
       dp[i] = dp[i / 2];
     } else {
