@@ -11,7 +11,7 @@ var hitBricks = function(grid, hits) {
     grid[r][c]--;
   }
 
-  function dfs(i, j) {
+  function DFS(i, j) {
     if (i < 0 || i >= grid.length || j < 0 || j >= grid[0].length || grid[i][j] != 1) {
       return 0;
     }
@@ -21,14 +21,14 @@ var hitBricks = function(grid, hits) {
     let res = 1;
 
     for (const [di, dj] of dir) {
-      res += dfs(i + di, j + dj);
+      res += DFS(i + di, j + dj);
     }
 
     return res;
   }
 
   for (let i = 0; i < grid[0].length; i++) {
-    dfs(0, i);
+    DFS(0, i);
   }
 
   function isConnected(r, c) {
@@ -52,7 +52,7 @@ var hitBricks = function(grid, hits) {
     grid[i][j]++;
 
     if (grid[i][j] == 1 && isConnected(i, j)) {
-      res[k] = dfs(i, j) - 1;
+      res[k] = DFS(i, j) - 1;
     }
   }
 
