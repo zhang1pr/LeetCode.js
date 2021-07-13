@@ -13,27 +13,27 @@ var sumOfDistancesInTree = function(n, edges) {
     graph[b].add(a);
   }
 
-  function dfs(node, parent) {
+  function DFS(node, parent) {
     for (const child of graph[node]) {
       if (child != parent) {
-        dfs(child, node);
+        DFS(child, node);
         count[node] += count[child];
         ans[node] += ans[child] + count[child];
       }
     }
   }
 
-  function dfs2(node, parent) {
+  function DFS2(node, parent) {
     for (const child of graph[node]) {
       if (child != parent) {
         ans[child] = ans[node] - count[child] + n - count[child];
-        dfs2(child, node);
+        DFS2(child, node);
       }
     }
   }
 
-  dfs(0, -1);
-  dfs2(0, -1);
+  DFS(0, -1);
+  DFS2(0, -1);
 
   return ans;
 };
