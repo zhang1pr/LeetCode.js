@@ -11,7 +11,7 @@ var eventualSafeNodes = function(graph) {
 
   let queue = [];
 
-  for (let i = 0; i < N; ++i) {
+  for (let i = 0; i < N; i++) {
     if (graph[i].length == 0) {
       queue.push(i);
     }
