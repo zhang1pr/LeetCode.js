@@ -12,23 +12,23 @@ var hasPathSum = function(root, sum) {
   const sumStack = [sum - root.val];
 
   let node;
-  let currSum;
+  let curSum;
   while (nodeStack.length != 0) {
     node = nodeStack.pop();
-    currSum = sumStack.pop();
+    curSum = sumStack.pop();
 
-    if (node.right == null && node.left == null && currSum == 0) {
+    if (node.right == null && node.left == null && curSum == 0) {
       return true;
     }
 
     if (node.right != null) {
       nodeStack.push(node.right);
-      sumStack.push(currSum - node.right.val);
+      sumStack.push(curSum - node.right.val);
     }
 
     if (node.left != null) {
       nodeStack.push(node.left);
-      sumStack.push(currSum - node.left.val);
+      sumStack.push(curSum - node.left.val);
     }
   }
 
