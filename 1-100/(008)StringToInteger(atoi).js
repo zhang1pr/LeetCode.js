@@ -3,7 +3,7 @@
  * @return {number}
  */
 var myAtoi = function(str) {
-  const lowerBound = -Math.pow(2, 31);
+  const lowerBound = -2 ** 31;
   const upperBound = -lowerBound - 1;
 
   let int = parseInt(str, 10);
