@@ -5,7 +5,7 @@
  */
 var divide = function(dividend, divisor) {
   const negativeFlag = dividend < 0 != divisor < 0;
-  const power = Math.pow(2, 31);
+  const power = 2 ** 31;
   const max = power - 1;
   const min = -power;
 
