@@ -4,7 +4,7 @@
  */
 var climbStairs = function(n) {
   const sqrt = Math.sqrt(5);
-  const fib = Math.pow((1 + sqrt) / 2, n + 1) - Math.pow((1 - sqrt) / 2, n + 1);
+  const fib = ((1 + sqrt) / 2) ** (n + 1) - ((1 - sqrt) / 2) ** (n + 1);
 
   return Math.floor(fib / sqrt);
 };
