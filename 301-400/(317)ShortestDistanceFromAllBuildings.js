@@ -28,7 +28,7 @@ var shortestDistance = function(grid) {
 
             dist[x][y] += level;
             nums[x][y]++;
-            queue.push([x,y]);
+            queue.push([x, y]);
           }
         }
       }
