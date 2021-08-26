@@ -3,7 +3,7 @@
  * @return {void} Do not return anything, modify nums in-place instead.
  */
 var wiggleSort = function(nums) {
-  nums.sort((b,a)=>b-a);
+  nums.sort((b, a) => b - a);
   let mid = nums.length >>> 1;
 
   if (nums.length % 2 != 0) {
