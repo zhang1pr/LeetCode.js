@@ -3,7 +3,7 @@
  * @return {string[]}
  */
 var findRepeatedDnaSequences = function(s) {
-  const BASE_SIZE = Math.pow(4, 10);
+  const BASE_SIZE = 4 ** 10;
 
   const map = {
     'A': 0,
