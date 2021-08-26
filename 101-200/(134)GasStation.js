@@ -7,16 +7,16 @@ var canCompleteCircuit = function(gas, cost) {
   const length = gas.length;
 
   let totalTank = 0;
-  let currTank = 0;
+  let curTank = 0;
   let station = 0;
 
   for (let i = 0; i < length; i++) {
     totalTank += gas[i] - cost[i];
-    currTank += gas[i] - cost[i];
+    curTank += gas[i] - cost[i];
 
-    if (currTank < 0) {
+    if (curTank < 0) {
       station = i + 1;
-      currTank = 0;
+      curTank = 0;
     }
   }
 
