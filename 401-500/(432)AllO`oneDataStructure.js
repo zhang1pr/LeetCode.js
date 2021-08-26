@@ -42,24 +42,24 @@ AllOne.prototype.inc = function(key) {
       node.prev = this.head;
     }
   } else {
-    const currNode = this.hash[key];
-    currNode.vals.delete(key);
-    const nextNum = currNode.num + 1;
-    const nextNode = currNode.next;
+    const curNode = this.hash[key];
+    curNode.vals.delete(key);
+    const nextNum = curNode.num + 1;
+    const nextNode = curNode.next;
     if (nextNode.num != nextNum) {
       const node = new ListNode(nextNum);
       node.next = nextNode;
       nextNode.prev = node;
-      currNode.next = node;
-      node.prev = currNode;
+      curNode.next = node;
+      node.prev = curNode;
     }
 
-    this.hash[key] = currNode.next;
-    currNode.next.vals.add(key);
+    this.hash[key] = curNode.next;
+    curNode.next.vals.add(key);
 
-    if (!currNode.vals.size) {
-    currNode.prev.next = currNode.next;
-    currNode.next.prev = currNode.prev;
+    if (!curNode.vals.size) {
+    curNode.prev.next = curNode.next;
+    curNode.next.prev = curNode.prev;
     }
   }
 };
@@ -76,30 +76,30 @@ AllOne.prototype.dec = function(key) {
   if (!key || this.hash[key] == null) {
     return;
   } else {
-    const currNode = this.hash[key];
-    currNode.vals.delete(key);
-    const prevNum = currNode.num - 1;
-    const prevNode = currNode.prev;
+    const curNode = this.hash[key];
+    curNode.vals.delete(key);
+    const prevNum = curNode.num - 1;
+    const prevNode = curNode.prev;
     if (prevNum && prevNode.num != prevNum) {
     const node = new ListNode(prevNum);
     prevNode.next = node;
     node.prev = prevNode;
-    node.next = currNode;
-    currNode.prev = node;;
+    node.next = curNode;
+    curNode.prev = node;;
     }
 
     if (prevNum) {
-      currNode.prev.vals.add(key);
+      curNode.prev.vals.add(key);
     }
 
-    this.hash[key] = currNode.prev;
+    this.hash[key] = curNode.prev;
     if (!prevNum) {
       delete(this.hash[key]);
     }
 
-    if (!currNode.vals.size) {
-      currNode.prev.next = currNode.next;
-      currNode.next.prev = currNode.prev;
+    if (!curNode.vals.size) {
+      curNode.prev.next = curNode.next;
+      curNode.next.prev = curNode.prev;
     }
   }
 };
