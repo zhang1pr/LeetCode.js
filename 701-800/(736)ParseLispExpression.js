@@ -2,7 +2,7 @@
  * @param {string} expression
  * @return {number}
  */
- var evaluate = function(expression) {
+var evaluate = function(expression) {
   const scope = [new Map()];
 
   function evaluatePrep(expression) {
