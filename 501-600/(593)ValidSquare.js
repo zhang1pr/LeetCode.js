@@ -25,7 +25,7 @@ var validSquare = function(p1, p2, p3, p4) {
 };
 
 function getDist(a, b) {
-  return Math.pow(a[0] - b[0], 2) + Math.pow(a[1] - b[1], 2);
+  return (a[0] - b[0]) ** 2 + (a[1] - b[1]) ** 2;
 };
 
 // time:  O(1)
