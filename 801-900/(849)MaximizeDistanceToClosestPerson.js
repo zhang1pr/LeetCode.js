@@ -8,7 +8,7 @@ var maxDistToClosest = function(seats) {
   let future = 0;
   let ans = 0;
 
-  for (let i = 0; i < N; ++i) {
+  for (let i = 0; i < N; i++) {
     if (seats[i] == 1) {
       prev = i;
     } else {
