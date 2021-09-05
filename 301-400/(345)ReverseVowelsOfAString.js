@@ -6,7 +6,8 @@ var reverseVowels = function(s) {
   const vowels = new Set('aeiouAEIOU');
   s = s.split('');
 
-  let l = 0, r = s.length - 1;
+  let l = 0;
+  let r = s.length - 1;
 
   while(l < r) {
     if (vowels.has(s[l]) && vowels.has(s[r])) {
