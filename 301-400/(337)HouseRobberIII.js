@@ -8,7 +8,8 @@ var rob = function(root) {
   }
 
   function DFS(node) {
-    let notStole = 0, stole = node.val;
+    let notStole = 0;
+    let stole = node.val;
 
     if (node.left) {
       const [a, b] = DFS(node.left);
