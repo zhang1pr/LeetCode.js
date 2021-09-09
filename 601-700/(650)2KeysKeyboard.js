@@ -3,7 +3,8 @@
  * @return {number}
  */
 var minSteps = function(n) {
-  let res = 0, d = 2;
+  let res = 0;
+  let d = 2;
 
   while (n > 1) {
     while (n % d == 0) {
