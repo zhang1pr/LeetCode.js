@@ -3,7 +3,8 @@
  * @return {number[][]}
  */
 var imageSmoother = function(M) {
-  const R = M.length, C = M[0].length;
+  const R = M.length;
+  const C = M[0].length;
   const res = [...Array(R)].map(() => Array(C).fill(0));
 
   for (let r = 0; r < R; r++) {
