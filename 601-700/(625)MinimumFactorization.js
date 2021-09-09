@@ -7,7 +7,8 @@ var smallestFactorization = function(a) {
     return a;
   }
 
-  let res = 0, mul = 1;
+  let res = 0;
+  let mul = 1;
   for (let i = 9; i >= 2; i--) {
     while (a % i == 0) {
       a /= i;
