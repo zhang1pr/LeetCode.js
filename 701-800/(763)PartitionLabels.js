@@ -34,4 +34,4 @@ var partitionLabels = function(S) {
 // 'aba'
 // 'abb'
 // 'abc'
-// "ababcbacadefegdehijhklij"
+// 'ababcbacadefegdehijhklij'
