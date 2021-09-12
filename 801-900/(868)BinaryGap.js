@@ -3,7 +3,8 @@
  * @return {number}
  */
 var binaryGap = function(n) {
-  let last = -1, ans = 0;
+  let last = -1;
+  let ans = 0;
 
   for (let i = 0; i < 32; i++) {
     if ((N >> i & 1) > 0) {
