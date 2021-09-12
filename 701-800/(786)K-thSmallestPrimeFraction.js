@@ -13,7 +13,8 @@ var kthSmallestPrimeFraction = function(arr, k) {
   let n = arr.length;
 
   while (true) {
-    cnt = 0, p = 0;
+    cnt = 0;
+    p = 0;
     m = (l + r) / 2;
 
     for (let i = 0, j = n - 1; i < n; i++) {
