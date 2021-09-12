@@ -24,7 +24,8 @@ var canTransform = function(start, end) {
     return false;
   }
 
-  let i = 0, j = 0;
+  let i = 0;
+  let j = 0;
   while (i < n && j < n) {
     if (start[i] == 'X') {
       i++;
