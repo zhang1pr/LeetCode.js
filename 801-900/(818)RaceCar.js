@@ -7,8 +7,8 @@ var racecar = function(target) {
   dp[0] = 0;
 
   for (let i = 1; i <= target; i++) {
-
-    let m = 1, j = 1;
+    let m = 1;
+    let j = 1;
 
     while (j < i) {
       for (let q = 0, p = 0; p < j; q++, p = (1 << q) - 1) {
