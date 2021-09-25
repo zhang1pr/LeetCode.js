@@ -4,33 +4,31 @@
  * @return {boolean}
  */
 var isMatch = function(s, p) {
-  const sLen = s.length;
-  const pLen = p.length;
-  const dp = Array(pLen + 1);
+  const dp = [...Array(2)].map(() => Array(p.length + 1).fill(false));
 
-  let pre;
-  let temp;
-  for (let i = 0; i <= sLen; i++) {
-    pre = dp[0];
-    dp[0] = i == 0;
+  dp[0][0] = true;
 
-    for (let j = 1; j <= pLen; j++) {
-      temp = dp[j];
-      if (p[j - 1] == '*') {
-          dp[j] = dp[j - 2] || (i != 0 && dp[j] && (s[i - 1] == p[j - 2] || p[j - 2] == '.'));
-      } else {
-        dp[j] = i != 0 && pre && (s[i - 1] == p[j - 1] || p[j - 1] == '.');
-      }
+  for (let j = 1; j < p.length; j++) {
+    dp[0][j + 1] = dp[0][j - 1] && p[j] == '*';
+  }
 
-      pre = temp;
+  for (let i = 0; i < s.length; i++) {
+    dp[(i + 1) % 2][0] = false;
+  }
+
+  for (let j = 0; j < p.length; j++) {
+    if (p[j] == '*') {
+      dp[(i + 1) % 2][j + 1] = dp[(i + 1) % 2][j - 1] || dp[i % 2][j + 1] && (s[i] == p[j - 1] || p[j - 1] == '.');
+    } else {
+      dp[(i + 1) % 2][j + 1] = dp[i % 2][j] && (s[i] == p[j] || p[j] == '.');
     }
   }
 
-  return dp[pLen];
+  return dp[s.length % 2][p.length];
 };
 
 // time:  O(mn)
-// space: O(mn)
+// space: O(m)
 
 // '', ''
 // 'a', ''
