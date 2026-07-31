@@ -6,7 +6,7 @@ var repeatedSubstringPattern = function(s) {
   return s.repeat(2).slice(1, -1).includes(s);
 };
 
-// time:  O(nm)
+// time:  O(mn)
 // space: O(n)
 
 // 'a'
