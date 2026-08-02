@@ -8,18 +8,18 @@ var permuteUnique = function(nums) {
   const arr = [];
   const stack = [];
 
-  function generatePermutation(ToDo) {
-    if (!ToDo.length) {
+  function generatePermutation(targetArr) {
+    if (!targetArr.length) {
       arr.push(stack.slice());
     } else {
-      for (let i = 0; i < ToDo.length; i++) {
-        if (ToDo[i] == ToDo[i - 1]) {
+      for (let i = 0; i < targetArr.length; i++) {
+        if (targetArr[i] == targetArr[i - 1]) {
           continue;
         }
 
-        stack.push(ToDo[i]);
-        generatePermutation([...ToDo.slice(0, i), ...ToDo.slice(i + 1)]);
-        stack.pop(ToDo[i]);
+        stack.push(targetArr[i]);
+        generatePermutation([...targetArr.slice(0, i), ...targetArr.slice(i + 1)]);
+        stack.pop(targetArr[i]);
       }
     }
   }
