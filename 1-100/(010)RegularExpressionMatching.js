@@ -14,13 +14,13 @@ var isMatch = function(s, p) {
 
   for (let i = 0; i < s.length; i++) {
     dp[(i + 1) % 2][0] = false;
-  }
 
-  for (let j = 0; j < p.length; j++) {
-    if (p[j] == '*') {
-      dp[(i + 1) % 2][j + 1] = dp[(i + 1) % 2][j - 1] || dp[i % 2][j + 1] && (s[i] == p[j - 1] || p[j - 1] == '.');
-    } else {
-      dp[(i + 1) % 2][j + 1] = dp[i % 2][j] && (s[i] == p[j] || p[j] == '.');
+    for (let j = 0; j < p.length; j++) {
+      if (p[j] == '*') {
+        dp[(i + 1) % 2][j + 1] = dp[(i + 1) % 2][j - 1] || dp[i % 2][j + 1] && (s[i] == p[j - 1] || p[j - 1] == '.');
+      } else {
+        dp[(i + 1) % 2][j + 1] = dp[i % 2][j] && (s[i] == p[j] || p[j] == '.');
+      }
     }
   }
 
