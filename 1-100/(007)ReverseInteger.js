@@ -3,7 +3,7 @@
  * @return {number}
  */
 var reverse = function(x) {
-  const lowerBound = -2 ** 31;
+  const lowerBound = -(2 ** 31);
   const upperBound = -lowerBound - 1;
 
   let xReverse = 0;
