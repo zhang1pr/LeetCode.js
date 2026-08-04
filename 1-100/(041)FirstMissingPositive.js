@@ -6,10 +6,9 @@ var firstMissingPositive = function(nums) {
   for (let i = 0; i < nums.length; i++) {
     let target = nums[i];
 
-    while (target > 0 && target < nums.length + 1 && nums[target] != target) {
-      temp = nums[target - 1];
-      nums[target - 1] = target;
-      target = temp;
+    while (nums[i] > 0 && nums[i] <= nums.length && nums[nums[i] - 1] !== nums[i]) {
+      const targetIdx = nums[i] - 1;
+      [nums[i], nums[targetIdx]] = [nums[targetIdx], nums[i]];
     }
   }
 
