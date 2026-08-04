@@ -2,89 +2,36 @@
  * @param {string} s
  * @return {boolean}
  */
-var isNumber = function(s) {
-  let state = 0;
-  s = s.trim();
-
+var isNumber = function (s) {
+  let seenDigit = false, seenExponent = false, seenDot = false;
+  
   for (let i = 0; i < s.length; i++) {
-    switch (s[i]) {
-      case '+':
-      case '-':
-        switch (state) {
-          case 0:
-            state = 1;
-            break;
-          case 4:
-            state = 6;
-            break;
-          default:
-            return false;
-        }
-        break;
-      case '0':
-      case '1':
-      case '2':
-      case '3':
-      case '4':
-      case '5':
-      case '6':
-      case '7':
-      case '8':
-      case '9':
-        switch (state) {
-          case 0:
-          case 1:
-          case 2:
-            state = 2;
-            break;
-          case 3:
-            state = 3;
-            break;
-          case 4:
-          case 5:
-          case 6:
-            state = 5;
-            break;
-          case 7:
-            state = 8;
-            break;
-          case 8:
-            state = 8;
-            break;
-          default:
-            return false;
-        }
-        break;
-      case '.':
-        switch (state) {
-          case 0:
-          case 1:
-            state = 7;
-            break;
-          case 2:
-            state = 3;
-            break;
-          default:
-            return false;
-        }
-        break;
-      case 'e':
-        switch (state) {
-          case 2:
-          case 3:
-          case 8:
-            state = 4;
-            break;
-          default:
-            return false;
-        }
-        break;
-      default:
+    let curr = s[i];
+    if (!isNaN(curr)) {
+      seenDigit = true;
+    } else if (curr == "+" || curr == "-") {
+      if (i > 0 && s[i - 1] != "e" && s[i - 1] != "E") {
         return false;
+      }
+    } else if (curr == "e" || curr == "E") {
+      if (seenExponent || !seenDigit) {
+        return false;
+      }
+
+      seenExponent = true;
+      seenDigit = false;
+    } else if (curr == ".") {
+      if (seenDot || seenExponent) {
+        return false;
+      }
+      
+      seenDot = true;
+    } else {
+      return false;
     }
   }
 
-  return [2, 3, 5, 8].includes(state);
+  return seenDigit;
 };
 
 // time:  O(n)
@@ -107,6 +54,7 @@ var isNumber = function(s) {
 // ' 123 '
 // '12 3'
 // '     '
+// '-1E+3'
 // '123e1'
 // '123.5'
 // '0.5e04'
