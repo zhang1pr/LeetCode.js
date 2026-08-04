@@ -22,12 +22,12 @@ var generateMatrix = function(n) {
 
     if (a < b) {
       for (let i = b - 1; i >= a; i--) {
-        m[b][i] = no;
+        matrix[b][i] = no;
         no++;
       }
 
       for (let i = b - 1; i >= a + 1; i--) {
-        m[i][a] = no;
+        matrix[i][a] = no;
         no++;
       }
     }
@@ -36,7 +36,7 @@ var generateMatrix = function(n) {
     b--;
   }
 
-  return m;
+  return matrix;
 };
 
 // time:  O(n)
