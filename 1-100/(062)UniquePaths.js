@@ -4,18 +4,27 @@
  * @return {number}
  */
 var uniquePaths = function(m, n) {
-  let N = n + m - 2;
-  let k = m - 1;
-  let res = 1;
-
-  for (let i = 1; i <= k; i++) {
-    res *= (N - i + 1) / i;
+  if (m === 1 || n === 1) return 1;
+    
+  m--; 
+  n--;
+  
+  if (m < n) {
+    [m, n] = [n, m]; 
   }
-
+  
+  let res = 1;
+  let j = 1;
+  
+  for (let i = m + 1; i <= m + n; i++, j++) {
+    res *= i;
+    res = Math.floor(res / j);
+  }
+  
   return res;
 };
 
-// time:  O(1)
+// time:  O(m+n)
 // space: O(1)
 
 // 1, 1
