@@ -1,18 +1,21 @@
 const fs = require('fs');
-const process = require('process')
+const process = require('process');
 
-function runInBrowserConsole() {
-  var table = $$('.reactable-data tr');
+function runInBrowserConsoleOnLeetCodeProblemSetPage() {
+  var elements = $$('.w-full.flex-1');
+  var table = elements[elements.length - 1];
+
+  var arr = [...table.querySelectorAll('a')].slice(1); // skip daily question
   var string = '\"';
 
-  for (const tr of table) {
-    var td = tr.querySelectorAll('td');
-    var number = td[1].innerText;
-    while (number.length < 3) {
-      number = '0' + number;
-    }
+  for (const aTag of arr) {
+    var row = aTag.querySelector('.ellipsis.line-clamp-1');
+    var res = row.innerText;
+    
+    var [number, name] = res.split('. ');
+    number = number.padStart(3, 0);
 
-    var name = td[2].innerText.trim().split(' ').map(word => word[0].toUpperCase() + word.slice(1)).join('');
+      
     var title = '(' + number + ')' + name;
     string += title + '|';
   }
@@ -31,7 +34,7 @@ if (!fs.existsSync(path)) {
   fs.mkdir(path, () => {});
 }
 
-process.chdir(path, () => {});
+process.chdir(path, () => {}); // run twice if there's no directory error
 
 for (const problem of problems) {
   if (!fs.existsSync(problem + '.js')) {
