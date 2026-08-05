@@ -10,7 +10,7 @@ var levelOrderBottom = function(root) {
       return;
     }
 
-    if (![level]) {
+    if (!arr[level]) {
       arr[level] = [root.val];
     } else {
       arr[level].push(root.val);
