@@ -24,7 +24,7 @@ var deleteDuplicates = function(head) {
     cur = pre.next;
   }
 
-  return d.next;
+  return dummy.next;
 };
 
 // time:  O(n)
