@@ -4,7 +4,7 @@
  */
 var isPalindrome = function(s) {
   s = s.toLowerCase();
-  const regex = /\w/;
+  const regex = /[a-z0-9]/;
   let i = 0;
   let j = s.length - 1;
 
@@ -39,5 +39,6 @@ var isPalindrome = function(s) {
 // ' '
 // ';'
 // 'a=A'
+// 'ab_a'
 // 'race a car'
 // 'A man, a plan, a canal: Panama'
