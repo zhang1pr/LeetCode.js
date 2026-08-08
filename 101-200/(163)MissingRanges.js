@@ -8,7 +8,7 @@ var findMissingRanges = function(nums, lower, upper) {
   const missing = [];
 
   if (nums.length == 0) {
-    return [getRange(lower, upper)];
+    return [[lower, upper]];
   }
 
   let next = lower;
@@ -20,23 +20,15 @@ var findMissingRanges = function(nums, lower, upper) {
       continue;
     }
 
-    missing.push(getRange(next, num - 1));
+    missing.push([next, num - 1]);
     next = num + 1;
   }
 
   if (next <= upper) {
-    missing.push(getRange(next, upper));
+    missing.push([next, upper]);
   }
 
   return missing;
-};
-
-function getRange(lower, upper) {
-  if (upper == lower) {
-    return lower.toString();
-  } else {
-    return `${lower}->${upper}`;
-  }
 };
 
 // time:  O(n)
