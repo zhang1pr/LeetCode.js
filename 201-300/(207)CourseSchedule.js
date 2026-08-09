@@ -4,35 +4,40 @@
  * @return {boolean}
  */
 var canFinish = function(numCourses, prerequisites) {
-  const graph = Array(numCourses).fill(0).map(() => Array());
-  const visited = Array(numCourses).fill(false);
+  const graph = [...Array(numCourses)].map(() => []);
+  const indegree = Array(numCourses).fill(0);
+  let visited = 0;
 
-  for (let i = 0; i < prerequisites.length; i++) {
-    graph[prerequisites[i][1]].push(prerequisites[i][0]);
+  for (const [course, dependancy] of prerequisites) {
+    graph[dependancy].push(course);
+    indegree[course]++;   
   }
 
-  function DFS(c) {
-    if (visited[c]) {
-      return false;
+  let queue = [];
+  for (let i = 0; i < indegree.length; i++) {
+    if (indegree[i] == 0) {
+      queue.push(i);
+      visited++;
     }
-    visited[c] = true;
+  }
+  
+  while (queue.length > 0) {
+    let nqueue = [];
 
-    for (let i = 0; i < graph[c].length; i++) {
-      if (!DFS(graph[c][i])) {
-        return false;
+    for (const node of queue) {
+      for (const nei of graph[node]) {
+        indegree[nei]--;
+        if (indegree[nei] == 0) {
+          nqueue.push(nei);
+          visited++;
+        }
       }
     }
-    visited[c] = false;
-    return true;
-  }
 
-  for (let i = 0; i < numCourses; i++) {
-    if (!DFS(i)) {
-      return false;
-    }
+    queue = nqueue;
   }
-
-  return true;
+  
+  return visited == numCourses;
 };
 
 // time:  O(v+e)
