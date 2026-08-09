@@ -1,4 +1,4 @@
-class BinaryHeap {
+class MyHeap {
   constructor() {
     this.array = [];
   }
@@ -73,7 +73,7 @@ class BinaryHeap {
  * @return {ListNode}
  */
 var mergeKLists = function(lists) {
-  const heap = new BinaryHeap();
+  const heap = new MyHeap();
 
   for (const list of lists) {
     let head = list;
