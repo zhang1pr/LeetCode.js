@@ -8,7 +8,7 @@ class Node {
   }
 }
 
-class Queue {
+class MyQueue {
   constructor() {
     this.head = null;
     this.tail = null;
@@ -50,7 +50,7 @@ class Queue {
 }
 
 var MyStack = function() {
-  this.queue = new Queue();
+  this.MyQueue = new MyQueue();
 };
 
 /**
@@ -59,11 +59,11 @@ var MyStack = function() {
  * @return {void}
  */
 MyStack.prototype.push = function(x) {
-  this.queue.enqueue(x);
+  this.MyQueue.enqueue(x);
 
-  let size = this.queue.size();
+  let size = this.MyQueue.size();
   while (size > 1) {
-    this.queue.enqueue(this.queue.dequeue().val);
+    this.MyQueue.enqueue(this.MyQueue.dequeue().val);
     size--;
   }
 };
@@ -73,7 +73,7 @@ MyStack.prototype.push = function(x) {
  * @return {number}
  */
 MyStack.prototype.pop = function() {
-  return this.queue.dequeue().val;
+  return this.MyQueue.dequeue().val;
 };
 
 /**
@@ -81,7 +81,7 @@ MyStack.prototype.pop = function() {
  * @return {number}
  */
 MyStack.prototype.top = function() {
-  return this.queue.peek().val;
+  return this.MyQueue.peek().val;
 };
 
 /**
@@ -89,7 +89,7 @@ MyStack.prototype.top = function() {
  * @return {boolean}
  */
 MyStack.prototype.empty = function() {
-  return this.queue.size() == 0;
+  return this.MyQueue.size() == 0;
 };
 
 /**
