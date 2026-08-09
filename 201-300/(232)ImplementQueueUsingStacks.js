@@ -8,7 +8,7 @@ class StackNode {
   }
 }
 
-class Stack {
+class MyStack {
   constructor() {
     this.head = null;
     this.tail = null;
@@ -58,8 +58,8 @@ class Stack {
 }
 
 var MyQueue = function() {
-  this.input = new Stack();
-  this.output = new Stack();
+  this.input = new MyStack();
+  this.output = new MyStack();
 };
 
 /**
