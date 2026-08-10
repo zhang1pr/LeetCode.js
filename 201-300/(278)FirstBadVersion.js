@@ -18,24 +18,24 @@ var solution = function(isBadVersion) {
    * @return {integer} The first bad version
    */
   return function(n) {
-      let left = 1;
-      let right = n;
-      let mid;
-      while (left <= right) {
-        mid = (left + right) >>> 1;
+    let left = 1;
+    let right = n;
+    let mid;
+    while (left <= right) {
+      mid = (left + right) >>> 1;
 
-        if (isBadVersion(mid)) {
-          if (mid > 1 && !isBadVersion(mid - 1) || mid == 1) {
-            return mid;
-          } else {
-            right = mid - 1;
-          }
+      if (isBadVersion(mid)) {
+        if (mid > 1 && !isBadVersion(mid - 1) || mid == 1) {
+          return mid;
         } else {
-          left = mid + 1;
+          right = mid - 1;
         }
+      } else {
+        left = mid + 1;
       }
+    }
 
-      return -1;
+    return -1;
   };
 };
 
