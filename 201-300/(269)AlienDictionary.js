@@ -5,7 +5,7 @@ class QueueNode {
   }
 }
 
-class Queue {
+class MyQueue {
   constructor() {
     this.head = null;
     this.tail = null;
@@ -67,7 +67,7 @@ var alienOrder = function(words) {
   const len = words.length;
   const map = {};
   const prereqCount = {};
-  const queue = new Queue();
+  const queue = new MyQueue();
   let res = '';
 
   for (let i = 0; i < len; i++) {
