@@ -3,11 +3,14 @@
  * @param {number} target
  * @return {number}
  */
-var closestValue = function(root, target) {
+var closestValue = function (root, target) {
   let res = root.val;
 
   while (root) {
-    if (Math.abs(root.val - target) < Math.abs(res - target)) {
+    let diffCur = Math.abs(root.val - target);
+    let diffRes = Math.abs(res - target);
+
+    if (diffCur < diffRes || diffCur === diffRes && root.val < res) {
       res = root.val;
     }
 
@@ -20,4 +23,6 @@ var closestValue = function(root, target) {
 // time:  O(log(n))
 // space: O(1)
 
+// [4, 2, 5, 1, 3], 3.5
 // [4, 2, 5, 1, 3], 3.714286
+// [4, 2, 5, 1, 3], 4.5
