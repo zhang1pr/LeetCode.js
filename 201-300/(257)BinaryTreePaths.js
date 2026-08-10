@@ -1,3 +1,4 @@
+// todo
 /**
  * @param {TreeNode} root
  * @return {string[]}
@@ -16,11 +17,11 @@ var binaryTreePaths = function(root) {
     }
 
     if (root.left != null) {
-      binaryTreePaths(root.left, temp + root.val.toString() + '->');
+      DFS(root.left, temp + root.val.toString() + '->');
     }
 
     if (root.right != null) {
-      binaryTreePaths(root.right, temp + root.val.toString() + '->');
+      DFS(root.right, temp + root.val.toString() + '->');
     }
   }
 
