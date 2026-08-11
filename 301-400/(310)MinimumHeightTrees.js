@@ -15,7 +15,7 @@ var findMinHeightTrees = function(n, edges) {
     adj[edge[1]].add(edge[0]);
   }
 
-  const leaves = [];
+  let leaves = [];
   for (let i = 0; i < n; i++) {
     if (adj[i].size == 1) {
       leaves.push(i);
