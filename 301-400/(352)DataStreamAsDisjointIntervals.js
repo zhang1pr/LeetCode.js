@@ -2,7 +2,7 @@
  * Initialize your data structure here.
  */
 var SummaryRanges = function() {
-  this. = [];
+  this.arr = [];
 };
 
 // time:  O(1)
@@ -13,7 +13,7 @@ var SummaryRanges = function() {
  * @return {void}
  */
 SummaryRanges.prototype.addNum = function(val) {
-  this.[val] = true;
+  this.arr[val] = true;
 };
 
 // time:  O(1)
@@ -26,19 +26,19 @@ SummaryRanges.prototype.getIntervals = function() {
   const res = [];
   let start = -1;
 
-  for (let i = 0; i < this..length; i++) {
+  for (let i = 0; i < this.arr.length; i++) {
     if (start == -1) {
-      if (this.[i]) {
+      if (this.arr[i]) {
         start = i;
       }
-    } else if (!this.[i]) {
+    } else if (!this.arr[i]) {
       res.push([start, i - 1]);
       start = -1;
     }
   }
 
   if (start != -1) {
-    res.push([start, this..length - 1]);
+    res.push([start, this.arr.length - 1]);
   }
 
   return res;
