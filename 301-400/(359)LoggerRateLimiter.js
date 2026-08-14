@@ -22,7 +22,7 @@ Logger.prototype.shouldPrintMessage = function(timestamp, message) {
     return true;
   }
 
-  if (timestamp - this.m.get(message) >= 10) {
+  if (timestamp - this.map.get(message) >= 10) {
     this.map.set(message, timestamp);
     return true;
   }
