@@ -4,108 +4,86 @@
  * @param {string[]} wordList
  * @return {string[][]}
  */
-var findLadders = function(beginWord, endWord, wordList) {
+var findLadders = function (beginWord, endWord, wordList) {
   const res = [];
+  const wordSet = new Set(wordList);
 
-  if (!wordList.includes(endWord)) {
+  if (!wordSet.has(endWord)) {
     return res;
   }
 
-  const map = new Map();
+  const parents = new Map();
 
-  function BFS(beginWord, endWord, wordList, map) {
-    set1 = new Set().add(beginWord);
-    set2 = new Set().add(endWord);
-    wordSet = new Set(wordList);
-    traverse(set1, set2, wordSet, true, map);
-  }
+  let level = new Set([beginWord]);
+  wordSet.delete(beginWord);
+  let found = false;
 
-  function traverse(set1, set2, wordSet, direction, map) {
-    if (set1.size == 0) {
-      return false;
+  while (level.size > 0 && !found) {
+    const nextLevel = new Set();
+
+    for (const word of level) {
+      wordSet.delete(word);
     }
 
-    if (set1.size > set2.size) {
-      return traverse(set2, set1, wordSet, !direction, map);
-    }
+    for (const word of level) {
+      for (let i = 0; i < word.length; i++) {
+        for (let code = 97; code <= 122; code++) {
+          const char = String.fromCharCode(code);
 
-    for (const value of set1.values()) {
-      if (wordSet.has(value)) {
-        wordSet.delete(value);
-      }
-    }
-
-    for (const value of set2.values()) {
-      if (wordSet.has(value)) {
-        wordSet.delete(value);
-      }
-    }
-
-    let done = false;
-
-    const set = new Set();
-
-    let word;
-    let key;
-    let val;
-    let list;
-
-    for (const string of set1.values()) {
-      for (let i = 0; i < string.length; i++) {
-        for (let charCode = 97; charCode <= 122; charCode++) {
-          if (string.charCodeAt(i) == charCode) {
+          if (char === word[i]) {
             continue;
           }
 
-          word = string.slice(0, i) + String.fromCharCode(charCode) + string.slice(i + 1);
+          const nextWord = word.slice(0, i) + char + word.slice(i + 1);
 
-          key = direction ? string : word;
-          val = direction ? word : string;
-
-          list = map.get(key) || [];
-
-          if (set2.has(word)) {
-            done = true;
-            list.push(val);
-            map.set(key, list);
+          if (!wordSet.has(nextWord)) {
+            continue;
           }
 
-          if (!done && wordSet.has(word)) {
-            set.add(word);
-            list.push(val);
-            map.set(key, list);
+          if (!parents.has(nextWord)) {
+            parents.set(nextWord, new Set());
           }
+
+          parents.get(nextWord).add(word);
+
+          if (nextWord == endWord) {
+            found = true;
+          }
+
+          nextLevel.add(nextWord);
         }
       }
     }
 
-    return done || traverse(set2, set, wordSet, !direction, map);
+    level = nextLevel;
   }
 
-  BFS(beginWord, endWord, wordList, map);
+  if (!found) {
+    return res;
+  }
 
-  function DFS(beginWord, endWord, map) {
-    if (beginWord == endWord) {
-      res.push(temp.slice());
+  const path = [endWord];
+
+  function DFS(word) {
+    if (word == beginWord) {
+      res.push(path.slice().reverse());
       return;
     }
 
-    const neighbors = map.get(beginWord) || [];
-    for (const neighbor of neighbors) {
-      temp.push(neighbor);
-      DFS(neighbor, endWord, map);
-      temp.pop();
+    for (const parent of parents.get(word) || []) {
+      path.push(parent);
+      DFS(parent);
+      path.pop();
     }
   }
 
-  const temp = [beginWord];
-  DFS(beginWord, endWord, map);
+  DFS(endWord);
 
   return res;
 };
 
-// time:  O(b^(d/2))
-// space: O(b^(d/2))
+// time:  O(v+e)
+// space: O(v+e)
 
 // 'hit', 'hog', ['hog']
 // 'hit', 'hat', ['hot']
