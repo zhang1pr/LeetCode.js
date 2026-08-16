@@ -1,15 +1,11 @@
-/**
- * Initialize your data structure here.
- */
 var TwoSum = function() {
-  this.map = new Map();
+  this.map = new Map();  
 };
 
 // time:  O(1)
 // space: O(1)
 
-/**
- * Add the number to an internal data structure..
+/** 
  * @param {number} number
  * @return {void}
  */
@@ -18,14 +14,13 @@ TwoSum.prototype.add = function(number) {
     this.map.set(number, this.map.get(number) + 1);
   } else {
     this.map.set(number, 1);
-  }
+  }  
 };
 
 // time:  O(1)
 // space: O(1)
 
-/**
- * Find if there exists any pair of numbers which sum is equal to the value.
+/** 
  * @param {number} value
  * @return {boolean}
  */
@@ -45,13 +40,13 @@ TwoSum.prototype.find = function(value) {
     }
   }
 
-  return false;
+  return false;  
 };
 
 // time:  O(n)
 // space: O(n)
 
-/**
+/** 
  * Your TwoSum object will be instantiated and called as such:
  * var obj = new TwoSum()
  * obj.add(number)
