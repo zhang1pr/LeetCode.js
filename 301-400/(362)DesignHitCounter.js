@@ -1,6 +1,3 @@
-/**
- * Initialize your data structure here.
- */
 var HitCounter = function() {
   this.times = [];
   this.hits = [];
@@ -10,8 +7,6 @@ var HitCounter = function() {
 // space: O(1)
 
 /**
- * Record a hit.
-        @param timestamp - The current timestamp (in seconds granularity).
  * @param {number} timestamp
  * @return {void}
  */
@@ -30,8 +25,6 @@ HitCounter.prototype.hit = function(timestamp) {
 // space: O(1)
 
 /**
- * Return the number of hits in the past 5 minutes.
-        @param timestamp - The current timestamp (in seconds granularity).
  * @param {number} timestamp
  * @return {number}
  */
@@ -50,7 +43,7 @@ HitCounter.prototype.getHits = function(timestamp) {
 // time:  O(n)
 // space: O(1)
 
-/**
+/** 
  * Your HitCounter object will be instantiated and called as such:
  * var obj = new HitCounter()
  * obj.hit(timestamp)
