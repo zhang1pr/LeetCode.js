@@ -1,4 +1,4 @@
-class Heap {
+class MyHeap {
   constructor() {
     this.arr = [];
   }
@@ -75,7 +75,7 @@ class Heap {
  * @return {number[][]}
  */
 var kSmallestPairs = function(nums1, nums2, k) {
-  const heap = new Heap();
+  const heap = new MyHeap();
   const res = [];
 
   if (nums1.length == 0 || nums2.length == 0 || k == 0) {
