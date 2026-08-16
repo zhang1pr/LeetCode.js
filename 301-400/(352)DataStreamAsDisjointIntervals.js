@@ -1,6 +1,3 @@
-/**
- * Initialize your data structure here.
- */
 var SummaryRanges = function() {
   this.arr = [];
 };
@@ -46,5 +43,12 @@ SummaryRanges.prototype.getIntervals = function() {
 
 // time:  O(n)
 // space: O(1)
+
+/** 
+ * Your SummaryRanges object will be instantiated and called as such:
+ * var obj = new SummaryRanges()
+ * obj.addNum(value)
+ * var param_2 = obj.getIntervals()
+ */
 
 // ['SummaryRanges', 'addNum', 'getIntervals', 'addNum', 'getIntervals', 'addNum', 'getIntervals', 'addNum', 'getIntervals', 'addNum', 'getIntervals'], [[], [1], [], [3], [], [7], [], [2], [], [6], []]
