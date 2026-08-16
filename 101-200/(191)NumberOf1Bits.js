@@ -1,5 +1,5 @@
 /**
- * @param {number} n - a positive integer
+ * @param {number} n
  * @return {number}
  */
 var hammingWeight = function(n) {
