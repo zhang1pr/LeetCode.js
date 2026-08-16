@@ -9,25 +9,23 @@ var Solution = function(nums) {
 // space: O(1)
 
 /**
- * Resets the  to its original configuration and return it.
  * @return {number[]}
  */
 Solution.prototype.reset = function() {
-  return this.nums;
+  return this.nums;  
 };
 
 // time:  O(1)
 // space: O(1)
 
 /**
- * Returns a random shuffling of the .
  * @return {number[]}
  */
 Solution.prototype.shuffle = function() {
   const res = this.nums.slice();
 
   for (let i = 0; i < res.length; i++) {
-    let j = Math.floor(Math.random() * n);
+    let j = Math.floor(Math.random() * res.length);
     [res[i], res[j]] = [res[j], res[i]];
   }
 
