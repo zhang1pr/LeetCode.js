@@ -1,4 +1,4 @@
-class Heap {
+class MyHeap {
   constructor() {
     this.arr = [];
   }
@@ -74,7 +74,7 @@ class Heap {
  * @return {number}
  */
 var kthSmallest = function(matrix, k) {
-  const heap = new Heap();
+  const heap = new MyHeap();
 
   for (let i = 0; i < matrix.length; i++) {
     heap.add([matrix[0][i], 0, i]);
