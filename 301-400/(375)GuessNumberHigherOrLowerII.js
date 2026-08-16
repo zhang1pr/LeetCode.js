@@ -3,7 +3,7 @@
  * @return {number}
  */
 var getMoneyAmount = function(n) {
-  const dp = [...Array(n + 1)].map(() => Array(n + 1));
+  const dp = [...Array(n + 1)].map(() => Array(n + 1).fill(0));
 
   for (let j = 2; j <= n; j++) {
     for (let i = j - 1; i > 0; i--) {
