@@ -3,7 +3,7 @@
  * // You should not implement it, or speculate about its implementation.
  * function Iterator() {
  *    @ return {number}
- *    this.nextVal = function() { // return the nextVal number of the iterator
+ *    this.next = function() { // return the next number of the iterator
  *       ...
  *    };
  *
@@ -50,13 +50,13 @@ PeekingIterator.prototype.hasNext = function() {
   return this.nextVal != null;
 };
 
-/**
-* Your PeekingIterator object will be instantiated and called as such:
-* var obj = new PeekingIterator(arr)
-* var param_1 = obj.peek()
-* var param_2 = obj.nextVal()
-* var param_3 = obj.hasNext()
-*/
+/** 
+ * Your PeekingIterator object will be instantiated and called as such:
+ * var obj = new PeekingIterator(arr)
+ * var param_1 = obj.peek()
+ * var param_2 = obj.next()
+ * var param_3 = obj.hasNext()
+ */
 
 // time:  O(1)
 // space: O(1)
