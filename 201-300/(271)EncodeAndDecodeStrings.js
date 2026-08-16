@@ -37,9 +37,9 @@ var decode = function(s) {
 // space: O(1)
 
 /**
-* Your functions will be called as such:
-* decode(encode(strs));
-*/
+ * Your functions will be called as such:
+ * decode(encode(strs));
+ */
 
 // []
 // ['']
