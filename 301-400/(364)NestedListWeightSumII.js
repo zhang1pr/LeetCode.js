@@ -16,6 +16,18 @@
  *         ...
  *     };
  *
+ *     Set this NestedInteger to hold a single integer equal to value.
+ *     @return {void}
+ *     this.setInteger = function(value) {
+ *         ...
+ *     };
+ *
+ *     Set this NestedInteger to hold a nested list and adds a nested integer elem to it.
+ *     @return {void}
+ *     this.add = function(elem) {
+ *         ...
+ *     };
+ *
  *     Return the nested list that this NestedInteger holds, if it holds a nested list
  *     Return null if this NestedInteger holds a single integer
  *     @return {NestedInteger[]}
