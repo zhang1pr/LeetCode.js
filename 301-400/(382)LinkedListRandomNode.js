@@ -1,6 +1,4 @@
 /**
- * @param head The linked list's head.
-        Note that the head is guaranteed to be not null, so it contains at least one node.
  * @param {ListNode} head
  */
 var Solution = function(head) {
@@ -18,7 +16,6 @@ var Solution = function(head) {
 // space: O(n)
 
 /**
- * Returns a random node's value.
  * @return {number}
  */
 Solution.prototype.getRandom = function() {
@@ -32,7 +29,7 @@ Solution.prototype.getRandom = function() {
 // time:  O(1)
 // space: O(1)
 
-/**
+/** 
  * Your Solution object will be instantiated and called as such:
  * var obj = new Solution(head)
  * var param_1 = obj.getRandom()
