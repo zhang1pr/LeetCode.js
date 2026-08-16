@@ -15,9 +15,9 @@
  */
 var solution = function(knows) {
   /**
-  * @param {integer} n Total people
-  * @return {integer} The celebrity
-  */
+   * @param {integer} n Total people
+   * @return {integer} The celebrity
+   */
   return function(n) {
     let celebrity = 0;
 
