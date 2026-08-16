@@ -2,10 +2,6 @@
  * @param {number[]} nums
  * @return {number}
  */
-/**
- * @param {number[]} nums
- * @return {number}
- */
 var maxCoins = function(nums) {
   nums.unshift(1);
   nums.push(1);
