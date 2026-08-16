@@ -1,6 +1,3 @@
-/**
- * Initialize your data structure here.
- */
 var TrieNode = function() {
   this.children = Array(26);
   this.flag = false;
@@ -11,7 +8,6 @@ var WordDictionary = function() {
 };
 
 /**
- * Adds a word into the data structure.
  * @param {string} word
  * @return {void}
  */
@@ -33,7 +29,6 @@ WordDictionary.prototype.addWord = function(word) {
 };
 
 /**
- * Returns if the word is in the data structure. A word could contain the dot character '.' to represent any one letter.
  * @param {string} word
  * @return {boolean}
  */
@@ -68,7 +63,7 @@ WordDictionary.prototype.search = function(word) {
   return searchWord(word, this.root);
 };
 
-/**
+/** 
  * Your WordDictionary object will be instantiated and called as such:
  * var obj = new WordDictionary()
  * obj.addWord(word)
