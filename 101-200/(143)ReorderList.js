@@ -1,4 +1,3 @@
-
 /**
  * @param {ListNode} head
  * @return {void} Do not return anything, modify head in-place instead.
