@@ -1,6 +1,3 @@
-/**
- * Initialize your data structure here.
- */
 class ListNode {
   constructor(num) {
     this.num = num;
@@ -21,7 +18,6 @@ var AllOne = function() {
 // space: O(1)
 
 /**
- * Inserts a new key <Key> with value 1. Or increments an existing key by 1.
  * @param {string} key
  * @return {void}
  */
@@ -68,7 +64,6 @@ AllOne.prototype.inc = function(key) {
 // space: O(1)
 
 /**
- * Decrements an existing key by 1. If Key's value is 1, remove it from the data structure.
  * @param {string} key
  * @return {void}
  */
@@ -108,7 +103,6 @@ AllOne.prototype.dec = function(key) {
 // space: O(1)
 
 /**
- * Returns one of the keys with maximal value.
  * @return {string}
  */
 AllOne.prototype.getMaxKey = function() {
@@ -128,7 +122,6 @@ AllOne.prototype.getMaxKey = function() {
 // space: O(1)
 
 /**
- * Returns one of the keys with Minimal value.
  * @return {string}
  */
 AllOne.prototype.getMinKey = function() {
@@ -147,7 +140,7 @@ AllOne.prototype.getMinKey = function() {
 // time:  O(1)
 // space: O(1)
 
-/**
+/** 
  * Your AllOne object will be instantiated and called as such:
  * var obj = new AllOne()
  * obj.inc(key)
