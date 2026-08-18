@@ -5,7 +5,7 @@ class QueueNode {
   }
 }
 
-class Queue {
+class MyQueue {
   constructor() {
     this.head = null;
     this.tail = null;
@@ -102,7 +102,7 @@ var deserialize = function(data) {
     return null;
   }
 
-  const queue = new Queue();
+  const queue = new MyQueue();
   for (const val of data.split(',')) {
     queue.enqueue(Number(val));
   }
