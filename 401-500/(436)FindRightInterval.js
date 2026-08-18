@@ -10,7 +10,7 @@ var findRightInterval = function(intervals) {
 
   for (let i = 0; i < end; i++) {
     const interval = intervals[i];
-    map.set(interval[0], index);
+    map.set(interval[0], i);
     arr.push(interval[0]);
   };
 
