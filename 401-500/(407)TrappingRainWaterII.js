@@ -1,4 +1,4 @@
-class Heap {
+class MyHeap {
   constructor() {
     this.array = [];
   }
@@ -85,7 +85,7 @@ var trapRainWater = function(heightMap) {
     return 0;
   }
 
-  const heap = new Heap();
+  const heap = new MyHeap();
 
   const m = heightMap.length;
   const n = heightMap[0].length;
