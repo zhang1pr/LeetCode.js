@@ -4,29 +4,25 @@
  * @return {boolean}
  */
 var sequenceReconstruction = function(org, seqs) {
-  const pairs = {};
-  const index = {};
+  const pairs = new Set();
+  const index = new Map();
 
   for (let i = 0; i < org.length; i++) {
-    index[org[i]] = i;
+    index.set(org[i], i);
   }
 
   for (const seq of seqs) {
     for (let i = 1; i < seq.length; i++) {
-      if (index[seq[i]] == null) {
-        return false;
-      }
-
-      if (index[seq[i - 1]] >= index[seq[i]]) {
+      if (index.get(seq[i - 1]) >= index.get(seq[i])) {
         return false;
       }
       
-      pairs[seq[i - 1].toString() + ',' + seq[i].toString()] = 1;
+      pairs.add(seq[i - 1].toString() + ',' + seq[i].toString());
     }
   }
 
   for (let i = 1; i < org.length; i++) {
-    if (pairs[org[i - 1].toString() + ',' + org[i].toString()] == null) {
+    if (!pairs.has(org[i - 1].toString() + ',' + org[i].toString())) {
       return false;
     }
   }
