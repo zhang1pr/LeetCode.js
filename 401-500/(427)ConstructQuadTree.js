@@ -1,6 +1,6 @@
 /**
  * // Definition for a QuadTree node.
- * function Node(val,isLeaf,topLeft,topRight,bottomLeft,bottomRight) {
+ * function _Node(val,isLeaf,topLeft,topRight,bottomLeft,bottomRight) {
  *    this.val = val;
  *    this.isLeaf = isLeaf;
  *    this.topLeft = topLeft;
@@ -12,7 +12,7 @@
 
 /**
  * @param {number[][]} grid
- * @return {Node}
+ * @return {_Node}
  */
 var construct = function(grid) {
   function DFS(grid, x, y, len) {
