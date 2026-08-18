@@ -3,15 +3,14 @@
  * @return {string}
  */
 var toHex = function(num) {
-  const arr = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'];
-
+  const hex = '0123456789abcdef'
   if (num == 0) {
     return '0';
   }
 
   let res = '';
   while (num != 0) {
-    res += arr[num & 15];
+    res = hex[num & 15] + res;
     num >>>= 4;
   }
 
