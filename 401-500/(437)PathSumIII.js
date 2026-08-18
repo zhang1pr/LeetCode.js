@@ -1,6 +1,6 @@
 /**
  * @param {TreeNode} root
- * @param {number} sum
+ * @param {number} targetSum
  * @return {number}
  */
 var pathSum = function(root, sum) {
