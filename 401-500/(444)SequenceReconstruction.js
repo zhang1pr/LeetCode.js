@@ -11,23 +11,21 @@ var sequenceReconstruction = function(org, seqs) {
     index[org[i]] = i;
   }
 
-  for (let j = 0; j < seqs.length; j++) {
-    const s = seqs[j];
-
-    for (let i = 0; i < s.length; i++) {
-      if (index[s[i]] == null) {
+  for (const seq of seqs) {
+    for (let i = 1; i < seq.length; i++) {
+      if (index[seq[i]] == null) {
         return false;
       }
 
-      if (i > 0 && index[s[i - 1]] >= index[s[i]]) {
+      if (index[seq[i - 1]] >= index[seq[i]]) {
         return false;
       }
-
-      pairs[s[i - 1].toString() + ',' + s[i].toString()] = 1;
+      
+      pairs[seq[i - 1].toString() + ',' + seq[i].toString()] = 1;
     }
   }
 
-  for (let i = 0; i < org.length; i++) {
+  for (let i = 1; i < org.length; i++) {
     if (pairs[org[i - 1].toString() + ',' + org[i].toString()] == null) {
       return false;
     }
