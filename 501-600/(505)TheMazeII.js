@@ -19,29 +19,31 @@ var shortestDistance = function(maze, start, destination) {
   while (q.length) {
     const nq = [];
 
-    for (let [x, y] of dirs) {
-      let [nextX, nextY, len] = cur;
+    for (const cur of q) {
+      for (let [x, y] of dirs) {
+        let [nextX, nextY, len] = cur;
 
-      while (nextX >= 0 && nextX < m && nextY >= 0 && nextY < n && maze[nextX][nextY] == 0) {
-        nextX += x;
-        nextY += y;
-        len++;
-      }
+        while (nextX >= 0 && nextX < m && nextY >= 0 && nextY < n && maze[nextX][nextY] == 0) {
+          nextX += x;
+          nextY += y;
+          len++;
+        }
 
-      nextX -= x;
-      nextY -= y;
-      len--;
+        nextX -= x;
+        nextY -= y;
+        len--;
 
-      if (len > d[destination[0]][destination[1]]) {
-        continue;
-      }
+        if (len > d[destination[0]][destination[1]]) {
+          continue;
+        }
 
-      if (len < d[nextX][nextY]) {
-        d[nextX][nextY] = len;
-        nq.push([nextX, nextY, len])
+        if (len < d[nextX][nextY]) {
+          d[nextX][nextY] = len;
+          nq.push([nextX, nextY, len])
+        }
       }
     }
-
+    
     q = nq;
   }
 
