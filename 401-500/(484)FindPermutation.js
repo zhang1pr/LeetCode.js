@@ -7,7 +7,7 @@ var findPermutation = function(s) {
   const stack = [];
 
   for (let i = 0; i < s.length; i++) {
-    stack.append(i + 1);
+    stack.push(i + 1);
 
     if (s[i] == 'I') {
       while (stack.length) {
