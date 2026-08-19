@@ -1,4 +1,4 @@
-class Heap {
+class MyHeap {
   constructor() {
     this.array = [];
   }
@@ -83,7 +83,7 @@ var findMaximizedCapital = function(k, W, Profits, Capital) {
   }
 
   arr.sort((a, b) => a[1] - b[1]);
-  const heap = new Heap();
+  const heap = new MyHeap();
   let cnt = 0;
 
   while (k) {
