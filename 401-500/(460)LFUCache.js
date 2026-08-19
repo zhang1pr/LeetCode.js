@@ -6,7 +6,7 @@ class ListNode {
   }
 }
 
-class DoublyLinkedList {
+class MyDoublyLinkedList {
   constructor(freq) {
     this.freq = freq;
     this.head = new ListNode(0, 0);
@@ -54,7 +54,7 @@ var LFUCache = function(capacity) {
   this.keyMap = new Map();
 
   this.freqMap = new Map();
-  this.freqMap.set(0, new DoublyLinkedList(0));
+  this.freqMap.set(0, new MyDoublyLinkedList(0));
 
   this.update = function(node) {
     const freq = node.freq;
@@ -62,7 +62,7 @@ var LFUCache = function(capacity) {
     node.freq++;
 
     if (!this.freqMap.has(node.freq)) {
-      this.freqMap.set(node.freq, new DoublyLinkedList(node.freq));
+      this.freqMap.set(node.freq, new MyDoublyLinkedList(node.freq));
     }
 
     this.freqMap.get(node.freq).append(node);
@@ -126,11 +126,11 @@ LFUCache.prototype.put = function(key, value) {
 // time:  O(1)
 // space: O(1)
 
-/**
-* Your LFUCache object will be instantiated and called as such:
-* var obj = new LFUCache(capacity)
-* var param_1 = obj.get(key)
-* obj.set(key,value)
-*/
+/** 
+ * Your LFUCache object will be instantiated and called as such:
+ * var obj = new LFUCache(capacity)
+ * var param_1 = obj.get(key)
+ * obj.put(key,value)
+ */
 
 // ['LFUCache', 'put', 'put', 'get', 'put', 'get', 'get', 'put', 'get', 'get', 'get'], [[2], [1, 1], [2, 2], [1], [3, 3], [2], [3], [4, 4], [1], [3], [4]]
