@@ -1,12 +1,12 @@
 /**
  * @param {number} radius
- * @param {number} xCenter
- * @param {number} yCenter
+ * @param {number} x_center
+ * @param {number} y_center
  */
-var Solution = function(radius, xCenter, yCenter) {
+var Solution = function(radius, x_center, y_center) {
   this.radius = radius;
-  this.xCenter = xCenter;
-  this.yCenter = yCenter;
+  this.x_center = x_center;
+  this.y_center = y_center;
 };
 
 // time:  O(1)
@@ -22,16 +22,16 @@ Solution.prototype.randPoint = function() {
   if (x * x + y * y > this.radius * this.radius) {
     return this.randPoint();
   } else {
-    return [x + this.xCenter, y + this.yCenter];
+    return [x + this.x_center, y + this.y_center];
   }
 };
 
 // time:  O(1)
 // space: O(1)
 
-/**
+/** 
  * Your Solution object will be instantiated and called as such:
- * var obj = new Solution(radius, xCenter, yCenter)
+ * var obj = new Solution(radius, x_center, y_center)
  * var param_1 = obj.randPoint()
  */
 
