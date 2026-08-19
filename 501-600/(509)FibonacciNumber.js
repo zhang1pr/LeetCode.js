@@ -1,10 +1,10 @@
 /**
- * @param {number} N
+ * @param {number} n
  * @return {number}
  */
-var fib = function(N) {
+var fib = function(n) {
   const sqrt = Math.sqrt(5);
-  const fib = ((1 + sqrt) / 2) ** N - ((1 - sqrt) / 2) ** N;
+  const fib = ((1 + sqrt) / 2) ** n - ((1 - sqrt) / 2) ** n;
 
   return Math.floor(fib / sqrt);
 };
