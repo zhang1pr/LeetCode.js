@@ -1,16 +1,16 @@
 /**
- * @param {string} S
- * @param {number} K
+ * @param {string} s
+ * @param {number} k
  * @return {string}
  */
-var licenseKeyFormatting = function(S, K) {
-  S = S.split('-').join('').split('');
+var licenseKeyFormatting = function(s, k) {
+  s = s.split('-').join('').split('');
 
-  for (let i = S.length - K - 1; i >= 0; i -= K) {
-    S[i] += '-';
+  for (let i = s.length - k - 1; i >= 0; i -= k) {
+    s[i] += '-';
   }
 
-  return S.join('').toUpperCase();
+  return s.join('').toUpperCase();
 };
 
 // time:  O(n)
