@@ -2,7 +2,7 @@
  * @param {number[]} nums
  * @return {boolean}
  */
-var PredictTheWinner = function(nums) {
+var predictTheWinner = function(nums) {
   const n = nums.length;
 
   if (n % 2 == 0) {
@@ -20,7 +20,7 @@ var PredictTheWinner = function(nums) {
     }
   }
 
-  return dp[n - 1] >= 0;
+  return dp[n - 1] >= 0;  
 };
 
 // time:  O(n^2)
