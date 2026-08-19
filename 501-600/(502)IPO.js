@@ -70,16 +70,16 @@ class MyHeap {
 
 /**
  * @param {number} k
- * @param {number} W
- * @param {number[]} Profits
- * @param {number[]} Capital
+ * @param {number} w
+ * @param {number[]} profits
+ * @param {number[]} capital
  * @return {number}
  */
-var findMaximizedCapital = function(k, W, Profits, Capital) {
+var findMaximizedCapital = function(k, w, profits, capital) {
   const arr = [];
 
-  for (let i = 0; i < Profits.length; i++) {
-    arr.push([Profits[i], Capital[i]]);
+  for (let i = 0; i < profits.length; i++) {
+    arr.push([profits[i], capital[i]]);
   }
 
   arr.sort((a, b) => a[1] - b[1]);
@@ -87,19 +87,19 @@ var findMaximizedCapital = function(k, W, Profits, Capital) {
   let cnt = 0;
 
   while (k) {
-    while (cnt < arr.length && arr[cnt][1] <= W) {
+    while (cnt < arr.length && arr[cnt][1] <= w) {
       heap.add(-arr[cnt][0]);
       cnt++;
     }
 
     if (!heap.isEmpty()) {
-      W -= heap.poll();
+      w -= heap.poll();
     }
 
     k--;
   }
 
-  return W;
+  return w;
 };
 
 // time:  O(max(k,nlog(n)))
