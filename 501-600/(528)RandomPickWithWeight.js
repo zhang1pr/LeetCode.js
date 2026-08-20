@@ -49,11 +49,11 @@ Solution.prototype.pickIndex = function() {
 // time:  O(log(n))
 // space: O(1)
 
-/**
-* Your Solution object will be instantiated and called as such:
-* var obj = new Solution(w)
-* var param_1 = obj.pickIndex()
-*/
+/** 
+ * Your Solution object will be instantiated and called as such:
+ * var obj = new Solution(w)
+ * var param_1 = obj.pickIndex()
+ */
 
 // ['Solution', 'pickIndex'], [[[1]], []]
 // ['Solution', 'pickIndex', 'pickIndex', 'pickIndex', 'pickIndex', 'pickIndex'], [[[1,3]], [], [], [], [], []]
