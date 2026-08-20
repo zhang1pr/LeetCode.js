@@ -3,30 +3,32 @@
  * @return {void} Do not return anything, modify rooms in-place instead.
  */
 var wallsAndGates = function(rooms) {
-  function DFS(i, j, dist) {
-    if (i >= 0 && i < rooms.length && j >= 0 && j < rooms[i].length) {
-      if (rooms[i][j] == -1 || rooms[i][j] < dist) {
-        return;
-      }
+  const R=rooms.length, C=rooms[0].length;
+  let q = [];
+  let dir = [[1,0],[0,1],[-1,0],[0,-1]];
+  const INF = 2147483647;
+  
+  for (let r=0;r<R;r++)
+    for (let c=0;c<C;c++)
+      if (rooms[r][c] == 0)
+        q.push([r,c]);  
+     
+  let d = 0;
+  while (q.length) {
+    const nq = [];
+    d++;
+    for (let [r,c] of q) {
+      for (let [dr,dc] of dir) {
+        let nr=r+dr, nc=c+dc;
 
-      if (rooms[i][j] > dist) {
-        rooms[i][j] = dist;
+        if (nr < 0 || nr >= R || nc < 0 || nc >= C || rooms[nr][nc] != INF) continue;
+        rooms[nr][nc] = d;
+        nq.push([nr,nc]);
       }
-
-      DFS(i + 1, j, dist + 1);
-      DFS(i - 1, j, dist + 1);
-      DFS(i, j + 1, dist + 1);
-      DFS(i, j - 1, dist + 1);
     }
-  }
 
-  for (let i = 0; i < rooms.length; i++) {
-    for (let j = 0; j < rooms[i].length; j++) {
-      if (rooms[i][j] == 0) {
-        DFS(i, j, 0);
-      }
-    }
-  }
+    q = nq;
+  }      
 };
 
 // time:  O(m^2*n^2)
