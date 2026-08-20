@@ -1,9 +1,9 @@
 /**
- * @param {number[]} candies
+ * @param {number[]} candyType
  * @return {number}
  */
-var distributeCandies = function(candies) {
-  return Math.min(new Set(candies).size, candies.length / 2);
+var distributeCandies = function(candyType) {
+  return Math.min(new Set(candyType).size, candyType.length / 2);
 };
 
 // time:  O(n)
