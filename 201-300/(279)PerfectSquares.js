@@ -16,7 +16,7 @@ var numSquares = function(n) {
   return dp[n];
 };
 
-// time:  O(n^1/2)
+// time:  O(n*n^1/2)
 // space: O(n)
 
 // 1
