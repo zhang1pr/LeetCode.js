@@ -1,6 +1,6 @@
 /**
  * // Definition for a QuadTree node.
- * function Node(val,isLeaf,topLeft,topRight,bottomLeft,bottomRight) {
+ * function _Node(val,isLeaf,topLeft,topRight,bottomLeft,bottomRight) {
  *    this.val = val;
  *    this.isLeaf = isLeaf;
  *    this.topLeft = topLeft;
@@ -11,9 +11,9 @@
  */
 
 /**
- * @param {Node} quadTree1
- * @param {Node} quadTree2
- * @return {Node}
+ * @param {_Node} quadTree1
+ * @param {_Node} quadTree2
+ * @return {_Node}
  */
 var intersect = function(quadTree1, quadTree2) {
   if (quadTree1.isLeaf) {
