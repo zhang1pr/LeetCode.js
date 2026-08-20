@@ -1,34 +1,34 @@
 /**
- * @param {TreeNode} s
- * @param {TreeNode} t
+ * @param {TreeNode} root
+ * @param {TreeNode} subRoot
  * @return {boolean}
  */
-var isSubtree = function(s, t) {
-  if (s == null) {
+var isSubtree = function(root, subRoot) {
+  if (root == null) {
     return false;
   }
 
-  if (isSame(s, t)) {
+  if (isSame(root, subRoot)) {
     return true;
   }
 
-  return isSubtree(s.left, t) || isSubtree(s.right, t);
+  return isSubtree(root.left, subRoot) || isSubtree(root.right, subRoot);
 };
 
-var isSame = function(s, t) {
-  if (s == null && t == null) {
+var isSame = function(root, subRoot) {
+  if (root == null && subRoot == null) {
     return true;
   }
 
-  if (s == null || t == null) {
+  if (root == null || subRoot == null) {
     return false;
   }
 
-  if (s.val != t.val) {
+  if (root.val != subRoot.val) {
     return false;
   }
 
-  return isSame(s.left, t.left) && isSame(s.right, t.right);
+  return isSame(root.left, subRoot.left) && isSame(root.right, subRoot.right);
 }
 
 // time:  O(mn)
