@@ -1,13 +1,13 @@
 /**
- * // Definition for a Node.
- * function Node(val, children) {
+ * // Definition for a _Node.
+ * function _Node(val, children) {
  *    this.val = val;
  *    this.children = children;
  * };
  */
 
 /**
- * @param {Node} root
+ * @param {_Node|null} root
  * @return {number[]}
  */
 var preorder = function(root) {
