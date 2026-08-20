@@ -2,59 +2,40 @@
  * @param {string} s
  * @return {number}
  */
-var calculate = function(s) {
-  const arr = Array.from(s);
-  const n = arr.length;
+var calculate = function (s) {
   const stack = [];
-  let num = 0;
-  let pow = 1;
+  let operand = 0;
+  let res = 0;
+  let sign = 1;
 
-  for (let i = n - 1; i >= 0; i--) {
-    if (arr[i] == ' ') {
-      continue;
+  for (let i = 0; i < s.length; i++) {
+    const ch = s[i];
+
+    if (ch >= '0' && ch <= '9') {
+      operand = 10 * operand + (ch - '0');
+    } else if (ch === '+') {
+      res += sign * operand;
+      sign = 1;
+      operand = 0;
+    } else if (ch === '-') {
+      res += sign * operand;
+      sign = -1;
+      operand = 0;
+    } else if (ch === '(') {
+      stack.push(res);
+      stack.push(sign);
+      sign = 1;
+      res = 0;
+    } else if (ch === ')') {
+      res += sign * operand;
+      res *= stack.pop();
+      res += stack.pop();
+      operand = 0;
     }
-
-    if (arr[i] >= '0' && arr[i] <= '9') {
-      num = Number(arr[i]) * pow + num;
-      pow *= 10;
-    } else {
-      if (pow != 1) {
-        stack.push(num);
-        num = 0;
-        pow = 1;
-      }
-
-      if (arr[i] == '+' || arr[i] == '-') {
-        stack.push(arr[i] == '+' ? 1 : -1);
-      } else if (arr[i] == '(') {
-        const res = evaluateExpr(stack);
-        stack.pop();
-        stack.push(res);
-      } else if (arr[i] == ')') {
-        stack.push(-2);
-      }
-    }
   }
 
-  if (pow != 1) {
-    stack.push(num);
-  }
-
-  if (stack.length % 2 == 0) {
-    stack.push(0);
-  }
-
-  return evaluateExpr(stack);
+  return res + (sign * operand);
 };
-
-var evaluateExpr = function(stack) {
-  let res = stack.pop();
-  while (stack.length != 0 && stack[stack.length - 1] != -2) {
-    res += stack.pop() * stack.pop();
-  }
-
-  return res;
-}
 
 // time:  O(n)
 // space: O(1)
