@@ -1,22 +1,22 @@
 /**
  * @param {number} m
  * @param {number} n
- * @param {number} N
- * @param {number} i
- * @param {number} j
+ * @param {number} maxMove
+ * @param {number} startRow
+ * @param {number} startColumn
  * @return {number}
  */
-var findPaths = function(m, n, N, i, j) {
-  if (N <= 0) return 0;
+var findPaths = function(m, n, maxMove, startRow, startColumn) {
+  if (maxMove <= 0) return 0;
 
   const MOD = 1e9 + 7;
   let dp = [...Array(m)].map(() => Array(n).fill(0));
-  dp[i][j] = 1;
+  dp[startRow][startColumn] = 1;
   let res = 0;
 
   const dirs = [[-1, 0], [1, 0], [0, -1], [0, 1]];
 
-  for (let i = 0; i < N; i++) {
+  for (let i = 0; i < maxMove; i++) {
     const temp = [...Array(m)].map(() => Array(n).fill(0));
 
     for (let r = 0; r < m; r++) {
