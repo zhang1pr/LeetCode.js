@@ -1,14 +1,14 @@
 /**
- * @param {TreeNode} t1
- * @param {TreeNode} t2
+ * @param {TreeNode} root1
+ * @param {TreeNode} root2
  * @return {TreeNode}
  */
-var mergeTrees = function(t1, t2) {
-  if (t1 == null) {
-    return t2;
+var mergeTrees = function(root1, root2) {
+  if (root1 == null) {
+    return root2;
   }
 
-  const stack = [[t1, t2]];
+  const stack = [[root1, root2]];
 
   while (stack.length !== 0) {
     const [a, b] = stack.pop();
@@ -31,7 +31,7 @@ var mergeTrees = function(t1, t2) {
     }
   }
 
-  return t1;
+  return root1;
 };
 
 // time:  O(m+n)
