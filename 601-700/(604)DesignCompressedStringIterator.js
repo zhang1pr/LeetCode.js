@@ -45,9 +45,10 @@ StringIterator.prototype.hasNext = function() {
 // time:  O(1)
 // space: O(1)
 
-/**
+/** 
  * Your StringIterator object will be instantiated and called as such:
  * var obj = new StringIterator(compressedString)
+ * var param_1 = obj.next()
  * var param_2 = obj.hasNext()
  */
 
