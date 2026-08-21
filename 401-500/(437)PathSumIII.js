@@ -3,7 +3,7 @@
  * @param {number} targetSum
  * @return {number}
  */
-var pathSum = function(root, sum) {
+var pathSum = function(root, targetSum) {
   const map = new Map().set(0, 1);
 
   function DFS(root, curSum, target) {
@@ -22,7 +22,7 @@ var pathSum = function(root, sum) {
   }
 
 
-  return DFS(root, 0, sum);
+  return DFS(root, 0, targetSum);
 };
 
 // time:  O(n)
