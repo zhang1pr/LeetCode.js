@@ -1,14 +1,14 @@
 /**
  * @param {TreeNode} root
- * @param {number} v
- * @param {number} d
+ * @param {number} val
+ * @param {number} depth
  * @return {TreeNode}
  */
-var addOneRow = function(root, v, d) {
-  if (d < 2) {
-    const newRoot = new TreeNode(v);
+var addOneRow = function(root, val, depth) {
+  if (depth < 2) {
+    const newRoot = new TreeNode(val);
 
-    if (d == 0) {
+    if (depth == 0) {
       newRoot.right = root;
     } else {
       newRoot.left = root;
@@ -21,8 +21,8 @@ var addOneRow = function(root, v, d) {
     return null;
   }
 
-  root.left = addOneRow(root.left, v, d == 2 ? 1 : d - 1);
-  root.right = addOneRow(root.right, v, d == 2 ? 0 : d - 1);
+  root.left = addOneRow(root.left, val, depth == 2 ? 1 : depth - 1);
+  root.right = addOneRow(root.right, val, depth == 2 ? 0 : depth - 1);
 
   return root;
 };
