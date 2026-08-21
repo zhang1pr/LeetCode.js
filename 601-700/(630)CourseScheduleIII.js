@@ -1,4 +1,4 @@
-class Heap {
+class MyHeap {
   constructor() {
     this.array = [];
   }
@@ -86,7 +86,7 @@ class Heap {
  */
 var scheduleCourse = function (courses) {
   courses.sort((a, b) => a[1] - b[1]);
-  const heap = new Heap();
+  const heap = new MyHeap();
   let time = 0;
 
   for (const [cost, end] of courses) {
