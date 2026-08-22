@@ -6,14 +6,14 @@ class Formula {
 }
 
 /**
-* @param {number} H
-* @param {character} W
-*/
-var Excel = function(H, W) {
+ * @param {number} height
+ * @param {character} width
+ */
+var Excel = function(height, width) {
   this.stack = [];
-  this.formulas = [...Array(H)].map(() => Array(W.charCodeAt(0) - 65 + 1).fill(null));
+  this.formulas = [...Array(height)].map(() => Array(width.charCodeAt(0) - 65 + 1).fill(null));
 
-  this.calculate = function(r, c, cells) {
+  this.calculate = function(row, column, cells) {
     let sum = 0;
 
     for (const [key, val] of cells) {
@@ -25,7 +25,7 @@ var Excel = function(H, W) {
       }
     }
 
-    this.formulas[r][c] = new Formula(cells, sum);
+    this.formulas[row][column] = new Formula(cells, sum);
     return sum;
   };
 };
@@ -33,28 +33,28 @@ var Excel = function(H, W) {
 // time:  O(mn)
 // space: O(mn)
 
-/**
-* @param {number} r
-* @param {character} c
-* @param {number} v
-* @return {void}
-*/
-Excel.prototype.set = function(r, c, v) {
-  this.formulas[r - 1][c.charCodeAt(0) - 65] = new Formula(new Map(), v);
+/** 
+ * @param {number} row 
+ * @param {character} column 
+ * @param {number} val
+ * @return {void}
+ */
+Excel.prototype.set = function(row, column, val) {
+  this.formulas[row - 1][column.charCodeAt(0) - 65] = new Formula(new Map(), val);
 
-  function DFS(r, c, formulas, stack) {
+  function DFS(row, column, formulas, stack) {
     for (let i = 0; i < formulas.length; i++) {
       for (let j = 0; j < formulas[0].length; j++) {
-        if (formulas[i][j] != null && formulas[i][j].cells.has(String.fromCharCode(c + 65) + (r + 1).toString())) {
+        if (formulas[i][j] != null && formulas[i][j].cells.has(String.fromCharCode(column + 65) + (row + 1).toString())) {
           DFS(i, j, formulas, stack);
         }
       }
     }
 
-    stack.push([r, c]);
+    stack.push([row, column]);
   }
 
-  DFS(r - 1, c.charCodeAt(0) - 65, this.formulas, this.stack);
+  DFS(row - 1, column.charCodeAt(0) - 65, this.formulas, this.stack);
 
   while (this.stack.length) {
     const [x, y] = this.stack.pop();
@@ -68,32 +68,32 @@ Excel.prototype.set = function(r, c, v) {
 // time:  O(m^2*n^2)
 // space: O(m^2*n^2)
 
-/**
-* @param {number} r
-* @param {character} c
-* @return {number}
-*/
-Excel.prototype.get = function(r, c) {
-  if (this.formulas[r - 1][c.charCodeAt(0) - 65] == null) {
+/** 
+ * @param {number} row 
+ * @param {character} column
+ * @return {number}
+ */
+Excel.prototype.get = function(row, column) {
+  if (this.formulas[row - 1][column.charCodeAt(0) - 65] == null) {
     return 0;
   }
 
-  return this.formulas[r - 1][c.charCodeAt(0) - 65].val;
+  return this.formulas[row - 1][column.charCodeAt(0) - 65].val;
 };
 
 // time:  O(1)
 // space: O(1)
 
-/**
-* @param {number} r
-* @param {character} c
-* @param {string[]} strs
-* @return {number}
-*/
-Excel.prototype.sum = function(r, c, strs) {
+/** 
+ * @param {number} row 
+ * @param {character} column 
+ * @param {string[]} numbers
+ * @return {number}
+ */
+Excel.prototype.sum = function(row, column, numbers) {
   const cells = new Map();
 
-  for (const str of strs) {
+  for (const str of numbers) {
     if (!str.includes(':')) {
       cells.set(str, (cells.get(str) || 0) + 1);
     } else {
@@ -113,9 +113,9 @@ Excel.prototype.sum = function(r, c, strs) {
     }
   }
 
-  const sum = this.calculate(r - 1, c - 'A', cells);
-  this.set(r, c, sum);
-  this.formulas[r - 1][c.charCodeAt(0) - 65] = new Formula(cells, sum);
+  const sum = this.calculate(row - 1, column - 'A', cells);
+  this.set(row, column, sum);
+  this.formulas[row - 1][column.charCodeAt(0) - 65] = new Formula(cells, sum);
 
   return sum;
 };
@@ -123,13 +123,13 @@ Excel.prototype.sum = function(r, c, strs) {
 // time:  O(m^2*n^2 + mn*sLen)
 // space: O(1)
 
-/**
-* Your Excel object will be instantiated and called as such:
-* var obj = new Excel(H, W)
-* obj.set(r,c,v)
-* var param_2 = obj.get(r,c)
-* var param_3 = obj.sum(r,c,strs)
-*/
+/** 
+ * Your Excel object will be instantiated and called as such:
+ * var obj = new Excel(height, width)
+ * obj.set(row,column,val)
+ * var param_2 = obj.get(row,column)
+ * var param_3 = obj.sum(row,column,numbers)
+ */
 
 // ['Excel', 'get', 'set', 'get'], [[3, 'C'], [1, 'A'], [1, 'A',1], [1, 'A']]
 // ['Excel', 'sum', 'set', 'get'], [[3, 'C'], [1, 'A', ['A2']], [2, 'A',1], [1, 'A']]
