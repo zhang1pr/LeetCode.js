@@ -5,7 +5,7 @@ class TrieNode {
   }
 }
 
-class Heap {
+class MyHeap {
   constructor() {
     this.array = [];
   }
@@ -129,7 +129,7 @@ AutocompleteSystem.prototype.input = function(c) {
     cur = next;
   }
 
-  const heap = new Heap();
+  const heap = new MyHeap();
   for (const [key, val] of cur.counts) {
     heap.add([key, val]);
   }
@@ -146,10 +146,10 @@ AutocompleteSystem.prototype.input = function(c) {
 // time:  O(n)
 // space: O(1)
 
-/**
-* Your AutocompleteSystem object will be instantiated and called as such:
-* var obj = new AutocompleteSystem(sentences, times)
-* var param_1 = obj.input(c)
-*/
+/** 
+ * Your AutocompleteSystem object will be instantiated and called as such:
+ * var obj = new AutocompleteSystem(sentences, times)
+ * var param_1 = obj.input(c)
+ */
 
 // ['AutocompleteSystem', 'input', 'input', 'input', 'input'], [[['i love you', 'island', 'iroman', 'i love leetcode'], [5, 3, 2, 2]], ['i'], [' '], ['a'], ['#']]
