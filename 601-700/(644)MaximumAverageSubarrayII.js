@@ -9,7 +9,7 @@ var findMaxAverage = function(nums, k) {
   const delta = 1e-5;
 
   while (max - min > delta) {
-    const mid = (max + min) >>> 1;
+    const mid = min + (max - min) / 2;
 
     if (check(nums, k, mid)) {
       min = mid;
