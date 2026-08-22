@@ -1,4 +1,4 @@
-class Heap {
+class MyHeap {
   constructor(nums, arr) {
     this.nums = nums;
     this.arr = arr;
@@ -81,7 +81,7 @@ var smallestRange = function(nums) {
 
   const arr = Array(nums.length).fill(0);
   let flag = true;
-  const heap = new Heap(nums, arr);
+  const heap = new MyHeap(nums, arr);
 
   for (let i = 0; i < nums.length; i++) {
     heap.add(i);
