@@ -1,6 +1,3 @@
-/**
- * Initialize your data structure here.
- */
 var MagicDictionary = function() {
   this.words = new Set();
   this.cnt = new Map();
@@ -23,13 +20,12 @@ var MagicDictionary = function() {
 // time:  O(1)
 // space: O(1)
 
-/**
- * Build a dictionary through a list of words
- * @param {string[]} dict
+/** 
+ * @param {string[]} dictionary
  * @return {void}
  */
-MagicDictionary.prototype.buildDict = function(dict) {
-  for (const word of dict) {
+MagicDictionary.prototype.buildDict = function(dictionary) {
+  for (const word of dictionary) {
     this.words.add(word);
 
     for (const nei of this.generalizedNeighbors(word)) {
@@ -41,16 +37,15 @@ MagicDictionary.prototype.buildDict = function(dict) {
 // time:  O(mn)
 // space: O(mn)
 
-/**
- * Returns if there is any word in the trie that equals to the given word after modifying exactly one character
- * @param {string} word
+/** 
+ * @param {string} searchWord
  * @return {boolean}
  */
-MagicDictionary.prototype.search = function(word) {
-  for (const nei of this.generalizedNeighbors(word)) {
+MagicDictionary.prototype.search = function(searchWord) {
+  for (const nei of this.generalizedNeighbors(searchWord)) {
     const cnt = this.cnt.get(nei) || 0;
 
-    if (cnt > 1 || cnt == 1 && !this.words.has(word)) {
+    if (cnt > 1 || cnt == 1 && !this.words.has(searchWord)) {
       return true;
     }
   }
@@ -61,11 +56,11 @@ MagicDictionary.prototype.search = function(word) {
 // time:  O(sLen)
 // space: O(sLen)
 
-/**
+/** 
  * Your MagicDictionary object will be instantiated and called as such:
  * var obj = new MagicDictionary()
- * obj.buildDict(dict)
- * var param_2 = obj.search(word)
+ * obj.buildDict(dictionary)
+ * var param_2 = obj.search(searchWord)
  */
 
 // ['MagicDictionary', 'buildDict', 'search', 'search', 'search', 'search'], [[], [['hello', 'leetcode']], ['hello'], ['hhllo'], ['hell'], ['leetcoded']]
