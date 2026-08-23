@@ -1,16 +1,16 @@
 /**
  * @param {number} n
- * @param {number} m
+ * @param {number} presses
  * @return {number}
  */
-var flipLights = function(n, m) {
+var flipLights = function(n, presses) {
   const set = new Set();
 
   for (let num = 0; num < 16; num++) {
     const [a, b, c, d] = [...num.toString(2).padStart(4,0)].map(a => Number(a));
     const sum = a + b + c + d;
 
-    if (sum % 2 == m % 2 && sum <= m) {
+    if (sum % 2 == presses % 2 && sum <= presses) {
       const arr = [];
 
       let light;
@@ -33,17 +33,17 @@ var flipLights = function(n, m) {
 };
 /**
  * @param {number} n
- * @param {number} m
+ * @param {number} presses
  * @return {number}
  */
-var flipLights = function(n, m) {
+var flipLights = function(n, presses) {
   const set = new Set();
 
   for (let num = 0; num < 16; num++) {
     const [a, b, c, d] = [...num.toString(2).padStart(4, 0)].map(a => Number(a));
     const sum = a + b + c + d;
 
-    if (sum % 2 == m % 2 && sum <= m) {
+    if (sum % 2 == presses % 2 && sum <= presses) {
       const arr = [];
 
       let light;
