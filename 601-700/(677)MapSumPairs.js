@@ -5,9 +5,6 @@ class TrieNode {
   }
 }
 
-/**
- * Initialize your data structure here.
- */
 var MapSum = function() {
   this.map = new Map();
   this.root = new TrieNode();
@@ -60,11 +57,11 @@ MapSum.prototype.sum = function(prefix) {
 // time:  O(n)
 // space: O(1)
 
-/**
-* Your MapSum object will be instantiated and called as such:
-* var obj = new MapSum()
-* obj.insert(key,val)
-* var param_2 = obj.sum(prefix)
-*/
+/** 
+ * Your MapSum object will be instantiated and called as such:
+ * var obj = new MapSum()
+ * obj.insert(key,val)
+ * var param_2 = obj.sum(prefix)
+ */
 
 // ['MapSum', 'insert', 'sum', 'insert', 'sum', 'insert', 'sum'], [[], ['apple', 3], ['apple'], ['apple', 3], ['apple'], ['apple', 3], ['apple']]
