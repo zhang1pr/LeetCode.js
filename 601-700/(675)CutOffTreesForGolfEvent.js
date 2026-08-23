@@ -1,4 +1,4 @@
-class Heap {
+class MyHeap {
   constructor() {
     this.array = [];
   }
@@ -75,7 +75,7 @@ class Heap {
 var cutOffTree = function(forest) {
   const m = forest.length;
   const n = forest[0].length;
-  const heap = new Heap();
+  const heap = new MyHeap();
 
   for (let i = 0; i < m; i++) {
     for (let j = 0; j < n; j++) {
