@@ -1,10 +1,10 @@
 /**
- * @param {number[][]} M
+ * @param {number[][]} img
  * @return {number[][]}
  */
-var imageSmoother = function(M) {
-  const R = M.length;
-  const C = M[0].length;
+var imageSmoother = function(img) {
+  const R = img.length;
+  const C = img[0].length;
   const res = [...Array(R)].map(() => Array(C).fill(0));
 
   for (let r = 0; r < R; r++) {
@@ -14,7 +14,7 @@ var imageSmoother = function(M) {
       for (let nr = r - 1; nr <= r + 1; nr++) {
         for (let nc = c - 1; nc <= c + 1; nc++) {
           if (0 <= nr && nr < R && 0 <= nc && nc < C) {
-            res[r][c] += M[nr][nc];
+            res[r][c] += img[nr][nc];
             cnt++;
           }
         }
