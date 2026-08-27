@@ -1,4 +1,4 @@
-class Heap {
+class MyHeap {
   constructor() {
     this.array = [];
   }
@@ -86,7 +86,7 @@ class Heap {
  */
 var KthLargest = function(k, nums) {
   this.k = k;
-  this.heap = new Heap();
+  this.heap = new MyHeap();
 
   for (const num of nums) {
     if (this.heap.size() < this.k) {
@@ -101,10 +101,10 @@ var KthLargest = function(k, nums) {
 // time:  O(nlog(k))
 // space: O(n)
 
-/**
-* @param {number} val
-* @return {number}
-*/
+/** 
+ * @param {number} val
+ * @return {number}
+ */
 KthLargest.prototype.add = function(val) {
   if (this.heap.size() < this.k) {
     this.heap.add(val);
@@ -119,10 +119,10 @@ KthLargest.prototype.add = function(val) {
 // time:  O(log(k))
 // space: O(1)
 
-/**
-* Your KthLargest object will be instantiated and called as such:
-* var obj = new KthLargest(k, nums)
-* var param_1 = obj.add(val)
-*/
+/** 
+ * Your KthLargest object will be instantiated and called as such:
+ * var obj = new KthLargest(k, nums)
+ * var param_1 = obj.add(val)
+ */
 
 // ['KthLargest', 'add', 'add', 'add', 'add', 'add'], [[3, [4, 5, 8, 2]], [3], [5], [10], [9], [4]]
