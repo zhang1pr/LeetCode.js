@@ -3,7 +3,7 @@
  * @param {string} b
  * @return {number}
  */
-var repeatedstringMatch = function(a, b) {
+var repeatedStringMatch = function(a, b) {
   let i = 1;
 
   let s = a;
