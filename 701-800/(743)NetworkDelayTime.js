@@ -1,4 +1,4 @@
-class Heap {
+class MyHeap {
   constructor() {
     this.array = [];
   }
@@ -84,7 +84,7 @@ var networkDelayTime = function(times, N, K) {
     graph.get(from).push([to, w]);
   }
 
-  const heap = new Heap();
+  const heap = new MyHeap();
   heap.add([0, K]);
 
   const dist = new Map();
