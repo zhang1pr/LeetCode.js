@@ -1,13 +1,10 @@
-class LinkedListNode {
+class MyLinkedListNode {
   constructor(val) {
     this.val = val;
     this.next = null;
   }
 }
 
-/**
- * Initialize your data structure here.
- */
 var MyHashSet = function() {
   this.buckets = [];
   this.bucketsLen = 1000;
@@ -36,11 +33,11 @@ MyHashSet.prototype.add = function(key) {
       head = head.next;
     }
 
-    point.next = new LinkedListNode(key);
+    point.next = new MyLinkedListNode(key);
   } else {
-    this.buckets[hashCode] = new LinkedListNode(0);
+    this.buckets[hashCode] = new MyLinkedListNode(0);
     const head = this.buckets[hashCode];
-    head.next = new LinkedListNode(key);
+    head.next = new MyLinkedListNode(key);
   }
 };
 
@@ -75,7 +72,6 @@ MyHashSet.prototype.remove = function(key) {
 // space: O(1)
 
 /**
- * Returns true if this set contains the specified element
  * @param {number} key
  * @return {boolean}
  */
@@ -101,7 +97,7 @@ MyHashSet.prototype.contains = function(key) {
 // time:  O(n)
 // space: O(1)
 
-/**
+/** 
  * Your MyHashSet object will be instantiated and called as such:
  * var obj = new MyHashSet()
  * obj.add(key)
