@@ -1,24 +1,24 @@
 /**
- * @param {number} N
+ * @param {number} n
  * @param {number[]} blacklist
  */
-var Solution = function(N, blacklist) {
+var Solution = function(n, blacklist) {
   this.map = new Map();
 
   for (const b of blacklist) {
     this.map.set(b, -1);
   }
 
-  this.M = N - this.map.size;
+  this.M = n - this.map.size;
 
   for (const b of blacklist) {
     if (b < this.M) {
-      while (this.map.has(N - 1)) {
-        N--;
+      while (this.map.has(n - 1)) {
+        n--;
       }
 
-      this.map.set(b, N - 1);
-      N--;
+      this.map.set(b, n - 1);
+      n--;
     }
   }
 };
@@ -42,9 +42,9 @@ Solution.prototype.pick = function() {
 // time:  O(1)
 // space: O(1)
 
-/**
+/** 
  * Your Solution object will be instantiated and called as such:
- * var obj = new Solution(N, blacklist)
+ * var obj = new Solution(n, blacklist)
  * var param_1 = obj.pick()
  */
 
