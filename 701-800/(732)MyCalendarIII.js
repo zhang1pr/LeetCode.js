@@ -5,14 +5,14 @@ var MyCalendarThree = function() {
 // time:  O(1)
 // space: O(1)
 
-/**
- * @param {number} start
- * @param {number} end
+/** 
+ * @param {number} startTime 
+ * @param {number} endTime
  * @return {number}
  */
-MyCalendarThree.prototype.book = function(start, end) {
-  this.map.set(start, (this.map.get(start) || 0) + 1);
-  this.map.set(end, (this.map.get(end) || 0) - 1);
+MyCalendarThree.prototype.book = function(startTime, endTime) {
+  this.map.set(startTime, (this.map.get(startTime) || 0) + 1);
+  this.map.set(endTime, (this.map.get(endTime) || 0) - 1);
 
   let res = 0;
   let cur = 0;
@@ -30,10 +30,10 @@ MyCalendarThree.prototype.book = function(start, end) {
 // time:  O(nlog(n))
 // space: O(n)
 
-/**
+/** 
  * Your MyCalendarThree object will be instantiated and called as such:
  * var obj = new MyCalendarThree()
- * var param_1 = obj.book(start,end)
+ * var param_1 = obj.book(startTime,endTime)
  */
 
 // ['MyCalendarThree', 'book', 'book', 'book', 'book', 'book', 'book'], [[], [10, 20], [50, 60], [10, 40], [5, 15], [5, 10], [25, 55]]
