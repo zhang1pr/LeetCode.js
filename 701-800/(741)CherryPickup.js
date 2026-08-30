@@ -4,7 +4,7 @@
  */
 var cherryPickup = function(grid) {
   const N = grid.length;
-  const dp = [...Array(N)].map(() => Array(N).fill(-Infinity));
+  let dp = [...Array(N)].map(() => Array(N).fill(-Infinity));
   dp[0][0] = grid[0][0];
 
   for (let t = 1; t <= 2 * N - 2; t++) {
