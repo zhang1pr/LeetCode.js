@@ -1,4 +1,4 @@
-class Heap {
+class MyHeap {
   constructor() {
     this.array = [];
   }
@@ -88,7 +88,7 @@ var findCheapestPrice = function(n, flights, src, dst, K) {
     prices.get(from).set(to, weight);
   }
 
-  const heap = new Heap().add([0, 0, src]);
+  const heap = new MyHeap().add([0, 0, src]);
   while (!heap.isEmpty()) {
     const [dist, moves, node] = heap.poll();
 
