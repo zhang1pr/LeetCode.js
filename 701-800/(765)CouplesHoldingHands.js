@@ -15,9 +15,9 @@ var minSwapsCouples = function(row) {
   for (let i = 0; i < n; i += 2) {
     let j = row[i] % 2 == 0 ? row[i] + 1 : row[i] - 1;
 
-    if (row[i + 1] != j) {
-      [row[i], row[j]] = [row[i], row[j]];
-      [pos[row[i]], pos[row[j]]] = [pos[row[i]], pos[row[j]]];
+    if (row[i + 1] != j) {  
+      row[pos[j]] = row[i + 1];
+	  pos[row[i + 1]] = pos[j];
       res++;
     }
   }
