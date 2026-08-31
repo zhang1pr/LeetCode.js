@@ -3,7 +3,7 @@
  * @return {number}
  */
 var numTilings = function(n) {
-  const MOD = 10e9 + 7;
+  const MOD = 1e9 + 7;
 
   const g = Array(n).fill(0);
   const u = Array(n).fill(0);
@@ -15,12 +15,12 @@ var numTilings = function(n) {
   u[1] = 1;
   u[2] = 2;
 
-  for (let i = 3; i <= N; i++) {
+  for (let i = 3; i <= n; i++) {
     u[i] = (u[i - 1] + g[i - 1]) % MOD;
     g[i] = (g[i - 1] + g[i - 2] + 2 * u[i - 2]) % MOD;
   }
 
-  return g[N] % MOD;
+  return g[n] % MOD;
 };
 
 // time:  O(n)
