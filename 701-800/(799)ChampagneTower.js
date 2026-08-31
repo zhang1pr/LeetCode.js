@@ -5,10 +5,10 @@
  * @return {number}
  */
 var champagneTower = function(poured, query_row, query_glass) {
-  const arr = [...Array(query_row)].map(() => Array(query_row).fill(0));
+  const arr = [...Array(query_row + 1)].map(() => Array(query_row + 1).fill(0));
   arr[0][0] = poured;
 
-  for (let r = 0; r <= query_row; r++) {
+  for (let r = 0; r < query_row; r++) {
     for (let c = 0; c <= r; c++) {
       const q = (arr[r][c] - 1) / 2;
 
