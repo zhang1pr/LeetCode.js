@@ -1,4 +1,4 @@
-class Heap {
+class MyHeap {
   constructor() {
     this.array = [];
   }
@@ -77,7 +77,7 @@ var swimInWater = function(grid) {
   const dir = [[-1, 0], [1, 0], [0, -1], [0, 1]];
   let res = Math.max(grid[0][0], grid[n - 1][n - 1]);
 
-  const heap = new Heap();
+  const heap = new MyHeap();
   heap.add([res, 0, 0]);
 
   const visited = [...Array(n)].map(() => Array(n).fill(false));
