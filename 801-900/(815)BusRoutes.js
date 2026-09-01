@@ -30,7 +30,7 @@ var numBusesToDestination = function(routes, source, target) {
         return bus;
       }
 
-      for (const i of map.get(stop)) {
+      for (const i of (map.get(stop) || [])) {
         if (seen[i]) {
           continue;
         }
