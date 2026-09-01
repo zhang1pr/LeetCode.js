@@ -35,7 +35,7 @@ var largestIsland = function(grid) {
   }
 
   let index = 2;
-  const area = Array(N * N + 2);
+  const area = Array(N * N + 2).fill(0);
   for (let r = 0; r < N; r++) {
     for (let c = 0; c < N; c++) {
       if (grid[r][c] == 1) {
