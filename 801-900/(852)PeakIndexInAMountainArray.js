@@ -4,12 +4,12 @@
  */
 var peakIndexInMountainArray = function(arr) {
   let lo = 0;
-  let hi = A.length - 1;
+  let hi = arr.length - 1;
 
   while (lo < hi) {
     const mi = lo + Math.floor((hi - lo) / 2);
 
-    if (A[mi] < A[mi + 1]) {
+    if (arr[mi] < arr[mi + 1]) {
       lo = mi + 1;
     } else {
       hi = mi;
