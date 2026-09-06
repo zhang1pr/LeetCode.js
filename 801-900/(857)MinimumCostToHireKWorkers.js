@@ -1,4 +1,4 @@
-class Heap {
+class MyHeap {
   constructor() {
     this.array = [];
   }
@@ -86,7 +86,7 @@ var mincostToHireWorkers = function(quality, wage, k) {
   let res = Infinity;
   let qsum = 0;
 
-  const heap = new Heap();
+  const heap = new MyHeap();
   for (const [ratio, qual] of workers) {
     qsum += qual;
     heap.add(-qual);
