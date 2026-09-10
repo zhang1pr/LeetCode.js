@@ -5,7 +5,7 @@
 var subtreeWithAllDeepest = function(root) {
   function DFS(root) {
     if (!root) {
-      return [0, NULL];
+      return [0, null];
     }
 
     const [d1, r1] = DFS(root.left);
