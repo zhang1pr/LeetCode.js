@@ -1,4 +1,4 @@
-class Heap {
+class MyHeap {
   constructor() {
     this.array = [];
   }
@@ -76,7 +76,7 @@ class Heap {
  */
 var reachableNodes = function(edges, maxMoves, n) {
   let res = 0;
-  const heap = new Heap();
+  const heap = new MyHeap();
   const visited = Array(n).fill(false);
   const graph = [...Array(n)].map(() => []);
 
@@ -111,7 +111,7 @@ var reachableNodes = function(edges, maxMoves, n) {
     }
   }
 
-  for (const [a, b] of edges) {
+  for (const [a, b, w] of edges) {
     const dista = maxMoves - distance[a] >= 0 ? maxMoves - distance[a] : 0;
     const distb = maxMoves - distance[b] >= 0 ? maxMoves - distance[b] : 0;
     res += Math.min(w, dista + distb);
