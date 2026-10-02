@@ -1,4 +1,4 @@
-class Heap {
+class MyHeap {
   constructor() {
     this.array = [];
   }
@@ -75,7 +75,7 @@ class Heap {
  * @return {number}
  */
 var minRefuelStops = function(target, startFuel, stations) {
-  const heap = new Heap();
+  const heap = new MyHeap();
   let ans = 0;
   let prev = 0;
 
