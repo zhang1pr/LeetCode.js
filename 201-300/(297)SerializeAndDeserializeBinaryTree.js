@@ -38,11 +38,11 @@ var deserialize = function(data) {
   function DFS() {
     index++;
 
-    if (isNaN(data[index])) {
+    if (data[index] == '#') {
       return null;
     }
 
-    const root = new TreeNode(data[index]);
+    const root = new TreeNode(Number(data[index]));
     root.left = DFS();
     root.right = DFS();
     return root;
