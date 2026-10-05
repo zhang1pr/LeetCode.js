@@ -1,9 +1,50 @@
+class BinaryIndexedTree {
+  constructor(size) {
+    this.size = size;
+    this.array = Array(this.size + 1).fill(0);
+  }
+
+  add(position, value) {
+    for (let i = position; i <= this.size; i += (i & -i)) {
+      this.array[i] += value;
+    }
+
+    return this;
+  }
+
+  query(position) {
+    let sum = 0;
+
+    for (let i = position; i > 0; i -= (i & -i)) {
+      sum += this.array[i];
+    }
+
+    return sum;
+  }
+
+  queryRange(leftIndex, rightIndex) {
+    if (leftIndex == 1) {
+      return this.query(rightIndex);
+    }
+
+    return this.query(rightIndex) - this.query(leftIndex - 1);
+  }
+}
+
 /**
  * @param {number[]} nums
  */
 var NumArray = function(nums) {
   this.nums = nums;
+  this.tree = new BinaryIndexedTree(nums.length);
+
+  for (let i = 0; i < nums.length; i++) {
+    this.tree.add(i + 1, nums[i]);
+  }
 };
+
+// time:  O(nlog(n))
+// space: O(n)
 
 /**
  * @param {number} i
@@ -11,10 +52,11 @@ var NumArray = function(nums) {
  * @return {void}
  */
 NumArray.prototype.update = function(i, val) {
+  this.tree.add(i + 1,  val - this.nums[i]);
   this.nums[i] = val;
 };
 
-// time:  O(1)
+// time:  O(log(n))
 // space: O(1)
 
 /**
@@ -23,23 +65,17 @@ NumArray.prototype.update = function(i, val) {
  * @return {number}
  */
 NumArray.prototype.sumRange = function(i, j) {
-  let sum = 0;
-
-  for (let k = i; k <= j; k++) {
-    sum += this.nums[k];
-  }
-
-  return sum;
+  return this.tree.queryRange(i + 1, j + 1);
 };
 
-// time:  O(n)
+// time:  O(log(n))
 // space: O(1)
 
-/**
+/** 
  * Your NumArray object will be instantiated and called as such:
  * var obj = new NumArray(nums)
- * obj.update(i,val)
- * var param_2 = obj.sumRange(i,j)
+ * obj.update(index,val)
+ * var param_2 = obj.sumRange(left,right)
  */
 
 // ['NumArray', 'sumRange', 'update', 'sumRange'], [[[1, 3, 5]], [0, 2], [1, 2], [0, 2]]
