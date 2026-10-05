@@ -54,7 +54,7 @@ function searchRows(image, i, j, left, right, whiteToBlack) {
   return i;
 }
 
-// time:  O(mlogn+nlogm)
+// time:  O(mlog(n)+nlog(m))
 // space: O(m+n)
 
 // [['1']], 0, 0
