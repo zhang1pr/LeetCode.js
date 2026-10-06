@@ -11,7 +11,7 @@ var nthSuperUglyNumber = function(n, primes) {
   for (let i = 1; i < n; i++) {
     arr[i] = Infinity;
     for (let j = 0; j < primes.length; j++) {
-      arr[i] = Math.min([i], primes[j] * arr[index[j]]);
+      arr[i] = Math.min(arr[i], primes[j] * arr[index[j]]);
     }
 
     for (let j = 0; j < primes.length; j++) {
