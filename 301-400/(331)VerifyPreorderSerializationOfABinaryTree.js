@@ -1,3 +1,4 @@
+// todo
 /**
  * @param {string} preorder
  * @return {boolean}
@@ -12,7 +13,7 @@ var isValidSerialization = function(preorder) {
       return false;
     }
 
-    if (node == '#') {
+    if (node != '#') {
       diff += 2;
     }
   }
@@ -21,7 +22,7 @@ var isValidSerialization = function(preorder) {
 };
 
 // time:  O(n)
-// space: O(1)
+// space: O(n)
 
 // '1,#'
 // '9,#,#,1'
