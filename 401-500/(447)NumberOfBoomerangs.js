@@ -19,7 +19,7 @@ var numberOfBoomerangs = function(points) {
         res += map.get(dist) * 2;
       }
 
-      map.set(dist, (map.has(dist) || 0) + 1);
+      map.set(dist, (map.get(dist) || 0) + 1);
     }
   }
 
