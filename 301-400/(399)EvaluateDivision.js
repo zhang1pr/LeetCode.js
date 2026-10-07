@@ -88,7 +88,7 @@ var calcEquation = function(equations, values, queries) {
     const queue = new Queue().enqueue([b, 1]);
     const visited = new Set();
 
-    while (queue) {
+    while (!queue.isEmpty()) {
       const [front, product] = queue.dequeue();
       if (front == e) {
         return product;
