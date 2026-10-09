@@ -4,7 +4,7 @@
  * @return {boolean}
  */
 var canIWin = function(maxChoosableInteger, desiredTotal) {
-  if (desiredTotal <= maxChoosableInteger) {
+  if (desiredTotal <= 0) {
     return true;
   }
 
@@ -13,39 +13,30 @@ var canIWin = function(maxChoosableInteger, desiredTotal) {
   }
 
   const dp = new Map();
-  const array = Array(maxChoosableInteger + 1).fill(false);
 
-  function DFS(maxChoosableInteger, curDesiredTotal) {
-    if (curDesiredTotal <= 0) {
-      return false;
-    }
-
-    const string = array.toString();
-    if (dp.has(string)) {
-      return dp.get(string);
+  function DFS(maxChoosableInteger, curDesiredTotal, mask) {
+    if (dp.has(mask)) {
+      return dp.get(mask);
     }
 
     for (let i = 1; i <= maxChoosableInteger; i++) {
-      if (array[i]) {
+      const bit = 1 << i;
+      
+      if ((mask & bit) !== 0) {
         continue;
       }
 
-      array[i] = true;
-
-      if (!DFS(maxChoosableInteger, curDesiredTotal - i)) {
-        dp.set(string, true);
-        array[i] = false;
+      if (curDesiredTotal - i <= 0 || !DFS(maxChoosableInteger, curDesiredTotal - i, mask | bit)) {
+        dp.set(mask, true);
         return true;
       }
-
-      array[i] = false;
     }
 
-    dp.set(string, false);
+    dp.set(mask, false);
     return false;
   }
 
-  return DFS(maxChoosableInteger, desiredTotal);
+  return DFS(maxChoosableInteger, desiredTotal, 0);
 };
 
 // time:  O(n!)
