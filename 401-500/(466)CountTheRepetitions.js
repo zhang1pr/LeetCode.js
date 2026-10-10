@@ -6,28 +6,36 @@
  * @return {number}
  */
 var getMaxRepetitions = function(s1, n1, s2, n2) {
-  let count1 = 0;
-  let count2 = 0;
-  let i = 0;
-  let j = 0;
-  
-  while (count1 < n1) {
-    if (s1[i] == s2[j]) {
-      j++;
-      if (j == s2.length) {
-        j = 0;
-        count2++;
+  let l1 = s1.length, l2 = s2.length;
+  let next = new Array(l2 + 1).fill(0);
+  let count = new Array(l2 + 1).fill(0);
+  let cnt = 0, p = 0;
+
+  for (let i = 0; i < n1; i++) {
+    for (let j = 0; j < l1; j++) {
+      if (s1[j] == s2[p]) {
+        p++;
+      }
+      if (p == l2) {
+        cnt++;
+        p = 0;
       }
     }
-    
-    i++;
-    if (i == s1.length) {
-      i = 0;
-      count1++;
+
+    count[i] = cnt;
+    next[i] = p;
+
+    for (let j = 0; j < i; j++) {
+      if (next[j] == p) {
+        let prev_count = count[j];
+        let pattern_count = (count[i] - count[j]) * Math.floor((n1 - j - 1) / (i - j));
+        let remain_count = count[j + (n1 - j - 1) % (i - j)] - count[j];
+        return Math.floor((prev_count + pattern_count + remain_count) / n2);
+      }
     }
   }
-  
-  return count2 / n2;
+
+  return Math.floor(count[n1 - 1] / n2);
 };
 
 // time:  O(n1*s1Len)
