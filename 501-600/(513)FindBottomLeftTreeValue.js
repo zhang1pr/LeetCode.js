@@ -3,7 +3,7 @@
  * @return {number}
  */
 var findBottomLeftValue = function(root) {
-  let queue = [];
+  let queue = [root];
 
   while (queue.length) {
     const newQueue = [];
