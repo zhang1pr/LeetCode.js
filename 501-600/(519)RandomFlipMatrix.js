@@ -1,11 +1,11 @@
 /**
- * @param {number} n_rows
- * @param {number} n_cols
+ * @param {number} m
+ * @param {number} n
  */
-var Solution = function(n_rows, n_cols) {
-  this.row = n_rows;
-  this.col = n_cols;
-  this.total = n_rows * n_cols;
+var Solution = function(m, n) {
+  this.row = m;
+  this.col = n;
+  this.total = m * n;
   this.map = new Map();
 };
 
@@ -40,11 +40,11 @@ Solution.prototype.reset = function() {
 // space: O(1)
 
 /**
-* Your Solution object will be instantiated and called as such:
-* var obj = new Solution(n_rows, n_cols)
-* var param_1 = obj.flip()
-* obj.reset()
-*/
+ * Your Solution object will be instantiated and called as such:
+ * var obj = new Solution(m, n)
+ * var param_1 = obj.flip()
+ * obj.reset()
+ */
 
 // ['Solution', 'flip', 'flip', 'flip', 'flip'], [[2, 3], [], [], [], []]
 // ['Solution', 'flip', 'flip', 'flip', 'flip'], [[2, 2], [], [], [], []]
