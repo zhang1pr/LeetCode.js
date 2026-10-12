@@ -16,8 +16,8 @@ var Solution = function(rects) {
 // space: O(n)
 
 /**
-* @return {number[]}
-*/
+ * @return {number[]}
+ */
 Solution.prototype.pick = function() {
   let n = Math.floor(Math.random() * this.ranges[this.ranges.length - 1]);
 
@@ -40,18 +40,18 @@ Solution.prototype.pick = function() {
   n = n - this.ranges[left] + height * width;
 
   const x = n % width + x1;
-  const y = n / width + y1;
+  const y = Math.floor(n / width) + y1;
   return [x, y];
 };
 
 // time:  O(log(n))
 // space: O(1)
 
-/**
-* Your Solution object will be instantiated and called as such:
-* var obj = new Solution(rects)
-* var param_1 = obj.n()
-*/
+/** 
+ * Your Solution object will be instantiated and called as such:
+ * var obj = new Solution(rects)
+ * var param_1 = obj.pick()
+ */
 
 // ['Solution', 'n', 'n', 'n'], [[[[1, 1, 5, 5]]], [], [], []]
 // ['Solution', 'n', 'n', 'n', 'n', 'n'], [[[[-2, -2, -1, -1], [1, 0, 3, 0]]], [], [], [], [], []]
