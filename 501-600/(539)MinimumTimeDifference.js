@@ -5,7 +5,7 @@
 var findMinDifference = function (timePoints) {
   timePoints = timePoints.map(x => toMinutes(x)).sort((a, b) => a - b);
 
-  const min = 1440 + timePoints[0] - timePoints[timePoints.length - 1];
+  let min = 1440 + timePoints[0] - timePoints[timePoints.length - 1];
   for (let i = 1; i < timePoints.length; i++) {
     min = Math.min(min, timePoints[i] - timePoints[i - 1]);
   }
@@ -13,9 +13,9 @@ var findMinDifference = function (timePoints) {
   return min;
 };
 
-var toMinutes = function() {
+var toMinutes = function(str) {
   const [h, m] = str.split(':')
-  return h * 60 + m;
+  return Number(h) * 60 + Number(m);
 };
 
 // time:  O(nlog(n))
