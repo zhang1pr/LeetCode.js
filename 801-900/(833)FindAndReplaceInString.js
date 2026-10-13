@@ -1,3 +1,4 @@
+// todo
 /**
  * @param {string} s
  * @param {number[]} indices
@@ -6,6 +7,7 @@
  * @return {string}
  */
 var findReplaceString = function(s, indices, sources, targets) {
+  const original = s;
   const arr = [];
 
   for (let i = 0 ; i < indices.length; i++) {
@@ -18,7 +20,7 @@ var findReplaceString = function(s, indices, sources, targets) {
     const src = sources[j];
     const tgt = targets[j];
 
-    if (s.substr(i, src.length) == src) {
+    if (original.slice(i, src.length) == src) {
       s = s.slice(0, i) + tgt + s.slice(i + src.length);
     }
   }
