@@ -1,3 +1,4 @@
+// todo
 /**
  * @param {number[]} difficulty
  * @param {number[]} profit
@@ -30,7 +31,7 @@ var maxProfitAssignment = function(difficulty, profit, worker) {
   return ans;
 };
 
-// time:  O(nlogn+mlogm)
+// time:  O(nlog(n)+mlog(m))
 // space: O(n+m)
 
 // [2, 4, 6, 8, 10], [10, 20, 30, 40, 50], [4, 5, 6, 7]
