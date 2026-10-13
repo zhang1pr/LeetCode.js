@@ -28,7 +28,7 @@ var findRedundantDirectedConnection = function(edges) {
     }
   }
 
-  for (let i = 0; i < edges.length; i++) {
+  for (let i = 0; i <= edges.length; i++) {
     parent[i] = i;
   }
 
