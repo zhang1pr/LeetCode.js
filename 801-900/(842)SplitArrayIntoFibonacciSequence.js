@@ -16,7 +16,7 @@ var splitIntoFibonacci = function(num) {
       break;
     }
 
-    for (let j = i + 1; j < Math.min(i + 10, N); j++) {
+    for (let j = i + 1; j < Math.min(i + 11, N); j++) {
       if (num[i + 1] == '0' && j > i + 1) {
         break;
       }
