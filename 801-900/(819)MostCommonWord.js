@@ -1,3 +1,4 @@
+// todo
 /**
  * @param {string} paragraph
  * @param {string[]} banned
@@ -7,7 +8,7 @@ var mostCommonWord = function(paragraph, banned) {
   const ban = new Set(banned);
   const map = new Map();
 
-  const words = paragraph.replaceAll(/\W+/g, ' ').toLowerCase().split(' ');
+  const words = paragraph.replaceAll(/\W+/g, ' ').toLowerCase().split(' ').filter(Boolean);
   for (const word of words) {
     if (!ban.has(word)) {
       map.set(word, (map.get(word) || 0) + 1);
