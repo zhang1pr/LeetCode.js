@@ -1,3 +1,4 @@
+// todo
 /**
  * @param {number[]} nums
  * @return {boolean}
@@ -8,7 +9,7 @@ var judgePoint24 = function(nums) {
   }
 
   if (nums.length == 1) {
-    return 24 - nums[0] < 1e-6;
+    return Math.abs(24 - nums[0]) < 1e-6;
   }
 
   for (let i = 0; i < nums.length; i++) {
