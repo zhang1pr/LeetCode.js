@@ -7,7 +7,7 @@ var longestWord = function(words) {
   const set = new Set(words);
 
   for (const word of words) {
-    if (word.length > res.length || word.length == res.length && word > res) {
+    if (word.length > res.length || word.length == res.length && word < res) {
       let flag = true;
       for (let i = 1; i < word.length; i++) {
         if (!set.has(word.slice(0, i))) {
