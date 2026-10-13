@@ -3,39 +3,39 @@
  * @return {string}
  */
 var nearestPalindromic = function(n) {
-  const num = Number(n);
+  const num = BigInt(n);
   const len = n.length;
 
-  if (num <= 10 || num % 10 == 0 && parseInt(n.slice(1), 10) == 0) {
-    return (num - 1).toString();
+  if (num <= 10n || n[0] == '1' && /^0+$/.test(n.slice(1))) {
+    return (num - 1n).toString();
   }
 
-  if (num == 11 || num % 10 == 1 && n[0] == '1' && parseInt(n.slice(1, len - 1), 10) == 0) {
-    return (num - 2).toString();
+  if (num == 11n || num % 10n == 1n && n[0] == '1' && /^0+$/.test(n.slice(1, len - 1))) {
+    return (num - 2n).toString();
   }
 
   if (isAllNine(n)) {
-    return (num + 2).toString();
+    return (num + 2n).toString();
   }
 
   const isEven = len % 2 == 0;
 
-  const root = Number(isEven ? n.slice(0, Math.floor(len / 2)) : n.slice(0, Math.floor(len / 2) + 1));
+  const root = BigInt(isEven ? n.slice(0, Math.floor(len / 2)) : n.slice(0, Math.floor(len / 2) + 1));
   const equal = toPalindrome(root.toString(), isEven);
-  const diffE = Math.abs(num - Number(equal));
+  const diffE = abs(num - BigInt(equal));
 
-  const bigger = toPalindrome((root + 1).toString(), isEven);
-  const diffB = Math.abs(num -  Number(bigger));
+  const bigger = toPalindrome((root + 1n).toString(), isEven);
+  const diffB = abs(num - BigInt(bigger));
 
-  const smaller = toPalindrome((root - 1).toString(), isEven);
-  const diffS = Math.abs(num - Number(smaller));
+  const smaller = toPalindrome((root - 1n).toString(), isEven);
+  const diffS = abs(num - BigInt(smaller));
 
   let closest = (diffB < diffS) ? bigger : smaller;
-  const minDiff = Math.min(diffB, diffS);
+  const minDiff = diffB < diffS ? diffB : diffS;
 
-  if (diffE != 0) {
+  if (diffE != 0n) {
     if (diffE == minDiff) {
-      closest = (Math.min(Number(equal), Number(closest))).toString();
+      closest = (BigInt(equal) < BigInt(closest) ? equal : closest);
     } else if (diffE < minDiff) {
       closest = equal;
     }
@@ -46,7 +46,7 @@ var nearestPalindromic = function(n) {
 
 var toPalindrome = function(num, isEven) {
   const revNum = [...num].reverse().join('');
-  return isEven ? num + revNum : num + revNum.slice(1);;
+  return isEven ? num + revNum : num + revNum.slice(1);
 };
 
 var isAllNine = function(num) {
@@ -57,6 +57,10 @@ var isAllNine = function(num) {
   }
 
   return true;
+};
+
+var abs = function(x) {
+  return x < 0n ? -x : x;
 };
 
 // time:  O(n)
