@@ -39,7 +39,8 @@ var updateBoard = function(board, click) {
         if (cnt > 0) {
           board[row][col] = cnt.toString();
         } else {
-
+          board[row][col] = 'B';
+          
           for (let i = -1; i <= 1; i++) {
             for (let j = -1; j <= 1; j++) {
               if (i == 0 && j == 0) {
