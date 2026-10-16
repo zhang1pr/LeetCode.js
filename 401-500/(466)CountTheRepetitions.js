@@ -27,9 +27,9 @@ var getMaxRepetitions = function(s1, n1, s2, n2) {
 
     for (let j = 0; j < i; j++) {
       if (next[j] == p) {
-        let prev_count = count[j];
-        let pattern_count = (count[i] - count[j]) * Math.floor((n1 - j - 1) / (i - j));
-        let remain_count = count[j + (n1 - j - 1) % (i - j)] - count[j];
+        const prev_count = count[j];
+        const pattern_count = (count[i] - count[j]) * Math.floor((n1 - j - 1) / (i - j));
+        const remain_count = count[j + (n1 - j - 1) % (i - j)] - count[j];
         return Math.floor((prev_count + pattern_count + remain_count) / n2);
       }
     }
@@ -38,8 +38,8 @@ var getMaxRepetitions = function(s1, n1, s2, n2) {
   return Math.floor(count[n1 - 1] / n2);
 };
 
-// time:  O(n1*s1Len)
-// space: O(1)
+// time:  O(s1Len*s2Len)
+// space: O(s2Len)
 
 // 'a', 1, 'a', 1
 // 'ab', 1, 'b', 1
