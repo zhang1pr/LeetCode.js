@@ -103,7 +103,7 @@ var mincostToHireWorkers = function(quality, wage, k) {
   return res;
 };
 
-// time:  O(nlogn)
+// time:  O(nlog(n))
 // space: O(n)
 
 // [10, 20, 5], [70, 50, 30], 2
