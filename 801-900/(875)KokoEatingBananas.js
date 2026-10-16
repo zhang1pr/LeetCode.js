@@ -1,3 +1,4 @@
+// todo
 /**
  * @param {number[]} piles
  * @param {number} H
@@ -12,7 +13,7 @@ var minEatingSpeed = function(piles, H) {
     let total = 0;
 
     for (const p of piles) {
-      total += (p + m - 1) / m;
+      total += Math.floor((p + m - 1) / m);
     }
 
     if (total > H) {
