@@ -36,7 +36,7 @@
   return lo;
 };
 
-// time:  O(klogn)
+// time:  O(klog(n))
 // space: O(1)
 
 // 1, 2
