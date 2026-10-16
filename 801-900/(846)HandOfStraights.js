@@ -28,7 +28,7 @@ var isNStraightHand = function(hand, groupSize) {
   return true;
 };
 
-// time:  O(nlogn+n*groupLen)
+// time:  O(nlog(n)+n*groupLen)
 // space: O(n)
 
 // [2, 1], 2
