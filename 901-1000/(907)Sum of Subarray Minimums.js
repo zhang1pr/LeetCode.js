@@ -27,7 +27,6 @@ var sumSubarrayMins = function(arr) {
   return res.reduce((a, b) => a + b) % MOD;    
 };
 
-
 // time:  O(n)
 // space: O(n)
 
