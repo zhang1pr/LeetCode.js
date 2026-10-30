@@ -31,7 +31,7 @@ var fractionAddition = function(expression) {
   return A.toString() + '/' + B.toString();
 };
 
-var gcd = function(a, b) {
+function gcd(a, b) {
   let temp;
   while (b != 0) {
     temp = a % b;
