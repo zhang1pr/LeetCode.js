@@ -16,7 +16,7 @@ var canMeasureWater = function(x, y, z) {
   return z % gcd(x, y) == 0;
 };
 
-var gcd = function(a, b) {
+function gcd(a, b) {
   let temp;
   while (b != 0) {
     temp = a % b;
