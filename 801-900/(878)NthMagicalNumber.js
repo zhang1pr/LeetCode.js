@@ -25,7 +25,7 @@ var nthMagicalNumber = function(n, a, b) {
   return lo % MOD;
 };
 
-var gcd = function(a, b) {
+function gcd(a, b) {
   let temp;
   while (b != 0) {
     temp = a % b;
