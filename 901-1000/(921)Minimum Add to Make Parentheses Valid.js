@@ -1,8 +1,12 @@
-var minAddToMakeValid = function(S) {
+/**
+ * @param {string} s
+ * @return {number}
+ */
+var minAddToMakeValid = function(s) {
   let open = 0, close = 0;
   
-  for (let c of S) {
-    if (c === '(') {
+  for (let ch of s) {
+    if (ch == '(') {
       open++;
     } else if (open == 0)  {
       close++;
@@ -10,7 +14,7 @@ var minAddToMakeValid = function(S) {
       open--;
     }
   }
-  
+
   return open + close;
 };
 
