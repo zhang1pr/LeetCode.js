@@ -5,8 +5,8 @@
  */
 var threeSumMulti = function(arr, target) {
   const c = Array(101).fill(0);
-  for (let a of arr) {
-    c[a]++;
+  for (const x of arr) {
+    c[x]++;
   }
   
   let res = 0;
